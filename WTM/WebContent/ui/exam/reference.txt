@@ -1,0 +1,97 @@
+
+// 팝업 호출 호출 하는 API 
+
+// 실제 data 예시 
+var _data = { type : "??", msg : "???", callbackFn : "????" };
+
+// 넘겨줄 Parameter 형태 
+var _dataObj = {
+    type : "json",
+    data : dataObj,  // 넘겨줄 data
+    name : "param"
+};
+
+var options = {
+    id : "popID",
+    popupName : "popName",
+    type : "wframePopup", 
+    width : width + "px",
+    height : height + "px",
+    top : top + "px",
+    left : left + "px",
+    modal : true,
+    dataObject : _dataObj
+};
+
+$p.openPopup(url, options); 
+
+
+
+
+// 동적으로 dataMap 생성 script 
+var option = {
+    "id":"dma_commonCode", 
+    "type":"dataMap", 
+    "option":{ 
+        "baseNode":"map" 
+    }, 
+    "keyInfo":[ 
+        { 
+            "id":"GRP_CD", 
+            "name":"그룹 코드", 
+            "dataType":"text" 
+        }
+    ] 
+};
+    
+$p.data.create( option );    
+
+
+// 동적으로 dataList 생성 script
+var option = { 
+    "id":"dlt_commonCode_00002", 
+    "type" : "dataList", 
+    "option" : { 
+        "baseNode": "list", 
+        "repeatNode": "map" 
+    }, 
+    "columnInfo":[ 
+        { 
+            "id":"GRP_CD", 
+            "name":"그룹 코드", 
+            "dataType":"text" 
+        },{ 
+            "id":"COM_CD", 
+            "name":"코드", 
+            "dataType":"text" 
+        },{ 
+            "id":"CODE_NM", 
+            "name":"코드명", 
+            "dataType":"text" 
+        }
+    ] 
+};
+
+$p.data.create( option );
+
+// 동적으로 submission 생성 script
+var submissionObj = {
+    "id" : "sbm_searchCode", // submission 객체의 ID. 통신 모듈 실행 시 필요.
+    "ref" : 'data:json,{"id":"dma_commonCode"}', // 서버로 보낼(request) DataCollection의 조건 표현식.(조건에 때라 표현식이 복잡하다) 또는 Instance Data의 XPath.
+    "target" : _targetDataObj, // 서버로 응답(response) 받은 데이터가 위치 할 DataCollection의 조건 표현식. 또는 Instance Data의 XPath.
+    "action" : "/common/selectCodeList", // 통신 할 서버 측 URI.(브라우저 보안 정책으로 crossDomain은 지원되지 않는다.)
+    "method" : "post", // [default: post, get, urlencoded-post] get:파라메타를 url에 붙이는 방식 (HTML과 동일).
+    // post:파라메타를 body 구간에 담는 방식 (HTML과 동일). urlencoded-post:urlencoded-post.
+    "mediatype" : "application/json", // application/json
+    "encoding" : "UTF-8", // [default: utf-8, euc-kr, utf-16] 서버 측 encoding 타입 설정 (euc-kr/utf-16/utf-8)
+    "mode" : "asynchronous", // [default: synchronous, synchronous] 서버와의 통신 방식. asynchronous:비동기식. synchronous:동기식
+    "processMsg" : "", // submission 통신 중 보여줄 메세지.
+    "submitHandler" : submitHandler,
+    "submitDoneHandler" : submitDoneHandler,
+    "submitErrorHandler" : submitErrorHandler
+};
+
+$p.createSubmission(submissionObj);
+
+
+    

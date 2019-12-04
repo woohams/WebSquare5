@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/cm/css/all.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList id="dlt_menu" baseNode="list" saveRemovedData="true" repeatNode="map"
+					ev:ondataload="scwin.dlt_menu_ondataload">
+					<w2:columnInfo>
+						<w2:column id="MENU_CD" name="메뉴코드" dataType="text"></w2:column>
+						<w2:column id="MENU_NM" name="메뉴명" dataType="text"></w2:column>
+						<w2:column id="IS_USE" name="사용유무" dataType="text"></w2:column>
+						<w2:column id="SRC_PATH" name="메뉴경로" dataType="text"></w2:column>
+						<w2:column id="PARENT_MENU_CD" name="부모메뉴코드" dataType="text"></w2:column>
+						<w2:column id="MENU_LEVEL" name="메뉴레벨" dataType="text"></w2:column>
+						<w2:column id="SORT_ORDER" name="정렬순서" dataType="text"></w2:column>
+						<w2:column id="PROGRAM_CD" name="프로그램코드" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<MENU_CD><![CDATA[001000000]]></MENU_CD>
+							<MENU_NM><![CDATA[Menu]]></MENU_NM>
+							<PARENT_MENU_CD><![CDATA[000000000]]></PARENT_MENU_CD>
+							<MENU_LEVEL><![CDATA[1]]></MENU_LEVEL>
+						</w2:row>
+						<w2:row>
+							<MENU_CD><![CDATA[001000001]]></MENU_CD>
+							<MENU_NM><![CDATA[Transaction]]></MENU_NM>
+							<SRC_PATH><![CDATA[/ui/exam/transaction.xml]]></SRC_PATH>
+							<PARENT_MENU_CD><![CDATA[001000000]]></PARENT_MENU_CD>
+							<MENU_LEVEL><![CDATA[2]]></MENU_LEVEL>
+							<PROGRAM_CD><![CDATA[EXAM01]]></PROGRAM_CD>
+							<SORT_ORDER><![CDATA[1]]></SORT_ORDER>
+						</w2:row>
+						<w2:row>
+							<MENU_CD><![CDATA[001000002]]></MENU_CD>
+							<MENU_NM><![CDATA[Parameter]]></MENU_NM>
+							<SRC_PATH><![CDATA[/ui/exam/parameter.xml]]></SRC_PATH>
+							<PARENT_MENU_CD><![CDATA[001000000]]></PARENT_MENU_CD>
+							<MENU_LEVEL><![CDATA[2]]></MENU_LEVEL>
+							<PROGRAM_CD><![CDATA[EXAM02]]></PROGRAM_CD>
+							<SORT_ORDER><![CDATA[2]]></SORT_ORDER>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<xf:submission id="sbm_initSide" ref="" target="" action="" method="post" mediatype="application/json" encoding="UTF-8"
+				instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone=""
+				ev:submiterror="">
+			</xf:submission>
+		</xf:model>
+		<style type="text/css"><![CDATA[
+			.menu_search .w2autoComplete_input, .menu_search .w2autoComplete_label{text-indent: 10px;text-align:left;}
+			.menu_search .w2autoComplete_input{height:20px;}
+			.w2autoComplete .w2autoComplete_col_button{
+				width: 18px;
+				height: 18px;
+				background-image: url(/cm/images/inc/btn_select_arrow.gif);
+				background-position: left center;
+			}
+			
+			.box_trv_menu02{}
+			/* trv_menu02 */
+			.trv_menu02 {overflow-x:hidden;padding-top:10px;}
+			.trv_menu02 .w2treeview_group{padding: 4px 4px 4px 10px;width:auto;}
+			.trv_menu02 .w2treeview_icon_navi {width:19px; height:19px; background:url(/cm/images/inc/bg_2dep_minus.png) no-repeat center center;}
+			
+			.trv_menu02 .w2treeview_row_child td {background:#fff;}
+			.trv_menu02 .w2treeview_label {font-size:12px; font-weight:bold;color:#3b3b3b;}
+			.trv_menu02 .w2treeview_label.w2treeview_select_node {color:#5bbda7;font-weight:bold;}
+						
+			.btn_collapseAll{border:0px;display:inline-block;width:21px;height:21px;vertical-align:middle;background:url(/cm/images/contents/btn_collapseAll.png) 0 center no-repeat;padding:0px;}
+			.btn_expandAll{border:0px;display:inline-block;width:21px;height:21px;vertical-align:middle;background:url(/cm/images/contents/btn_expandAll.png) 0 center no-repeat;padding:0px;}		
+		]]></style>
+		<script type="text/javascript" lazy="false"><![CDATA[
+	
+	scwin.onpageload = function() {
+		$p.parent().wfm_header.getWindow().txt_empNm.setValue("사용자");
+		scwin.openMenu("메인","/cm/common/main.xml","MAIN");
+	};
+	
+	scwin.onpageunload = function() {
+	
+	};
+	
+	// case 컴포넌트 사용시 case 전환할 경우 autoComplete 의 label이 사라지지 않음.
+	scwin.btn_menu_onclick = function() {
+		swh_lnbbox.setSelectedID("case1");
+		as_tab.removeClass("mymn");
+		// autoComplete 의 label이 사라지지 않아 show & hide 처리함.
+		acb_search.show("");
+	};
+	
+	// 메뉴 클릭 이벤트 발생 시
+	scwin.trv_menu_onclick = function() {
+		// treeview 클릭 시 신규 탭 추가closeSettingPopup
+		if (trv_menu.isLeaf()) { // 트리뷰에 자식노드가 없으면 실행
+			var tLabel = trv_menu.getSelectedLabel(); // 선택된 노드 label값을 가져와서 변수에 담는다.
+			var tCode = trv_menu.getSelectedValue(); // 선택된 노드 value값을 가져와서 변수에 담는다.
+			var tURL = WebSquare.xml.getValue(trv_menu.getSelectedElement(), "SRC_PATH");
+			if (tURL.trim() !== "") {
+				//scwin.setMenuRelation(tLabel, tURL, tCode, "Tree");
+				scwin.openMenu(tLabel, tURL, tCode);
+			}
+		}
+	}
+	
+	scwin.dispFm_UserName = function(val){
+		if(val) {
+			val += "님";
+		}
+		return val;
+	};
+	
+	scwin.dlt_menu_ondataload = function() {
+		$p.top().scwin.setHeaderMenu();
+	};
+	
+	/**
+	 * 메뉴 전체 확장 버튼 클릭 이벤트
+	 */
+	scwin.btn_menuExpandAll_onclick = function(e) {
+		trv_menu.expandNode(0, true);
+	};
+	
+	/**
+	 * 메뉴 전체 축소 버튼 클릭 이벤트
+	 */
+	scwin.btn_menuCollapseAll_onclick = function(e) {
+		trv_menu.collapseNode(0, true);
+	};
+
+	scwin.acb_search_onviewchange = function(info) {
+		var tmpNode = trv_menu.findNodeByValue(info.newValue, true);
+		
+		if ((typeof tmpNode !== "undefined") && (tmpNode !== null)) {
+			trv_menu.spanNode(tmpNode.index, true, false);
+			scwin.trv_menu_onclick();
+		}
+	};
+
+	/**
+	 * 파라메터를 참조하여 화면을 연다. 
+	 * 메뉴를 최근 작업 항목에 추가하거나 메뉴 트리를 선택하게 하려면 scwin.setMenuRelation를 사용한다.
+	 * @lastUpdate 2018.04.10
+	 * @param <String> menuNm 메뉴명 - 단위화면에서 해당 값으로 title을 설정한다.
+	 * @param <String> url 화면 파일 경로
+	 * @param <String> menuCode 메뉴코드 - DB에 저장되어있는 메뉴 코드
+	 * @author InswaveSystems
+	 * @since 2016.08.28
+	 * @example
+	 * scwin.openMenu("인사조회","/tmp/tmp01.xml","010001");
+	 */
+	scwin.openMenu = function(menuNm, url, menuCode, paramObj, menuType) {
+		// client에서 url 숨기기 메뉴일 경우에는 새 창으로 띄우기 적용 
+		if (url == "/") {
+			var url = document.location.href + "/";
+			window.open(url, "", "width=1200, height=700, left=450, top=100");
+		} else {
+			menuCode = menuCode || "";
+			var tmpUrl;
+			var menuCodeParm = menuCode;
+			var data;
+
+			if (url.indexOf("/") !== 0) {
+				url = "/" + url;
+			}
+			//url = gcm.CONTEXT_PATH + url;
+
+			if ((typeof paramObj !== "undefined") && (paramObj !== null)) {
+				data = paramObj;
+			} else {
+				data = {};
+			}
+			
+			data.menuNm = menuNm;
+			data.menuCode = menuCode;
+			data.menuType = menuType;
+			
+			var tabObj = { closable : true, //탭 닫기 기능 제공
+						   openAction : "select", // exist 는 기존 탭을 갱신, new 는 항상 새로, select는 동일 id 가 존재하면 선택, last: 기존 tab을 마지막 tab으로 이동후 선택
+						   label : menuNm };
+			
+			var contObj = {
+				frameMode : "wframePreload",
+				scope : true,
+				src : url,
+				alwaysDraw : false,
+				title : menuNm,
+				dataObject : { 
+					type : "json", 
+					name : "param", 
+					data : data
+				}
+			};
+			var tabComp = $w.getComponentById("mf_tac_layout");
+			tabComp.addTab(menuCode, tabObj, contObj);
+
+			// tabObj의 openAction의 last값의 동작 특이 사항으로 선택이 되지 않은 경우 선택하는 로직 추가
+			if (tabComp.getSelectedTabID() !== menuCode) {
+				var tabIndex = tabComp.getTabIndex(menuCode);
+				if (tabIndex) {
+					tabComp.setSelectedTabIndex(tabIndex);
+				}
+			}
+			
+		}
+	};
+	
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group style="" id="subSide" class="sidebox">
+			<xf:group class="as_tab" id="as_tab" style="">
+				<w2:anchor class="" id="btn_menu" outerDiv="false" ev:onclick="scwin.btn_menu_onclick">
+					<xf:label><![CDATA[메뉴]]></xf:label>
+				</w2:anchor>
+			</xf:group>
+			<xf:group style="" id="after_as_tab" class="aside_tab">
+				<xf:switch caseClass="" style="" id="swh_lnbbox" class="lnb">
+					<xf:case style="" id="case1" class="">
+						<xf:group id="" style="" class="systemsearch">
+							<w2:autoComplete interactionMode="" chooseOptionValue="none" chooseOptionLabel="메뉴를 검색하세요" visibleRowNum="5"
+								chooseOption="true" displayMode="label" ev:onviewchange="scwin.acb_search_onviewchange" id="acb_search" useKeywordHighlight="false"
+								style="height:21px;" search="contain" allOption="" textAlign="left" submenuSize="auto" editType="select" class="menu_search"
+								caseSensitive="false" noResult="first" ref="">
+								<w2:choices>
+									<w2:itemset nodeset="data:dlt_menu">
+										<w2:label ref="MENU_NM"></w2:label>
+										<w2:value ref="MENU_CD"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:autoComplete>
+						</xf:group>
+						<xf:group id="" style="" class="tar mt5">
+							<xf:trigger class="btn_collapseAll" id="btn_menuCollapseAll" style="" type="button" ev:onclick="scwin.btn_menuCollapseAll_onclick" title="메뉴 전체 축소">
+								<xf:label></xf:label>
+							</xf:trigger>
+							<xf:trigger type="button" id="btn_menuExpandAll" style="" class="btn_expandAll" ev:onclick="scwin.btn_menuExpandAll_onclick" title="메뉴 전체 확장">
+								<xf:label><![CDATA[]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+						<w2:treeview lineShow="" id="trv_menu" dataType="listed" tooltipGroupClass="false" style="" useDrag=""
+							class="trv_menu" checkboxDisabledTrueValue="" showTreeDepth="0" ev:onlabelclick="" ev:onclick="scwin.trv_menu_onclick"
+							toggleEvent="onclick">
+							<w2:itemset nodeset="data:dlt_menu">
+								<w2:label ref="MENU_NM"></w2:label>
+								<w2:value ref="MENU_CD"></w2:value>
+								<w2:depth ref="MENU_LEVEL"></w2:depth>
+								<w2:folder ref=""></w2:folder>
+								<w2:checkbox ref=""></w2:checkbox>
+								<w2:checkboxDisabled ref=""></w2:checkboxDisabled>
+								<w2:image ref=""></w2:image>
+								<w2:iconImage ref=""></w2:iconImage>
+								<w2:selectedImage ref=""></w2:selectedImage>
+								<w2:expandedImage ref=""></w2:expandedImage>
+								<w2:leafImage ref=""></w2:leafImage>
+							</w2:itemset>
+						</w2:treeview>
+					</xf:case>
+				</xf:switch>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

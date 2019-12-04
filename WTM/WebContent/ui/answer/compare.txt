@@ -1,0 +1,172 @@
+requires("uiplugin.popup");
+
+/**
+ * popup을 호출 후 parameter를 주고 받는다.  
+ * 
+ * @version 1.0
+ * @author InswaveSystems
+ * @type com
+ * @class com
+ * @namespace com
+ */
+com.openPopup = function(dataObj, option, url){
+    // 넘겨줄 Parameter 형태 
+    var _dataObj = {
+        type : "json",
+        data : dataObj,  // 넘겨줄 data
+        name : "param"
+    };
+    
+    var width = option.width || 500;
+    var height = option.height || 500;
+    try {
+        var deviceWidth = parseFloat($("body").css("width"));
+        var deviceHeight = parseFloat($("body").css("height"));
+       
+        if (deviceWidth > 0 && width > deviceWidth) {
+            width = deviceWidth - 4; // 팝업 border 고려
+        }
+
+        if (deviceHeight > 0 && height > deviceHeight) {
+            height = deviceHeight - 4; // 팝업 border 고려
+        }
+        
+    } catch (e) {
+
+    }
+    
+    var top = ((document.body.offsetHeight / 2) - (parseInt(height) / 2) + $(document).scrollTop()) + "px";
+    var left = ((document.body.offsetWidth / 2) - (parseInt(width) / 2) + $(document).scrollLeft()) + "px";
+    
+    var options = {
+        id : option.id,
+        popupName : option.popupName,
+        type : "wframePopup", 
+        width : width + "px",
+        height : height + "px",
+        top : top,
+        left : left,
+        modal : true,
+        dataObject : _dataObj
+    };
+
+    $p.openPopup(url, options);
+    
+};
+
+com.excuteCommonCode = function(jsonObj){
+    
+    // 1. dataCollection 생성 
+    
+    // 1-1. request data 생성 
+    var optionReq = {
+        "id":"dma_commonCode", 
+        "type":"dataMap", 
+        "option":{ 
+            "baseNode":"map" 
+        }, 
+        "keyInfo":[ 
+            { 
+                "id":"GRP_CD", 
+                "name":"그룹 코드", 
+                "dataType":"text" 
+            }
+        ] 
+    };
+    
+    // data 객체 중복 생성 여부 
+    var _dataReq = $p.getComponentById("dma_commonCode");
+    if(_dataReq){
+    }else{
+        // 생성하지 않았을 경우 만들 것 
+        $p.data.create( optionReq );
+    }
+    
+    // 구해올 코드 정보의 갯수 
+    var cnt = jsonObj.length;
+    
+    var _initCode = "";
+    var _targetDataObj = "";
+    
+    for(var i=0; i<cnt; i++){
+        var _dataObjId = "dlt_commonCode_" + jsonObj[i].cd;
+        
+        if(i > 0){
+            _initCode = _initCode + "," + jsonObj[i].cd;
+            _targetDataObj = _targetDataObj + "," + '{"id":"' + _dataObjId + '"}';
+        }else{
+            _initCode = jsonObj[i].cd;
+            _targetDataObj = '{"id":"' + _dataObjId + '"}';
+        }
+        
+        // 1-2. response data 생성 
+        var optionRes = { 
+            "id":_dataObjId, 
+            "type" : "dataList", 
+            "option" : { 
+                "baseNode": "list", 
+                "repeatNode": "map" 
+            }, 
+            "columnInfo":[ 
+                { 
+                    "id":"GRP_CD", 
+                    "name":"그룹 코드", 
+                    "dataType":"text" 
+                },{ 
+                    "id":"COM_CD", 
+                    "name":"코드", 
+                    "dataType":"text" 
+                },{ 
+                    "id":"CODE_NM", 
+                    "name":"코드명", 
+                    "dataType":"text" 
+                }
+            ] 
+        };
+        
+        // data 객체 중복 생성 여부 
+        var _dataRes = $p.getComponentById(_dataObjId);
+        if(_dataRes){
+        }else{
+            // 생성하지 않았을 경우 만들 것 
+            $p.data.create( optionRes );
+        }
+        // 1-3. component & data binding
+        var comObj = $p.getComponentById(jsonObj[i].id);
+        comObj.setNodeSet("data:"+_dataObjId, "CODE_NM", "COM_CD");
+    }
+    
+    _targetDataObj = "data:json,[" + _targetDataObj + "]"; 
+    
+    // 2. submission 생성 및 실행
+    
+    // 2-1. submission 생성
+    var submissionObj = {
+        "id" : "sbm_searchCode", // submission 객체의 ID. 통신 모듈 실행 시 필요.
+        "ref" : 'data:json,{"id":"dma_commonCode"}', // 서버로 보낼(request) DataCollection의 조건 표현식.(조건에 때라 표현식이 복잡하다) 또는 Instance Data의 XPath.
+        "target" : _targetDataObj, // 서버로 응답(response) 받은 데이터가 위치 할 DataCollection의 조건 표현식. 또는 Instance Data의 XPath.
+        "action" : "/common/selectCodeList", // 통신 할 서버 측 URI.(브라우저 보안 정책으로 crossDomain은 지원되지 않는다.)
+        "method" : "post", // [default: post, get, urlencoded-post] get:파라메타를 url에 붙이는 방식 (HTML과 동일).
+        // post:파라메타를 body 구간에 담는 방식 (HTML과 동일). urlencoded-post:urlencoded-post.
+        "mediatype" : "application/json", // application/json
+        "encoding" : "UTF-8", // [default: utf-8, euc-kr, utf-16] 서버 측 encoding 타입 설정 (euc-kr/utf-16/utf-8)
+        "mode" : "asynchronous", // [default: synchronous, synchronous] 서버와의 통신 방식. asynchronous:비동기식. synchronous:동기식
+        "processMsg" : "", // submission 통신 중 보여줄 메세지.
+        "submitHandler" : function(){ 
+                              // request data 초기값 셋팅 
+                              dma_commonCode.set("GRP_CD", _initCode);
+                          },
+        "submitDoneHandler" : function(e){
+                              if(e.responseJSON.rsMsg.statusCode == "S"){
+                                  // ....
+                              }
+                          },
+        //"submitErrorHandler" : submitErrorHandler
+    };
+    
+    $p.createSubmission(submissionObj);
+    
+    // 2-2. submission 실행하기 
+    $p.executeSubmission( "sbm_searchCode" );
+
+};

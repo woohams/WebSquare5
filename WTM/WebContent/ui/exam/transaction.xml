@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/cm/css/all.css" type="text/css"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_fileDesc">
+					<w2:keyInfo>
+						<w2:key id="desc" name="파일 설명" dataType="text"></w2:key>
+						<w2:key id="test" name="파일 테스트 방법" dataType="text"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="true">
+						<desc><![CDATA[
+<pre class="textNor" style="">
+<div class="etcbox">실습 화면
+공통으로 사용할 function을 생성해 봅니다.
+</div>
+<div class="etc_tit">Master & Detail Sample </div>
+  - code data 조회 후 component Mapping 하는 과정을 포함 합니다.
+</pre>
+						]]></desc>
+						<test><![CDATA[
+<pre class="textNor">
+<div class="etc_tit">1. 과정</div>
+- 화면에 생성된 code data 조회 submission을 동적으로 생성합니다.
+- 1번에서 생성된 submission 후에 component binding 하는 부분 역시 script 로 작성해 봅니다.
+</div>
+<div class="etc_tit">2. 결과</div>
+- 동적으로 생성된 submission을 통해 조회된 내용이 component와 맵핑됩니다. 
+</pre>
+						]]></test>
+					</w2:data>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="dma_commonGrp">
+					<w2:keyInfo>
+						<w2:key id="GRP_CD" name="그룹코드" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" ev:oncelldatachange="" id="dlt_commonCode_00001" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="GRP_CD" name="그룹코드"></w2:column>
+						<w2:column dataType="text" id="COM_CD" name="공통코드"></w2:column>
+						<w2:column dataType="text" id="CODE_NM" name="코드명"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+			<xf:submission id="sbm_commonCode" ref='data:json,{"id":"dma_commonGrp","key":"dma_commonCode"}' target='data:json,dlt_commonCode_00001' action="/common/selectCodeList" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="scwin.sbm_commonCode_submit"
+				ev:submitdone="scwin.sbm_commonCode_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[ 
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+	
+	};
+	
+	// 정적 submission 활용 예제 
+	scwin.btn_search_onclick = function() {
+		$p.executeSubmission("sbm_commonCode");
+	};
+	
+	// request data (직책 코드 group code) 값 셋팅 
+	scwin.sbm_commonCode_submit = function(e) {
+		dma_commonGrp.set("GRP_CD", "00001");
+	};
+	
+	// component bindig 
+	scwin.sbm_commonCode_submitdone = function(e) {
+		if(e.responseJSON.rsMsg.statusCode == "S"){
+			sel_duty.setNodeSet("data:dlt_commonCode_00001", "CODE_NM", "COM_CD");
+		}
+	};
+	
+	scwin.btn_search2_onclick = function() {
+		// 작성하시요...
+	};
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group class="contentWrap" id="" style="">
+			<w2:wframe id="" initScript="" src="/cm/common/wf_titleDesc.xml" style="margin-top: 15px;"></w2:wframe>
+			<xf:group class="section" id="" style="">
+				<xf:group class="defaultbox" id="" style="">
+					<w2:textbox class="df_tt fl" id="" label="정적 Submission 이용 후 개별 component binding" style=""></w2:textbox>
+				</xf:group>
+			</xf:group><xf:group class="section" id="" style="">
+				<xf:group class="tbl_search" id="" style="">
+					<xf:group adaptive="layout" adaptiveThreshold="768" class="w2tb tbl_sc" id="grp_search" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:80px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="width:100px;" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">직책&amp;nbsp;:&amp;nbsp;</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<xf:select1 id="sel_duty" chooseOption="" style="width: 150px;height: 21px;float: left;" submenuSize="auto"
+									allOption="true" disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled" ref="">
+									<xf:choices></xf:choices>
+								</xf:select1>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<xf:group class="fr" id=""></xf:group>
+								<w2:anchor class="btn_sh" clickEventElement="outerDiv" ev:onclick="scwin.btn_search_onclick" id="btn_search"
+									outerDiv="true" style="">
+									<xf:label><![CDATA[조회]]></xf:label>
+								</w2:anchor>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="section" id="" style="">
+				<xf:group class="defaultbox" id="" style="">
+					<w2:textbox class="df_tt fl" id="" label="동적으로 Code data 생성 후 Component Binding - 공통함수를 작성하여 적용할 것" style=""></w2:textbox>
+				</xf:group>
+			</xf:group>
+			<xf:group class="tbl_search" id="tbl_search" style="">
+				<xf:group adaptive="layout" adaptiveThreshold="768" class="w2tb tbl_sc" id="" style="" tagname="table">
+					<w2:attributes>
+						<w2:summary></w2:summary>
+					</w2:attributes>
+					<xf:group tagname="colgroup">
+						<xf:group style="width:80px;" tagname="col"></xf:group>
+						<xf:group style="" tagname="col"></xf:group>
+						<xf:group style="width:80px;" tagname="col"></xf:group>
+						<xf:group style="" tagname="col"></xf:group>
+						<xf:group style="width:100px;" tagname="col"></xf:group>
+					</xf:group>
+					<xf:group style="" tagname="tr">
+						<xf:group class="w2tb_th" style="" tagname="th">직위</xf:group>
+						<xf:group class="w2tb_td" style="" tagname="td">
+							<xf:select1 allOption="" appearance="minimal" chooseOption="true" chooseOptionLabel="-전체-" direction="auto"
+								disabled="false" disabledClass="w2selectbox_disabled" displayMode="label" ev:onblur="scwin.sbx_PositionCd_onblur" id="sbx_GrpCd"
+								optionOrder="false" ref="" style="width: 43.5%;height: 21px;float:left;display:none;" submenuSize="auto" textAlign="center">
+								<xf:choices>
+									<xf:itemset nodeset="data:dlt_commonSearchItem">
+										<xf:label ref="GRP_CD"></xf:label>
+										<xf:value ref="GRP_CD"></xf:value>
+									</xf:itemset>
+								</xf:choices>
+							</xf:select1>
+							<xf:select1 allOption="true" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+								disabledClass="w2selectbox_disabled" id="sel_position" style="width: 150px;height: 21px;float: left;" submenuSize="auto" ref="">
+								<xf:choices></xf:choices>
+							</xf:select1>
+						</xf:group>
+						<xf:group class="w2tb_th" tagname="th">종교</xf:group>
+						<xf:group class="w2tb_td" tagname="td">
+							<xf:select1 allOption="true" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+								disabledClass="w2selectbox_disabled" id="sel_religion" style="width: 150px;height: 21px;float: left;" submenuSize="auto" ref="">
+								<xf:choices></xf:choices>
+							</xf:select1>
+						</xf:group>
+						<xf:group class="w2tb_td" style="" tagname="td">
+							<w2:anchor class="btn_sh" clickEventElement="outerDiv" ev:onclick="scwin.btn_search2_onclick" id="btn_search2" outerDiv="true"
+								style="margin-right: 5px;">
+								<xf:label><![CDATA[조회]]></xf:label>
+							</w2:anchor>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			
+		</xf:group>
+	</body>
+</html>

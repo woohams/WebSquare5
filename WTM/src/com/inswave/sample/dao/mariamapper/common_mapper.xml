@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inswave.sample.dao.CommonDao">
+	
+	<!-- 코드 테이블의 전체 데이타 읽어오기  IS_USE = 'Y' -->
+	<select id="selectCommonCode" resultType="Map" parameterType="Map">
+		SELECT A.GRP_CD, A.COM_CD, A.CODE_NM, A.SORT_ORDER 
+		  FROM BM_CODE A, BM_CODE_GRP B
+		 WHERE B.GRP_CD = A.GRP_CD 
+		   AND B.IS_USE = 'Y' 
+		   AND A.IS_USE = 'Y' 
+		 ORDER BY A.GRP_CD, A.SORT_ORDER
+	</select>
+	
+	<!-- 코드 테이블의 전체 데이타 읽어오기  IS_USE = 'Y' -->
+	<select id="selectCodeList" resultType="Map">
+		SELECT A.GRP_CD, A.COM_CD, A.CODE_NM, A.SORT_ORDER 
+		  FROM BM_CODE A, BM_CODE_GRP B
+		 WHERE B.GRP_CD = A.GRP_CD 
+		   AND B.IS_USE = 'Y' 
+		   AND A.IS_USE = 'Y' 
+		   AND A.GRP_CD IN
+		<foreach collection="CODE" item="item" index="index"  open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+		ORDER BY A.GRP_CD, A.SORT_ORDER
+	</select>
+	
+	<!-- 코드 테이블의 데이타 읽어오기 GRP_CD = ? -->
+	<select id="selectCommonCodeList" resultType="Map">
+		SELECT GRP_CD, COM_CD, CODE_NM, SORT_ORDER, IS_USE, ATTR_VALUE1, ATTR_VALUE2, ATTR_VALUE2, NOTE
+		  FROM BM_CODE A
+		 WHERE A.GRP_CD = #{GRP_CD} 
+		 ORDER BY A.SORT_ORDER
+	</select>	
+	
+	<select id="selectCommonSearchItem" resultType="Map">
+		SELECT GRP_CD, GRP_NM, NOTE
+		  FROM BM_CODE_GRP 
+		 ORDER BY GRP_CD
+	</select>	
+		
+	<!-- 공통 코드그룹 리스트 -->
+	<select id="selectCommonGroup" resultType="Map" parameterType="Map">
+		SELECT *
+		  FROM BM_CODE_GRP
+		<where>
+			<if test="TYPE == 'GRP_NM'">
+				AND GRP_NM LIKE CONCAT('%',#{CONTENT},'%')
+			</if>
+			<if test="TYPE == 'GRP_CD'">
+				AND GRP_CD LIKE CONCAT('%',#{CONTENT},'%') 
+			</if>
+			<if test="TYPE == 'NOTE'">
+				AND NOTE LIKE CONCAT('%',#{CONTENT},'%') 
+			</if>
+			<if test="IS_USE != 'all'">
+				AND IS_USE = #{IS_USE}  
+			</if>
+		</where>
+		ORDER BY GRP_CD
+	</select>	
+
+</mapper>
