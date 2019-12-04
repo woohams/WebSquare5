@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="전송 이동">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataList baseNode="map" id="dlt_Upload">
+					<w2:columnInfo>
+						<w2:column id="name" name="파일명" dataType="text"></w2:column>
+						<w2:column id="size" name="사이즈" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+		</xf:model>
+		<style type="text/css"><![CDATA[
+			.btn01{
+				border:1px solid #ffad41; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);letter-spacing:1px;;
+				background-color: #ffc579; background-image: -webkit-gradient(linear, left top, left bottom, from(#ffc579), to(#fb9d23));
+				background-image: -webkit-linear-gradient(top, #ffc579, #fb9d23);
+				background-image: -moz-linear-gradient(top, #ffc579, #fb9d23);
+				background-image: -ms-linear-gradient(top, #ffc579, #fb9d23);
+				background-image: -o-linear-gradient(top, #ffc579, #fb9d23);
+				background-image: linear-gradient(to bottom, #ffc579, #fb9d23);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc579, endColorstr=#fb9d23);
+				padding:6px;
+				background-color:orange;
+			}
+			.btn01 a{
+				color:#fff;
+				font-weight:bold;
+			}
+		]]></style>
+		<script type="javascript" lazy="false"><![CDATA[
+
+	scwin.fn_btnClick = function(){
+		alert(this.getValue() + " click");
+	};
+	
+	scwin.multiUploadSelectDone = function(){
+		dlt_Upload.setJSON( mpd_html5Type.getFileInfos());
+	};
+	
+	scwin.ui_saveMultiupload_onclick = function(e) {
+		if(mpd_html5Type.getFileCount() === 0){
+			alert("업로드할 파일이 없습니다.");
+			return;
+		}
+		mpd_html5Type.startUpload();
+	};
+	
+	scwin.mpd_html5Type_ondone = function(data) {
+		alert("업로드가 완료되었습니다.");
+		ui_muliuploadDone.setValue( JSON.stringify(data,null,"\t") );
+	};
+	
+	scwin.ui_InitMultiupload_onclick = function(e) {
+		dlt_Upload.removeAll();
+		mpd_html5Type.removeAllFiles();
+		ui_muliuploadDone.setValue( "" );
+	};
+	
+	scwin.ui_Upload_onclick = function(e) {
+		if(ui_upload.getValue()){
+			ui_upload.submit();
+		}else{
+			alert("파일이 선택되지 않았습니다.");
+		}
+		
+	};
+	
+	scwin.ui_upload_ondone = function(retXml) {
+		ui_upload.reset();
+		alert(WebSquare.json.XML2JSONString( retXml ));
+		/*
+		//retXml 예시
+		<ret>
+		    <key>C:/sample/resource/websquare_home/upload/up</key>
+		    <storedFileList>00_20161227094305.xml</storedFileList>
+		    <localfileList>00.xml</localfileList>
+		    <fileSizeList>1436</fileSizeList>
+		    <maxUploadSize>200000000</maxUploadSize>
+		    <deniedList/>
+		    <deniedCodeList/>
+		</ret>
+		*/
+	};
+	
+	scwin.onpageload = function() {
+		dlt_Upload.setJSON( [] );
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group class="wrapper" id="">
+			<xf:group id="" style="padding: 10px;" class="section_desc">
+				<w2:textbox id="section" style=""
+					label='폼을 구성하는 컴포넌트로, 기본 button ( input type="button" )과 html로 구성 된 업로드 컴포넌트다.&lt;br/&gt;MultiUpload의 경우 기본 UI가 Flash임으로 HTML5의 Multiple을 사용하기 위해선 mode속성의 값을 html5_transparent으로 설정하여 UI를 구성해야한다.&lt;br/&gt;아래 [type : html5_transparent] 예시는 Multiupload와 GridView컴포넌트로 구성되어있다.&lt;br/&gt;Trigger, Anchor, Upload, MultiUpload&lt;br/&gt;( source : 04.xml )'>
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" style="">
+				<xf:group class="section02 dmb " id="" style="">
+					<w2:textbox class="contTitle01" id="" label="Trigger" style=""></w2:textbox>
+					<xf:trigger ev:onclick="scwin.fn_btnClick" id=""
+						style="position: relative ;float:left;width:60px;height:24px;margin-top:6px;margin-right:6px;" type="button">
+						<xf:label>button</xf:label>
+					</xf:trigger>
+					<xf:trigger ev:onclick="scwin.fn_btnClick" id=""
+						style="position: relative ;float:left;width:60px;height:24px;margin-top:6px;margin-right:6px;" type="image">
+						<xf:label>image</xf:label>
+					</xf:trigger>
+					<xf:trigger ev:onclick="scwin.fn_btnClick" id="" leftOffImageClass=""
+						style="position: relative ;float:left;width:60px;height:24px;margin-top:6px;margin-right:6px;" toolTip="" type="anchor">
+						<xf:label>anchor</xf:label>
+					</xf:trigger>
+				</xf:group>
+				<xf:group class="section02 dmb " id="" style="">
+					<w2:textbox class="contTitle01" id="" label="Anchor" style=""></w2:textbox>
+					<w2:anchor id="" outerDiv="false" style="float:left;margin-top:10px;text-decoration:underline;margin-right:10px;">
+						<xf:label><![CDATA[이동]]></xf:label>
+					</w2:anchor>
+					<w2:anchor class="btn01" id="" outerDiv="true" style="float:left;margin-top:4px;">
+						<xf:label><![CDATA[button]]></xf:label>
+					</w2:anchor>
+				</xf:group>
+				<xf:group class="section02 dmb" id="" style="">
+					<w2:textbox class="contTitle01" id="" label="Upload" style=""></w2:textbox>
+					<xf:group class="defComp" id="" style="width: auto !important;">
+						<w2:upload class="dmr" disabled="" ev:ondone="scwin.ui_upload_ondone" id="ui_upload"
+							imageStyle="position:absolute;vertical-align:middle;word-wrap:break-word"
+							inputStyle="position:absolute;vertical-align:middle;word-wrap:break-word" style="position: relative ;width: 230px;height: 24px;"
+							type="image">
+						</w2:upload>
+						<xf:trigger class="" ev:onclick="scwin.ui_Upload_onclick" id="ui_Upload" style="width: 70px;height: 23px;"
+							type="button">
+							<xf:label><![CDATA[전송]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+				<xf:group class="section02 dmb" id="" style="">
+					<w2:textbox class="contTitle02" id="" label="MultiUpload" style=""></w2:textbox>
+					<xf:group class="dp" id="" style="">
+						<w2:textbox class="contTitle03 dmb" id="" label="type : [default]flash" style=""></w2:textbox>
+						<w2:multiupload action="" filter="" id="" maxcount="" maxsize="" mode=""
+							style="height: 200px;position: relative;width: 100%;" uploadButton="" wmode="false">
+						</w2:multiupload>
+					</xf:group>
+					<xf:group class="dp" id="" style="">
+						<w2:textbox class="contTitle03 dmb" id="" label="type : html5_transparent" style=""></w2:textbox>
+						<w2:textbox class="dmb" id="" label="(Multiupload와 GridView컴포넌트로 구성)" style=""></w2:textbox>
+						<xf:group class="ofh" id="" style="">
+							<xf:group class="fl" id="" style="width:80px;height:30px;">
+								<xf:trigger ev:onclick="" id="ui_SelectFile" style="position: absolute;height:24px;width:80px;"
+									type="button">
+									<xf:label>파일 선택</xf:label>
+								</xf:trigger>
+								<w2:multiupload action="" ev:ondone="scwin.mpd_html5Type_ondone" filter="" id="mpd_html5Type" maxcount=""
+									maxsize="" mode="html5_transparent" selectCallback="scwin.multiUploadSelectDone"
+									style="position: absolute;height:24px;width:80px;cursor: pointer;" uploadButton="" wmode="false">
+								</w2:multiupload>
+							</xf:group>
+							<xf:trigger class="fr btnRed" ev:onclick="scwin.ui_saveMultiupload_onclick" id="ui_saveMultiupload"
+								style="width: 80px;" type="button">
+								<xf:label><![CDATA[전송]]></xf:label>
+							</xf:trigger>
+							<xf:trigger class="fr dmr" ev:onclick="scwin.ui_InitMultiupload_onclick" id="ui_InitMultiupload"
+								style="width: 80px;height: 23px;" type="button">
+								<xf:label><![CDATA[초기화]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+						<w2:gridView autoFit="lastColumn" class="dmb" dataList="dlt_Upload" fixedColumnWithHidden="true" id=""
+							ignoreCellClick="false" ignoreToggleOnDisabled="false" noResultMessage="선택된 파일이 없습니다." noResultMessageClass="w2gridViewNoResult"
+							noResultMessageStyle="" noResultMessageVisible="true" rowNumHeaderValue="No" rowNumVisible="true" rowNumWidth="30"
+							scrollByColumn="false" scrollByColumnAdaptive="false" style="height: 150px;" summaryAuto="false" useShiftKey="true"
+							visibleRowNum="5">
+							<w2:header id="header1" style="">
+								<w2:row id="row1" style="">
+									<w2:column blockSelect="false" displayMode="label" id="column3" inputType="text" style="height:20px;"
+										value="파일명" width="199">
+									</w2:column>
+									<w2:column blockSelect="false" displayMode="label" id="column1" inputType="text" style="height:20px;"
+										value="사이즈(byte)" width="88">
+									</w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody id="gBody1" style="">
+								<w2:row id="row2" style="">
+									<w2:column blockSelect="false" displayMode="label" id="name" inputType="text" style="height:20px"
+										textAlign="left" width="199">
+									</w2:column>
+									<w2:column blockSelect="false" dataType="number" displayFormat="#,###" displayMode="label" id="size"
+										inputType="text" style="height:20px" textAlign="right" width="88">
+									</w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+						<w2:textbox class="dmb" id="" label="&gt; 업로드 결과" style=""></w2:textbox>
+						<xf:textarea id="ui_muliuploadDone" style="width: 100%;height: 120px;"></xf:textarea>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

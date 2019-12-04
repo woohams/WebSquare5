@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="udc 컴포넌트">
+    	<w2:type>UDC</w2:type>
+        <w2:buildDate/>
+        <w2:model></w2:model>
+    </head>
+    <body style="">
+    	<!--/** WEBSQUARE UDC */
+    		{
+    		"componentName": "udc_fromtoCalendar",
+    		"pluginName": "udc_fromtoCalendar",
+    		"company": "",
+    		"developer": "",
+    		"category": "Basic",
+    		"notSupportBrowser": "",
+    		"version": "",
+    		"htmlRender": "",
+    		"icon": "",
+    		"disableIcon": "",
+    		"description": "",
+    		"width": "300px",
+    		"height": "23px",
+    		"properties": [
+    		{
+    		"name": "id",
+    		"default": "",
+    		"type": "string",
+    		"option": "",
+    		"necessary": "Y",
+    		"hidden": "N",
+    		"bindparent": "",
+    		"description": "Component id"
+    		},
+    		{
+    		"name": "style",
+    		"default": "",
+    		"type": "string",
+    		"option": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"bindparent": "",
+    		"description": "Component style"
+    		},
+    		{
+    		"name": "class",
+    		"default": "",
+    		"type": "string",
+    		"option": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"bindparent": "",
+    		"description": "Component class"
+    		},
+    		{
+    		"name": "ref",
+    		"default": "",
+    		"type": "bindColumn",
+    		"option": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"bindparent": "",
+    		"description": "Component ref"
+    		}
+    		],
+    		"events": [],
+    		"apis": [
+    		{
+    		"name": "setUdcFromDate",
+    		"description": "시작일자를 입력한다.",
+    		"params": [{
+    		"type": "String",
+    		"name": "dateStr",
+    		"description": "시작일자"
+    		}],
+    		"return": [{
+    		"type": "String",
+    		"description": "desc"
+    		}]
+    		},
+    		{
+    		"name": "setUdcToDate",
+    		"description": "종료일자를 입력한다.",
+    		"params": [{
+    		"type": "String",
+    		"name": "dateStr",
+    		"description": "종료일자"
+    		}],
+    		"return": [{
+    		"type": "String",
+    		"description": "desc"
+    		}]
+    		}
+    		]
+    		}
+    	-->
+    	<xf:group style="" id="" class="" pluginName="udc_fromtoCalendar">
+    		<script ev:event="oncreated(options)" type="text/javascript">
+    			<![CDATA[
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				 * udc_obj.trigger("onChange"); 
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+					
+				gr_cal.setStyle( "display" , "none" );
+				scwin.disFlag = true;					
+				
+				/**
+				 * Function description...
+				 * @date 2019. 01. 16
+				 * @memberOf udc_obj
+				 * @param 
+				 * @returns  
+				 * @author inswave
+				 * @example
+				 * @since
+				*/ 
+				udc_obj.setUdcFromDate = function(dateStr){
+					ipt_from.setValue(dateStr);
+				};
+
+				/**
+				 * Function description...
+				 * @date 2019. 01. 16
+				 * @memberOf udc_obj
+				 * @param 
+				 * @returns  
+				 * @author inswave
+				 * @example
+				 * @since
+				*/ 
+				udc_obj.setUdcToDate = function(dateStr){
+					ipt_To.setValue(dateStr);
+				};
+				]]></script>
+    		<script ev:event="onattributeChanged(type,value)" type="text/javascript"><![CDATA[ ]]></script>
+    		<script ev:event="ondestroyed()" type="text/javascript"><![CDATA[ ]]></script>
+    		<xf:group id="" pluginName="udc_frToCal" style="height:23px;display: block;">
+    			<script ev:event="oncreated(options)" type="text/javascript"><![CDATA[
+					/**
+					 * //property handling
+					 * $p.log("id:" + options.id);
+					 * $p.log("style:" + options.style);
+					 * $p.log("class:" + options.class);
+					 * $p.log("ref:" + options.ref);
+					 *
+					 * //event trigger
+					*/
+	
+					/**
+					 * //property handling
+					 * $p.log("id:" + options.id);
+					 * $p.log("style:" + options.style);
+					 * $p.log("class:" + options.class);
+					 * $p.log("ref:" + options.ref);
+					 *
+					 * //event trigger
+					*/
+					gr_cal.setStyle( "display" , "none" );
+					scwin.disFlag = true;			
+				
+				]]></script>
+    			<script ev:event="onattributeChanged(type,value)" type="text/javascript"><![CDATA[ ]]></script>
+    			<script ev:event="ondestroyed()" type="text/javascript"><![CDATA[ ]]></script>
+    			<xf:input adjustMaxLength="false" dataType="date" displayFormat="yyyy-MM-dd" id="ipt_from"
+    				style="width: 100px;height: 21px;">
+    				<script ev:event="onchange" type="text/javascript"><![CDATA[
+    					var dateStr = ipt_from.getValue();
+	    				if ( dateStr >  ipt_To.getValue() && ipt_To.getValue() != "" && dateStr != "" ){
+	    					
+	    					alert("TO DATE 보다 미래일자 입니다.");
+	    					ipt_from.setValue("");
+	    					return;
+	    				} 
+	    				if ( dateStr ){
+	    						cal_fr.gotoCalendar(dateStr);
+	    					} else {
+	    						cal_fr.gotoCalendar($p.getCurrentServerDate( "yyyyMMdd" ));
+	    					}
+    			 	]]></script>
+    			</xf:input>
+    			<w2:span id="" label="~" style=""></w2:span>
+    			<xf:input adjustMaxLength="false" dataType="date" displayFormat="yyyy-MM-dd" id="ipt_To"
+    				style="width: 100px;height: 21px;">
+    				<script ev:event="onchange" type="text/javascript"><![CDATA[
+    					var dateStr = ipt_To.getValue();
+	    				if ( dateStr < ipt_from.getValue() && ipt_from.getValue() != "" && dateStr != "" ){
+	    					alert("FROM DATE 보다 과거일자 입니다.");
+	    					ipt_To.setValue("");
+	    					return;
+	    				}
+	    				
+	    				if ( dateStr ){
+    						cal_to.gotoCalendar(dateStr);
+    					} else {
+    						cal_to.gotoCalendar($p.getCurrentServerDate( "yyyyMMdd" ));
+    					}
+	    				
+    			 ]]></script>
+    			</xf:input>
+    			<xf:image id="img_to" src="/ws5/sample/udc/bg_btn_calendar_ico.png" style="width: 22px;height: 19px;">
+    				<script ev:event="onclick(e)" type="text/javascript"><![CDATA[
+    					if (scwin.disFlag){
+	    					scwin.disFlag = false;
+	    					gr_cal.setStyle( "display" , "block" );
+	    					
+	    					if ( ipt_To.getValue() ){
+	    						cal_to.gotoCalendar(ipt_To.getValue());
+	    					} else {
+	    						cal_to.gotoCalendar($p.getCurrentServerDate( "yyyyMMdd" ));
+	    					}
+	    					
+	    					if ( ipt_from.getValue() ){
+	    						cal_fr.gotoCalendar(ipt_from.getValue());
+	    					} else {
+	    						cal_fr.gotoCalendar($p.getCurrentServerDate( "yyyyMMdd" ));
+	    					}
+	    				} else {
+	    					scwin.disFlag = true;
+	    					gr_cal.setStyle( "display" , "none" );
+	    				}
+	    				
+    			 ]]></script>
+    			</xf:image>
+    		</xf:group>
+    		<xf:group style="overflow: hidden;width: 750px;display: none;" id="gr_cal">
+    			<xf:group style="width:205px;position: relative;float:left;" id="">
+    				<w2:calendar footerDiv="false" style="width: 100px;height: 100px;position: relative;" id="cal_fr">
+    					<script ev:event="onviewchange(info)" type="text/javascript"><![CDATA[
+	    					if ( info.newValue >  ipt_To.getValue() && ipt_To.getValue() != "" ){
+		    					alert("TO DATE 보다 미래일자 입니다.");
+		    					ipt_from.setValue("");
+		    					return;
+		    				} else {
+		    					ipt_from.setValue( info.newValue );
+		    					if ( info.newValue ){
+		    						cal_fr.gotoCalendar(info.newValue);
+		    					} else {
+		    						cal_fr.gotoCalendar($p.getCurrentServerDate( "yyyyMMdd" ));
+		    					}
+		    					
+		    					if ( ipt_To.getValue() ){
+			    					scwin.disFlag = true;
+			    					gr_cal.setStyle( "display" , "none" );
+			    				}
+		    				}
+	    				]]></script>
+    				</w2:calendar>
+    			</xf:group>
+    			<xf:group style="width:205px;position: relative;float:left;" id="">
+    				<w2:calendar footerDiv="false" style="width: 100px;height: 100px;position: relative;" id="cal_to">
+    					<script ev:event="onviewchange(info)" type="text/javascript"><![CDATA[ 
+	    					if ( info.newValue < ipt_from.getValue() && ipt_from.getValue() != "" ){
+		    					alert("FROM DATE 보다 과거일자 입니다.");
+		    					ipt_To.setValue( "" );
+		    					return;
+		    				} else {
+			    				ipt_To.setValue( info.newValue );
+			    				cal_to.gotoCalendar(info.newValue);
+			    				
+			    				if ( info.newValue ){
+		    						cal_to.gotoCalendar(info.newValue);
+		    					} else {
+		    						cal_to.gotoCalendar($p.getCurrentServerDate( "yyyyMMdd" ));
+		    					}
+			    				if ( ipt_from.getValue() ){
+			    					scwin.disFlag = true;
+			    					gr_cal.setStyle( "display" , "none" );
+			    				}
+		    				}
+	    				]]></script>
+    				</w2:calendar>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="ScheduleCalendar 활용">
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="dc_calendar" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="from" name="시작일" dataType="text"></w2:column>
+    					<w2:column id="to" name="종료일" dataType="text"></w2:column>
+    					<w2:column id="title" name="제목" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="false">
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    	</xf:model>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+        
+			scwin.onpageload = function() {
+				
+				
+			};
+			
+			scwin.onpageunload = function() {		
+			
+			};
+		
+			scwin.btnAdd_onclick = function(e) {
+				var _idx = dc_calendar.insertRow();
+			};
+	
+			scwin.btnDel_onclick = function(e) {
+				var _focusIdx = grdSchedule.getFocusedRowIndex();
+				dc_calendar.removeRow(_focusIdx);
+			};
+	]]></script>
+    	<style type="text/css"><![CDATA[
+    		
+    	]]></style>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="" id="" class="wrapper">
+    		<xf:group style="padding: 10px;" id="" class="section_desc">
+	    		<w2:textbox tagname="" style="" id=""
+	    			label='ScheduleCalendar를 dataList와 연결하여 사용하며, ScheduleCalendar의 속성 중 dataList, startColumn, endColumn, titleColumn 등을 &lt;br/&gt;설정하여 일정을 등록하는 예제입니다.&lt;br/&gt;( source : fn_scheduleCalendar.xml )'>
+	    		</w2:textbox>
+    		</xf:group>
+    		<xf:group class="mb20" id="" style="">
+    			<xf:group class="ofh dmb" id="" style="">
+    				<w2:textbox class="df_tt fl" id="" label="Schedule Calendar 활용" style="" tagname=""></w2:textbox>
+    			</xf:group>
+    			<xf:group class="" id="grpParent" style="border: 1px solid olive;padding: 10px;">
+    				<w2:scheduleCalendar endColumn="to" defaultDate="" editable="false" selectable="false" headerRightBtn="true"
+    					locale="" ioFormat="yyyyMMdd" themeColumn="" titleColumn="title" startColumn="from" dataList="data:dc_calendar"
+    					style="height: 300px;margin-bottom: 10px;" id="schedule1" lang="ko" headerLeftBtn="true" idColumn="" headerTitle="true" version="3.6">
+    				</w2:scheduleCalendar>
+    				<xf:group style="border: 1px solid gray;padding: 10px;margin-bottom: 10px;overflow: hidden;" id="" class="">
+    					
+    					<w2:span label="* 일정 추가 버튼을 click 하여 신규 일정을 등록해 보면, scheduleCalendar에서 확인할 수 있습니다."
+    						style="float : left;font-size:12pt;color:#0080FF;" id="">
+    					</w2:span>
+    					<xf:trigger ev:onclick="scwin.btnDel_onclick" id="btnDel" style="width: 70px;height: 23px;float : right;margin-right: 10px;" type="button">
+    						<xf:label><![CDATA[일정 삭제]]></xf:label>
+    					</xf:trigger><xf:trigger type="button" style="width: 70px;height: 23px;float : right;margin-right: 10px;" id="btnAdd" ev:onclick="scwin.btnAdd_onclick">
+    						<xf:label><![CDATA[일정 추가]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				<w2:gridView id="grdSchedule" style="height: 150px;" scrollByColumn="false" defaultCellHeight="20" scrollByColumnAdaptive="false"
+    					dataList="data:dc_calendar" rowNumVisible="true" visibleRowNum="10" rowNumHeaderValue="No." autoFit="allColumn" autoFitMinWidth="700" editModeEvent="onclick" keyMoveEditMode="true">
+    					<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    					<w2:header style="" id="header1">
+    						<w2:row style="" id="row1">
+    							<w2:column removeBorderStyle="false" width="150" inputType="text" style="height:20px;" id="column3" value="제목"
+    								blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="100" inputType="text" style="height:20px;" id="column1" value="시작일"
+    								blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="100" inputType="text" style="height:20px;" id="column5" value="종료일"
+    								blockSelect="false" displayMode="label">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody style="" id="gBody1">
+    						<w2:row style="" id="row2">
+    							<w2:column removeBorderStyle="false" width="150" inputType="text" style="" id="title" value=""
+    								blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="100" inputType="calendar" style="" id="from" value=""
+    								blockSelect="false" displayMode="label" viewType="icon">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="100" inputType="calendar" style="" id="to" value=""
+    								blockSelect="false" displayMode="label" viewType="icon">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="gridView customFormatter 샘플">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList id="dlt_member" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="EMP_CD" name="사번" dataType="number"></w2:column>
+            			<w2:column id="EMP_NM" name="성명" dataType="text"></w2:column>
+            			<w2:column id="GENDER_CD" name="성별" dataType="text"></w2:column>
+            			<w2:column id="JOIN_DATE" name="입사일" dataType="text"></w2:column>
+            			<w2:column id="POSITION_CD" name="직위" dataType="text"></w2:column>
+            			<w2:column id="DUTY_CD" name="직책" dataType="text"></w2:column>
+            			<w2:column id="ROLE_CD" name="역할" dataType="text"></w2:column>
+            			<w2:column id="ASSIGNED_TASK" name="업무" dataType="text"></w2:column>
+            			<w2:column id="EMAIL" name="이메일" dataType="text"></w2:column>
+            			<w2:column id="ZIP_CD" name="우편번호" dataType="text"></w2:column>
+            			<w2:column id="ADDRESS1" name="주소1" dataType="text"></w2:column>
+            			<w2:column id="ADDRESS2" name="주소2" dataType="text"></w2:column>
+            			<w2:column id="IMAGE_PATH" name="이미지 경로" dataType="text"></w2:column>
+            			<w2:column id="CREATED_DATE" name="입력일" dataType="text"></w2:column>
+            			<w2:column id="UPDATED_DATE" name="수정일" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode01">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[01]]></CODE_CD>
+            				<CODE_NM><![CDATA[임원]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[02]]></CODE_CD>
+            				<CODE_NM><![CDATA[팀장]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[03]]></CODE_CD>
+            				<CODE_NM><![CDATA[팀원]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[04]]></CODE_CD>
+            				<CODE_NM><![CDATA[협력]]></CODE_NM>
+
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode02">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[02]]></CODE_CD>
+            				<CODE_NM><![CDATA[이사]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[03]]></CODE_CD>
+            				<CODE_NM><![CDATA[팀장]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[08]]></CODE_CD>
+            				<CODE_NM><![CDATA[부장]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[04]]></CODE_CD>
+            				<CODE_NM><![CDATA[차장]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[05]]></CODE_CD>
+            				<CODE_NM><![CDATA[과장]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[06]]></CODE_CD>
+            				<CODE_NM><![CDATA[대리]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[07]]></CODE_CD>
+            				<CODE_NM><![CDATA[사원]]></CODE_NM>
+
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode19">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[01]]></CODE_CD>
+            				<CODE_NM><![CDATA[PM]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[02]]></CODE_CD>
+            				<CODE_NM><![CDATA[PL]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[03]]></CODE_CD>
+            				<CODE_NM><![CDATA[분석/설계]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[04]]></CODE_CD>
+            				<CODE_NM><![CDATA[개발]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[05]]></CODE_CD>
+            				<CODE_NM><![CDATA[퍼블리셔]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[06]]></CODE_CD>
+            				<CODE_NM><![CDATA[컨설팅]]></CODE_NM>
+
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode101">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[101]]></GRP_CD>
+            				<CODE_CD><![CDATA[M]]></CODE_CD>
+            				<CODE_NM><![CDATA[남]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[101]]></GRP_CD>
+            				<CODE_CD><![CDATA[F]]></CODE_CD>
+            				<CODE_NM><![CDATA[여]]></CODE_NM>
+
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_execLog" baseNode="list" saveRemovedData="true" repeatNode="map">
+            		<w2:columnInfo>
+            			<w2:column id="desc" name="실행한 API" dataType="text"></w2:column>
+            			<w2:column id="timeTaken" name="소요 시간" dataType="text"></w2:column>
+            			<w2:column id="startTime" name="시작 시각" dataType="text"></w2:column>
+            			<w2:column id="type" name="타입 고유값" dataType="text"></w2:column>
+            			<w2:column id="typeNm" name="타입명" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+            <xf:submission id="getUserData" ref="" target='data:array,{"id":"dlt_member","key":"dlt_Member"}' action="/ws5/sample/compList/data/largeData.json" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="" ev:submitdone="scwin.getUserData_submitdone" ev:submit="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+
+	scwin.onpageload = function() {
+		$p.executeSubmission( "getUserData" )
+	};
+	
+	scwin.getUserData_submitdone = function(e) {
+		
+	};
+	
+	scwin.ui_grid_EMP_NM = function(data, formattedData, rowIndex, colIndex){
+		if(formattedData.indexOf("영") > 0){
+			ui_grid.setCellColor( rowIndex , colIndex , "red" );
+		}
+		return formattedData;
+	};
+	
+	scwin.ui_grid_GENDER_CD = function(data, formattedData, rowIndex, colIndex){
+		if(data === "F"){
+			ui_grid.setCellColor( rowIndex , colIndex , "orange" );
+		}
+		return formattedData;
+	};
+	
+	scwin.ui_grid_ROLE_CD = function(data, formattedData, rowIndex, colIndex){
+		if(data === "02"){
+			ui_grid.setCellColor( rowIndex , colIndex , "blue" );
+		}
+		return formattedData;
+	};
+	
+	scwin.ui_grid_POSITION_CD = function(data, formattedData, rowIndex, colIndex){
+		if(data === "07"){
+			ui_grid.setCellBackgroundColor( rowIndex , colIndex , "blue" );
+			ui_grid.setCellColor( rowIndex , colIndex , "#fff" );
+		}
+		return formattedData;
+	}; 
+	
+	scwin.ui_grid2_EMP_NM = function(data, formattedData, rowIndex, colIndex){
+		if(data.indexOf("영") > 0){
+			return "<span style='color:red'>"+formattedData+"</span>";
+		}
+		return data;
+	};
+	
+	scwin.ui_grid2_GENDER_CD = function(data, formattedData, rowIndex, colIndex){
+		if(data === "F"){
+			return "<span style='color:orange'>"+formattedData+"</span>";
+		}
+		return formattedData;
+	};
+	
+	scwin.ui_grid2_ROLE_CD = function(data, formattedData){
+		if(data === "02"){
+			return "<span style='color:blue'>"+formattedData+"</span>";
+		}
+		return formattedData;
+	};
+	
+	scwin.ui_grid2_POSITION_CD = function(data, formattedData, rowIndex, colIndex){
+		if(data === "07"){
+			return "<div style='background-color:blue;line-height:24px;color:#fff;'>"+formattedData+"</div>";
+		}
+		return formattedData;
+	};]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group id="" style="" class="wrapper">
+    		<xf:group id="group4" style="padding: 10px;" class="section_desc">
+    			<w2:textbox id="section" style=""
+    				label="그리드뷰에 데이터를 Formatter속성을 사용하여 style을 변경 할 때 적용 방식에 따른 출력의 속도를 알아보기 위해 작성된 화면이다.&lt;br/&gt;( source : fn_gridView_formatter.xml )" localeRef=''>
+    			</w2:textbox>
+    		</xf:group>
+    		<w2:textbox id="" style="" class="df_tt dmb" label='GridView의 customFormatter적용에 따른 속도 비교 예시' tagname="h2"></w2:textbox>
+    		<w2:textbox label='formatter 미적용' id="" style="" class="dmb" tagname="h3"></w2:textbox>
+    		<w2:gridView applyAllColumnStyle="false" autoFit="allColumn" backgroundColorMode="always" class="dmb cm_grid"
+    			dataList="data:dlt_member" defaultCellHeight="24" ev:onviewchange="" fastScroll="false" id="" ignoreCellClick="false"
+    			ignoreToggleOnDisabled="false" readOnly="true" rowNumVisible="true" scrollByColumn="false" scrollByColumnAdaptive="false"
+    			senseReader="false" style="height: 506px;" summaryAuto="false" summaryOnlyAuto="false" useShiftKey="true" visibleRowNum="20">
+    			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column blockSelect="false" displayMode="label" id="column29" inputType="text" style="" value="사번" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column27" inputType="text" style="" value="성명" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column25" inputType="text" style="" value="성별" width="105"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column23" inputType="text" style="" value="입사일"
+    						width="114">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column21" inputType="text" style="" value="직위" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column19" inputType="text" style="" value="직책" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column17" inputType="text" style="" value="역할" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column13" inputType="text" style="" value="이메일"
+    						width="175">
+    					</w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column blockSelect="false" displayMode="label" id="EMP_CD" inputType="text" style="" value="" width="70"></w2:column>
+    					<w2:column blockSelect="false" customFormatter="" displayMode="label" id="EMP_NM" inputType="text" style="" value=""
+    						width="70">
+    					</w2:column>
+    					<w2:column allOption="" blockSelect="false" chooseOption="true" chooseOptionLabel="미선택" displayMode="label"
+    						id="GENDER_CD" inputType="select" ref="" style="" value="" width="105">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode101">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" dataType="date" displayFormat="yyyy.MM.dd" displayMode="label" id="JOIN_DATE"
+    						inputType="text" style="" value="" width="114">
+    					</w2:column>
+    					<w2:column allOption="" blockSelect="false" chooseOption="true" chooseOptionLabel="미선택" customFormatter=""
+    						displayMode="label" id="POSITION_CD" inputType="select" ref="" style="" value="" width="70">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode02">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column allOption="" blockSelect="false" chooseOption="true" chooseOptionLabel="미선택" displayMode="label"
+    						id="DUTY_CD" inputType="select" ref="" style="" value="" width="70">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode19">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column allOption="" blockSelect="false" chooseOption="true" chooseOptionLabel="미선택" customFormatter=""
+    						displayMode="label" id="ROLE_CD" inputType="select" ref="" style="" value="" width="70">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode01">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="EMAIL" inputType="text" style="" value="" width="175"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<w2:textbox class="dmb" id="" label="formatter 적용 시 - setCellBackgroundColor, setCellColor" style="" tagname="h3"></w2:textbox>
+    		<w2:gridView ignoreCellClick="false" summaryAuto="false" autoFit="allColumn" ignoreToggleOnDisabled="false"
+    			backgroundColorMode="always" summaryOnlyAuto="false" visibleRowNum="20" class="dmb cm_grid" defaultCellHeight="24"
+    			rowNumVisible="true" scrollByColumnAdaptive="false" dataList="data:dlt_member" id="ui_grid" applyAllColumnStyle="false"
+    			readOnly="true" style="height: 506px;" useShiftKey="true" scrollByColumn="false" senseReader="false" ev:onviewchange=""
+    			fastScroll="false">
+    			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column blockSelect="false" id="column29" style="" inputType="text" width="70" value="사번" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="column27" style="" inputType="text" width="70" value="성명" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="column25" style="" inputType="text" width="105" value="성별" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="column23" style="" inputType="text" width="114" value="입사일"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column21" style="" inputType="text" width="70" value="직위" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="column19" style="" inputType="text" width="70" value="직책" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="column17" style="" inputType="text" width="70" value="역할" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="column13" style="" inputType="text" width="175" value="이메일"
+    						displayMode="label">
+    					</w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column blockSelect="false" id="EMP_CD" style="" inputType="text" width="70" value="" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="EMP_NM" style="" inputType="text" width="70" value="" displayMode="label"
+    						customFormatter="scwin.ui_grid_EMP_NM">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="GENDER_CD" style="" inputType="select" width="105" value="" displayMode="label"
+    						allOption="" chooseOption="true" ref="" chooseOptionLabel="미선택" customFormatter='scwin.ui_grid_GENDER_CD'>
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode101">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" id="JOIN_DATE" style="" inputType="text" width="114" value="" displayMode="label"
+    						dataType="date" displayFormat="yyyy.MM.dd">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="POSITION_CD" style="" inputType="select" width="70" value="" displayMode="label"
+    						allOption="" chooseOption="true" ref="" chooseOptionLabel="미선택" customFormatter="scwin.ui_grid_POSITION_CD">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode02">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" id="DUTY_CD" style="" inputType="select" width="70" value="" displayMode="label"
+    						allOption="" chooseOption="true" ref="" chooseOptionLabel="미선택">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode19">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" id="ROLE_CD" style="" inputType="select" width="70" value="" displayMode="label"
+    						allOption="" chooseOption="true" ref="" chooseOptionLabel="미선택" customFormatter="scwin.ui_grid_ROLE_CD">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode01">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" id="EMAIL" style="" inputType="text" width="175" value="" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<w2:textbox class="dmb" id="" label='formatter 적용 시 - innerHTML 사용' style="" tagname="h3"></w2:textbox>
+    		<w2:gridView applyAllColumnStyle="false" autoFit="allColumn" class="dmb grid_nopadding" dataList="data:dlt_member"
+    			defaultCellHeight="24" ev:onviewchange="" fastScroll="false" id="ui_grid2" ignoreCellClick="false" ignoreToggleOnDisabled="false"
+    			readOnly="true" rowNumVisible="true" scrollByColumn="false" scrollByColumnAdaptive="false" senseReader="false" style="height: 506px;"
+    			summaryAuto="false" summaryOnlyAuto="false" useShiftKey="true" visibleRowNum="20">
+    			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column blockSelect="false" displayMode="label" id="column29" inputType="text" style="" value="사번" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column27" inputType="text" style="" value="성명" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column25" inputType="text" style="" value="성별" width="105"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column23" inputType="text" style="" value="입사일"
+    						width="114">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column21" inputType="text" style="" value="직위" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column19" inputType="text" style="" value="직책" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column17" inputType="text" style="" value="역할" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column13" inputType="text" style="" value="이메일"
+    						width="175">
+    					</w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column blockSelect="false" displayMode="label" id="EMP_CD" inputType="text" style="" value="" width="70"
+    						displayFormatter="" customFormatter="">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="EMP_NM" inputType="text" style="" value="" width="70"
+    						displayFormatter="" customFormatter="scwin.ui_grid2_EMP_NM">
+    					</w2:column>
+    					<w2:column allOption="" blockSelect="false" chooseOption="true" chooseOptionLabel="미선택" displayMode="label"
+    						id="GENDER_CD" inputType="select" ref="" style="" value="" width="105" customFormatter="scwin.ui_grid2_GENDER_CD">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode101">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" dataType="date" displayFormat="yyyy.MM.dd" displayMode="label" id="JOIN_DATE"
+    						inputType="text" style="" value="" width="114">
+    					</w2:column>
+    					<w2:column allOption="" blockSelect="false" chooseOption="true" chooseOptionLabel="미선택" displayMode="label"
+    						id="POSITION_CD" inputType="select" ref="" style="" value="" width="70" customFormatter="scwin.ui_grid2_POSITION_CD">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode02">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column allOption="" blockSelect="false" chooseOption="true" chooseOptionLabel="미선택" displayMode="label"
+    						id="DUTY_CD" inputType="select" ref="" style="" value="" width="70">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode19">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column allOption="" blockSelect="false" chooseOption="true" chooseOptionLabel="미선택" displayMode="label"
+    						id="ROLE_CD" inputType="select" ref="" style="" value="" width="70" displayFormatter="" customFormatter="scwin.ui_grid2_ROLE_CD">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode01">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="EMAIL" inputType="text" style="" value="" width="175"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    	</xf:group>
+    </body>
+</html>

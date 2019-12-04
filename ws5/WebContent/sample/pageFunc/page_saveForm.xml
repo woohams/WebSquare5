@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="단건 저장 샘플">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataMap id="dma_Member" baseNode="map" saveRemovedData="true" repeatNode="map"
+        			ev:oncelldatachange="scwin.dlt_Member_oncelldatachange">
+        			<w2:keyInfo>
+        				<w2:key id="EMP_CD" name="코드" dataType="text"></w2:key>
+        				<w2:key id="EMP_NM" name="성명" dataType="text"></w2:key>
+        				<w2:key id="GENDER_CD" name="성별" dataType="text"></w2:key>
+        				<w2:key id="JOIN_DATE" name="입사일" dataType="text"></w2:key>
+        				<w2:key id="POSITION_CD" name="직위" dataType="text"></w2:key>
+        				<w2:key id="DUTY_CD" name="직책" dataType="text"></w2:key>
+        				<w2:key id="ROLE_CD" name="역할" dataType="text"></w2:key>
+        				<w2:key id="ASSIGNED_TASK" name="담당업무" dataType="text"></w2:key>
+        				<w2:key id="EMAIL" name="이메일" dataType="text"></w2:key>
+        				<w2:key id="ZIP_CD" name="우편번호" dataType="text"></w2:key>
+        				<w2:key id="ADDRESS1" name="주소1" dataType="text"></w2:key>
+        				<w2:key id="ADDRESS2" name="주소2" dataType="text"></w2:key>
+        				<w2:key id="IMAGE_PATH" name="이미지경로" dataType="text"></w2:key>
+        				<w2:key id="CREATED_DATE" name="생성일자" dataType="text"></w2:key>
+        				<w2:key id="UPDATED_DATE" name="수정일자" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="sbm_save" ref="data:json,dma_Member" target="" action="/edu/saveMember.do" method="post" mediatype="application/json"
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="scwin.sbm_save_submit"
+        		ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+	imports("uiplugin.popup");
+	
+	scwin.setDispZipCd = function(curVal){
+		if(curVal.length < 6){
+			return curVal;
+		}
+		return curVal.replace(/(\d{3})/,"$1-");
+	};
+	        
+	scwin.btn_profileImage_onclick = function() {
+		var dataObj = {
+					"type" : "json",
+					"data" : {"popId": "ImagePop"},
+					"name" : "param"
+				};
+		
+		var options = {
+					id : "ImagePop",
+					width : "450px",
+					height : "360px",
+					top : "130px",
+					left : "250px",
+					modal : true,
+					dataObject : dataObj
+				};
+		$p.openPopup("popup_imagePreview.xml", options);
+	};
+	
+	scwin.closeCallback_ImagePop  = function(dataStr){
+		img_profile.setSrc( dataStr );
+	};
+	
+	//주소 수정 버튼 클릭 시 
+	scwin.btn_ZipSearch_onclick = function() {
+		var dataObj = {
+			type : "json",
+			data : {"popId": "ZipPop"},
+			name : "param"
+		};
+		
+		var options = {
+			id : "ZipPop",
+			title : "주소 검색",
+			modal : true,
+			width : "480",
+			height : "420",
+			dataObject : dataObj   
+		};
+		
+		$p.openPopup("popup_zipcode.xml", options);
+	};
+	
+	scwin.closeCallback_ZipPop= function(returnData){
+		var jsonData;
+		if(returnData){
+			jsonData = JSON.parse(returnData);
+			dma_Member.setJSON( jsonData );
+			//{ZIP_CD: "683210", ADDRESS1: "울산 북구 정자동", ADDRESS2: "1111"}
+		}
+	};
+	
+	//[저장]버큰 클릭
+	scwin.btn_save_onclick = function(e) {
+		$p.executeSubmission( "sbm_save" );
+	};
+	
+	scwin.validateForm = function(compObj){
+		compObj.removeClass("warningBox");
+		if(scwin.val_stopFlow === true){return;}
+		var chkStr = compObj.getUserData("userData1");
+		
+		try{
+			var typeStr, compVal, format;
+			if(chkStr && chkStr.indexOf("chk") == 0){
+				compVal = compObj.getValue();
+				
+				if(compVal == ""){
+					throw "필수 입력 항목입니다.";
+				}
+				
+				typeStr = chkStr.split(":")[1] || "";
+				if(typeStr.toLowerCase() === "email" ){
+					format = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			        if ( !format.test(compVal)) {
+			            throw "이메일 형식이 맞지 않습니다.";
+			        }
+				}
+			}
+		}catch(ex){
+			scwin.val_stopFlow = true;
+			alert(ex);
+			compObj.addClass("warningBox");
+			compObj.focus();
+		}
+	};
+	
+	scwin.sbm_save_submit = function(e) {
+		scwin.val_stopFlow = false;
+		tbl_MemberForm.invoke( "assert", scwin.validateForm );
+		if(scwin.val_stopFlow === false){
+			dma_Member.set( "IMAGE_PATH" , img_profile.getSrc() );
+			return true;
+		}
+		return false;
+	};
+	
+	scwin.sbm_save_submitdone = function(e) {
+		var rsObj = e.responseJSON;
+		alert(rsObj.msg);
+	};
+	
+	//page onload event
+	scwin.onpageload = function() {
+		com.setCommonCode([
+				{"code":"01","compID":sbx_MemDuty.getID()},
+				{"code":"02","compID":sbx_MemPosition.getID()},
+				{"code":"19","compID":ccb_MemRole.getID()},
+				{"code":"101","compID":rad_MemGender.getID()}
+		]);
+		idx_EMP_NM.focus();
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group class="wrapper" id="" style="">
+    		<xf:group class="section_desc dmb" id="" style="">
+    			<w2:textbox id="" label="단건 저장에 대한 예시로 필수값 체크, 팝업 연계가 구현되어있다." style=""
+    				tagname="">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="titlebox" id="" style="">
+    			<w2:textbox class="df_tt" id="" label="사용자 등록" style="" tagname="h2"></w2:textbox>
+    		</xf:group>
+    		<xf:group adaptive="layout" adaptiveThreshold="600" class="w2tb dmb" id="tbl_MemberForm" style="width:100%;" tagname="table">
+    			<w2:attributes>
+    				<w2:summary></w2:summary>
+    			</w2:attributes>
+    			<xf:group tagname="colgroup">
+    				<xf:group style="width:120px;" tagname="col"></xf:group>
+    				<xf:group style="" tagname="col"></xf:group>
+    				<xf:group style="width:120px;" tagname="col"></xf:group>
+    				<xf:group style="" tagname="col"></xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group class="w2tb_th" tagname="th">성명</xf:group>
+    				<xf:group class="w2tb_td" tagname="td">
+    					<xf:input id="idx_EMP_NM" placeholder="필수입력입니다." ref="data:dma_Member.EMP_NM" style="" mandatory=""
+    						displaymessage="" minlength="" maxlength="" userData1="chk" minByteLength="" validator="" class="defSize">
+    					</xf:input>
+    				</xf:group>
+    				<xf:group class="w2tb_th" tagname="th">
+    					사진
+    					<w2:attributes>
+    						<w2:colspan>1</w2:colspan>
+    						<w2:rowspan>4</w2:rowspan>
+    					</w2:attributes>
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group class="w2tb_td" tagname="td">
+    					<w2:attributes>
+    						<w2:colspan>1</w2:colspan>
+    						<w2:rowspan>4</w2:rowspan>
+    					</w2:attributes>
+    					<xf:image id="img_profile" style="width: 100px;height: 100px;" src="" class="dmb" ref=""></xf:image>
+    					<xf:group id="" style="">
+    						<xf:trigger type="button" id="btn_profileImage" style="width:100px;" ev:onclick="scwin.btn_profileImage_onclick"
+    							class="btnDarkGray">
+    							<xf:label><![CDATA[사진 변경]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    					<w2:attributes></w2:attributes>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group class="w2tb_th" style="" tagname="th">등록일</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<w2:inputCalendar weekStartsOn="0" rightAlign="false" calendarValueType="yearMonthDate" renderType="component" id=""
+    						renderDiv="true" style="" focusOnDateSelect="false" footerDiv="false" ref="data:dma_Member.JOIN_DATE"
+    						dateValidCheck="true" setCurrentDate="true" class="defSize">
+    					</w2:inputCalendar>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group class="w2tb_th" tagname="th">성별</xf:group>
+    				<xf:group class="w2tb_td" tagname="td">
+    					<xf:select1 appearance="full" id="rad_MemGender" ref="data:dma_Member.GENDER_CD" rows="1" selectedIndex="0"
+    						style="min-height: 21px;min-width: 50px;">
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group class="w2tb_th" tagname="th">
+    					이메일
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group class="w2tb_td" tagname="td">
+    					<w2:attributes></w2:attributes>
+    					<xf:input displaymessage="" id="" mandatory="" placeholder="필수입력입니다." ref="data:dma_Member.EMAIL"
+    						style="width:100%;" userData1="chk:email">
+    					</xf:input>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group class="w2tb_th" tagname="th">직책<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group class="w2tb_td" tagname="td">
+    					<w2:attributes></w2:attributes>
+    					<xf:select1 allOption="" appearance="minimal" chooseOption="true" chooseOptionLabel="" direction="auto"
+    						disabled="false" disabledClass="w2selectbox_disabled" displayMode="label" id="sbx_MemDuty" ref="data:dma_Member.DUTY_CD" style=""
+    						submenuSize="auto" class="defSize">
+    						<xf:choices></xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    				<xf:group class="w2tb_th" tagname="th">직위<w2:attributes></w2:attributes></xf:group>
+    				<xf:group class="w2tb_td" tagname="td">
+    					<w2:attributes></w2:attributes>
+    					<xf:select1 allOption="" appearance="minimal" chooseOption="true" chooseOptionLabel="" direction="auto"
+    						disabled="false" disabledClass="w2selectbox_disabled" displayMode="label" id="sbx_MemPosition" ref="data:dma_Member.POSITION_CD"
+    						style="" submenuSize="auto" class="defSize">
+    						<xf:choices></xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group class="w2tb_th" tagname="th">
+    					역할
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group class="w2tb_td" tagname="td">
+    					<w2:attributes></w2:attributes>
+    					<xf:select1 allOption="false" appearance="minimal" chooseOption="true" direction="auto" disabled="false"
+    						disabledClass="w2selectbox_disabled" displayMode="label" id="ccb_MemRole" ref="data:dma_Member.ROLE_CD" style=""
+    						submenuSize="auto" class="defSize">
+    					</xf:select1>
+    				</xf:group>
+    				<xf:group class="w2tb_th" tagname="th">
+    					담당업무
+    					<w2:attributes></w2:attributes>
+    				</xf:group>
+    				<xf:group class="w2tb_td" tagname="td">
+    					<w2:attributes></w2:attributes>
+    					<xf:input id="" ref="data:dma_Member.ASSIGNED_TASK" style="" class="defSize"></xf:input>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group class="w2tb_th" style="" tagname="th">주소</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<w2:attributes>
+    						<w2:colspan>3</w2:colspan>
+    					</w2:attributes>
+    					<xf:input class="mb5 mr5" dataType="text" displayFormat="" displayFormatter="scwin.setDispZipCd" id=""
+    						readOnly="true" ref="data:dma_Member.ZIP_CD" style="width: 60px;" mandatory="" displaymessage="" userData1="chk"
+    						ev:onclick="scwin.btn_ZipSearch_onclick">
+    					</xf:input>
+    					<xf:input class="mb5 dmr ch100" id="" readOnly="true" ref="data:dma_Member.ADDRESS1" style="width: 200px;"
+    						ev:onclick="scwin.btn_ZipSearch_onclick">
+    					</xf:input>
+    					<xf:trigger class="btnDarkGray dmb" ev:onclick="scwin.btn_ZipSearch_onclick" id="btn_ZipSearch" style=""
+    						type="button">
+    						<xf:label><![CDATA[우편번호]]></xf:label>
+    					</xf:trigger>
+    					<xf:input class="" id="" readOnly="true" ref="data:dma_Member.ADDRESS2" style="width: 100%;" mandatory=""
+    						displaymessage="" userData1="">
+    					</xf:input>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="defaultbox tac" id="" style="">
+    			<xf:trigger class="btnRed dmr" ev:onclick="scwin.btn_save_onclick" id="btn_save" style="" type="button">
+    				<xf:label><![CDATA[저장]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

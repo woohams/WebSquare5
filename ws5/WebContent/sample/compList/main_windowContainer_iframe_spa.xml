@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="샘플목록_MDI_iframeSpa"><w2:type>DEFAULT</w2:type>
+		<title>WebSquare Sample</title>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns=""></data>
+			</xf:instance>
+			<xf:submission id="sub_compList" ref="" target="data:json,dc_compList" action="/ws5/sample/data/menu_compList.json" method="post"
+				mediatype="application/json" encoding="UTF-8" mode="asynchronous" processMsg="" ev:submitdone="scwin.sub_compList_submitdone" instance=""
+				replace="" errorHandler="" customHandler="" ev:submit="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<w2:dataCollection>
+				<w2:dataList id="dc_compList" baseNode="list" style="" repeatNode="map" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="label" name="label" dataType="text"></w2:column>
+						<w2:column id="webPath" name="webPath" dataType="text"></w2:column>
+						<w2:column id="icon" name="icon" dataType="text"></w2:column>
+						<w2:column id="key" name="key" dataType="text"></w2:column>
+						<w2:column id="depth" name="depth" dataType="text"></w2:column>
+						<w2:column id="parent" name="parent" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+		</xf:model>
+		<script type="javascript" lazy="false"><![CDATA[
+	scwin.fn_clickSecondMenu = function(tabKey, tabNm, tabUrl, naviTitle) {
+		scwin.fn_addTabContent(tabKey, tabNm, tabUrl, naviTitle, false);
+	};
+	
+	//add content
+	scwin.fn_addTabContent = function(tabKey, tabNm, tabUrl, naviTitle) {
+		ui_windowContainer.createWindow(tabNm, null, tabUrl, naviTitle, tabKey, "selectWindow");
+	};
+
+	scwin.sub_compList_submitdone = function() {
+		leftMenuGrp.getWindow().scwin.fn_setToggleMenu("dc_compList");
+	};
+
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.onpageload = function() {
+		//leftMenuData 호출
+		$p.executeSubmission("sub_compList");
+	};
+	]]></script>
+	</head>
+	<body ev:onpageunload="scwin.onpageunload" ev:onpageload="scwin.onpageload">
+		<xf:group id="" class="" style="position: relative;height: 100%;">
+			<w2:wframe id="" src="/ws5/sample/comm/wf_header.xml" style="" scope="false"></w2:wframe>
+			<xf:group style="position:absolute;top:61px;left:0px;right:0px;bottom:0px;" id="">
+				<w2:wframe id="leftMenuGrp" class="leftMenuGrp" src="/ws5/sample/comm/wf_leftMenu.xml"
+					style="position: absolute;width:210px;left:0px;top:0px;bottom:0px;background:#fff;" scope="false">
+				</w2:wframe>
+				<xf:group id="contentGrp" class="" style="position:absolute;left:211px;top:0px;bottom:0px;right:0px;">
+					<xf:group id="tabCtrlGrp" style="position:absolute;top:0px;left:0px;right:0px;bottom:0px;background:transparent;">
+						<w2:windowContainer id="ui_windowContainer" windowAutoResize="false" style="position: relative;height: 100%;"
+							sequentialArrangeRowNum="2" tooltipDisplay="true" windowTooltipDisplay="true" useControlIconTitle="false" useFixButton="false"
+							horizontalArrangeNum="2" verticalArrangeNum="2" windowMaxNum="10" tooltipGroupClass="false" class="" spaInitCount="10"
+							useStatusMsg="false" useCloseButton="false" fixArrangeFullScreen="false" sequentialArrangeColNum="2" toolbarPosition="bottom" spaAuto="">
+							<w2:windowToolbar>
+								<w2:nameLayer></w2:nameLayer>
+								<w2:controlIconLayer>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+								</w2:controlIconLayer>
+								<w2:selectedNameLayer></w2:selectedNameLayer>
+							</w2:windowToolbar>
+						</w2:windowContainer>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+		<w2:textbox id="" label="WindowContainer - IFrame+SPA" style="position: fixed;right: 20px;top:12px;font-weight: bold;font-size: 1.5em;"></w2:textbox>
+	</body>
+</html>

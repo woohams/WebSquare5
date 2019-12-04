@@ -1,0 +1,21 @@
+{ 
+	"dc_resMessage" : {
+		"code":"002"
+		, "msg":"정상처리되었습니다"
+		, "rsCount":"2"
+	}
+	, "dc_resUserListData":
+		[{
+			"name":"송강호"
+			, "birthday" : "19670117"
+			, "height" : "180"
+			, "weight" : "80"
+			, "gender" : "M"
+		},{
+			"name":"황정민"
+			, "birthday" : "19700901"
+			, "height" : "180"
+			, "weight" : "75"
+			, "gender" : "M"
+		}]
+}

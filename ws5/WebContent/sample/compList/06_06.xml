@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="ExcelDown Chart">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList id="dataList1" baseNode="list" saveRemovedData="true" repeatNode="map">
+            		<w2:columnInfo>
+            			<w2:column id="col1" name="name1" dataType="number"></w2:column>
+            			<w2:column id="col2" name="name2" dataType="number"></w2:column>
+            			<w2:column id="col3" name="name3" dataType="number"></w2:column>
+            			<w2:column id="col4" name="name4" dataType="number"></w2:column>
+            			<w2:column id="col5" name="name5" dataType="number"></w2:column>
+            		</w2:columnInfo>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		scwin.trigger1_onclick();
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	// data 조회
+	scwin.trigger1_onclick = function(e) {
+		var arr = [];
+		
+		for(var i=0;i<4;i++) {
+			if(i==0) {
+				arr.push("A");
+			} else if(i==1) {
+				arr.push("B");
+			} else if(i==2) {
+				arr.push("C");
+			} else if(i==3) {
+				arr.push("D");
+			}
+			
+			for(var j=0;j<4;j++) {
+				  arr.push( Math.floor(Math.random() * 1000) );
+			}
+		}
+		
+		dataList1.setData(arr);
+		console.log("data 조회 완료....");
+	};
+
+	// data 초기화
+	scwin.trigger2_onclick = function(e) {
+		dataList1.removeAll();
+		console.log("data 초기화 완료...");
+	};
+
+	// line chart
+	scwin.trigger3_onclick = function(e) {
+		var options = {};
+  		options.fileName = "line.xlsx";
+		options.type  = "1";
+		options.showProcess = false;
+		options.chart = {
+			"chartName": "line",
+			"chartType": "",
+			"title": "차트 타이틀",
+			"yTitle": "Y 타이틀",
+			"xTitle": "X 타이틀",
+			"startRowIndex": 0,
+			"startColIndex": 5,
+			"endRowIndex": 20,
+			"endColIndex": 15,
+			"serAxis": "true",
+			"catAxis": "true",
+			"catAxisRange": {
+				"startColIndex": 1,  
+				"startRowIndex": 0,
+				"endColIndex": 4,
+				"endRowInex": 0
+			},
+			"serAxisRange": {
+				"startColIndex": 0,
+				"startRowIndex": 1,
+				"endColIndex": 0,
+				"endRowIndex": 4
+			},
+			"dataAxisRange": {
+				"startColIndex": 1,
+				"startRowIndex": 1,
+				"endColIndex": 4,
+				"endRowIndex": 4
+			},
+			"catGridLines": "true",    // 가로
+			"serGridLines": "true",    // 세로
+			"legend": "true",          // 범례
+			"legendPosition": "bottom" // 범례위치
+		};
+
+		var infoArr = [];
+  		gridView1.advancedExcelDownload(options , infoArr);
+	};
+	
+	// bar chart
+	scwin.trigger4_onclick = function(e) {
+		var options = {};
+  		options.fileName = "bar.xlsx";
+		options.type  = "1";
+		options.showProcess = false;
+		options.chart = {
+			"chartName": "bar",
+			"chartType": "",
+			"title": "차트 타이블",
+			"yTitle": "Y 타이틀",
+			"xTitle": "X 타이틀",
+			"startRowIndex": 0,
+			"startColIndex": 5,
+			"endRowIndex": 20,
+			"endColIndex": 15,
+			"serAxis": "true",
+			"catAxis": "true",
+			"catAxisRange": {
+				"startColIndex": 1,  
+				"startRowIndex": 0,
+				"endColIndex": 4,
+				"endRowIndex": 0
+			},
+			"serAxisRange": {
+				"startColIndex": 0,
+				"startRowIndex": 1,
+				"endColIndex": 0,
+				"endRowIndex": 4
+			},
+			"dataAxisRange": {
+				"startColIndex": 1,
+				"startRowIndex": 1,
+				"endColIndex": 4,
+				"endRowIndex": 1
+			},
+			"catGridLines": "true",     // 가로
+			"serGridLines": "true",     // 세로
+			"legend": "true",           // 범례
+			"legendPosition": "bottom", //범례위치
+		};
+
+		var infoArr = [];
+  		gridView1.advancedExcelDownload(options , infoArr);
+	};
+
+	// area chart
+	scwin.trigger5_onclick = function(e) {
+		var options = {};
+  		options.fileName = "area.xlsx";
+		options.type  = "1";
+		options.showProcess = false;
+		options.chart = {
+			"chartName": "area",
+			"chartType": "",
+			"title": "차트 타이틀",
+			"yTitle": "Y 타이틀",
+			"xTitle": "X 타이틀",
+			"startRowIndex": 0,
+			"startColIndex": 5,
+			"endRowIndex": 20,
+			"endColIndex": 15,
+			"serAxis": "true",
+			"catAxis": "true",
+			"catAxisRange": {
+				"startColIndex": 1,  
+				"startRowIndex": 0,
+				"endColIndex": 4,
+				// "endRowIndex": 0 필요없을듯
+			},
+			"serAxisRange": {
+				"startColIndex": 0,
+				"startRowIndex": 1,
+				// "endColIndex": 0, 필요없을듯
+				"endRowIndex": 4
+			},
+			"dataAxisRange": {
+				"startColIndex": 1,
+				"startRowIndex": 1,
+				"endColIndex": 4,
+				"endRowIndex": 4
+			},
+			"catGridLines": "true",    // 가로
+			"serGridLines": "true",    // 세로
+			"legend": "true",          // 범례
+			"legendPosition": "bottom" // 범례위치
+		};
+
+		var infoArr = [];
+  		gridView1.advancedExcelDownload(options , infoArr);
+	};
+	
+	// pie chart
+	scwin.trigger6_onclick = function(e) {
+		var options = {};
+  		options.fileName = "pie.xlsx";
+		options.type  = "1";
+		options.showProcess = false;
+		options.chart = {
+			"chartName": "pie",
+			"chartType": "",
+			"title": "차트 타이틀",
+			"yTitle": "y 타이틀",
+			"xTitle": "x 타이틀",
+			"startRowIndex": 0,
+			"startColIndex": 5,
+			"endRowIndex": 20,
+			"endColIndex": 15,
+			"serAxis": "true",
+			"catAxis": "true",
+			"catAxisRange": {
+				"startColIndex": 1,  
+				"startRowIndex": 0,
+				"endColIndex": 4,
+			},
+			"serAxisRange": {
+				"startColIndex": 0,
+				"startRowIndex": 1,
+				"endColIndex": 0,
+				"endRowIndex": 1
+			},
+			"dataAxisRange": {
+				"startColIndex": 1,
+				"startRowIndex": 1,
+				"endColIndex": 4,
+				"endRowIndex": 1
+			},
+			"catGridLines": "true",    // 가로
+			"serGridLines": "true",    // 세로
+			"legend": "true",          // 범례
+			"legendPosition": "bottom" // 범례위치
+		};
+
+		var infoArr = [];
+  		gridView1.advancedExcelDownload(options , infoArr);
+	};
+
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    <xf:group style="" id="" class="wrapper">
+    	<xf:group class="section_desc" id="" style="padding: 10px;">
+    		<w2:textbox class="" id="" label="GridView의 ExcelDownload 기능 중 chart 를 포함한 download 기능을 구현한 화면이다.&lt;br/&gt;* 본 샘플은 이미지를 엑셀로 내려주는 기능이라 속도가 느리며, 대용량 건수에는 적합하지 않다.&lt;br/&gt;( source : 06_06.xml )" style=""></w2:textbox>
+    	</xf:group><xf:group style="margin-bottom: 10px" id=""><xf:trigger ev:onclick="scwin.trigger3_onclick" style="width:130px;height:30px;margin-right:10px;" id="trigger3" type="button">
+    		<xf:label><![CDATA[Line chart Download]]></xf:label>
+    	</xf:trigger><xf:trigger ev:onclick="scwin.trigger4_onclick" style="width:130px;height:30px;margin-right:10px;" id="trigger4" type="button">
+    		<xf:label><![CDATA[Bar chart Download]]></xf:label>
+    	</xf:trigger><xf:trigger ev:onclick="scwin.trigger5_onclick" style="width:130px;height:30px;margin-right:10px;" id="trigger5" type="button">
+    		<xf:label><![CDATA[Area chart Download]]></xf:label>
+    	</xf:trigger><xf:trigger ev:onclick="scwin.trigger6_onclick" style="width:130px;height:30px;margin-right:10px;" id="trigger6" type="button">
+    		<xf:label><![CDATA[Pie chart Download]]></xf:label>
+    	</xf:trigger></xf:group><w2:gridView scrollByColumnAdaptive="false" syncScroll="false" summaryAuto="false" useShiftKey="true" scrollByColumn="false"
+    		summaryOnlyAuto="false" defaultCellHeight="20" applyAllColumnStyle="false" dataList="data:dataList1"
+    		style="height:300px;" ignoreCellClick="false" id="gridView1"
+    		ignoreToggleOnDisabled="false" autoFit="allColumn" autoFitMinWidth="800">
+    		<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    		<w2:header style="" id="header1">
+    			<w2:row style="" id="row1">
+    				<w2:column width="70" style="" inputType="text" id="column9" value="-" blockSelect="false" displayMode="label"></w2:column>
+    				<w2:column width="70" style="" inputType="text" id="column7" value="Field1" blockSelect="false" displayMode="label"></w2:column>
+    				<w2:column width="70" style="" inputType="text" id="column5" value="Field2" blockSelect="false" displayMode="label"></w2:column>
+    				<w2:column width="70" style="" inputType="text" id="column3" value="Field3" blockSelect="false" displayMode="label"></w2:column>
+    				<w2:column width="70" style="" inputType="text" id="column1" value="Field4" blockSelect="false" displayMode="label"></w2:column>
+    			</w2:row>
+    		</w2:header>
+    		<w2:gBody style="" id="gBody1">
+    			<w2:row style="" id="row2">
+    				<w2:column dataType="number" width="70" style="" inputType="text" id="col1" value="" blockSelect="false"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column dataType="number" width="70" style="" inputType="text" id="col2" value="" blockSelect="false"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column dataType="number" width="70" style="" inputType="text" id="col3" value="" blockSelect="false"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column dataType="number" width="70" style="" inputType="text" id="col4" value="" blockSelect="false"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column dataType="number" width="70" style="" inputType="text" id="col5" value="" blockSelect="false"
+    					displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:gBody>
+    	</w2:gridView>
+    	
+    </xf:group></body>
+</html>

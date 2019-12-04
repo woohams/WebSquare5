@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="widget_성별 조회수">
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="dc_chart" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="series" name="name1" dataType="text"></w2:column>
+    					<w2:column id="female" name="여성" dataType="text"></w2:column><w2:column id="male" name="남성" dataType="text"></w2:column>
+    					
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						
+    						<series><![CDATA[만 18–24세]]></series>
+    						<female><![CDATA[0]]></female>
+    						<male><![CDATA[5]]></male>
+    						
+    					</w2:row>
+    					<w2:row>
+    						<series><![CDATA[만 25–34세]]></series>
+    						<female><![CDATA[8]]></female>
+    						<male><![CDATA[10]]></male>
+    						
+    						
+    					</w2:row>
+    					<w2:row>
+    						<series><![CDATA[만 35–44세]]></series>
+    						<female><![CDATA[14]]></female>
+    						<male><![CDATA[25]]></male>
+    						
+    						
+    					</w2:row>
+    					<w2:row>
+    						<series><![CDATA[만 45–54세]]></series>
+    						<female><![CDATA[1]]></female>
+    						<male><![CDATA[13]]></male>
+    						
+    						
+    					</w2:row>
+    					<w2:row>
+    						<series><![CDATA[만 55세 이상]]></series>
+    						<female><![CDATA[0]]></female>
+    						<male><![CDATA[2]]></male>
+    						
+    						
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    	</xf:model>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+			scwin.dc_chart_lbl = function(dataObj, rowIdx){
+				var curLblArr = (dataObj.date).split("-");
+				if(rowIdx%2 === 0){
+					return curLblArr[0]+"<br/>"+curLblArr[1]+"-"+curLblArr[2];
+				}
+				return "";
+			};    
+			
+			scwin.onpageload = function() {
+				var fc = ui_chart.fc();
+				var fcOpt = {
+					"caption": "성별 조회수",
+					"captionFontSize": "16",
+					"showPercentValues": true,
+					//showPercentInToolTip
+					"showValues": true,
+					"valueFontColor": "#999",
+			        "showHoverEffect": "1",
+			        "showLegend": "1",
+			        "legendBgColor": "#ffffff",
+			        "legendBorderAlpha": "0",
+			        "legendShadow": "0",
+			        "labelFontSize": 12,
+			        "labelDistance": "0",
+					"enableSmartLabels": "0",
+					"useDataPlotColorForLabels": "1",
+					"showPrintMenuItem": true,
+					"exportEnabled": true,
+					"exportAction": "download",
+					"exportFormats": "PNG=Export as PNG Image|JPG=Export as JPG Image|PDF=Export as PDF File",
+					"exportShowMenuItem": true,
+					"toolTipColor": "#ffffff",
+					"toolTipPadding":"5",
+					"toolTipBorderColor": "#000",
+					"toolTipBorderThickness": "0",
+					"toolTipBgColor": "#000",
+					"toolTipBgAlpha": "80",
+		        	"toolTipBorderRadius": "2",
+					"plottooltext": "<div style='color:#fff;text-align:center;'><div style='color:#ffff00;'>$label</div><div>$dataValue회</div></div>"
+				}
+				fc.setChartAttribute(fcOpt);
+			};
+		]]></script>
+    	<style type="text/css"><![CDATA[
+    		
+    	]]></style>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+
+    	<xf:group style="" id="" class="absBox">
+    		<xf:group class="widgetBox" id="" style="">
+    			<w2:fusionchart accessibility="false" drawType="javascript" runflashAt="IE6,IE7,IE8" seriesType="advanced"
+    				chartType="MSBar2D" style="width: 100%;height: 100%;" id="ui_chart" ref="data:dc_chart" labelNode="series" valueNode="count" seriesNode="" seriesColumns="[['female','male']]">
+    			</w2:fusionchart>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

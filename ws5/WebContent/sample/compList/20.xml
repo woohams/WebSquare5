@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="Map Chart">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList id="dataList1" baseNode="list" saveRemovedData="true" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="code" name="code" dataType="text"></w2:column>
+        				<w2:column id="value" name="value" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="submission1" ref="" target="data:json" action="/ws5/sample/compList/data/mapData1.json" method="post" mediatype="application/json"
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="" ev:submiterror="">
+        	</xf:submission>
+        	<xf:submission id="submission2" ref="" target="data:json" action="/ws5/sample/compList/data/mapData2.json" method="post" mediatype="application/json"
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="" ev:submiterror="">
+        	</xf:submission>
+        	<xf:submission id="submission3" ref="" target="data:json" action="/ws5/sample/compList/data/mapData3.json" method="post" mediatype="application/json"
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="" ev:submiterror="">
+        	</xf:submission>
+        </xf:model>
+        <style>
+        </style>        
+        <script type="javascript" lazy="false"><![CDATA[
+        	scwin.onpageunload = function() {
+				$p.executeSubmission( "submission1");
+			};
+			
+			scwin.onpageload = function() {
+				
+			};
+        	
+            scwin.colorScale1 = d3.scale.linear()
+            .range(["red", "yellow", "green", "turquoise", "blue"])
+            .domain([0, 0.25, 0.5, 0.75, 1]);
+
+
+            scwin.mapchart1_onbeforemapchange = function ( info ) {
+              	if(info.newMapCode.length >= 2) {
+              		return false; // 지도 확장기능 사용하지 않음 
+              	}
+            };
+
+            scwin.mapchart1_onmapdatachange = function(dataListId) {
+                var dataList = WebSquare.util.getComponentById(dataListId);
+                switch(dataListId) {
+                case "dataList1" : 
+                    var data = dataList.getAllJSON();
+                    for(var i = 0; i < data.length; i++) {
+                        var municipality = d3.select("#" + this.id + "_map").select(".municipality.c" + data[i].code);
+                        municipality.style("fill", scwin.colorScale1(data[i].value));
+                    }
+                    break;
+                }                
+            };
+           
+			scwin.trigger1_onclick = function(e) {
+				$p.executeSubmission(selectbox1.getValue());
+			};
+			
+			scwin.aa = function(str, str1){
+				if(str == "경기도"){
+					return "test";
+				}
+			};
+	]]></script>
+    </head>
+    <body ev:onpageunload="scwin.onpageunload" ev:onpageload="scwin.onpageload">
+    <xf:group style="" id="" class="wrapper">
+    	<xf:group class="section_desc" id="" style="dp">
+    		<w2:textbox id="section" label="MapChart는 d3을 이용해 우리나라 전국지도에 입력받은 데이터를 다양한 형태로 시각화하여 표현하는 컴포넌트이다.&lt;br/&gt;&lt;br/&gt;MapChart는 d3를 사용하여 구현한 지도 형태의 컴포넌트로서 인스웨이브는 d3에서 제공한 바이너리, 샘플, 문서를 그대로 제공해드려야 하며 소스, 샘플, 문서에 대한 버그수정, 기능추가 및 번역 작업을 제공해 드리지 않습니다.&lt;br/&gt;&lt;br/&gt;( source : 20.xml )" style="color:#30150C;">
+    		</w2:textbox>
+    	</xf:group>
+    	
+    <xf:group style="" id="">
+    	<xf:group style="" id="" class="section03 dmb">
+    		<w2:textbox class="contTitle02" id="" label="Map Chart" style=""></w2:textbox>
+    		
+    	<xf:group style="" id="" class="dp"><xf:group style="" id="" class="ofh"><w2:mapchart zoomMax="1" dataMapPath="/ws5/websquare/externalJS/mapchart" event_drilldown="ondblclick" dataMapRatio_level0="simp01" dataLists="dataList1" event_tooltipoff="onmouseout" zoomMin="1" setTooltipStrFunc="scwin.aa" event_drillup="oncontextmenu" event_tooltipon="onmouseover" ev:onbeforemapchange="scwin.mapchart1_onbeforemapchange" event_deselect="onmouseout" ev:onmapdatachange="scwin.mapchart1_onmapdatachange" event_select="onclick" style="position: relative;width:100%;height:500px;" id="mapchart1">
+    		</w2:mapchart></xf:group></xf:group></xf:group></xf:group></xf:group></body>
+</html>

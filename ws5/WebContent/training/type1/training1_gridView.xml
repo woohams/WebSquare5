@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="1일 교육용 gridView 샘플">
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="dc_userInfoList" saveRemovedData="true" ev:oninsertrow=""
+    				ev:onremoverow="" ev:ondataload="">
+    				<w2:columnInfo>
+    					<w2:column id="EMP_CD" name="사번" dataType="text"></w2:column>
+    					<w2:column id="EMP_NM" name="이름" dataType="text"></w2:column>
+    					<w2:column id="GENDER_CD" name="성별" dataType="text"></w2:column>
+    					<w2:column id="JOIN_DATE" name="입사일" dataType="text"></w2:column>
+    					<w2:column id="POSITION_CD" name="직급" dataType="text"></w2:column>
+    					<w2:column id="ROLE_CD" name="역할" dataType="text"></w2:column>
+    					<w2:column id="EMAIL" name="이메일" dataType="text"></w2:column>
+    					<w2:column id="ZIP_CD" name="우편번호" dataType="text"></w2:column>
+    					<w2:column id="ADDRESS1" name="주소1" dataType="text"></w2:column>
+    					<w2:column id="ADDRESS2" name="주소2" dataType="text"></w2:column>
+    					<w2:column id="CREATED_DATE" name="생성일" dataType="text"></w2:column>
+    					<w2:column id="UPDATED_DATE" name="수정일" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dc_searchParam">
+    				<w2:keyInfo>
+    					<w2:key id="GENDER_CD" name="성별" dataType="text"></w2:key>
+    					<w2:key id="POSITION_CD" name="직급" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    				<w2:data use="false">
+
+    				</w2:data>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dc_reqCode">
+    				<w2:keyInfo>
+    					<w2:key id="GRP_CD" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    				<w2:data use="true">
+    					<GRP_CD><![CDATA[02,101]]></GRP_CD>
+    				</w2:data>
+    			</w2:dataMap>
+    			<w2:dataList id="dc_code02">
+    				<w2:columnInfo>
+    					<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+    					<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+    					<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data xmlns=""></w2:data>
+    			</w2:dataList>
+    			<w2:dataList id="dc_code101" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="GRP_CD" name="GRP_CD"></w2:column>
+    					<w2:column dataType="text" id="CODE_CD" name="CODE_CD"></w2:column>
+    					<w2:column dataType="text" id="CODE_NM" name="CODE_NM"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data xmlns=""></w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    		<xf:submission id="sbm_code" ref="data:json,dc_reqCode" target='data:json,["dc_code101","dc_code02"]'
+    			action="/ws5/training/getCodeList.do" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_search" ref="data:json,dc_searchParam" target="data:json,dc_userInfoList"
+    			action="/ws5/training/searchMember.do" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="조회중.." ev:submit="" ev:submitdone="scwin.sbm_search_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" ref='data:json,{"action":"modified","id":"dc_userInfoList"}' target=""
+    			action="/ws5/training/saveMember.do" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+	
+	scwin.onpageload = function() {
+		$p.executeSubmission( "sbm_code" );
+	};
+	
+	scwin.onpageunload = function() {
+
+	};
+	
+	// 조회 하기
+	scwin.ui_btnSearch_onclick = function(e) {
+		$p.executeSubmission( "sbm_search" );
+	};
+	
+	// 입력, 수정, 삭제 data만 request 정보로 전송하기
+	scwin.btnSave_onclick = function(e) {
+		$p.executeSubmission( "sbm_save" );
+	};
+	
+	scwin.sbm_search_submitdone = function(e) {
+		if(e.responseJSON.msgCode == "S"){
+			
+		}
+	};
+	
+	//display total count
+	scwin.dispRowCount = function(){
+		ui_totRowCount.setValue( dc_userInfoList.getRowCount() );
+	};
+	
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="padding: 10px;" id="" class="">
+    		<xf:group class="" id="" style="border: 1px solid gray;overflow: hidden;margin-bottom: 10px;padding: 10px 0px 0px 10px;">
+    			<xf:group style="width:180px;float: right;margin: 0px 10px 10px 0px;text-align: right;" id="">
+    				<xf:trigger ev:onclick="scwin.ui_btnSearch_onclick" style="width: 80px;height: 23px;margin-right: 10px;" id="ui_btnSearch" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger ev:onclick="scwin.btnSave_onclick" id="btnSave" style="width: 80px;height: 23px;" type="button">
+    					<xf:label><![CDATA[저장]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<xf:group style="width:200px;float: left;margin: 0px 10px 10px 0px;" id="" class="">
+    				<w2:span style="" label="성별 : " id=""></w2:span>
+    				<xf:select1 selectedData="true" submenuSize="auto" chooseOption="" allOption="true" displayMode="label" ref="data:dc_searchParam.GENDER_CD"
+    					appearance="minimal" disabledClass="w2selectbox_disabled" optionOrder="false" disabled="false" style="width: 148px;height: 23px;"
+    					id="ui_search_gender" direction="auto">
+    					<xf:choices>
+    						<xf:itemset nodeset="data:dc_code101">
+    							<xf:label ref="CODE_NM"></xf:label>
+    							<xf:value ref="CODE_CD"></xf:value>
+    						</xf:itemset>
+    					</xf:choices>
+    				</xf:select1>
+    			</xf:group>
+
+    			<xf:group id="" style="width:200px;float: left;margin: 0px 10px 10px 0px;" class="">
+    				<w2:span id="" label="직급 :" style=""></w2:span>
+    				<xf:select1 allOption="true" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+    					disabledClass="w2selectbox_disabled" displayMode="label" id="ui_search_position" optionOrder="false" ref="data:dc_searchParam.POSITION_CD" selectedData="true"
+    					style="width: 148px;height: 23px;" submenuSize="auto">
+    					<xf:choices>
+    						<xf:itemset nodeset="data:dc_code02">
+    							<xf:label ref="CODE_NM"></xf:label>
+    							<xf:value ref="CODE_CD"></xf:value>
+    						</xf:itemset>
+    					</xf:choices>
+    				</xf:select1>
+    			</xf:group>
+
+    		</xf:group>
+    		<xf:group class="" id="" style="overflow: hidden;margin-bottom: 10px;padding: 10px;">
+    		<w2:span dataType="number" displayFormat="#,##0건" displayFormatter="" id="ui_totRowCount" label="0" style="float: right;"></w2:span>
+    		<xf:trigger ev:onclick="" id="btnInsert" style="width: 80px;height: 23px;float : left;margin-right: 10px;" type="button">
+    			<xf:label><![CDATA[입력]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger ev:onclick="" id="btnDelete" style="width: 80px;height: 23px;float : left;margin-right: 10px;" type="button">
+    			<xf:label><![CDATA[삭제(delete)]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger ev:onclick="" id="btnRemove" style="width: 80px;height: 23px;float : left;margin-right: 10px;" type="button">
+    			<xf:label><![CDATA[삭제(remove)]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger ev:onclick="" id="btnDeleteRows" style="width: 130px;height: 23px;float : left;margin-right: 10px;" type="button">
+    			<xf:label><![CDATA[다중삭제(deleteRows)]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger ev:onclick="" id="btnRemoveRows" style="width: 130px;height: 23px;float : left;margin-right: 10px;" type="button">
+    			<xf:label><![CDATA[다중삭제(removeRows)]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger ev:onclick="" id="btnInit" style="width: 80px;height: 23px;float : left;margin-right: 10px;" type="button">
+    			<xf:label><![CDATA[초기화]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger ev:onclick="" id="btnExcelDown" style="width: 80px;height: 23px;float : left;margin-right: 10px;" type="button">
+    			<xf:label><![CDATA[ExcelDown]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger ev:onclick="" id="btnExcelUp" style="width: 80px;height: 23px;float : left;margin-right: 10px;" type="button">
+    			<xf:label><![CDATA[ExcelUp]]></xf:label>
+    		</xf:trigger>
+    	</xf:group><xf:group id="" style="margin-bottom: 10px;" class="">
+    			<w2:gridView dataList="" summaryAuto="false" useFilterList="false" applyAllColumnStyle="false" scrollByColumn="false"
+    				showSortableUseFilter="false" defaultCellHeight="20" scrollByColumnAdaptive="false" id="ui_memberList" style="height: 200px;"
+    				ignoreCellClick="false" ignoreToggleOnDisabled="false" summaryOnlyAuto="false" useShiftKey="true">
+    				<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    				<w2:header id="header1" style="">
+    					<w2:row id="row1" style="">
+    						<w2:column blockSelect="false" id="column1" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					</w2:row>
+    				</w2:header>
+    				<w2:gBody id="gBody1" style="">
+    					<w2:row id="row2" style="">
+    						<w2:column blockSelect="false" id="column2" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					</w2:row>
+    				</w2:gBody>
+    			</w2:gridView>
+    		</xf:group>
+    		<xf:group tagname="table" style="width:100%;" id="" class="w2tb" adaptive="layout" adaptiveThreshold="700">
+    			<w2:attributes>
+    				<w2:summary></w2:summary>
+    			</w2:attributes>
+    			<xf:group tagname="caption"></xf:group>
+    			<xf:group tagname="colgroup">
+    				<xf:group tagname="col" style="width:100px;"></xf:group>
+    				<xf:group tagname="col" style=""></xf:group>
+    				<xf:group tagname="col" style="width:100px;"></xf:group>
+    				<xf:group tagname="col" style=""></xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">이름<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:input id="" style="width: 144px;height: 23px;" ref=""></xf:input>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">성별<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:select1 id="ui_form_gender" selectedIndex="0" appearance="full" style="min-width: 150px;min-height: 21px;"
+    						ref="" rows="1" cols="">
+    						<xf:choices>
+    							<xf:itemset nodeset="data:dc_code101">
+    								<xf:label ref="CODE_NM"></xf:label>
+    								<xf:value ref="CODE_CD"></xf:value>
+    							</xf:itemset>
+    						</xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">입사일<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<w2:inputCalendar footerDiv="false" id="" weekStartsOn="0" style="width: 150px;height: 23px;" renderDiv="true"
+    						focusOnDateSelect="false" calendarValueType="yearMonthDate" rightAlign="false" renderType="component" ref="">
+    					</w2:inputCalendar>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">직급<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:select1 allOption="" appearance="minimal" chooseOption="true" direction="auto" disabled="false"
+    						disabledClass="w2selectbox_disabled" displayMode="label" id="ui_form_position" optionOrder="false" selectedData="true"
+    						style="width: 148px;height: 21px;" submenuSize="auto" ref="" chooseOptionLabel="">
+    						<xf:choices>
+    							<xf:itemset nodeset="data:dc_code02">
+    								<xf:label ref="CODE_NM"></xf:label>
+    								<xf:value ref="CODE_CD"></xf:value>
+    							</xf:itemset>
+    						</xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="팝업 샘플">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+			</w2:dataCollection>
+			<w2:workflowCollection>
+			</w2:workflowCollection>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+    scwin.onpageload = function() {
+		var tmpJSON;
+	    var frameID = $p.getFrameId();
+	    if(frameID == "mf"){
+	    	// window Popup으로 띄운 경우 
+	    	tmpJSON = $w.getParameter( "rowObj" ); 
+	    }else{
+	    	// layer Popup으로 띄운 경우
+	    	tmpJSON = $p.getParameter( "rowObj" ); 
+	    }
+	    
+	    txtTitle.setValue( tmpJSON.title );
+	    img.setSrc( tmpJSON.img );
+	    spnPrice.setValue( tmpJSON.price );
+	    
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	    
+	scwin.trigger1_onclick = function(e){
+		var frameID = $p.getFrameId();
+	    if(frameID == "mf"){
+	    	// window Popup으로 띄운 경우 
+	    	$p.closePopup();
+	    }else{
+	    	// layer Popup으로 띄운 경우
+	    	$p.parent().scwin.closePopup();
+	    }
+	};
+	
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group id="" style="padding: 6px;" class="">
+			<w2:textbox id="txtTitle" label="" ref="" style="margin-bottom: 6px;min-height: 12px;" tagname="h2">
+			</w2:textbox>
+			<xf:group id="" style="margin-bottom: 6px;text-align: center;">
+				<xf:image id="img" ref="" style="width: 90px;height: 120px;margin-bottom: 6px;" src=""></xf:image>
+				<xf:group id="" style="margin-bottom: 6px;">
+					<w2:span style="font: bold 11px tahoma;margin-right: 4px;" label="PRICE : "></w2:span>
+					<w2:span ref="" dataType="number" style="font: bold 11px tahoma;"
+						label="" displayFormat="$#,###.#0" id="spnPrice"></w2:span>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+		<xf:group id="" style="text-align: center;left: 0px;right: 0px;bottom: 6px;"><xf:trigger id="trigger1" style="width: 60px;height: 25px;" ev:onclick="scwin.trigger1_onclick" type="button">
+			<xf:label>close</xf:label>
+		</xf:trigger></xf:group>
+	</body>
+</html>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="udc 사용 화면">
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map"></w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    	</xf:model>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+        
+			scwin.onpageload = function() {
+				
+				
+			};
+			
+			scwin.onpageunload = function() {		
+			
+			};
+		
+		
+		]]></script>
+    	<style type="text/css"><![CDATA[
+    		.acd01Box{
+    			border-left:1px solid #c0c0c0;
+    			border-right:1px solid #c0c0c0;
+    			border-bottom: 1px solid #c0c0c0;
+    		}
+    		/*#497ba4, #00bba9, #64c0be*/
+    		.w2accordion{
+    			border-style:none;
+    		}
+    		.w2accordion, .w2panels_content_open{
+    			overflow: inherit;
+    		}
+    		.w2accordion.acd01 .w2panels_title{
+    			background: none;
+    			background-color: #497ba4;
+    			padding: 6px;
+    			color: #fff;
+    			border-style:none;
+    			border-bottom:1px solid #ddd;
+    		}
+    		.w2accordion.acd02 .w2panels_title{
+    		    background-color: #eee;
+			    color: #497ba4;
+			    padding: 4px 6px;
+			    border-style:none;
+			    border-bottom:1px solid #dbdbdb;
+		    }
+		    .w2accordion.acd01 .w2panel_title_text{
+		    	font-size: 14px;
+		    }
+		    
+		    .w2accordion.acd02 .w2panel_title_text{
+		    	font-size: 12px;
+		    }
+		    .w2accordion .w2panels_title{
+		    	overflow: hidden;
+		    }
+		    
+		    .w2accordion .w2panels_title span{
+		    	float:left;
+		    }
+		    
+		    .w2accordion .w2panels_title div{
+		    	float:right;
+		    }
+		    
+		    .w2accordion .w2panels_title_image{
+		    	background: url(/ws5/img/accordion_close01.png) no-repeat center center;
+    			background-size: 16px;
+    		}
+    		
+    		.w2accordion .w2panels_title_image_open{
+		    	background: url(/ws5/img/accordion_open01.png) no-repeat center center;
+    			background-size: 16px;
+    		}
+		    
+		    
+		    .w2accordion .w2panels{border-style:none;}
+		    .w2accordion .w2panel_title_text{line-height: 25px;padding-top:0px;vertical-align: none;}
+		    
+		    .w2panels_content_open>.w2group, .genProduct>.w2group {border-top:1px solid #eee;}
+		    .w2panels_content_open>.w2group:first-child, .genProduct>.w2group:first-child{border-top-style:none;}
+    		
+    		.txtOpt{padding:6px 20px;background-color: #64c0be; color:#fff;}
+    		.txtAmount{font-weight:bold; font-size:24px;margin-right:10px;}
+    		.txtAmount:after, .txtAmount::after{
+    			content: " 원";
+    			font-size:12px;
+    			color:#999;
+    		}
+    		.txtTot{
+    			color: #ff6347;
+    			font-weight:bold;
+    			font-size:24px;
+    		}
+    		.txtTot:after, .txtTot::after{
+    			content: "원";
+    			font-size:12px;
+    		}
+    		.btnTotAch{
+    			display: block;
+    			text-align:center;
+    			background-color: #ff6347;/*64c0be*/
+    		}
+    		.btnTotAch a{
+    			display: block;
+    			line-height:50px;
+    			color: #fff;
+    			font-weight:bold;
+    			font-size:24px;
+    		}
+    		.btnTotAch a:after, .btnTotAch a::after{
+    			content: "원 결제하기";
+    			font-size:14px;
+    			font-weight:normal;
+    		}
+    	]]></style>
+    	<w2:require src="/ws5/sample/udc/frToCal_udc.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    <xf:group style="" id="" class="wrapper">
+    	<xf:group style="padding: 10px;" id="" class="section_desc">
+    		<w2:textbox tagname="" style="" id=""
+    			label='udc를 컴포넌트를 활용한 샘플이다.&lt;br/&gt;( source : fn_udcFromToCalendar.xml )'>
+    		</w2:textbox>
+    		
+    	</xf:group><xf:group class="mb20" id="" style="">
+    			<xf:group class="ofh dmb" id="" style="">
+    				<w2:textbox class="df_tt fl" id="" label="UDC (From To Calendar)" style="" tagname=""></w2:textbox>
+    			</xf:group>
+    			<xf:group class="" id="grpUdc" style="border: 1px solid olive;padding: 10px;">
+    				<w2:udc_fromtoCalendar style="width: 300px;height: 23px;" id="udcFromTo"></w2:udc_fromtoCalendar>
+    			</xf:group>
+</xf:group></xf:group></body>
+</html>

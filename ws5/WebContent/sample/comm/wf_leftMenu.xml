@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="좌측메뉴">
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    	</xf:model>
+		<style type="text/css"><![CDATA[
+
+    	]]></style>
+    	<script type="javascript" lazy="false"><![CDATA[ 
+	// 토글형 메뉴 셋팅
+	scwin.fn_setToggleMenu = function(dataListId) {
+		var tmpDataArr = $p.getComponentById(dataListId).getAllJSON(),
+			tmpParentIdx = 0,
+			dataObj,
+			menuDepth,
+			parentKey,
+			tmpIdx,
+			i,
+			firstMenuLabel,
+			menuGrp,
+			secondGen,
+			secondMenuLabel;
+	
+		//첫번째 메뉴 셋팅
+		for (i=0; i<tmpDataArr.length; i++) {
+			dataObj = tmpDataArr[i];
+			menuDepth = dataObj.depth;
+			parentKey = dataObj.key; // m1, m2
+			tmpIdx = 0;
+	
+			if (menuDepth === "1") {
+				// first generator에 컴포넌트 삽입 후, 값을 셋팅.
+				tmpParentIdx = firstMenuGen.insertChild();
+	
+				firstMenuLabel = firstMenuGen.getChild(tmpParentIdx, "menu1_label");
+				firstMenuLabel.setValue(dataObj.label);
+	
+				// 메뉴를 기본으로 펼쳐서 셋팅.
+				menuGrp = firstMenuGen.getChild(tmpParentIdx, "firstMenuGrp");
+				menuGrp.toggleClass("btn_01_open");
+	
+			} else if (menuDepth === "2") {
+				secondGen = firstMenuGen.getChild(tmpParentIdx, "secondMenuGen");
+				secondGen.setUserData("menuOpenYn", "Y");
+	
+				// second generator에 컴포넌트 삽입 후, 값을 셋팅.
+				tmpIdx = secondGen.insertChild();
+	
+				secondMenuLabel = secondGen.getChild(tmpIdx, "menu2_label");
+				secondMenuLabel.setValue(dataObj.label);
+				secondMenuLabel.setUserData("ins_webPath", dataObj.webPath);
+				secondMenuLabel.setUserData("ins_key", dataObj.key);
+			}
+		}
+	};
+	
+	// 자녀 노드 보여주기
+	scwin.fn_clickFirstMenu = function(firstGenIdStr, secondGenIdStr, menuIndex) {
+		var firstGenObj = $p.getComponentById(firstGenIdStr),
+			secondGenObj = firstGenObj.getChild(menuIndex, secondGenIdStr),
+			menuGrp = firstGenObj.getChild(menuIndex, "firstMenuGrp");
+		
+		menuGrp.toggleClass("btn_01_open");
+	
+		if(secondGenObj.getUserData("menuOpenYn") === "Y") {
+			secondGenObj.hide();
+			secondGenObj.setUserData("menuOpenYn", "N");
+		}else{
+			secondGenObj.show();
+			secondGenObj.setUserData("menuOpenYn", "Y");
+		}
+	};
+	
+	//left Menu에서 사용
+	scwin.fn_slideBtnClick = function() {
+		$p.main().contentGrp.toggleClass("reset");
+		$p.main().leftMenuGrp.toggleClass("leftMenuGrpHide");
+	};    			
+	
+	scwin.menu1_label_onclick = function(){
+		scwin.fn_clickFirstMenu("firstMenuGen", "secondMenuGen", this.getGeneratedIndex());
+	};
+	
+	scwin.menu2_label_onclick = function(){
+		// Main에 있는 함수를 찾아야 함.
+		$p.main().scwin.fn_clickSecondMenu( this.getUserData("ins_key"),this.getValue(), this.getUserData("ins_webPath") , this.getValue());
+	};
+	
+	scwin.leftSlideBtn_onclick = function(e){
+		scwin.fn_slideBtnClick();
+	};
+		]]></script>
+    </head>
+    <body>
+    	<xf:group id="slideGrp" class="slide" style="position: relative;width:200px;height:100%;border-right: 1px solid #b0b0b0;">
+    		<w2:generator id="firstMenuGen" style="">
+    			<xf:group id="menuGenGrp" class="" style="">
+    				<xf:group id="firstMenuGrp" style="" class="leftMenuLbl1">
+    					<w2:anchor id="menu1_label" style="" class="" clickEventElement="outerDiv" ev:onclick="scwin.menu1_label_onclick">
+    						<xf:label></xf:label>
+    					</w2:anchor>
+    				</xf:group>
+    				<w2:generator id="secondMenuGen" style="">
+    					<xf:group id="secondMenuGrp" style="" class="leftMenuLbl2">
+    						<w2:anchor id="menu2_label" style="" class="" clickEventElement="outerDiv"
+    							ev:onclick="scwin.menu2_label_onclick">
+    							<xf:label></xf:label>
+    						</w2:anchor>
+    					</xf:group>
+    				</w2:generator>
+    			</xf:group>
+    		</w2:generator>
+    	</xf:group>
+    	<xf:group class="" id="leftSlideBtn" style="background-color: #4c4c4c;border-radius:0px 5px 5px 0px;position: absolute;top:0px;right: 0px;width: 9px;height : 60px;cursor:pointer;" ev:onclick="scwin.leftSlideBtn_onclick" toolTip="Menu Show/Hide"></xf:group>
+    </body>
+</html>

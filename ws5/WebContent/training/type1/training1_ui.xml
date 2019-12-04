@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="1일차 샘플 화면">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model ev:submit="scwin.sub_select_submit" ev:submitdone="scwin.sub_select_submitdone">
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" repeatNode="map" id="dc_code" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="CODE_CD" name="코드값" dataType="text"></w2:column>
+        				<w2:column id="CODE_NM" name="코드명" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        			<w2:data use="true">
+        				<w2:row>
+        					<CODE_CD><![CDATA[01]]></CODE_CD>
+        					<CODE_NM><![CDATA[개발자]]></CODE_NM>
+        				</w2:row>
+        				<w2:row>
+        					<CODE_CD><![CDATA[02]]></CODE_CD>
+        					<CODE_NM><![CDATA[설계자]]></CODE_NM>
+        				</w2:row>
+        				<w2:row>
+        					<CODE_CD><![CDATA[03]]></CODE_CD>
+        					<CODE_NM><![CDATA[DBA]]></CODE_NM>
+        				</w2:row>
+        				<w2:row>
+        					<CODE_CD><![CDATA[04]]></CODE_CD>
+        					<CODE_NM><![CDATA[PM]]></CODE_NM>
+        				</w2:row>
+        				<w2:row>
+        					<CODE_CD><![CDATA[05]]></CODE_CD>
+        					<CODE_NM><![CDATA[PL]]></CODE_NM>
+        				</w2:row>
+        			</w2:data>
+        		</w2:dataList>
+        		<w2:dataMap baseNode="map" id="dc_reqUserInfo">
+        			<w2:keyInfo>
+        				<w2:key id="EMP_CD" name="사용자 코드" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataMap baseNode="map" id="dc_userInfo">
+        			<w2:keyInfo>
+        				<w2:key id="EMP_CD" name="사번" dataType="text"></w2:key>
+        				<w2:key id="EMP_NM" name="성명" dataType="text"></w2:key>
+        				<w2:key id="GENDER_CD" name="성별" dataType="text"></w2:key>
+        				<w2:key id="JOIN_DATE" name="입사일" dataType="text"></w2:key>
+        				<w2:key id="POSITION_CD" name="직급" dataType="text"></w2:key>
+        				<w2:key id="DUTY_CD" name="직책" dataType="text"></w2:key>
+        				<w2:key id="ROLE_CD" name="역할" dataType="text"></w2:key>
+        				<w2:key id="ASSIGNED_TASK" name="담당 업무" dataType="text"></w2:key>
+        				<w2:key id="EMAIL" name="이메일" dataType="text"></w2:key>
+        				<w2:key id="ZIP_CD" name="우편번호" dataType="text"></w2:key>
+        				<w2:key id="ADDRESS1" name="주소1" dataType="text"></w2:key>
+        				<w2:key id="ADDRESS2" name="주소2" dataType="text"></w2:key>
+        				<w2:key id="CREATED_DATE" name="입력일" dataType="text"></w2:key>
+        				<w2:key id="UPDATED_DATE" name="수정일" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="sub_select" ref="data:json,dc_reqUserInfo" target="data:json,dc_userInfo"
+        		action="/ws5/training/getUserInfo.do" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+        		errorHandler="" customHandler="" mode="asynchronous" processMsg="loading..." ev:submit="scwin.sub_select_submit"
+        		ev:submitdone="scwin.sub_select_submitdone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+
+	scwin.onpageload = function() {
+		//alert("안녕하세요");
+		ui_name.setValue("박훈성뚱땡이");
+		ui_join.setValue($p.getCurrentServerDate("yyyyMMdd"));
+		ui_gender.addItem('M', '남', 0);
+		ui_gender.addItem('F', '여', 1);
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	scwin.sub_select_submit = function(e) {
+		dc_reqUserInfo.set('EMP_CD', ui_empcd.getValue());
+	};
+	
+	scwin.sub_select_submitdone = function(e) {
+		
+	};
+	
+	scwin.btn_select_onclick = function(e) {
+		$p.executeSubmission("sub_select");
+	};
+	
+	
+	
+	
+	
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="padding: 10px;" id="" class="">
+    		<w2:textbox label="컴포넌트 데이터 셋팅하기" style="margin-bottom: 10px;" id=""
+    			tagname="h2">
+    		</w2:textbox>
+    		<xf:group style="border: 1px solid gray;padding: 10px;overflow: hidden;margin-bottom: 10px;" id="" class="">
+    			<xf:input adjustMaxLength="false" id="ui_empcd" style="width: 144px;height: 21px;" ref="data:dc_reqUserInfo.EMP_CD"></xf:input>
+    			<xf:trigger type="button" style="width: 80px;height: 23px;float: right;" id="btn_select"
+    				ev:onclick="scwin.btn_select_onclick">
+    				<xf:label><![CDATA[조회]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    		<xf:group tagname="table" style="width:100%;" id=""
+    			class="w2tb" adaptive="layout" adaptiveThreshold="700">
+    			<w2:attributes>
+    				<w2:summary></w2:summary>
+    			</w2:attributes>
+    			<xf:group tagname="caption"></xf:group>
+    			<xf:group tagname="colgroup">
+    				<xf:group tagname="col" style="width:100px;"></xf:group>
+    				<xf:group tagname="col" style=""></xf:group>
+    				<xf:group tagname="col" style="width:100px;"></xf:group>
+    				<xf:group tagname="col" style=""></xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">이름<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:input id="ui_name"
+    						style="width: 144px;" ref="data:dc_userInfo.EMP_NM" initValue="">
+    					</xf:input>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">직책<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:select1 allOption="true" appearance="minimal" chooseOption="true" direction="auto" disabled="false"
+    						disabledClass="w2selectbox_disabled" displayMode="label" id="ui_duty" optionOrder="false" selectedData="true"
+    						style="width: 148px;height: 21px;" submenuSize="auto" ref="data:dc_userInfo.DUTY_CD" chooseOptionLabel="">
+    						<xf:choices>
+    							<xf:item>
+    								<xf:label><![CDATA[부장]]></xf:label>
+    								<xf:value><![CDATA[01]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[과장]]></xf:label>
+    								<xf:value><![CDATA[02]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[차장]]></xf:label>
+    								<xf:value><![CDATA[03]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[대리]]></xf:label>
+    								<xf:value><![CDATA[04]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[벌레]]></xf:label>
+    								<xf:value><![CDATA[05]]></xf:value>
+    							</xf:item>
+    						</xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">가입일<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<w2:inputCalendar footerDiv="false" id="ui_join"
+    						weekStartsOn="0" style="width: 150px;height: 24px;"
+    						renderDiv="true" focusOnDateSelect="false"
+    						calendarValueType="yearMonthDate" rightAlign="false"
+    						renderType="component" ref="data:dc_userInfo.JOIN_DATE">
+    					</w2:inputCalendar>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">성별<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:select1 appearance="full" id="ui_gender" selectedIndex="-1" style="min-width: 150px;min-height: 12px;" cols=""
+    						ref="data:dc_userInfo.GENDER_CD" rows="1">
+    						<xf:choices></xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">이메일<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:input id="ui_email"
+    						style="width: 100%;" ref="data:dc_userInfo.EMAIL">
+    					</xf:input>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">역할<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:select selectedindex="-1" id="ui_role" appearance="full" style="min-width: 150px;min-height: 12px;" cols=""
+    						rows="1" ref="data:dc_userInfo.ROLE_CD">
+    						<xf:choices>
+    							<xf:itemset nodeset="data:dc_code">
+    								<xf:label ref="CODE_NM"></xf:label>
+    								<xf:value ref="CODE_CD"></xf:value>
+    							</xf:itemset>
+    						</xf:choices>
+    					</xf:select>
+    				</xf:group>
+    			</xf:group>
+    		<xf:group tagname="tr" style=""><xf:group tagname="th" class="w2tb_th">입력일<w2:attributes><w2:scope>row</w2:scope></w2:attributes></xf:group>
+    			<xf:group tagname="td" class="w2tb_td">
+    				<w2:attributes></w2:attributes>
+    				<w2:inputCalendar footerDiv="false" id="" style="width: 150px;height: 23px;" renderDiv="true" focusOnDateSelect="false"
+    					calendarValueType="yearMonthDate" rightAlign="false" renderType="component" ref="data:dc_userInfo.CREATED_DATE">
+    				</w2:inputCalendar>
+    			</xf:group>
+    			<xf:group tagname="th" class="w2tb_th">수정일<w2:attributes><w2:scope>row</w2:scope></w2:attributes></xf:group>
+    			<xf:group tagname="td" class="w2tb_td">
+    				<w2:attributes></w2:attributes>
+    				<w2:inputCalendar footerDiv="false" id="" style="width: 150px;height: 23px;" renderDiv="true" focusOnDateSelect="false"
+    					calendarValueType="yearMonthDate" rightAlign="false" renderType="component" ref="data:dc_userInfo.UPDATED_DATE">
+    				</w2:inputCalendar>
+    			</xf:group></xf:group></xf:group>
+    	</xf:group>
+    </body>
+</html>

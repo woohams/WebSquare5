@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="동적 컴포넌트 생성">
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map"></w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    	</xf:model>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+		
+	};
+	
+	scwin.onpageunload = function() {		
+	
+	};
+	
+	
+	scwin.btn_makeBtn_onclick = function(e) {
+		// trigger 생성 
+		$p.dynamicCreate(
+			"btnTest",
+			"trigger",
+			{
+				style : "width:100px; height:20px; margin-right:5px;"
+				//className : _divStyle
+			}, 
+			grpParent  //생성할 object의 부모
+		);
+		
+		btnTest.setValue("confirm");
+	};
+	
+	scwin.btn_makeInput_onclick = function(e) {
+		// inputBox 생성 
+		$p.dynamicCreate(
+			"iptTest",
+			"input",
+			{
+				style : "width:100px; height:20px; margin-right:5px;"
+				//className : _divStyle
+			}, 
+			grpParent  //생성할 object의 부모
+		);
+		
+		btnTest.bind( "onclick" , function(){alert(iptTest.getValue());} );
+	};
+	]]></script>
+    	<style type="text/css"><![CDATA[
+    		.acd01Box{
+    			border-left:1px solid #c0c0c0;
+    			border-right:1px solid #c0c0c0;
+    			border-bottom: 1px solid #c0c0c0;
+    		}
+    		/*#497ba4, #00bba9, #64c0be*/
+    		.w2accordion{
+    			border-style:none;
+    		}
+    		.w2accordion, .w2panels_content_open{
+    			overflow: inherit;
+    		}
+    		.w2accordion.acd01 .w2panels_title{
+    			background: none;
+    			background-color: #497ba4;
+    			padding: 6px;
+    			color: #fff;
+    			border-style:none;
+    			border-bottom:1px solid #ddd;
+    		}
+    		.w2accordion.acd02 .w2panels_title{
+    		    background-color: #eee;
+			    color: #497ba4;
+			    padding: 4px 6px;
+			    border-style:none;
+			    border-bottom:1px solid #dbdbdb;
+		    }
+		    .w2accordion.acd01 .w2panel_title_text{
+		    	font-size: 14px;
+		    }
+		    
+		    .w2accordion.acd02 .w2panel_title_text{
+		    	font-size: 12px;
+		    }
+		    .w2accordion .w2panels_title{
+		    	overflow: hidden;
+		    }
+		    
+		    .w2accordion .w2panels_title span{
+		    	float:left;
+		    }
+		    
+		    .w2accordion .w2panels_title div{
+		    	float:right;
+		    }
+		    
+		    .w2accordion .w2panels_title_image{
+		    	background: url(/ws5/img/accordion_close01.png) no-repeat center center;
+    			background-size: 16px;
+    		}
+    		
+    		.w2accordion .w2panels_title_image_open{
+		    	background: url(/ws5/img/accordion_open01.png) no-repeat center center;
+    			background-size: 16px;
+    		}
+		    
+		    
+		    .w2accordion .w2panels{border-style:none;}
+		    .w2accordion .w2panel_title_text{line-height: 25px;padding-top:0px;vertical-align: none;}
+		    
+		    .w2panels_content_open>.w2group, .genProduct>.w2group {border-top:1px solid #eee;}
+		    .w2panels_content_open>.w2group:first-child, .genProduct>.w2group:first-child{border-top-style:none;}
+    		
+    		.txtOpt{padding:6px 20px;background-color: #64c0be; color:#fff;}
+    		.txtAmount{font-weight:bold; font-size:24px;margin-right:10px;}
+    		.txtAmount:after, .txtAmount::after{
+    			content: " 원";
+    			font-size:12px;
+    			color:#999;
+    		}
+    		.txtTot{
+    			color: #ff6347;
+    			font-weight:bold;
+    			font-size:24px;
+    		}
+    		.txtTot:after, .txtTot::after{
+    			content: "원";
+    			font-size:12px;
+    		}
+    		.btnTotAch{
+    			display: block;
+    			text-align:center;
+    			background-color: #ff6347;/*64c0be*/
+    		}
+    		.btnTotAch a{
+    			display: block;
+    			line-height:50px;
+    			color: #fff;
+    			font-weight:bold;
+    			font-size:24px;
+    		}
+    		.btnTotAch a:after, .btnTotAch a::after{
+    			content: "원 결제하기";
+    			font-size:14px;
+    			font-weight:normal;
+    		}
+    	]]></style>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    <xf:group style="" id="" class="wrapper">
+    	<xf:group style="padding: 10px;" id="" class="section_desc">
+    		<w2:textbox tagname="" style="" id=""
+    			label='API를 이용하여 동적으로 컴포넌트를 생성하는 샘플이다.&lt;br/&gt;( source : fn_dynamicCreate.xml )'>
+    		</w2:textbox>
+    		
+    	</xf:group><xf:group class="mb20" id="" style="">
+    			<xf:group class="ofh dmb" id="" style="">
+    				<w2:textbox class="df_tt fl" id="" label="컴포넌트 동적생성" style="" tagname=""></w2:textbox>
+    				<xf:trigger class="fr" ev:onclick="scwin.btn_makeInput_onclick" id="btn_makeInput" style="width: 80px;height: 23px;" type="button">
+    					<xf:label><![CDATA[input 생성]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="dmr fr" ev:onclick="scwin.btn_makeBtn_onclick" id="btn_makeBtn" style="width: 80px;height: 23px;" type="button">
+    					<xf:label><![CDATA[버튼 생성]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<xf:group class="" id="grpParent" style="border: 1px solid olive;padding: 10px;">
+    			</xf:group>
+    		</xf:group></xf:group></body>
+</html>

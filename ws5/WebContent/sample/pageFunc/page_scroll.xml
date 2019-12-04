@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="gridView_scrollEndPage">
+		<title>사용자 관리</title>
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList id="dlt_Member" baseNode="list" saveRemovedData="true" repeatNode="map"
+					ev:ondataload="" ev:oninsertrow="" ev:onremoverow="">
+					<w2:columnInfo>
+						<w2:column id="EMP_CD" name="코드" dataType="text"></w2:column>
+						<w2:column id="EMP_NM" name="성명" dataType="text"></w2:column>
+						<w2:column id="GENDER_CD" name="성별" dataType="text" defaultValue=""></w2:column>
+						<w2:column id="JOIN_DATE" name="입사일" dataType="text"></w2:column>
+						<w2:column id="POSITION_CD" name="직위" dataType="text"></w2:column>
+						<w2:column id="DUTY_CD" name="직책" dataType="text"></w2:column>
+						<w2:column id="ROLE_CD" name="역할" dataType="text"></w2:column>
+						<w2:column id="ASSIGNED_TASK" name="담당업무" dataType="text"></w2:column>
+						<w2:column id="EMAIL" name="이메일" dataType="text"></w2:column>
+						<w2:column id="ZIP_CD" name="우편번호" dataType="text"></w2:column>
+						<w2:column id="ADDRESS1" name="주소1" dataType="text"></w2:column>
+						<w2:column id="ADDRESS2" name="주소2" dataType="text"></w2:column>
+						<w2:column id="IMAGE_PATH" name="이미지경로" dataType="text" defaultValue="/ws5/img/blank.png"></w2:column>
+						<w2:column id="CREATED_DATE" name="생성일자" dataType="text"></w2:column>
+						<w2:column id="UPDATED_DATE" name="수정일자" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_Search">
+					<w2:keyInfo>
+						<w2:key id="TOTAL_YN" name="총건수 조회여부" dataType="text"></w2:key>
+						<w2:key id="startNum" name="시작 순번" dataType="text"></w2:key>
+						<w2:key id="endNum" name="끝 순번" dataType="text"></w2:key><w2:key id="count" name="화면 행수" dataType="text"></w2:key>
+						<w2:key id="searchParam" name="검색 파라메터" dataType="text"></w2:key>
+						<w2:key id="searchType" name="검색 타입" dataType="text"></w2:key>
+						
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+			<xf:submission id="sbm_select" ref='data:json,dma_Search' target='' action="/edu/selectMemberListScroll.do"
+				method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="" ev:submit="" ev:submitdone="scwin.sbm_select_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
+		<script type="javascript" lazy="false"><![CDATA[ 
+	scwin.append = false;
+	scwin.totalCnt = 0;
+	
+	//[조회]버튼 클릭 시
+	scwin.btn_Search_onclick = function() {
+		scwin.append = false;
+		scwin.searchMain(0, "Y");
+	};
+	
+	/**
+	 * 조회 (현재 샘플은 100개씩 조회할 경우 기준) 
+	 * param1 - 조회 시작 순번
+	 * param2 - 총 건수 조회 여부 
+	 */
+	scwin.searchMain = function(idx, strYn){
+		dma_Search.set("TOTAL_YN" , strYn);
+		dma_Search.set("startNum", idx);
+		dma_Search.set("endNum", 100);
+		dma_Search.set("count" , 100);
+		$p.executeSubmission( "sbm_select" );
+	};
+	
+	//page onload event
+	scwin.onpageload = function() {
+		var _str01 = grd_Member.getID() + ":DUTY_CD";
+		var _str02 = grd_Member.getID() + ":POSITION_CD";
+		var _str19 = grd_Member.getID() + ":ROLE_CD";
+		var _str101 = grd_Member.getID() + ":GENDER_CD";
+		
+		//코드 데이터 불러오기
+		com.setCommonCode([
+				{"code":"01","compID":_str01},
+				{"code":"02","compID":_str02},
+				{"code":"19","compID":_str19},
+				{"code":"101","compID":_str101}
+		]);
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	//검색 타입에 따른 파라메터 셋팅
+	scwin.setSearchParam = function(){
+		var tmpType = dma_Search.get("searchType");
+		var tmpParam = "";
+		
+		if(tmpType == ""){
+				
+		}else if(tmpType == "name"){
+			tmpParam = idx_pName.getValue();
+		
+		}else if(tmpType == "email"){
+			tmpParam = idx_pEmail.getValue();
+		}
+		
+		dma_Search.set("searchParam",tmpParam.trim());
+	};
+	
+	//sbm_select 실행 후
+	scwin.sbm_select_submitdone = function(e) {
+		if(e.responseJSON.msgCode == "S"){
+			var firstYn = dma_Search.get( "TOTAL_YN" );
+				
+			// 최초 조회일 경우에만 전체 건수를 구하여 전역변수에 담는다.
+			if (firstYn == "Y") {
+				scwin.totalCnt = e.responseJSON.TOTAL_CNT;
+			}
+			dlt_Member.setJSON( e.responseJSON.dlt_Member, scwin.append );
+		}
+		
+	};
+	
+	//데이터 조회 이전에 수정 데이터가 있는 경우
+	scwin.btn_Search_confirm_callback = function(returnValue){
+		if(returnValue === true){
+			$p.executeSubmission( "sbm_selectAll" );
+		}
+	};
+	
+	//grid의 cell click 시
+	scwin.grd_Member_oncellclick = function(row,col) {
+		var colId = this.getColumnID( col );
+		var rowJSON,rowStatus;
+	};
+	
+	//[검색 조건] 변경 시
+	scwin.sbx_SearchType_onviewchange = function(info) {
+		var tmpType = info.newValue;
+		var boxName = "case_"+tmpType;
+		swh_SearchParamBox.setSelectedID( boxName );
+		
+		if(tmpType == "name"){
+			idx_pName.focus();	
+		}else if(tmpType == "email"){
+			idx_pEmail.focus();
+		}
+	};
+	
+	// scroll end 시 추가 내용 조회 
+	scwin.grd_Member_onscrollend = function() {
+		var startRow = dlt_Member.getRowCount();
+			
+		// 전체 건수보다 조회된 건수가 작을 경우에만 추가 조회를 한다.
+		if (scwin.totalCnt > startRow) {
+			scwin.append = true;
+			scwin.searchMain(startRow, "N");
+		}
+	};
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group class="wrapper" id="" style="">
+			<xf:group class="section_desc dmb" id="" style="">
+				<w2:textbox id="" label="그리드뷰에서 ScrollEnd 방식의 조회가 구현되어있다." style="" tagname=""></w2:textbox>
+			</xf:group>
+			<xf:group class="searchbox dmb" id="" style="">
+				<xf:group class="w2tb" id="" style="" tagname="table">
+					<w2:attributes>
+						<w2:summary></w2:summary>
+					</w2:attributes>
+					<xf:group tagname="colgroup">
+						<xf:group style="width:120.00px;" tagname="col"></xf:group>
+						<xf:group style="" tagname="col"></xf:group>
+					</xf:group>
+					<xf:group style="" tagname="tr">
+						<xf:group class="w2tb_th" style=""
+							tagname="th">검색&amp;nbsp;조건</xf:group>
+						<xf:group class="w2tb_td" style="" tagname="td">
+							<xf:group id="" style="" class="ofh fl">
+								<xf:select1 disabledClass="w2selectbox_disabled" appearance="minimal" chooseOptionLabel="-전체-"
+									direction="auto" chooseOption="true" class="fl dmr" displayMode="label" selectedData="true" optionOrder="false"
+									ev:onviewchange="scwin.sbx_SearchType_onviewchange" id="sbx_SearchType" ref="data:dma_Search.searchType" style="width: 100px;"
+									allOption="" disabled="false" submenuSize="auto">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[이름]]></xf:label>
+											<xf:value><![CDATA[name]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[이메일]]></xf:label>
+											<xf:value><![CDATA[email]]></xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select1>
+								<xf:switch id="swh_SearchParamBox" caseClass="" motionDisplay=""
+									style="width: 200px;height: 22px;position: relative;" class="fl">
+									<xf:case id="case_" style="position:absolute;width:100%;height:100%;" class=""></xf:case>
+									<xf:case id="case_name" style="position:absolute;width:100%;height:100%;" class="">
+										<xf:input id="idx_pName" style="width:150px;"></xf:input>
+									</xf:case>
+									<xf:case id="case_email" style="position:absolute;width:100%;height:100%;" class="">
+										<xf:input id="idx_pEmail" style="width:150px;"></xf:input>
+									</xf:case>
+								</xf:switch>
+							</xf:group>
+
+							<xf:trigger class="btnRed fr" ev:onclick="scwin.btn_Search_onclick" id="btn_Search" style=""
+								type="button">
+								<xf:label><![CDATA[조회]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="defaultbox" id="" style="">
+				<xf:group class="titlebox" id="" style="">
+					<w2:textbox class="df_tt" id="" label="사용자 목록" style="" tagname="h2"></w2:textbox>
+					<xf:input id="ibx_fake" style="width:0px;height:0px;border-style:none;"></xf:input>
+					<xf:group class="fr ofh" id="" style="">
+						<xf:group id="" style="line-height: 22px;" class="dmr fl">
+							<w2:span id="" dataType="text" style="" class="df_total" label="총" displayFormat=""></w2:span>
+							<w2:span id="" ref="" dataType="number" style="" class="df_total num" label="0"
+								displayFormat="#,##0">
+							</w2:span>
+							<w2:span id="span2" dataType="" style="" class="df_total" label="건" displayFormat=""></w2:span>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<w2:gridView autoFit="allColumn" autoFitMinWidth="800" class="cm_grid" dataList="dlt_Member" fixedColumnWithHidden="true"
+					id="grd_Member" ignoreCellClick="false" ignoreToggleOnDisabled="false" scrollByColumn="false" scrollByColumnAdaptive="false"
+					style="height: 300px;" summaryAuto="false" useShiftKey="true" rowNumVisible="true" rowNumWidth="40" rowNumHeaderValue="번호"
+					visibleRowNum="10" readOnly="true" useFilterList="true" autoFitFilterList="true" rowStatusVisible="true" rowStatusWidth="40"
+					rowStatusHeaderValue="상태" fixedColumn="1" tooltipDisplay="true" tooltipShowAlways="" focusMode="row"
+					ev:oncellclick="scwin.grd_Member_oncellclick" useCtrlKey="false" ev:onscrollend="scwin.grd_Member_onscrollend">
+					<w2:header id="header1" style="">
+						<w2:row id="row1" style="">
+							<w2:column blockSelect="false" id="column27" style="height:30px;" inputType="text" width="86"
+								displayMode="label" value="성명" sortable="true" class="">
+							</w2:column>
+							<w2:column blockSelect="false" id="column25" style="height:30px;" inputType="text" width="59"
+								displayMode="label" value="성별" sortable="true" class="" useFilter="">
+							</w2:column>
+							<w2:column blockSelect="false" id="column23" style="height:30px;" inputType="text" width="91"
+								displayMode="label" value="입사일" sortable="true" class="">
+							</w2:column>
+							<w2:column blockSelect="false" id="column21" style="height:30px;" inputType="text" width="70"
+								displayMode="label" value="직책" sortable="true" class="" useFilter="">
+							</w2:column>
+							<w2:column blockSelect="false" id="column19" style="height:30px;" inputType="text" width="70"
+								displayMode="label" value="직위" sortable="true" class="" useFilter="">
+							</w2:column>
+							<w2:column blockSelect="false" id="column17" style="height:30px;" inputType="text" width="70"
+								displayMode="label" value="역할" sortable="true" class="" useFilter="">
+							</w2:column>
+							<w2:column blockSelect="false" id="column15" style="height:30px;" inputType="text" width="82"
+								displayMode="label" value="담당업무" sortable="true">
+							</w2:column>
+							<w2:column blockSelect="false" id="column13" style="height:30px;" inputType="text" width="195"
+								displayMode="label" value="이메일">
+							</w2:column>
+							<w2:column blockSelect="false" id="column28" style="height:30px;" inputType="text" width="104"
+								displayMode="label" value="수정일">
+							</w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody id="gBody1" style="">
+						<w2:row id="row2" style="">
+							<w2:column blockSelect="false" id="EMP_NM" style="height:30px;" inputType="text" width="86"
+								displayMode="label">
+							</w2:column>
+							<w2:column blockSelect="false" id="GENDER_CD" style="height:30px;" inputType="select" width="59"
+								displayMode="label">
+								<w2:choices></w2:choices>
+							</w2:column>
+							<w2:column blockSelect="false" id="JOIN_DATE" style="height:30px;" inputType="calendar" width="91"
+								displayMode="label">
+							</w2:column>
+							<w2:column blockSelect="false" id="DUTY_CD" style="height:30px;" inputType="select" width="70"
+								displayMode="label">
+								<w2:choices></w2:choices>
+							</w2:column>
+							<w2:column blockSelect="false" id="POSITION_CD" style="height:30px;" inputType="select" width="70"
+								displayMode="label">
+								<w2:choices></w2:choices>
+							</w2:column>
+							<w2:column blockSelect="false" id="ROLE_CD" style="height:30px;" inputType="select" width="70"
+								displayMode="label" allOption="" chooseOption="">
+								<w2:choices></w2:choices>
+							</w2:column>
+							<w2:column blockSelect="false" id="ASSIGNED_TASK" style="height:30px;" inputType="text" width="82"
+								displayMode="label">
+							</w2:column>
+							<w2:column blockSelect="false" id="EMAIL" style="height:30px;" inputType="text" width="195"
+								displayMode="label">
+							</w2:column>
+							<w2:column blockSelect="false" id="UPDATED_DATE" style="height:30px" inputType="text" width="104"
+								displayMode="label">
+							</w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+			</xf:group><!-- 컨텐츠 구성 -->
+		</xf:group>
+	</body>
+</html>

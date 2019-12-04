@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="다국어_client">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+
+	scwin.onpageload = function() {
+		var lang = WebSquare.cookie.getCookie( "system_language");
+		if ( !lang ) {
+			lang = "ko";
+		}
+		
+		ui_lang.setValue(lang);
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	scwin.ui_lang_onviewchange = function(info) {
+		WebSquare.cookie.setCookie( "system_language" , ui_lang.getValue() );
+		//$p.url("/ws5/sample/compFunc/fn_multiLang_client.xml");
+		$p.reinitialize( true );
+
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="" id="" class="wrapper">
+    		<xf:group style="" id="" class="section_desc">
+    			<w2:textbox tagname="" style="" id=""
+    				label="클라이언트 다국어 예제이다.&lt;br/&gt;다국어 테스트를 위해서는 아래의 설정 파일을 변경한다..&lt;br/&gt;1. websquare.xml 설정&lt;br/&gt;- c:\WS5\resource\websquare_home\config의 설정을 websquare.xml로 변경하여 적용한다.&lt;br/&gt;- &amp;nbsp;websquare_basic.xml ( 기본 설정 )&lt;br/&gt;&lt;br/&gt;2. config.xml 설정&lt;br/&gt;- C:\WS5\eduWorkspace\ws5\src\main\webapp\websquare의 설정을 config.xml로 변경하여 적용한다.&lt;br/&gt;- &amp;nbsp;config_basic.xml ( 기본 설정 )&lt;br/&gt;&lt;br/&gt;( source : fn_multiLang_client.xml)">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group style="" id="" class="ofh dmb">
+    			<xf:select1 submenuSize="auto" ev:onchange="" chooseOption="" allOption="" displayMode="label" ref="" appearance="minimal"
+    				disabledClass="w2selectbox_disabled" ev:onviewchange="scwin.ui_lang_onviewchange" optionOrder="false" style="width: 148px;"
+    				disabled="false" id="ui_lang" class="fr defComp" direction="auto">
+    				<xf:choices>
+    					<xf:item>
+    						<xf:label><![CDATA[Korean]]></xf:label>
+    						<xf:value><![CDATA[ko]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[English]]></xf:label>
+    						<xf:value><![CDATA[en]]></xf:value>
+    					</xf:item>
+    				</xf:choices>
+    			</xf:select1>
+
+    		</xf:group>
+    		<w2:textbox tagname="h2" localeRef="title0001" style="" label="" id="" class="df_tt dmb"></w2:textbox>
+    		<xf:group style="" id="" class="searchbox dmb ofh dp">
+    			<xf:trigger ev:onclick="" localeRef="label000" style="" id="" type="button" class="btnRed fr">
+    				<xf:label><![CDATA[]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    		<xf:group adaptive="layout" tagname="table" adaptiveThreshold="700" style="width:100%;" id="" class="w2tb">
+    			<w2:attributes>
+    				<w2:summary></w2:summary>
+    			</w2:attributes>
+    			<xf:group tagname="caption"></xf:group>
+    			<xf:group tagname="colgroup">
+    				<xf:group tagname="col" style="width:100px;"></xf:group>
+    				<xf:group tagname="col" style=""></xf:group>
+    				<xf:group tagname="col" style="width:100px;"></xf:group>
+    				<xf:group tagname="col" style=""></xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<w2:span localeRef="label001" style="" label="" id=""></w2:span>
+    				</xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:input ref="" style="width: 144px;" id="" initValue=""></xf:input>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<w2:span localeRef="label002" style="" label="" id=""></w2:span>
+    				</xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:select1 selectedData="true" submenuSize="auto" chooseOption="" allOption="" displayMode="label" ref=""
+    						appearance="minimal" disabledClass="w2selectbox_disabled" optionOrder="false" disabled="false" style="width: 148px;height: 21px;"
+    						id="" direction="auto">
+    						<xf:choices></xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<w2:span localeRef="label003" style="" label="" id=""></w2:span>
+    				</xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<w2:inputCalendar ref="" footerDiv="false" rightAlign="false" focusOnDateSelect="false"
+    						style="width: 150px;height: 24px;" id="" renderType="component" weekStartsOn="0" renderDiv="true"
+    						calendarValueType="yearMonthDate">
+    					</w2:inputCalendar>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<w2:span localeRef="label004" style="" label="" id=""></w2:span>
+    				</xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td"></xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<w2:span localeRef="label005" style="" label="" id=""></w2:span>
+    				</xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:input ref="" style="width: 100%;" id=""></xf:input>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<w2:span localeRef="label006" style="" label="" id=""></w2:span>
+    				</xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:select ref="" appearance="full" style="min-width: 150px;min-height: 12px;" id="" selectedindex="-1" rows=""
+    						cols="">
+    						<xf:choices>
+    							<xf:itemset nodeset="">
+    								<xf:label ref=""></xf:label>
+    								<xf:value ref=""></xf:value>
+    							</xf:itemset>
+    						</xf:choices>
+    					</xf:select>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

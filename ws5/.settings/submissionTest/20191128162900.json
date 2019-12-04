@@ -1,0 +1,9 @@
+{
+   "charset": "UTF-8",
+   "reqMethod": "POST",
+   "serviceURL": "http://127.0.0.1:8080/ws5/training/getUserInfo.do",
+   "contentType": "application/json",
+   "requestContent": "{\"dc_reqUserInfo\": {\"EMP_CD\": \"10000004\"}}",
+   "responseContent": "{\"msg\":\"조회가 완료되었습니다.\",\"dc_userInfo\":{\"ZIP_CD\":\"700251\",\"JOIN_DATE\":\"20041008\",\"CREATED_DATE\":\"2016-12-07\",\"EMAIL\":\"woka436@inswave03.com\",\"GENDER_CD\":\"M\",\"ASSIGNED_TASK\":null,\"POSITION_CD\":\"04\",\"EMP_NM\":\"미길동\",\"DUTY_CD\":\"04\",\"ROLE_CD\":\"03\",\"UPDATED_DATE\":\"2016-12-07\",\"EMP_CD\":10000004,\"ADDRESS1\":\"대구 중구 서문로1가\",\"ADDRESS2\":\"  \"},\"msgCode\":\"S\"}",
+   "sendTime": "2019-11-28 16:29:00"
+}

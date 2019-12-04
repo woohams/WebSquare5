@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="submission 샘플">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dc_userInfo">
+					<w2:keyInfo>
+						<w2:key id="EMP_CD" name="사번" dataType="text"></w2:key>
+						<w2:key id="EMP_NM" name="성명" dataType="text"></w2:key>
+						<w2:key id="GENDER_CD" name="성별" dataType="text"></w2:key>
+						<w2:key id="JOIN_DATE" name="입사일" dataType="text"></w2:key>
+						<w2:key id="POSITION_CD" name="직급" dataType="text"></w2:key>
+						<w2:key id="DUTY_CD" name="직책" dataType="text"></w2:key>
+						<w2:key id="ROLE_CD" name="역할" dataType="text"></w2:key>
+						<w2:key id="ASSIGNED_TASK" name="담당 업무" dataType="text"></w2:key>
+						<w2:key id="EMAIL" name="이메일" dataType="text"></w2:key>
+						<w2:key id="ZIP_CD" name="우편번호" dataType="text"></w2:key>
+						<w2:key id="ADDRESS1" name="주소1" dataType="text"></w2:key>
+						<w2:key id="ADDRESS2" name="주소2" dataType="text"></w2:key>
+						<w2:key id="CREATED_DATE" name="입력일" dataType="text"></w2:key>
+						<w2:key id="UPDATED_DATE" name="수정일" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="dc_reqParam">
+					<w2:keyInfo>
+						<w2:key id="name" name="name1" dataType="text"></w2:key>
+						<w2:key id="birthday" name="name2" dataType="text"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="true">
+						<name><![CDATA[유해진]]></name>
+						<birthday><![CDATA[19700104]]></birthday>
+					</w2:data></w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+			<xf:submission id="sbm_test" ref="data:json,dc_reqParam" target="data:json,dc_userInfo" action="/ws5/training/test.do" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+				ev:submit="" ev:submitdone="scwin.sbm_test_submitdone" ev:submiterror="">
+			</xf:submission>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+
+        
+	scwin.btn_search_onclick = function(e) {
+		$p.executeSubmission( "sbm_test" );
+	};
+	
+	scwin.sbm_test_submitdone = function(e) {
+		var str = "==============================\n";
+		str += e.resourceUri;
+		str += "\n==============================\n";
+		str += JSON.stringify(e.responseJSON, null, "\t");
+		str += "\n==============================";
+		
+		$p.log(str);
+	};
+	
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group style="padding: 10px;" id="" class="">
+			<w2:textbox class="section_title" id=""
+				label="이 화면은 서버와의 통신 시 Request, Response 데이터를 확인하기 위한 페이지다.&lt;br/&gt;Submission에 연결된 reference와 Request, target과 Response의 연관 관계를 이해한다.&lt;br/&gt;조회버튼을 클릭 후 WAS의 로그와 웹스퀘어 로그를 통해 Request, Response 데이터를 확인한다."
+				style="">
+			</w2:textbox>
+			<xf:group style="" id="">
+				<xf:trigger ev:onclick="scwin.btn_search_onclick" style="width: 80px;height: 23px;" id="btn_search" type="button">
+					<xf:label><![CDATA[조회]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+		</xf:group>
+    	
+    </body>
+</html>

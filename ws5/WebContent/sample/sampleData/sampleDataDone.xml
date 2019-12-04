@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<vector>
+		<map>
+			<msg>검색 된 결과는 1건입니다.</msg>
+			<code>00</code>
+			<name>왕지현</name>
+			<birthday>19811030</birthday>
+			<height>173.5</height>
+			<weight>52</weight>
+			<gender>F</gender>
+		</map>
+	</vector>
+</map>

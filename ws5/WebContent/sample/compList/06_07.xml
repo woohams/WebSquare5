@@ -1,0 +1,1275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="소계,합계 그리드사용">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns=""></data>
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataList id="gridDataList" baseNode="list" style="" repeatNode="map" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="category1" name="category1" dataType="text"></w2:column>
+						<w2:column id="category2" name="category2" dataType="text"></w2:column>
+						<w2:column id="row3_1" name="row3_1" dataType="text"></w2:column>
+						<w2:column id="row3_2" name="row3_2" dataType="text"></w2:column>
+						<w2:column id="row3_3" name="row3_3" dataType="text"></w2:column>
+						<w2:column id="row3_4" name="row3_4" dataType="text"></w2:column>
+						<w2:column id="row3_5" name="row3_5" dataType="text"></w2:column>
+						<w2:column id="row3_6" name="row3_6" dataType="text"></w2:column>
+						<w2:column id="row3_7" name="row3_7" dataType="text"></w2:column>
+						<w2:column id="row3_8" name="row3_8" dataType="text"></w2:column>
+						<w2:column id="row3_9" name="row3_9" dataType="text"></w2:column>
+						<w2:column id="row3_10" name="row3_10" dataType="text"></w2:column>
+						<w2:column id="row3_11" name="row3_11" dataType="text"></w2:column>
+						<w2:column id="row3_12" name="row3_12" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data xmlns="" use="true">
+						<w2:row>
+							<category1><![CDATA[소설]]></category1>
+							<category2><![CDATA[한국소설]]></category2>
+							<row3_1><![CDATA[100]]></row3_1>
+							<row3_2><![CDATA[200]]></row3_2>
+							<row3_3><![CDATA[200]]></row3_3>
+							<row3_4><![CDATA[100]]></row3_4>
+							<row3_5><![CDATA[300]]></row3_5>
+							<row3_6><![CDATA[200]]></row3_6>
+							<row3_7><![CDATA[100]]></row3_7>
+							<row3_8><![CDATA[800]]></row3_8>
+							<row3_9><![CDATA[800]]></row3_9>
+							<row3_10><![CDATA[100]]></row3_10>
+							<row3_11><![CDATA[400]]></row3_11>
+							<row3_12><![CDATA[400]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[소설]]></category1>
+							<category2><![CDATA[한국소설]]></category2>
+							<row3_1><![CDATA[300]]></row3_1>
+							<row3_2><![CDATA[200]]></row3_2>
+							<row3_3><![CDATA[200]]></row3_3>
+							<row3_4><![CDATA[300]]></row3_4>
+							<row3_5><![CDATA[300]]></row3_5>
+							<row3_6><![CDATA[300]]></row3_6>
+							<row3_7><![CDATA[200]]></row3_7>
+							<row3_8><![CDATA[200]]></row3_8>
+							<row3_9><![CDATA[200]]></row3_9>
+							<row3_10><![CDATA[200]]></row3_10>
+							<row3_11><![CDATA[200]]></row3_11>
+							<row3_12><![CDATA[200]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[소설]]></category1>
+							<category2><![CDATA[한국소설]]></category2>
+							<row3_1><![CDATA[300]]></row3_1>
+							<row3_2><![CDATA[300]]></row3_2>
+							<row3_3><![CDATA[300]]></row3_3>
+							<row3_4><![CDATA[500]]></row3_4>
+							<row3_5><![CDATA[500]]></row3_5>
+							<row3_6><![CDATA[300]]></row3_6>
+							<row3_7><![CDATA[300]]></row3_7>
+							<row3_8><![CDATA[300]]></row3_8>
+							<row3_9><![CDATA[600]]></row3_9>
+							<row3_10><![CDATA[600]]></row3_10>
+							<row3_11><![CDATA[600]]></row3_11>
+							<row3_12><![CDATA[300]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[소설]]></category1>
+							<category2><![CDATA[영미소설]]></category2>
+							<row3_1><![CDATA[400]]></row3_1>
+							<row3_2><![CDATA[400]]></row3_2>
+							<row3_3><![CDATA[400]]></row3_3>
+							<row3_4><![CDATA[400]]></row3_4>
+							<row3_5><![CDATA[400]]></row3_5>
+							<row3_6><![CDATA[400]]></row3_6>
+							<row3_7><![CDATA[400]]></row3_7>
+							<row3_8><![CDATA[400]]></row3_8>
+							<row3_9><![CDATA[400]]></row3_9>
+							<row3_10><![CDATA[400]]></row3_10>
+							<row3_11><![CDATA[400]]></row3_11>
+							<row3_12><![CDATA[400]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[소설]]></category1>
+							<category2><![CDATA[영미소설]]></category2>
+							<row3_1><![CDATA[500]]></row3_1>
+							<row3_2><![CDATA[500]]></row3_2>
+							<row3_3><![CDATA[500]]></row3_3>
+							<row3_4><![CDATA[500]]></row3_4>
+							<row3_5><![CDATA[500]]></row3_5>
+							<row3_6><![CDATA[500]]></row3_6>
+							<row3_7><![CDATA[500]]></row3_7>
+							<row3_8><![CDATA[500]]></row3_8>
+							<row3_9><![CDATA[500]]></row3_9>
+							<row3_10><![CDATA[600]]></row3_10>
+							<row3_11><![CDATA[200]]></row3_11>
+							<row3_12><![CDATA[200]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[시/에세이]]></category1>
+							<category2><![CDATA[에세이]]></category2>
+							<row3_1><![CDATA[600]]></row3_1>
+							<row3_2><![CDATA[800]]></row3_2>
+							<row3_3><![CDATA[100]]></row3_3>
+							<row3_4><![CDATA[300]]></row3_4>
+							<row3_5><![CDATA[300]]></row3_5>
+							<row3_6><![CDATA[600]]></row3_6>
+							<row3_7><![CDATA[100]]></row3_7>
+							<row3_8><![CDATA[100]]></row3_8>
+							<row3_9><![CDATA[600]]></row3_9>
+							<row3_10><![CDATA[100]]></row3_10>
+							<row3_11><![CDATA[100]]></row3_11>
+							<row3_12><![CDATA[600]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[시/에세이]]></category1>
+							<category2><![CDATA[에세이]]></category2>
+							<row3_1><![CDATA[700]]></row3_1>
+							<row3_2><![CDATA[700]]></row3_2>
+							<row3_3><![CDATA[400]]></row3_3>
+							<row3_4><![CDATA[700]]></row3_4>
+							<row3_5><![CDATA[500]]></row3_5>
+							<row3_6><![CDATA[500]]></row3_6>
+							<row3_7><![CDATA[300]]></row3_7>
+							<row3_8><![CDATA[300]]></row3_8>
+							<row3_9><![CDATA[700]]></row3_9>
+							<row3_10><![CDATA[500]]></row3_10>
+							<row3_11><![CDATA[500]]></row3_11>
+							<row3_12><![CDATA[700]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[시/에세이]]></category1>
+							<category2><![CDATA[시]]></category2>
+							<row3_1><![CDATA[400]]></row3_1>
+							<row3_2><![CDATA[300]]></row3_2>
+							<row3_3><![CDATA[800]]></row3_3>
+							<row3_4><![CDATA[400]]></row3_4>
+							<row3_5><![CDATA[400]]></row3_5>
+							<row3_6><![CDATA[800]]></row3_6>
+							<row3_7><![CDATA[100]]></row3_7>
+							<row3_8><![CDATA[400]]></row3_8>
+							<row3_9><![CDATA[800]]></row3_9>
+							<row3_10><![CDATA[700]]></row3_10>
+							<row3_11><![CDATA[700]]></row3_11>
+							<row3_12><![CDATA[800]]></row3_12>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList id="dlt_book" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="ranking" name="순위" dataType="text"></w2:column>
+						<w2:column id="isbn" name="ISBN" dataType="text"></w2:column>
+						<w2:column id="title" name="제목" dataType="text"></w2:column>
+						<w2:column id="author" name="저자" dataType="text"></w2:column>
+						<w2:column id="publisher" name="출판사" dataType="text"></w2:column>
+						<w2:column id="date" name="출간일" dataType="text"></w2:column>
+						<w2:column id="category" name="분야" dataType="text"></w2:column>
+						<w2:column id="price" name="정가" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<ranking><![CDATA[1]]></ranking>
+							<isbn><![CDATA[9788952206503]]></isbn>
+							<title><![CDATA[시크릿(양장본 HardCover)]]></title>
+							<author><![CDATA[론다 번]]></author>
+							<publisher><![CDATA[살림Biz]]></publisher>
+							<date><![CDATA[20070618]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[13800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[2]]></ranking>
+							<isbn><![CDATA[9788932907598]]></isbn>
+							<title><![CDATA[파피용]]></title>
+							<author><![CDATA[베르나르 베르베르]]></author>
+							<publisher><![CDATA[열린책들]]></publisher>
+							<date><![CDATA[20070712]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[9800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[3]]></ranking>
+							<isbn><![CDATA[9788959750573]]></isbn>
+							<title><![CDATA[대한민국 20대 재테크에 미쳐라]]></title>
+							<author><![CDATA[정철진]]></author>
+							<publisher><![CDATA[한스미디어]]></publisher>
+							<date><![CDATA[20060928]]></date>
+							<category><![CDATA[경제/경영]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[4]]></ranking>
+							<isbn><![CDATA[9788995881606]]></isbn>
+							<title><![CDATA[이기는 습관]]></title>
+							<author><![CDATA[전옥표]]></author>
+							<publisher><![CDATA[쌤앤파커스]]></publisher>
+							<date><![CDATA[20070417]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[5]]></ranking>
+							<isbn><![CDATA[9788990700162]]></isbn>
+							<title><![CDATA[해커스 토익 Reading(해설집포함)]]></title>
+							<author><![CDATA[David Cho]]></author>
+							<publisher><![CDATA[해커스어학연구소]]></publisher>
+							<date><![CDATA[20080315]]></date>
+							<category><![CDATA[외국어]]></category>
+							<price><![CDATA[18800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[6]]></ranking>
+							<isbn><![CDATA[9788976772435]]></isbn>
+							<title><![CDATA[바보처럼 공부하고 천재처럼 꿈꿔라(청소년 롤모델 시리즈 1)]]></title>
+							<author><![CDATA[신웅진]]></author>
+							<publisher><![CDATA[명진출판사]]></publisher>
+							<date><![CDATA[20070103]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[7]]></ranking>
+							<isbn><![CDATA[9788956250595]]></isbn>
+							<title><![CDATA[남한산성]]></title>
+							<author><![CDATA[김훈]]></author>
+							<publisher><![CDATA[학고재]]></publisher>
+							<date><![CDATA[20070414]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[13000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[8]]></ranking>
+							<isbn><![CDATA[9788957090817]]></isbn>
+							<title><![CDATA[인생 수업]]></title>
+							<author><![CDATA[엘리자베스 퀴블러 로스]]></author>
+							<publisher><![CDATA[이레]]></publisher>
+							<date><![CDATA[20140520]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[13800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[9]]></ranking>
+							<isbn><![CDATA[9788970650982]]></isbn>
+							<title><![CDATA[파페포포 안단테]]></title>
+							<author><![CDATA[심승현]]></author>
+							<publisher><![CDATA[홍익출판사]]></publisher>
+							<date><![CDATA[20070328]]></date>
+							<category><![CDATA[만화]]></category>
+							<price><![CDATA[8900]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[10]]></ranking>
+							<isbn><![CDATA[9788932903187]]></isbn>
+							<title><![CDATA[향수(양장본 HardCover)]]></title>
+							<author><![CDATA[파트리크 쥐스킨트]]></author>
+							<publisher><![CDATA[열린책들]]></publisher>
+							<date><![CDATA[20080520]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[12800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[11]]></ranking>
+							<isbn><![CDATA[9788956601021]]></isbn>
+							<title><![CDATA[공중그네]]></title>
+							<author><![CDATA[오쿠다 히데오]]></author>
+							<publisher><![CDATA[은행나무]]></publisher>
+							<date><![CDATA[20150615]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[12]]></ranking>
+							<isbn><![CDATA[9788990700285]]></isbn>
+							<title><![CDATA[해커스 토익 Listening]]></title>
+							<author><![CDATA[David Cho]]></author>
+							<publisher><![CDATA[해커스어학연구소]]></publisher>
+							<date><![CDATA[20071210]]></date>
+							<category><![CDATA[외국어]]></category>
+							<price><![CDATA[18800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[13]]></ranking>
+							<isbn><![CDATA[9788989313977]]></isbn>
+							<title><![CDATA[청소부 밥]]></title>
+							<author><![CDATA[토드 홉킨스]]></author>
+							<publisher><![CDATA[위즈덤하우스]]></publisher>
+							<date><![CDATA[20061115]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[14]]></ranking>
+							<isbn><![CDATA[9788991819108]]></isbn>
+							<title><![CDATA[회사가 당신에게 알려주지 않는 50가지 비밀]]></title>
+							<author><![CDATA[신시아 샤피로]]></author>
+							<publisher><![CDATA[서돌]]></publisher>
+							<date><![CDATA[20090125]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[13000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[15]]></ranking>
+							<isbn><![CDATA[9788989313694]]></isbn>
+							<title><![CDATA[배려]]></title>
+							<author><![CDATA[한상복]]></author>
+							<publisher><![CDATA[위즈덤하우스]]></publisher>
+							<date><![CDATA[20060110]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[16]]></ranking>
+							<isbn><![CDATA[9788991204362]]></isbn>
+							<title><![CDATA[멘토(스펜서 존슨)(양장본 HardCover)]]></title>
+							<author><![CDATA[스펜서 존슨]]></author>
+							<publisher><![CDATA[비즈니스북스]]></publisher>
+							<date><![CDATA[20070625]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[17]]></ranking>
+							<isbn><![CDATA[9788947525473]]></isbn>
+							<title><![CDATA[마시멜로 이야기]]></title>
+							<author><![CDATA[호아킴 데 포사다]]></author>
+							<publisher><![CDATA[한국경제신문사]]></publisher>
+							<date><![CDATA[20090120]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[18]]></ranking>
+							<isbn><![CDATA[9788992036290]]></isbn>
+							<title><![CDATA[살인의 해석]]></title>
+							<author><![CDATA[제드 러벤펠드]]></author>
+							<publisher><![CDATA[비채]]></publisher>
+							<date><![CDATA[20070208]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[13000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[19]]></ranking>
+							<isbn><![CDATA[9788936433581]]></isbn>
+							<title><![CDATA[바리데기(양장본 HardCover)]]></title>
+							<author><![CDATA[황석영]]></author>
+							<publisher><![CDATA[창비]]></publisher>
+							<date><![CDATA[20070731]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[11000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[20]]></ranking>
+							<isbn><![CDATA[9788995881651]]></isbn>
+							<title><![CDATA[에너지 버스]]></title>
+							<author><![CDATA[존 고든]]></author>
+							<publisher><![CDATA[쌤앤파커스]]></publisher>
+							<date><![CDATA[20070205]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[21]]></ranking>
+							<isbn><![CDATA[9788971769980]]></isbn>
+							<title><![CDATA[토마토 베이직: READING(토익이 가벼워지는)(단어암기장1권포함)]]></title>
+							<author><![CDATA[김지연]]></author>
+							<publisher><![CDATA[능률교육]]></publisher>
+							<date><![CDATA[20051020]]></date>
+							<category><![CDATA[외국어]]></category>
+							<price><![CDATA[9900]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[22]]></ranking>
+							<isbn><![CDATA[9788983922557]]></isbn>
+							<title><![CDATA[해리포터와 죽음의 성물. 제7권(1)]]></title>
+							<author><![CDATA[조앤 K. 롤링]]></author>
+							<publisher><![CDATA[문학수첩]]></publisher>
+							<date><![CDATA[20071115]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[8500]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[23]]></ranking>
+							<isbn><![CDATA[9788990700346]]></isbn>
+							<title><![CDATA[해커스 토익 보카(무료 단어암기 TEST, 무료학습자료 제공)]]></title>
+							<author><![CDATA[David Cho]]></author>
+							<publisher><![CDATA[해커스어학연구소]]></publisher>
+							<date><![CDATA[20060821]]></date>
+							<category><![CDATA[외국어]]></category>
+							<price><![CDATA[12900]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[24]]></ranking>
+							<isbn><![CDATA[9788960860193]]></isbn>
+							<title><![CDATA[경청]]></title>
+							<author><![CDATA[조신영]]></author>
+							<publisher><![CDATA[위즈덤하우스]]></publisher>
+							<date><![CDATA[20070502]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[25]]></ranking>
+							<isbn><![CDATA[9788934923695]]></isbn>
+							<title><![CDATA[내몸 사용설명서]]></title>
+							<author><![CDATA[마이클 로이젠]]></author>
+							<publisher><![CDATA[김영사]]></publisher>
+							<date><![CDATA[20070325]]></date>
+							<category><![CDATA[건강]]></category>
+							<price><![CDATA[13000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[26]]></ranking>
+							<isbn><![CDATA[9788970463766]]></isbn>
+							<title><![CDATA[내려놓음]]></title>
+							<author><![CDATA[이용규]]></author>
+							<publisher><![CDATA[규장]]></publisher>
+							<date><![CDATA[20060307]]></date>
+							<category><![CDATA[종교]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[27]]></ranking>
+							<isbn><![CDATA[9788935206582]]></isbn>
+							<title><![CDATA[부의 미래(앨빈 토플러)(반양장)]]></title>
+							<author><![CDATA[앨빈 토플러]]></author>
+							<publisher><![CDATA[청림출판]]></publisher>
+							<date><![CDATA[20060818]]></date>
+							<category><![CDATA[경제/경영]]></category>
+							<price><![CDATA[19800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[28]]></ranking>
+							<isbn><![CDATA[9788901063034]]></isbn>
+							<title><![CDATA[전쟁의 기술]]></title>
+							<author><![CDATA[로버트 그린]]></author>
+							<publisher><![CDATA[웅진지식하우스]]></publisher>
+							<date><![CDATA[20070131]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[25000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[29]]></ranking>
+							<isbn><![CDATA[9788901068640]]></isbn>
+							<title><![CDATA[금융회사가 당신에게 알려주지 않는 진실]]></title>
+							<author><![CDATA[송승용]]></author>
+							<publisher><![CDATA[웅진윙스]]></publisher>
+							<date><![CDATA[20070718]]></date>
+							<category><![CDATA[경제/경영]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[30]]></ranking>
+							<isbn><![CDATA[9788995737064]]></isbn>
+							<title><![CDATA[생각정리의 기술]]></title>
+							<author><![CDATA[드니 르보]]></author>
+							<publisher><![CDATA[지형]]></publisher>
+							<date><![CDATA[20070320]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[31]]></ranking>
+							<isbn><![CDATA[9788960860025]]></isbn>
+							<title><![CDATA[프린세스 마법의 주문]]></title>
+							<author><![CDATA[아네스 안]]></author>
+							<publisher><![CDATA[위즈덤하우스]]></publisher>
+							<date><![CDATA[20061129]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[9800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[32]]></ranking>
+							<isbn><![CDATA[9788992060233]]></isbn>
+							<title><![CDATA[사람을 얻는 기술]]></title>
+							<author><![CDATA[레일 라운즈]]></author>
+							<publisher><![CDATA[토네이도]]></publisher>
+							<date><![CDATA[20070627]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[33]]></ranking>
+							<isbn><![CDATA[9788957515174]]></isbn>
+							<title><![CDATA[커피프린스 1호점(양장본 HardCover)]]></title>
+							<author><![CDATA[이선미]]></author>
+							<publisher><![CDATA[눈과마음]]></publisher>
+							<date><![CDATA[20060809]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[9800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[34]]></ranking>
+							<isbn><![CDATA[9788984053755]]></isbn>
+							<title><![CDATA[굿바이 게으름]]></title>
+							<author><![CDATA[문요한]]></author>
+							<publisher><![CDATA[더난출판사]]></publisher>
+							<date><![CDATA[20090210]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[35]]></ranking>
+							<isbn><![CDATA[9788954603904]]></isbn>
+							<title><![CDATA[포르토벨로의 마녀(양장본 HardCover)]]></title>
+							<author><![CDATA[파울로 코엘료]]></author>
+							<publisher><![CDATA[문학동네]]></publisher>
+							<date><![CDATA[20130530]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[13000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[36]]></ranking>
+							<isbn><![CDATA[9788956990545]]></isbn>
+							<title><![CDATA[걸음아 날 살려라]]></title>
+							<author><![CDATA[이승헌]]></author>
+							<publisher><![CDATA[한문화]]></publisher>
+							<date><![CDATA[20070505]]></date>
+							<category><![CDATA[건강]]></category>
+							<price><![CDATA[9800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[37]]></ranking>
+							<isbn><![CDATA[9788973378265]]></isbn>
+							<title><![CDATA[고마워요 소울메이트]]></title>
+							<author><![CDATA[조진국]]></author>
+							<publisher><![CDATA[해냄출판사]]></publisher>
+							<date><![CDATA[20070305]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[13800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[38]]></ranking>
+							<isbn><![CDATA[9788953105409]]></isbn>
+							<title><![CDATA[긍정의 힘]]></title>
+							<author><![CDATA[조엘 오스틴]]></author>
+							<publisher><![CDATA[두란노]]></publisher>
+							<date><![CDATA[20050511]]></date>
+							<category><![CDATA[종교]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[39]]></ranking>
+							<isbn><![CDATA[9788959970353]]></isbn>
+							<title><![CDATA[토마토 베이직: LISTENING(토익이 가벼워지는)]]></title>
+							<author><![CDATA[김수현]]></author>
+							<publisher><![CDATA[능률교육]]></publisher>
+							<date><![CDATA[20051208]]></date>
+							<category><![CDATA[외국어]]></category>
+							<price><![CDATA[9900]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[40]]></ranking>
+							<isbn><![CDATA[9788934925798]]></isbn>
+							<title><![CDATA[신도 버린 사람들]]></title>
+							<author><![CDATA[나렌드라 자다브]]></author>
+							<publisher><![CDATA[김영사]]></publisher>
+							<date><![CDATA[20070608]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[11000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[41]]></ranking>
+							<isbn><![CDATA[9788932017150]]></isbn>
+							<title><![CDATA[달콤한 나의 도시]]></title>
+							<author><![CDATA[정이현]]></author>
+							<publisher><![CDATA[문학과지성사]]></publisher>
+							<date><![CDATA[20060724]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[42]]></ranking>
+							<isbn><![CDATA[9788984053229]]></isbn>
+							<title><![CDATA[끌리는 사람은 1%가 다르다]]></title>
+							<author><![CDATA[이민규]]></author>
+							<publisher><![CDATA[더난출판사]]></publisher>
+							<date><![CDATA[20051117]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[43]]></ranking>
+							<isbn><![CDATA[9788950908522]]></isbn>
+							<title><![CDATA[마법천자문. 13]]></title>
+							<author><![CDATA[스튜디오 시리얼]]></author>
+							<publisher><![CDATA[북이십일 아울북]]></publisher>
+							<date><![CDATA[20061201]]></date>
+							<category><![CDATA[어린이(초등)]]></category>
+							<price><![CDATA[8800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[44]]></ranking>
+							<isbn><![CDATA[9788901067971]]></isbn>
+							<title><![CDATA[내 인생을 바꾼 한 권의 책]]></title>
+							<author><![CDATA[잭 캔필드]]></author>
+							<publisher><![CDATA[리더스북]]></publisher>
+							<date><![CDATA[20070710]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[13000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[45]]></ranking>
+							<isbn><![CDATA[9788901058030]]></isbn>
+							<title><![CDATA[시골의사의 부자 경제학]]></title>
+							<author><![CDATA[박경철]]></author>
+							<publisher><![CDATA[리더스북]]></publisher>
+							<date><![CDATA[20060628]]></date>
+							<category><![CDATA[경제/경영]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[46]]></ranking>
+							<isbn><![CDATA[9780521016391]]></isbn>
+							<title><![CDATA[Basic Grammar in Use : With Answers (2/e(한국어판)]]></title>
+							<author><![CDATA[RAYMOND MURPHY]]></author>
+							<publisher><![CDATA[케임브리지]]></publisher>
+							<date><![CDATA[20041208]]></date>
+							<category><![CDATA[외국어]]></category>
+							<price><![CDATA[17000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[47]]></ranking>
+							<isbn><![CDATA[9788956370590]]></isbn>
+							<title><![CDATA[카네기 인간관계론]]></title>
+							<author><![CDATA[데일 카네기]]></author>
+							<publisher><![CDATA[씨앗을뿌리는사람]]></publisher>
+							<date><![CDATA[20041125]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[48]]></ranking>
+							<isbn><![CDATA[9788946413641]]></isbn>
+							<title><![CDATA[인연(개정판)]]></title>
+							<author><![CDATA[피천득]]></author>
+							<publisher><![CDATA[샘터(샘터사)]]></publisher>
+							<date><![CDATA[20020824]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[8000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[49]]></ranking>
+							<isbn><![CDATA[9788982814471]]></isbn>
+							<title><![CDATA[연금술사]]></title>
+							<author><![CDATA[파울로 코엘료]]></author>
+							<publisher><![CDATA[문학동네]]></publisher>
+							<date><![CDATA[20011201]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[9500]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[50]]></ranking>
+							<isbn><![CDATA[9788990700315]]></isbn>
+							<title><![CDATA[HACKERS VOCABULARY(해커스 보캐블러리)]]></title>
+							<author><![CDATA[David Cho]]></author>
+							<publisher><![CDATA[해커스어학연구소]]></publisher>
+							<date><![CDATA[20060620]]></date>
+							<category><![CDATA[외국어]]></category>
+							<price><![CDATA[15900]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[51]]></ranking>
+							<isbn><![CDATA[9788932018140]]></isbn>
+							<title><![CDATA[친절한 복희씨]]></title>
+							<author><![CDATA[박완서]]></author>
+							<publisher><![CDATA[문학과지성사]]></publisher>
+							<date><![CDATA[20071017]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[13000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[52]]></ranking>
+							<isbn><![CDATA[9788990700056]]></isbn>
+							<title><![CDATA[해커스 그래머 스타트(Hackers Grammar Start)]]></title>
+							<author><![CDATA[David Cho]]></author>
+							<publisher><![CDATA[해커스어학연구소]]></publisher>
+							<date><![CDATA[20040107]]></date>
+							<category><![CDATA[외국어]]></category>
+							<price><![CDATA[16900]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[53]]></ranking>
+							<isbn><![CDATA[9788925504728]]></isbn>
+							<title><![CDATA[도쿄타워(엄마와 나, 때때로 아버지)]]></title>
+							<author><![CDATA[릴리 프랭키]]></author>
+							<publisher><![CDATA[랜덤하우스코리아]]></publisher>
+							<date><![CDATA[20070102]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[9800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[54]]></ranking>
+							<isbn><![CDATA[9788991059160]]></isbn>
+							<title><![CDATA[밀리언 달러 티켓]]></title>
+							<author><![CDATA[리처드 파크 코독]]></author>
+							<publisher><![CDATA[마젤란]]></publisher>
+							<date><![CDATA[20061124]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[55]]></ranking>
+							<isbn><![CDATA[9788991984080]]></isbn>
+							<title><![CDATA[대한민국 2030 재테크 독하게 하라]]></title>
+							<author><![CDATA[김민수]]></author>
+							<publisher><![CDATA[미르북컴퍼니(미르북스)]]></publisher>
+							<date><![CDATA[20070918]]></date>
+							<category><![CDATA[경제/경영]]></category>
+							<price><![CDATA[3300]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[56]]></ranking>
+							<isbn><![CDATA[9788995958483]]></isbn>
+							<title><![CDATA[고슴도치의 우아함(양장본 HardCover)]]></title>
+							<author><![CDATA[뮈리엘 바르베리]]></author>
+							<publisher><![CDATA[아르테(arte)]]></publisher>
+							<date><![CDATA[20070831]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[13000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[57]]></ranking>
+							<isbn><![CDATA[9788934925804]]></isbn>
+							<title><![CDATA[돈은 아름다운 꽃이다]]></title>
+							<author><![CDATA[박현주]]></author>
+							<publisher><![CDATA[김영사]]></publisher>
+							<date><![CDATA[20070829]]></date>
+							<category><![CDATA[경제/경영]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[58]]></ranking>
+							<isbn><![CDATA[9788975603259]]></isbn>
+							<title><![CDATA[주식투자 무작정 따라하기(개정판)]]></title>
+							<author><![CDATA[윤재수]]></author>
+							<publisher><![CDATA[길벗]]></publisher>
+							<date><![CDATA[20110502]]></date>
+							<category><![CDATA[경제/경영]]></category>
+							<price><![CDATA[15000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[59]]></ranking>
+							<isbn><![CDATA[9788956924328]]></isbn>
+							<title><![CDATA[마시멜로 이야기(어린이를 위한)]]></title>
+							<author><![CDATA[호아킴 데 포사다]]></author>
+							<publisher><![CDATA[깊은책속옹달샘]]></publisher>
+							<date><![CDATA[20060815]]></date>
+							<category><![CDATA[어린이(초등)]]></category>
+							<price><![CDATA[8500]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[60]]></ranking>
+							<isbn><![CDATA[9788995501474]]></isbn>
+							<title><![CDATA[사랑하라 한번도 상처받지 않은 것처럼]]></title>
+							<author><![CDATA[류시화]]></author>
+							<publisher><![CDATA[오래된미래]]></publisher>
+							<date><![CDATA[20081024]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[9500]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[61]]></ranking>
+							<isbn><![CDATA[9788901062792]]></isbn>
+							<title><![CDATA[컬처 코드]]></title>
+							<author><![CDATA[클로테르 라파이유]]></author>
+							<publisher><![CDATA[리더스북]]></publisher>
+							<date><![CDATA[20070115]]></date>
+							<category><![CDATA[경제/경영]]></category>
+							<price><![CDATA[13000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[62]]></ranking>
+							<isbn><![CDATA[9788990700179]]></isbn>
+							<title><![CDATA[HACKERS TOEFL READING (iBT)]]></title>
+							<author><![CDATA[David Cho]]></author>
+							<publisher><![CDATA[해커스어학연구소]]></publisher>
+							<date><![CDATA[20060626]]></date>
+							<category><![CDATA[외국어]]></category>
+							<price><![CDATA[19500]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[63]]></ranking>
+							<isbn><![CDATA[9788957091067]]></isbn>
+							<title><![CDATA[행복의 건축]]></title>
+							<author><![CDATA[알랭 드 보통]]></author>
+							<publisher><![CDATA[이레]]></publisher>
+							<date><![CDATA[20070513]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[14000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[64]]></ranking>
+							<isbn><![CDATA[9788995688991]]></isbn>
+							<title><![CDATA[생각의 탄생(양장본 HardCover)]]></title>
+							<author><![CDATA[로버트 루트번스타인]]></author>
+							<publisher><![CDATA[에코의서재]]></publisher>
+							<date><![CDATA[20070502]]></date>
+							<category><![CDATA[인문]]></category>
+							<price><![CDATA[25000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[65]]></ranking>
+							<isbn><![CDATA[9788983004925]]></isbn>
+							<title><![CDATA[버전업 굿모닝 독학일본어 첫걸음(개정판)(CD2장포함)]]></title>
+							<author><![CDATA[정선영]]></author>
+							<publisher><![CDATA[동양문고]]></publisher>
+							<date><![CDATA[20140305]]></date>
+							<category><![CDATA[외국어]]></category>
+							<price><![CDATA[14500]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[66]]></ranking>
+							<isbn><![CDATA[9788954603225]]></isbn>
+							<title><![CDATA[리진.1(양장본 HardCover)]]></title>
+							<author><![CDATA[신경숙]]></author>
+							<publisher><![CDATA[문학동네]]></publisher>
+							<date><![CDATA[20110915]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[11500]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[67]]></ranking>
+							<isbn><![CDATA[9788970635415]]></isbn>
+							<title><![CDATA[호미]]></title>
+							<author><![CDATA[박완서]]></author>
+							<publisher><![CDATA[열림원]]></publisher>
+							<date><![CDATA[20090223]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[68]]></ranking>
+							<isbn><![CDATA[9788934926184]]></isbn>
+							<title><![CDATA[만들어진 신(양장본 HardCover)]]></title>
+							<author><![CDATA[리처드 도킨스]]></author>
+							<publisher><![CDATA[김영사]]></publisher>
+							<date><![CDATA[20070720]]></date>
+							<category><![CDATA[인문]]></category>
+							<price><![CDATA[25000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[69]]></ranking>
+							<isbn><![CDATA[9788936436995]]></isbn>
+							<title><![CDATA[아름다움이 나를 멸시한다]]></title>
+							<author><![CDATA[은희경]]></author>
+							<publisher><![CDATA[창비]]></publisher>
+							<date><![CDATA[20070330]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[70]]></ranking>
+							<isbn><![CDATA[9788973819171]]></isbn>
+							<title><![CDATA[홀리가든(양장본 HardCover)]]></title>
+							<author><![CDATA[에쿠니 가오리]]></author>
+							<publisher><![CDATA[소담출판사]]></publisher>
+							<date><![CDATA[20071019]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[71]]></ranking>
+							<isbn><![CDATA[9788995667064]]></isbn>
+							<title><![CDATA[무지개 원리(하는 일마다 잘되리라)]]></title>
+							<author><![CDATA[차동엽]]></author>
+							<publisher><![CDATA[동이]]></publisher>
+							<date><![CDATA[20061120]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[72]]></ranking>
+							<isbn><![CDATA[9788950910877]]></isbn>
+							<title><![CDATA[작은 소리로 아들을 위대하게 키우는 법]]></title>
+							<author><![CDATA[마츠나가 노부후미]]></author>
+							<publisher><![CDATA[21세기북스]]></publisher>
+							<date><![CDATA[20070226]]></date>
+							<category><![CDATA[가정/육아]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[73]]></ranking>
+							<isbn><![CDATA[9788971844427]]></isbn>
+							<title><![CDATA[지도 밖으로 행군하라]]></title>
+							<author><![CDATA[한비야]]></author>
+							<publisher><![CDATA[푸른숲]]></publisher>
+							<date><![CDATA[20050908]]></date>
+							<category><![CDATA[여행]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[74]]></ranking>
+							<isbn><![CDATA[9788984072299]]></isbn>
+							<title><![CDATA[단 하루만 더(양장본 HardCover)]]></title>
+							<author><![CDATA[미치 앨봄]]></author>
+							<publisher><![CDATA[세종서적]]></publisher>
+							<date><![CDATA[20061210]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[75]]></ranking>
+							<isbn><![CDATA[9788901064338]]></isbn>
+							<title><![CDATA[하버드 스타일]]></title>
+							<author><![CDATA[강인선]]></author>
+							<publisher><![CDATA[웅진지식하우스]]></publisher>
+							<date><![CDATA[20070328]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[76]]></ranking>
+							<isbn><![CDATA[9788992731270]]></isbn>
+							<title><![CDATA[1250℃ 최고의 나를 만나라(양장본 HardCover)]]></title>
+							<author><![CDATA[김범진]]></author>
+							<publisher><![CDATA[중앙북스]]></publisher>
+							<date><![CDATA[20070724]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[9000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[77]]></ranking>
+							<isbn><![CDATA[9788937481109]]></isbn>
+							<title><![CDATA[아르헨티나 할머니]]></title>
+							<author><![CDATA[요시모토 바나나]]></author>
+							<publisher><![CDATA[민음사]]></publisher>
+							<date><![CDATA[20070410]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[8000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[78]]></ranking>
+							<isbn><![CDATA[9788949190020]]></isbn>
+							<title><![CDATA[모모(비룡소 걸작선 13)]]></title>
+							<author><![CDATA[미하엘 엔데]]></author>
+							<publisher><![CDATA[비룡소]]></publisher>
+							<date><![CDATA[20091020]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[11000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[79]]></ranking>
+							<isbn><![CDATA[9788925511962]]></isbn>
+							<title><![CDATA[폼페이(양장본 HardCover)]]></title>
+							<author><![CDATA[로버트 해리스]]></author>
+							<publisher><![CDATA[랜덤하우스코리아]]></publisher>
+							<date><![CDATA[20070920]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[5900]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[80]]></ranking>
+							<isbn><![CDATA[9788989006046]]></isbn>
+							<title><![CDATA[내 영단어장을 공개합니다]]></title>
+							<author><![CDATA[오자키 데쓰오]]></author>
+							<publisher><![CDATA[이젠]]></publisher>
+							<date><![CDATA[20050215]]></date>
+							<category><![CDATA[외국어]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[81]]></ranking>
+							<isbn><![CDATA[9788952748096]]></isbn>
+							<title><![CDATA[똑똑하게 사랑하라]]></title>
+							<author><![CDATA[필 맥그로]]></author>
+							<publisher><![CDATA[시공사]]></publisher>
+							<date><![CDATA[20070115]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[9500]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[82]]></ranking>
+							<isbn><![CDATA[9788901070575]]></isbn>
+							<title><![CDATA[이코노믹 씽킹]]></title>
+							<author><![CDATA[로버트 프랭크]]></author>
+							<publisher><![CDATA[웅진지식하우스]]></publisher>
+							<date><![CDATA[20070910]]></date>
+							<category><![CDATA[경제/경영]]></category>
+							<price><![CDATA[13000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[83]]></ranking>
+							<isbn><![CDATA[9788989675761]]></isbn>
+							<title><![CDATA[시간을 달리는 소녀(양장본 HardCover)]]></title>
+							<author><![CDATA[츠츠이 야스타카]]></author>
+							<publisher><![CDATA[북스토리]]></publisher>
+							<date><![CDATA[20070607]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[9800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[84]]></ranking>
+							<isbn><![CDATA[9788959245475]]></isbn>
+							<title><![CDATA[끌림]]></title>
+							<author><![CDATA[이병률]]></author>
+							<publisher><![CDATA[랜덤하우스코리아]]></publisher>
+							<date><![CDATA[20050701]]></date>
+							<category><![CDATA[여행]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[85]]></ranking>
+							<isbn><![CDATA[9788973378456]]></isbn>
+							<title><![CDATA[여자도 여자를 모른다]]></title>
+							<author><![CDATA[이외수]]></author>
+							<publisher><![CDATA[해냄출판사]]></publisher>
+							<date><![CDATA[20070430]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[14500]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[86]]></ranking>
+							<isbn><![CDATA[9788925505626]]></isbn>
+							<title><![CDATA[처음처럼(신영복 서화 에세이)(양장본 HardCover)]]></title>
+							<author><![CDATA[신영복]]></author>
+							<publisher><![CDATA[랜덤하우스코리아]]></publisher>
+							<date><![CDATA[20070201]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[87]]></ranking>
+							<isbn><![CDATA[9788925510118]]></isbn>
+							<title><![CDATA[안녕하세요 김주하입니다]]></title>
+							<author><![CDATA[김주하]]></author>
+							<publisher><![CDATA[랜덤하우스코리아]]></publisher>
+							<date><![CDATA[20070702]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[11000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[88]]></ranking>
+							<isbn><![CDATA[9788991643260]]></isbn>
+							<title><![CDATA[바람의 화원. 1]]></title>
+							<author><![CDATA[이정명]]></author>
+							<publisher><![CDATA[밀리언하우스]]></publisher>
+							<date><![CDATA[20070807]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[89]]></ranking>
+							<isbn><![CDATA[9788925509273]]></isbn>
+							<title><![CDATA[정진(행복을 부르는 힘)(DVD1장포함)]]></title>
+							<author><![CDATA[지광]]></author>
+							<publisher><![CDATA[랜덤하우스코리아]]></publisher>
+							<date><![CDATA[20070530]]></date>
+							<category><![CDATA[종교]]></category>
+							<price><![CDATA[12800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[90]]></ranking>
+							<isbn><![CDATA[9788972215226]]></isbn>
+							<title><![CDATA[스케치 쉽게 하기]]></title>
+							<author><![CDATA[김충원]]></author>
+							<publisher><![CDATA[진선아트북]]></publisher>
+							<date><![CDATA[20100724]]></date>
+							<category><![CDATA[예술/대중문화]]></category>
+							<price><![CDATA[10800]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[91]]></ranking>
+							<isbn><![CDATA[9788989313847]]></isbn>
+							<title><![CDATA[배려(어린이를 위한)(어린이 자기계발 동화 01)]]></title>
+							<author><![CDATA[전지은]]></author>
+							<publisher><![CDATA[위즈덤하우스]]></publisher>
+							<date><![CDATA[20060515]]></date>
+							<category><![CDATA[어린이(초등)]]></category>
+							<price><![CDATA[8500]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[92]]></ranking>
+							<isbn><![CDATA[9788950905224]]></isbn>
+							<title><![CDATA[설득의 심리학. 1]]></title>
+							<author><![CDATA[로버트 치알디니]]></author>
+							<publisher><![CDATA[21세기북스]]></publisher>
+							<date><![CDATA[20020930]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[93]]></ranking>
+							<isbn><![CDATA[9788932017983]]></isbn>
+							<title><![CDATA[오늘의 거짓말]]></title>
+							<author><![CDATA[정이현]]></author>
+							<publisher><![CDATA[문학과지성사]]></publisher>
+							<date><![CDATA[20070713]]></date>
+							<category><![CDATA[소설]]></category>
+							<price><![CDATA[12000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[94]]></ranking>
+							<isbn><![CDATA[9788934908067]]></isbn>
+							<title><![CDATA[책 먹는 여우(양장본 HardCover)]]></title>
+							<author><![CDATA[프란치스카 비어만]]></author>
+							<publisher><![CDATA[주니어김영사]]></publisher>
+							<date><![CDATA[20160712]]></date>
+							<category><![CDATA[어린이(초등)]]></category>
+							<price><![CDATA[9000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[95]]></ranking>
+							<isbn><![CDATA[9788990700193]]></isbn>
+							<title><![CDATA[HACKERS TOEFL LISTENING(iBT)(CD1장포함)]]></title>
+							<author><![CDATA[David Cho]]></author>
+							<publisher><![CDATA[해커스어학연구소]]></publisher>
+							<date><![CDATA[20060501]]></date>
+							<category><![CDATA[외국어]]></category>
+							<price><![CDATA[29500]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[96]]></ranking>
+							<isbn><![CDATA[9788990794529]]></isbn>
+							<title><![CDATA[사랑해 사랑해 사랑해(아기 그림책 보물창고 1)(양장본 HardCover)]]></title>
+							<author><![CDATA[버나뎃 로제티 슈스탁]]></author>
+							<publisher><![CDATA[보물창고]]></publisher>
+							<date><![CDATA[20061220]]></date>
+							<category><![CDATA[유아(0~7세)]]></category>
+							<price><![CDATA[9500]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[97]]></ranking>
+							<isbn><![CDATA[9788950911485]]></isbn>
+							<title><![CDATA[딸은 세상의 중심으로 키워라]]></title>
+							<author><![CDATA[마츠나가 노부후미]]></author>
+							<publisher><![CDATA[21세기북스]]></publisher>
+							<date><![CDATA[20070520]]></date>
+							<category><![CDATA[가정/육아]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[98]]></ranking>
+							<isbn><![CDATA[9788960860162]]></isbn>
+							<title><![CDATA[용기(양장본 HardCover)]]></title>
+							<author><![CDATA[유영만]]></author>
+							<publisher><![CDATA[위즈덤하우스]]></publisher>
+							<date><![CDATA[20070402]]></date>
+							<category><![CDATA[자기계발]]></category>
+							<price><![CDATA[10000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[99]]></ranking>
+							<isbn><![CDATA[9788952709530]]></isbn>
+							<title><![CDATA[샬롯의 거미줄(시공주니어 문고 독서 레벨 3 35)]]></title>
+							<author><![CDATA[엘윈 브룩스 화이트]]></author>
+							<publisher><![CDATA[시공주니어]]></publisher>
+							<date><![CDATA[20001207]]></date>
+							<category><![CDATA[어린이(초등)]]></category>
+							<price><![CDATA[7000]]></price>
+						</w2:row>
+						<w2:row>
+							<ranking><![CDATA[100]]></ranking>
+							<isbn><![CDATA[9788901063645]]></isbn>
+							<title><![CDATA[아이 러브 유]]></title>
+							<author><![CDATA[이미나]]></author>
+							<publisher><![CDATA[갤리온]]></publisher>
+							<date><![CDATA[20070223]]></date>
+							<category><![CDATA[시/에세이]]></category>
+							<price><![CDATA[13000]]></price>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+		</xf:model>
+		<script type="javascript" lazy="false"><![CDATA[
+
+        ]]></script>
+	</head>
+	<body>
+		<xf:group class="wrapper" id="">
+			<xf:group class="section_desc" id="group2" style="padding: 10px;">
+				<w2:textbox id="textbox1" label="소계 / 합계를 표현한 GridView로 Grid 컴포넌트로도 동일하게 구성이 가능하다.&lt;br/&gt;( source : 06_07.xml )"
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<w2:gridView id="" dataList="gridDataList" baseNode="" style="position: relative ;height:206px;" scrollByColumn="false"
+				repeatNode="" autoFit="allColumn" visibleRowNum="" readOnlyBackgroundColor="" focusMode="row" fixedColumn="" readOnly="true"
+				autoFitMinWidth="600">
+				<w2:header id="header5" style="">
+					<w2:row id="row32" style="">
+						<w2:column id="column413" style="height:91px;" width="70" inputType="text" value="대분류" rowSpan="3"></w2:column>
+						<w2:column id="column415" style="height:91px" width="70" inputType="text" value="중분류" rowSpan="3"></w2:column>
+						<w2:column id="column417" style="height:31px;" colSpan="6" width="618" inputType="text" value="상반기"></w2:column>
+						<w2:column id="column429" style="height:31px;" colSpan="6" width="618" inputType="text" value="하반기"></w2:column>
+					</w2:row>
+					<w2:row id="row34" style="">
+						<w2:column id="column453" style="height:30px;" colSpan="3" inputType="text" width="309" value="1분기"></w2:column>
+						<w2:column id="column450" style="height:30px;" colSpan="3" inputType="text" width="309" value="2분기"></w2:column>
+						<w2:column id="column447" style="height:30px;" colSpan="3" inputType="text" width="309" value="3분기"></w2:column>
+						<w2:column id="column444" style="height:30px;" colSpan="3" inputType="text" width="309" value="4분기"></w2:column>
+					</w2:row>
+					<w2:row id="row35" style="">
+						<w2:column id="column468" style="height:30px;" inputType="text" width="50" value="1월"></w2:column>
+						<w2:column id="column467" style="height:30px;" inputType="text" width="50" value="2월"></w2:column>
+						<w2:column id="column466" style="height:30px;" inputType="text" width="50" value="3월"></w2:column>
+						<w2:column id="column465" style="height:30px;" inputType="text" width="50" value="4월"></w2:column>
+						<w2:column id="column464" style="height:30px;" inputType="text" width="50" value="5월"></w2:column>
+						<w2:column id="column463" style="height:30px;" inputType="text" width="50" value="6월"></w2:column>
+						<w2:column id="column462" style="height:30px;" inputType="text" width="50" value="7월"></w2:column>
+						<w2:column id="column461" style="height:30px;" inputType="text" width="50" value="8월"></w2:column>
+						<w2:column id="column460" style="height:30px;" inputType="text" width="50" value="9월"></w2:column>
+						<w2:column id="column459" style="height:30px;" inputType="text" width="50" value="10월"></w2:column>
+						<w2:column id="column458" style="height:30px;" inputType="text" width="50" value="11월"></w2:column>
+						<w2:column id="column457" style="height:30px;" inputType="text" width="50" value="12월"></w2:column>
+					</w2:row>
+				</w2:header>
+				<w2:gBody id="gBody5" style="">
+					<w2:row id="row37" style="">
+						<w2:column blockSelect="false" id="category1" style="height:30px" hidden="false" width="70" inputType="text"
+							value="" displayMode="label">
+						</w2:column>
+						<w2:column blockSelect="false" id="category2" style="height:30px" hidden="false" width="70" inputType="text"
+							value="" displayMode="label">
+						</w2:column>
+						<w2:column id="row3_1" style="height:30px" inputType="text" width="103" displayFormat="#,###" dataType="number"></w2:column>
+						<w2:column id="row3_2" style="height:30px" inputType="text" width="103" displayFormat="#,###" dataType="number"></w2:column>
+						<w2:column id="row3_3" style="height:30px" inputType="text" width="103" displayFormat="#,###" dataType="number"></w2:column>
+						<w2:column id="row3_4" style="height:30px" inputType="text" width="103" displayFormat="#,###" dataType="number"></w2:column>
+						<w2:column id="row3_5" style="height:30px" inputType="text" width="103" displayFormat="#,###" dataType="number"></w2:column>
+						<w2:column id="row3_6" style="height:30px" inputType="text" width="103" displayFormat="#,###" dataType="number"></w2:column>
+						<w2:column id="row3_7" style="height:30px" inputType="text" width="103" displayFormat="#,###" dataType="number"></w2:column>
+						<w2:column id="row3_8" style="height:30px" inputType="text" width="103" displayFormat="#,###" dataType="number"></w2:column>
+						<w2:column id="row3_9" style="height:30px" inputType="text" width="103" displayFormat="#,###" dataType="number"></w2:column>
+						<w2:column id="row3_10" style="height:30px" inputType="text" width="103" displayFormat="#,###" dataType="number"></w2:column>
+						<w2:column id="row3_11" style="height:30px" inputType="text" width="103" displayFormat="#,###" dataType="number"></w2:column>
+						<w2:column id="row3_12" style="height:30px" inputType="text" width="103" displayFormat="#,###" dataType="number"></w2:column>
+					</w2:row>
+				</w2:gBody>
+			</w2:gridView>
+			<w2:gridView dataList="data:dlt_book" summaryAuto="false" applyAllColumnStyle="false" scrollByColumn="false"
+				defaultCellHeight="20" scrollByColumnAdaptive="false" id="" style="height: 150px;" ignoreCellClick="false"
+				ignoreToggleOnDisabled="false" summaryOnlyAuto="false" useShiftKey="true" autoFit="allColumn" sortable="true">
+				<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+				<w2:header id="header2" style="">
+					<w2:row id="row3" style="">
+						<w2:column blockSelect="false" id="column17" style="" inputType="text" width="70" value="순위" displayMode="label"></w2:column>
+						<w2:column blockSelect="false" id="column5" style="" inputType="text" width="97" value="분야" displayMode="label"></w2:column>
+						<w2:column blockSelect="false" id="column13" style="" inputType="text" width="180" value="제목" displayMode="label"></w2:column>
+						<w2:column blockSelect="false" id="column11" style="" inputType="text" width="83" value="저자" displayMode="label"></w2:column>
+						<w2:column blockSelect="false" id="column9" style="" inputType="text" width="96" value="출판사" displayMode="label"></w2:column>
+						<w2:column blockSelect="false" id="column7" style="" inputType="text" width="89" value="출간일" displayMode="label"></w2:column>
+						<w2:column blockSelect="false" id="column3" style="" width="86" inputType="text" value="정가" displayMode="label"></w2:column>
+						<w2:column blockSelect="false" id="column15" style="" inputType="text" width="108" value="ISBN"
+							displayMode="label">
+						</w2:column>
+					</w2:row>
+				</w2:header>
+				<w2:gBody id="gBody2" style="">
+					<w2:row id="row4" style="">
+						<w2:column blockSelect="false" id="ranking" style="" inputType="text" width="70" value="" displayMode="label" textAlign="right"></w2:column>
+						<w2:column blockSelect="false" id="category" style="" inputType="text" width="97" value="" displayMode="label" textAlign="left"></w2:column>
+						<w2:column blockSelect="false" id="title" style="" inputType="text" width="180" value="" displayMode="label" textAlign="left"></w2:column>
+						<w2:column blockSelect="false" id="author" style="" inputType="text" width="83" value="" displayMode="label" textAlign="left"></w2:column>
+						<w2:column blockSelect="false" id="publisher" style="" inputType="text" width="96" value="" displayMode="label" textAlign="left"></w2:column>
+						<w2:column blockSelect="false" id="date" style="" inputType="text" width="89" value="" displayMode="label"></w2:column>
+						<w2:column blockSelect="false" id="price" style="" width="86" inputType="text" value="" displayMode="label" textAlign="right"></w2:column>
+						<w2:column blockSelect="false" id="isbn" style="" inputType="text" width="108" value="" displayMode="label"></w2:column>
+					</w2:row>
+				</w2:gBody>
+			</w2:gridView>
+
+		</xf:group>
+	</body>
+</html>

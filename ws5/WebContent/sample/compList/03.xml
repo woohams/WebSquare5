@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="항목 값 선택">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns=""></data>
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataList id="autoCompleteData" baseNode="list" style="" repeatNode="map" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="label" name="label" dataType="text"></w2:column>
+						<w2:column id="value" name="value" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data xmlns="" use="true">
+						<w2:row>
+							<label><![CDATA[김치]]></label>
+							<value><![CDATA[a1]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[김밥]]></label>
+							<value><![CDATA[a2]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[김녕]]></label>
+							<value><![CDATA[a3]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[김녕해수욕장]]></label>
+							<value><![CDATA[a4]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[나라]]></label>
+							<value><![CDATA[b1]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[나비]]></label>
+							<value><![CDATA[b2]]></value>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList id="selectBoxData" baseNode="list" style="" repeatNode="map" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="disp" name="label" dataType="text"></w2:column>
+						<w2:column id="value" name="value" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data xmlns="" use="true">
+						<w2:row>
+							<disp><![CDATA[딸기]]></disp>
+							<value><![CDATA[01]]></value>
+						</w2:row>
+						<w2:row>
+							<disp><![CDATA[바나나]]></disp>
+							<value><![CDATA[02]]></value>
+						</w2:row>
+						<w2:row>
+							<disp><![CDATA[자몽]]></disp>
+							<value><![CDATA[03]]></value>
+						</w2:row>
+						<w2:row>
+							<disp><![CDATA[천혜향]]></disp>
+							<value><![CDATA[04]]></value>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList id="dc_schedule" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="dateKind" name="dateKind" dataType="text"></w2:column>
+						<w2:column id="dateName" name="dateName" dataType="text"></w2:column>
+						<w2:column id="isHoliday" name="isHoliday" dataType="text"></w2:column>
+						<w2:column id="sDate" name="sDate" dataType="text"></w2:column>
+						<w2:column id="eDate" name="eDate" dataType="text"></w2:column>
+						<w2:column id="remarks" name="remarks" dataType="text"></w2:column>
+						<w2:column id="seq" name="seq" dataType="text"></w2:column>
+						<w2:column id="key" name="key" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data xmlns="" use="true">
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[신정]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20170101]]></sDate>
+							<eDate><![CDATA[20170101]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_1]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[설날]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20170127]]></sDate>
+							<eDate><![CDATA[20170127]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_2_1]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[설날]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20170128]]></sDate>
+							<eDate><![CDATA[20170128]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_2_2]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[설날]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20170129]]></sDate>
+							<eDate><![CDATA[20170129]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_2_3]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[대체공휴일]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20170130]]></sDate>
+							<eDate><![CDATA[20170130]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_2_4]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[삼일절]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20170301]]></sDate>
+							<eDate><![CDATA[20170301]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_3]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[석가탄신일]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20170503]]></sDate>
+							<eDate><![CDATA[20170503]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_4]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[어린이날]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20170505]]></sDate>
+							<eDate><![CDATA[20170505]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_5]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[대통령선거일]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20170509]]></sDate>
+							<eDate><![CDATA[20170509]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_6]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[현충일]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20170606]]></sDate>
+							<eDate><![CDATA[20170606]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_7]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[제헌절]]></dateName>
+							<isHoliday><![CDATA[N]]></isHoliday>
+							<sDate><![CDATA[20170717]]></sDate>
+							<eDate><![CDATA[20170717]]></eDate>
+							<remarks><![CDATA[
+국경일(2014. 12. 30. 법률 12915호)이지만 관공서의 공휴일(2013. 11. 05. 대통령령 24828호)이 아님.
+]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_8]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[광복절]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20170815]]></sDate>
+							<eDate><![CDATA[20170815]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_9]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[개천절]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20171003]]></sDate>
+							<eDate><![CDATA[20171003]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_10]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[추석]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20171003]]></sDate>
+							<eDate><![CDATA[20171003]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[2]]></seq>
+							<key><![CDATA[17_11_1]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[추석]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20171004]]></sDate>
+							<eDate><![CDATA[20171004]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_11_2]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[추석]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20171005]]></sDate>
+							<eDate><![CDATA[20171005]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_11_3]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[대체공휴일]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20171006]]></sDate>
+							<eDate><![CDATA[20171006]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_11_4]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[한글날]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20171009]]></sDate>
+							<eDate><![CDATA[20171009]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_12]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[기독탄신일]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20171225]]></sDate>
+							<eDate><![CDATA[20171225]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[17_13]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[양력 설날]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180101]]></sDate>
+							<eDate><![CDATA[20180101]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_1]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[설날]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180215]]></sDate>
+							<eDate><![CDATA[20180215]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_2_1]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[설날]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180216]]></sDate>
+							<eDate><![CDATA[20180216]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_2_2]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[설날]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180217]]></sDate>
+							<eDate><![CDATA[20180217]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_2_3]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[삼일절]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180301]]></sDate>
+							<eDate><![CDATA[20180301]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_3]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[어린이날]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180505]]></sDate>
+							<eDate><![CDATA[20180505]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_4]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[대체휴무일]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180507]]></sDate>
+							<eDate><![CDATA[20180507]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_5]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[부처님오신날]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180522]]></sDate>
+							<eDate><![CDATA[20180522]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_6]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[현충일]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180606]]></sDate>
+							<eDate><![CDATA[20180606]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_7]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[전국동시지방선거]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180613]]></sDate>
+							<eDate><![CDATA[20180613]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_8]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[광복절]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180815]]></sDate>
+							<eDate><![CDATA[20180815]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_9]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[추석]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180923]]></sDate>
+							<eDate><![CDATA[20180923]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_10_1]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[추석]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180924]]></sDate>
+							<eDate><![CDATA[20180924]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_10_2]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[추석]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180925]]></sDate>
+							<eDate><![CDATA[20180925]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_10_3]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[대체휴무일]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20180926]]></sDate>
+							<eDate><![CDATA[20180926]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_10_4]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[개천절]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20181003]]></sDate>
+							<eDate><![CDATA[20181003]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_11]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[한글날]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20181009]]></sDate>
+							<eDate><![CDATA[20181009]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_12]]></key>
+						</w2:row>
+						<w2:row>
+							<dateKind><![CDATA[01]]></dateKind>
+							<dateName><![CDATA[기독탄신일]]></dateName>
+							<isHoliday><![CDATA[Y]]></isHoliday>
+							<sDate><![CDATA[20181225]]></sDate>
+							<eDate><![CDATA[20181225]]></eDate>
+							<remarks><![CDATA[]]></remarks>
+							<seq><![CDATA[1]]></seq>
+							<key><![CDATA[18_13]]></key>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+		</xf:model>
+		<script type="javascript" lazy="false"><![CDATA[
+	
+	scwin.selectbox10_onchange = function(){
+		ui_calendar.setSkin( this.getValue() );
+	};
+		
+	scwin.onpageload = function() {
+		ui_pageList1.setCount( 24 );	//pageList component
+		ui_pageList2.setCount( 24 );
+		chk_03.focus();
+	};
+	
+	]]></script>
+		<style type="text/css"><![CDATA[
+			a.fc-event {
+				background-color: #ff4747;
+				border-color: #ff4747;
+			}
+		]]></style>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="wrapper" id="">
+			<xf:group id="" style="padding: 10px;" class="section_desc">
+				<w2:textbox id="txt_03" style=""
+					label="폼을 구성하는 컴포넌트로, 항목이나 특정 값 선택이 가능한 컴포넌트이다.&lt;br/&gt;Checkbox, Radio, SelectBox, MultiSelect, CheckCombobox, AutoComplete, Slider, Calendar, PageList, ScheduleCalendar가 해당된다.&lt;br/&gt;( source : 03.xml )">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" style="overflow:hidden;">
+				<xf:group id="" style="min-height: 150px;" class="section01 dmr dmb fl">
+						<w2:textbox id="" style="" class="contTitle02" label="Checkbox"></w2:textbox>
+						<xf:select id="chk_03" cols="" appearance="full" style="text-align: left;margin-left: 14px;margin-top: 14px;" selectedindex="-1" rows="">
+							<xf:choices>
+								<xf:itemset nodeset="data:selectBoxData">
+									<xf:label ref="disp"></xf:label>
+									<xf:value ref="value"></xf:value>
+								</xf:itemset>
+							</xf:choices>
+						</xf:select>
+					</xf:group><xf:group class="section01 dmb fl" id="" style="min-height: 150px;">
+						<w2:textbox class="contTitle02" id="" label="MultiSelect" style=""></w2:textbox>
+						<xf:group id="" style="" class="pd10">
+							<xf:select id="" appearance="minimal" style="" class="mac">
+								<xf:choices>
+									<xf:itemset nodeset="data:selectBoxData">
+										<xf:label ref="disp"></xf:label>
+										<xf:value ref="value"></xf:value>
+									</xf:itemset>
+								</xf:choices>
+							</xf:select>
+						</xf:group>
+					</xf:group>
+				<xf:group class="section02 dmb clleft" id="" style="">
+						<w2:textbox class="contTitle01" id="" label="Radio" style=""></w2:textbox>
+						<xf:select1 appearance="full" cols="" id="" rows="1" selectedIndex="-1" style="width: auto" class="defComp">
+							<xf:choices>
+								<xf:itemset nodeset="data:selectBoxData">
+									<xf:label ref="disp"></xf:label>
+									<xf:value ref="value"></xf:value>
+								</xf:itemset>
+							</xf:choices>
+						</xf:select1>
+					</xf:group><xf:group class="section02 dmb" id="" style="">
+						<w2:textbox class="contTitle01" id="" label="SelectBox" style=""></w2:textbox>
+						<xf:select1 allOption="" appearance="minimal" chooseOption="" direction="auto" disabled="false" displayMode="label" id="" style="" submenuSize="auto" class="defComp">
+							<xf:choices>
+								<xf:itemset nodeset="data:selectBoxData">
+									<xf:label ref="disp"></xf:label>
+									<xf:value ref="value"></xf:value>
+								</xf:itemset>
+							</xf:choices>
+						</xf:select1>
+					</xf:group><xf:group class="section02 dmb" id="" style="">
+						<w2:textbox class="contTitle01" id="" label="CheckCombobox" style=""></w2:textbox>
+						<xf:checkcombobox allOption="" appearance="minimal" chooseOption="" delimiter="" direction="auto" disabled="false" displayMode="label" id="" separator="," style="" submenuSize="auto" class="defComp">
+							<xf:choices>
+								<xf:itemset nodeset="data:selectBoxData">
+									<xf:label ref="disp"></xf:label>
+									<xf:value ref="value"></xf:value>
+								</xf:itemset>
+							</xf:choices>
+						</xf:checkcombobox>
+					</xf:group><xf:group class="section02 dmb" id="" style="">
+						<w2:textbox class="contTitle01" id="" label="AutoComplete" style=""></w2:textbox>
+						<w2:autoComplete displayMode="label" editType="select" id="" search="start" style="" submenuSize="auto" useKeywordHighlight="true" class="defComp">
+							<w2:choices>
+								<w2:itemset nodeset="data:autoCompleteData">
+									<w2:label ref="label"></w2:label>
+									<w2:value ref="value"></w2:value>
+								</w2:itemset>
+							</w2:choices>
+						</w2:autoComplete>
+					</xf:group><xf:group class="section02 dmb" id="" style="">
+						<w2:textbox class="contTitle02 dmb" id="" label="PageList" style=""></w2:textbox>
+						<w2:pageList displayFormat="#" id="ui_pageList1" pageSize="10" style="height: 40px;margin:0px auto;"></w2:pageList>
+						<w2:pageList displayFormat="#" displaySearchbox="true" displaySelectedIndex="true" id="ui_pageList2" pageSize="10" style="height: 40px;margin:0px auto;">
+						</w2:pageList>
+					</xf:group><xf:group class="section02 dmb" id="" style="">
+						<w2:textbox class="contTitle02 dmb" id="" label="Slider" style=""></w2:textbox>
+					<xf:group id="" style="padding: 10px 10px 20px 10px;" class="tac"><w2:slider id="" increment="10" style="position: relative ;height: 30px;width:250px;" minValue="0" value="10" setBackground="true" class="" showScale="true" maxValue="100">
+						</w2:slider></xf:group></xf:group><xf:group class="section02 dmb" id="" style="">
+						<w2:textbox class="contTitle02" id="" label="Calendar" style=""></w2:textbox>
+						<xf:group class="dp ofh" id="" style="text-align: center;">
+							<w2:span class="dmr" id="" label="calendarClass:" style=""></w2:span>
+							<xf:select1 allOption="" appearance="minimal" chooseOption="" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" displayMode="label" emptyItem="true" ev:onchange="scwin.selectbox10_onchange" id="" selectedData="`" style="height: 2em;width: 120px;" submenuSize="auto" textAlign="center">
+								<xf:choices>
+									<xf:item>
+										<xf:label><![CDATA[class1]]></xf:label>
+										<xf:value><![CDATA[class1]]></xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label><![CDATA[class2]]></xf:label>
+										<xf:value><![CDATA[class2]]></xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label><![CDATA[class3]]></xf:label>
+										<xf:value><![CDATA[class3]]></xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label><![CDATA[class4]]></xf:label>
+										<xf:value><![CDATA[class4]]></xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label><![CDATA[class5]]></xf:label>
+										<xf:value><![CDATA[class5]]></xf:value>
+									</xf:item>
+								</xf:choices>
+							</xf:select1>
+						</xf:group>
+						<w2:calendar calendarClass="" id="ui_calendar" style="margin:0px auto;margin-bottom: 6px;"></w2:calendar>
+					</xf:group>
+				<xf:group class="section03" id="" style="min-width:400px;min-height: 245px;position: relative;">
+					<w2:textbox class="contTitle02" id="" label="ScheduleCalendar" style=""></w2:textbox>
+					<xf:group class="pd10" id="" style="min-width: 500px;">
+						<w2:scheduleCalendar dataList="data:dc_schedule" defaultDate="" editable="" endColumn="eDate" headerLeftBtn="true"
+							headerRightBtn="true" headerTitle="true" id="ui_scheduleCalendar" ioFormat="yyyyMMdd" lang="ko" selectable="" startColumn="sDate"
+							style="height: 400px;max-width: 900px;margin: 0px auto;" titleColumn="dateName" ev:onclick="" idColumn="key" version="">
+						</w2:scheduleCalendar>
+
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+
+		</xf:group>
+	</body>
+</html>

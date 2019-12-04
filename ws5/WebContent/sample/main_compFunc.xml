@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="기능리스트">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map" id="">
+				<w2:dataList id="dc_menu_compFunc" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="desc" name="name1" dataType="text"></w2:column>
+						<w2:column id="url" name="name2" dataType="text"></w2:column>
+						<w2:column id="type" name="name3" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+			<xf:submission id="sbm_getCompFunc" ref="" target="data:json,dc_menu_compFunc" action="/ws5/sample/data/menu_compFunc.json"
+				method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="" ev:submit="" ev:submitdone="scwin.sbm_getCompFunc_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<style type="text/css"><![CDATA[
+    		
+    	]]></style>
+		<script type="javascript" lazy="false"><![CDATA[
+	
+	scwin.onpageload = function() {
+		$p.executeSubmission( "sbm_getCompFunc" );
+	};
+	
+	scwin.sbm_getCompFunc_submitdone = function(e) {
+		scwin.setMenu();
+	};
+	
+	scwin.setMenu = function(){
+		var a, b=0, c=0,
+			typeKey = null,
+			uiObj, tmpObj, tmpStr, 
+			listArr, listArrLen, listData,
+			typeInfoObj = {"01":"기능", "02":"성능", "03":"페이지 구현"};
+			
+		dc_menu_compFunc.sort( "type");
+		listArr = dc_menu_compFunc.getAllJSON();
+		listArrLen = listArr.length;
+		
+		
+		//list 분리
+		for(a=0; a<listArrLen; a++){
+			listData = listArr[a];
+
+			if(typeKey !== listData.type){
+				typeKey = listData.type;
+				
+				ui_gen_type.insertChild();
+				
+				uiObj = ui_gen_type.getChild( b , "ui_type_title" );
+				uiObj.setValue(typeInfoObj[typeKey]);
+				
+				uiObj = ui_gen_type.getChild( b , "ui_gen" );
+				b ++;
+				c = 0;			
+			}			
+			uiObj.insertChild();
+			
+			tmpObj = uiObj.getChild(c, "ui_url");
+			tmpObj.setValue(listData.url);
+			tmpObj.setHref(location.pathname + "?w2xPath=" + listData.url);
+
+			tmpObj = uiObj.getChild(c, "ui_txt");
+			tmpObj.setValue(listData.desc);
+			
+			c++;
+		}
+	};
+	
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group id="" style="" class="wrapper">
+			<w2:generator id="ui_gen_index" style="" class="dmb">
+				<w2:anchor id="ui_gen_index_title" style="" outerDiv="false" class="dmr">
+					<xf:label><![CDATA[index]]></xf:label>
+				</w2:anchor>
+			</w2:generator>
+			<w2:generator id="ui_gen_type" style="">
+				<xf:group class="titlebox02 dmb" id="" style="">
+					<w2:textbox class="df_tt" id="ui_type_title" label="Title" style="" tabIndex="" tagname="h1"></w2:textbox>
+				</xf:group>
+				<w2:generator id="ui_gen" style="" tagname="dl" class="autoCountBox">
+					<w2:textbox label="" id="ui_txt" style="" tagname="dt" class="mb2"></w2:textbox>
+					<xf:group id="" style="" class="" tagname="dd">
+						<w2:anchor id="ui_url" style="" outerDiv="false" clickEventElement="" class="" target="_blank">
+							<xf:label><![CDATA[]]>
+							</xf:label>
+						</w2:anchor>
+					</xf:group>
+					<hr style="height:1px;border-width:0px;border-bottom:1px solid #bbb;margin: 6px 0px;" />
+				</w2:generator>
+			</w2:generator>
+
+
+		</xf:group>
+	</body>
+</html>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="xPath 활용 예제">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns="">
+                	<res>
+                		<map>
+	                		<vector>
+		                		<map index="0">
+		                			<number value="one">1</number>
+		                			<dept value="insa">인사</dept>
+		                			<age value="17">17</age>
+		                			<name value="hong">홍길동</name>
+		                			<address value="seoul dongjak">서울 동작구</address>
+		                		</map>
+		                 		<map index="1">
+		                			<number value="two">2</number>
+		                			<dept value="insa">홍보</dept>
+		                			<age value="24">24</age>
+		                			<name value="heo">허준</name>
+		                			<address value="seoul Kangseo">서울 강서구</address>
+		                		</map>
+		                 		<map index="2">
+		                			<number value="three">3</number>
+		                			<dept value="insa">인사</dept>
+		                			<age value="37">37</age>
+		                			<name value="jeon">전우치</name>
+		                			<address value="seoul mapo">서울 마포구</address>
+		                		</map>
+		                 		<map index="3">
+		                			<number value="four">4</number>
+		                			<dept value="dev">개발</dept>
+		                			<age value="32">32</age>
+		                			<name value="na">나이름</name>
+		                			<address value="seoul seocho">서울 서초구</address>
+		                		</map>
+	                		</vector>
+                		</map>
+                	</res>
+                </data>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+        
+			scwin.onpageload = function() {
+				spinner1.setValue( 1 );
+			};
+			
+			scwin.onpageunload = function() {
+				
+			};
+	
+			// xPath Node data 확인
+			scwin.btnNodeConfirm_onclick = function(e) {
+				var node = "res/map/vector/map[" + spinner1.getValue() + "]";
+				var doc = WebSquare.ModelUtil.findInstanceNode( node );
+				
+				var _number = WebSquare.xml.getValue( doc , "number" );
+				var _name = WebSquare.xml.getValue( doc , "name" );
+				var _age = WebSquare.xml.getValue( doc , "age" );
+				
+				alert("번호=>" +_number + ":: 이름 =>" + _name + ":: 나이 => " + _age);
+			};
+			
+			//xPath를 이용하여 selectbox list 셋팅 (권장)
+			scwin.radio1_onchange = function() {
+				var str = "age >= " + radio1.getValue() + "and age <" + (parseInt(radio1.getValue()) + 10);
+				selectbox1.setNodeSet( "res/map/vector/map[" + str + "]" , "name" , "number" );
+			};
+			
+			//api를 이용하여 selectbox list 셋팅 (비권장 - 동작은 xPath 방식과 동일하나 소스 코딩량이 훨씬 많다)
+			scwin.radio2_onchange = function() {
+				var arrObj = WebSquare.ModelUtil.findInstanceNodes( "res/map/vector/map" );
+				var _length = arrObj.length;
+				selectbox2.removeAll( true );
+				
+				for(var i=0; i<_length; i++){
+					var _number = WebSquare.xml.getValue( arrObj[i] , "number" );
+					var _name = WebSquare.xml.getValue( arrObj[i] , "name" );
+					var _age = WebSquare.xml.getValue( arrObj[i] , "age" );
+					
+					if(_age >= radio2.getValue() && _age < (parseInt(radio2.getValue()) + 10) ){
+						selectbox2.addItem( _number, _name );
+					}
+				}
+			};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    <xf:group style="padding: 10px;" id="">
+    	<xf:group style="border: 1px solid gray;padding: 10px;margin-bottom: 10px;overflow: hidden;" id="" class="">
+    		<w2:textbox tagname="h2" style="" label="* xPath로 값을 가져오기" id=""></w2:textbox>
+    	</xf:group>
+    	<xf:group style="border: 1px solid gray;padding: 10px;overflow: hidden;margin-bottom: 10px;" id="" class="">
+    		<w2:spinner skin="type1" buttonSize="30" inputReadOnly="false"
+    			style="position: relative;width: 150px;height: 21px;float : left;margin-right: 10px;" id="spinner1" max="4" min="1" increment="1">
+    		</w2:spinner>
+    		<xf:trigger type="button" style="width: 100px;height: 23px;" id="btnNodeConfirm" ev:onclick="scwin.btnNodeConfirm_onclick">
+    			<xf:label><![CDATA[Node data 확인]]></xf:label>
+    		</xf:trigger>
+    	</xf:group>
+    	<xf:group style="border: 1px solid gray;padding: 10px;margin-bottom: 10px;overflow: hidden;" id="" class="">
+    		<w2:textbox label="* xPath로 리스트 컴포넌트 셋팅하기 - xPath 사용" style="" id="" tagname="h2"></w2:textbox>
+    	</xf:group>
+    	<xf:group style="border: 1px solid gray;padding: 10px;margin-bottom: 10px;overflow: hidden;" id="" class="">
+    		<xf:select1 id="radio1" selectedIndex="-1" appearance="full" style="width: 250px;height: 21px;float : left;margin-right: 50px;"
+    			cols="" rows="1" ref="" ev:onchange="scwin.radio1_onchange">
+    			<xf:choices>
+    				<xf:item>
+    					<xf:label><![CDATA[10대]]></xf:label>
+    					<xf:value><![CDATA[10]]></xf:value>
+    				</xf:item>
+    				<xf:item>
+    					<xf:label><![CDATA[20대]]></xf:label>
+    					<xf:value><![CDATA[20]]></xf:value>
+    				</xf:item>
+    				<xf:item>
+    					<xf:label><![CDATA[30대]]></xf:label>
+    					<xf:value><![CDATA[30]]></xf:value>
+    				</xf:item>
+    			</xf:choices>
+    		</xf:select1>
+    		<xf:select1 id="selectbox1" chooseOption="true" style="width: 148px;height: 21px;" submenuSize="auto" allOption=""
+    			disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled" chooseOptionLabel="" ref="">
+    			<xf:choices></xf:choices>
+    		</xf:select1>
+    	</xf:group>
+    	<xf:group class="" id="" style="border: 1px solid gray;padding: 10px;margin-bottom: 10px;overflow: hidden;">
+    		<w2:textbox id="" label="* xPath로 리스트 컴포넌트 셋팅하기 - API 사용" style="" tagname="h2"></w2:textbox>
+    	</xf:group>
+    	<xf:group class="" id="" style="border: 1px solid gray;padding: 10px;margin-bottom: 10px;overflow: hidden;">
+    		<xf:select1 appearance="full" cols="" id="radio2" ref="" rows="1" selectedIndex="-1"
+    			style="width: 250px;height: 21px;float : left;margin-right: 50px;" ev:onchange="scwin.radio2_onchange">
+    			<xf:choices>
+    				<xf:item>
+    					<xf:label><![CDATA[10대]]></xf:label>
+    					<xf:value><![CDATA[10]]></xf:value>
+    				</xf:item>
+    				<xf:item>
+    					<xf:label><![CDATA[20대]]></xf:label>
+    					<xf:value><![CDATA[20]]></xf:value>
+    				</xf:item>
+    				<xf:item>
+    					<xf:label><![CDATA[30대]]></xf:label>
+    					<xf:value><![CDATA[30]]></xf:value>
+    				</xf:item>
+    			</xf:choices>
+    		</xf:select1>
+    		<xf:select1 allOption="" appearance="minimal" chooseOption="true" direction="auto" disabled="false"
+    			disabledClass="w2selectbox_disabled" id="selectbox2" style="width: 148px;height: 21px;" submenuSize="auto" chooseOptionLabel=""
+    			ref="">
+    			<xf:choices></xf:choices>
+    		</xf:select1>
+    	</xf:group>
+    </xf:group></body>
+</html>

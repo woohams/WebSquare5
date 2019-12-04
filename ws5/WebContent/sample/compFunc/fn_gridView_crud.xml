@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="gridView CRUD">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataList id="dc_gridViewData" baseNode="list" style="" repeatNode="map" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="chk" name="dept" dataType="text" ignoreStatus="true" defaultValue="0"></w2:column>
+						<w2:column id="dept" name="dept" dataType="text"></w2:column>
+						<w2:column id="name" name="name" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data xmlns="" use="true">
+						<w2:row>
+							<dept><![CDATA[인사]]></dept>
+							<name><![CDATA[손예진]]></name>
+						</w2:row>
+						<w2:row>
+							<dept><![CDATA[홍보]]></dept>
+							<name><![CDATA[송강호]]></name>
+						</w2:row>
+						<w2:row>
+							<dept><![CDATA[IT]]></dept>
+							<name><![CDATA[전지현]]></name>
+						</w2:row>
+						<w2:row>
+							<dept><![CDATA[인사]]></dept>
+							<name><![CDATA[류승룡]]></name>
+						</w2:row>
+						<w2:row>
+							<dept><![CDATA[홍보]]></dept>
+							<name><![CDATA[이광수]]></name>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<xf:submission id="sub_save01"
+				ref='data:json,[{"id":"dc_gridViewData","action":"inserted","key":"insertParam"},{"id":"dc_gridViewData","action":"deleted","key":"deleteParam"},{"id":"dc_gridViewData","action":"updated","key":"updateParam"}]'
+				target="" action="/save01.do" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler=""
+				customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="scwin.sub_save01_submiterror">
+			</xf:submission>
+			<xf:submission id="sub_save02"
+				ref='data:json,{"id":"dc_gridViewData","action":"modified"}'
+				target="" action="/save01.do" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler=""
+				customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="scwin.sub_save02_submiterror">
+			</xf:submission>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+
+	scwin.btn_trigger9_onclick = function(e){
+			//data 초기화
+			dc_gridViewData.undoAll();
+			
+			alert("0번째 행에 행 추가(insertRow)\n1번째 행의 name을 수정(setCellData)\n2번째 행을 삭제 상태로 변경(deleteRow)\n3번째 행을 삭제(removeRow)");
+			
+			dc_gridViewData.insertRow(0);
+			//dc_gridViewData.insertJSON( 0 , [{"name":"NEW"}] );
+			
+			dc_gridViewData.setCellData( 1 , "name" , "WebSquare" );
+				
+			//2번째행(Num:3)을 삭제 상태로 변경
+			dc_gridViewData.deleteRow( 2 );
+				
+			//3번째행(Num:4)을 삭제
+			dc_gridViewData.removeRow( 3 );
+					
+	};
+	
+	scwin.btn_getInsertedJSON_onclick = function(e){
+		var tmpJSON = dc_gridViewData.getInsertedJSON();
+		alert(JSON.stringify(tmpJSON,null,"\t"));
+	};
+	
+	scwin.btn_getUpdatedJSON_onclick = function(e){
+ 			var tmpJSON = dc_gridViewData.getUpdatedJSON();
+			alert(JSON.stringify(tmpJSON,null,"\t"));
+	};
+	
+	scwin.btn_getDeletedJSON_onclick = function(e){
+		var tmpJSON = dc_gridViewData.getDeletedJSON();
+		alert(JSON.stringify(tmpJSON,null,"\t"));
+	};
+	
+	scwin.btn_getModifiedJSON_onclick = function(e){
+ 			var tmpJSON = dc_gridViewData.getModifiedJSON();
+		alert(JSON.stringify(tmpJSON,null,"\t"));
+	};
+	
+	scwin.btn_getAllJSON_onclick = function(e){
+		var tmpJSON = dc_gridViewData.getAllJSON();
+		alert(JSON.stringify(tmpJSON,null,"\t"));
+	};
+
+	scwin.btn_actionInserted_onclick = function(e){
+		var tmpGetOpt = {
+			id : "dc_gridViewData"
+			, action : "inserted"
+		};
+		var tmpJSON = $p.data.get("JSON",[tmpGetOpt]);
+ 				alert(JSON.stringify(tmpJSON,null,"\t"));
+	};
+	
+	scwin.btn_actionUpdated_onclick = function(e){
+			var tmpGetOpt = {
+			id : "dc_gridViewData"
+			, action : "updated"
+		};
+		var tmpJSON = $p.data.get("JSON",[tmpGetOpt]);
+				alert(JSON.stringify(tmpJSON,null,"\t"));
+		};
+	
+	scwin.btn_actionDeleted_onclick = function(e){
+ 			var tmpGetOpt = {
+			id : "dc_gridViewData"
+			, action : "deleted"
+		};
+		var tmpJSON = $p.data.get("JSON",[tmpGetOpt]);
+ 			alert(JSON.stringify(tmpJSON,null,"\t"));
+	};
+	
+	scwin.btn_actionModified_onclick = function(e){
+			var tmpGetOpt = {
+			id : "dc_gridViewData"
+			, action : "modified"
+		};
+		var tmpJSON = $p.data.get("JSON",[tmpGetOpt]);
+			alert(JSON.stringify(tmpJSON,null,"\t"));
+	};
+	
+	scwin.btn_actionAll_onclick = function(e){
+		var tmpGetOpt = {
+			id : "dc_gridViewData"
+			//, action : "all"
+		};
+		var tmpJSON = $p.data.get("JSON",[tmpGetOpt]);
+		alert(JSON.stringify(tmpJSON,null,"\t"));
+	};
+	
+	
+	scwin.btn_reinitializePage_onclick = function(e){
+		$p.reinitialize();
+	};
+	
+	scwin.btn_setJSON012_onclick = function(e){
+		dc_gridViewData.insertRow(0);
+	};
+	
+	scwin.btn_setJSON013_onclick = function(e){
+		var chArr = gridView1.getCheckedIndex( "chk" );
+		if(chArr.length < 1){
+			alert("선택 된 항목이 없습니다.");
+		}else{
+			dc_gridViewData.removeRows( chArr );
+		}
+	};
+
+	scwin.gridView1_oncellclick = function(row,col){
+		var tmpID = gridView1.getColumnID( col );
+		if(tmpID === "deleteBtn"){
+			dc_gridViewData.deleteRow( row );
+		}else if(tmpID === "removeBtn"){
+			dc_gridViewData.removeRow( row );
+		}
+	};
+		
+	scwin.btn_reset_onclick = function(e) {
+		dc_gridViewData.reset();
+		
+	};
+	
+	scwin.btn_sub_save01_onclick = function(e) {
+		$p.executeSubmission( "sub_save01" );
+	};
+	
+	scwin.btn_sub_save02_onclick = function(e) {
+		$p.executeSubmission( "sub_save02" );
+	};
+	
+	scwin.sub_save01_submiterror = function(e) {
+		alert(e.requestBody);
+	};
+	
+	scwin.sub_save02_submiterror = function(e) {
+		alert(e.requestBody);
+	};
+	
+	scwin.onpageload = function() {
+		scwin.orgGridData = dc_gridViewData.getAllJSON();
+	};
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group id="" style="" class="wrapper">
+			<xf:group id="" style="" class="section_desc pd10">
+				<w2:textbox id="" style=""
+					label="DataList의 상태별 데이터(추가/수정/삭제)를 제어하는 기본 method를 소개한다.&lt;br/&gt;사용자가 GridView를 통해 데이터를 수정하거나 스크립트에서 데이터를 추가/삭제한 경우 모두 GridView와 연동된 DataList의 method를 통해 데이터를 꺼내온다.&lt;br/&gt;일반적으로 수정된 데이터는 서버로 전송하여 DB에 적용하기 때문에 Submission 설정의 reference의 action 옵션과 연결된다.&lt;br/&gt;각 기능은 버튼에 연결되어 있으며 버튼의 onclick이벤트에 적용된 function을 통해 확인한다.&lt;br/&gt;( source : fn_gridView_crud.xml )"
+					tagname="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="" id="" style="">
+				<xf:group class="dmb" id="" style="text-align:right;">
+					<xf:trigger class="dmr"
+						ev:onclick="scwin.btn_trigger9_onclick" id="btn_trigger9"
+						style="height: 26px;width:240px;" toolTip="데이터를 추가,수정,삭제한다."
+						type="button">
+						<xf:label><![CDATA[상태별 데이터 셋팅 - setCRUDData]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="dmr"
+						ev:onclick="scwin.btn_reset_onclick" id="btn_reset"
+						style="width: 100px;height: 26px;" toolTip="초기 데이터로 복원한다."
+						type="button">
+						<xf:label><![CDATA[데이터 복원]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class=""
+						ev:onclick="scwin.btn_reinitializePage_onclick"
+						id="btn_reinitializePage" style="width: 80px;height: 26px;"
+						toolTip="화면을 갱신한다." type="button">
+						<xf:label><![CDATA[화면 갱신]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+				<xf:group class="dmb ofh" id="" style="">
+					<xf:group class="fl" id="" style="">
+						<xf:trigger class=""
+							ev:onclick="scwin.btn_setJSON012_onclick" id="btn_setJSON012"
+							style="width: 160px;height: 26px;margin-right:6px;"
+							toolTip="0번째행에 행을 추가한다." type="button">
+							<xf:label><![CDATA[행추가 - insertRow]]></xf:label>
+						</xf:trigger>
+						<xf:trigger
+							ev:onclick="scwin.btn_setJSON013_onclick" id="btn_setJSON013"
+							style="height: 26px;width:190px;"
+							toolTip="GridView의 체크박스에 체크된 행을 삭제한다." type="button">
+							<xf:label><![CDATA[선택 삭제 - removeRows]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+					<xf:group class="fr" id="" style="">
+						<xf:trigger class="dmr"
+							ev:onclick="scwin.btn_sub_save01_onclick" id="btn_sub_save01"
+							style="width: 150px;height: 23px;"
+							toolTip="버튼을 클릭하기 전 GridView에 데이터의 상태를 변경하거나 [상태별 데이터 셋팅 - setCRUDData]버튼을 클릭하여 상태를 변경한다.&lt;br/&gt;GridView에 연결된 dc_gridViewData객체의 데이터를 상태별로 서버로 전송하는 예시로 sub_save01 submission의 Reference 설정을 확인한다.&lt;br/&gt;버튼을 클릭하면 서버로 전송된 requestBody가 alert으로 표현된다."
+							type="button">
+							<xf:label><![CDATA[상태별 데이터 전송]]></xf:label>
+						</xf:trigger>
+						<xf:trigger
+							ev:onclick="scwin.btn_sub_save02_onclick" id="btn_sub_save02"
+							style="width: 150px;height: 23px;"
+							toolTip="버튼을 클릭하기 전 GridView에 데이터의 상태를 변경하거나 [상태별 데이터 셋팅 - setCRUDData]버튼을 클릭하여 상태를 변경한다.&lt;br/&gt;GridView에 연결된 dc_gridViewData객체의 데이터중 변경된 모든 데이터를 한번에 서버로 전송하는 예시로 sub_save02 submission의 Reference 설정을 확인한다.&lt;br/&gt;버튼을 클릭하면 서버로 전송된 requestBody가 alert으로 표현된다."
+							type="button">
+							<xf:label><![CDATA[modified 데이터 전송]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+				<w2:gridView autoFit="allColumn"
+					dataList="dc_gridViewData"
+					ev:oncellclick="scwin.gridView1_oncellclick" focusMode="row"
+					id="gridView1" rowNumHeaderValue="NO" rowNumVisible="true"
+					rowNumWidth="25" rowStatusHeaderValue="상태" rowStatusVisible="true"
+					rowStatusWidth="34" scrollByColumn="false"
+					selectedRowColor="#9ADDE4" sortEvent="ondblclick" sortable="true"
+					style="height: 140px;margin-bottom:6px;" visibleRowNum="all">
+					<w2:header id="header1" style="">
+						<w2:row id="row1" style="">
+							<w2:column blockSelect="false" id="column16"
+								inputType="checkbox" style="height:30px;" value="chk"
+								width="30">
+							</w2:column>
+							<w2:column id="column7" inputType="text"
+								style="height:30px;" value="이름" width="104">
+							</w2:column>
+							<w2:column id="column3" inputType="text"
+								style="height:30px;" value="부서" width="120">
+							</w2:column>
+							<w2:column id="column11" inputType="text"
+								style="height:30px;" value="삭제 상태로 변경" width="118">
+							</w2:column>
+							<w2:column blockSelect="false" id="column12"
+								inputType="text" style="height:30px;" value="데이터 삭제"
+								width="131">
+							</w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody id="gBody1" style="">
+						<w2:row id="row2" style="">
+							<w2:column blockSelect="false" id="chk"
+								inputType="checkbox" style="height:30px;" width="31">
+							</w2:column>
+							<w2:column id="name" inputType="text"
+								style="height:30px;" width="104">
+							</w2:column>
+							<w2:column id="dept" inputType="text"
+								style="height:30px;" width="120">
+							</w2:column>
+							<w2:column id="deleteBtn" inputType="button"
+								style="height:30px;" value="deleteRow" width="118">
+							</w2:column>
+							<w2:column blockSelect="false"
+								id="removeBtn" inputType="button" style="height:30px;"
+								value="removeRow" width="131">
+							</w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+				<xf:group class="" id="" style=""></xf:group>
+			</xf:group>
+			<xf:group class="dl_code" id="" style="" tagname="dl">
+				<w2:textbox class="" id=""
+					label="Submission의 ref(reference) 속성에 정의하기" style=""
+					tagname="dt">
+				</w2:textbox>
+				<xf:group id="" style="" tagname="dd">
+					<w2:textbox id=""
+						label="상태별 데이터는 일반적으로 서버로 보낼 때 많이 사용된다.&lt;br/&gt;그래서 Submission의 reference속성에 각 상태별 데이터만 보낼수 있는 기능을 제공한다."
+						style="">
+					</w2:textbox>
+					<w2:textbox class="dp" id=""
+						label="&amp;lt;xf:submission id=&quot;sub_save01&quot; action=&quot;/save01.do&quot; &lt;br/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;ref='data:json,[{&quot;id&quot;:&quot;dc_gridViewData&quot;,&quot;action&quot;:&quot;modified&quot;,&quot;key&quot;:&quot;modifiedParam&quot;}]'&amp;gt;&lt;br/&gt;&amp;lt;/xf:submission&amp;gt;"
+						style="" tagname="samp">
+					</w2:textbox>
+					<xf:group class="" id="" style="">
+						<xf:trigger class="dm"
+							ev:onclick="scwin.btn_actionInserted_onclick"
+							id="btn_actionInserted" style="width:160px;height: 26px;"
+							toolTip="전체 데이터 객체(DataCollection)에서 dc_gridViewData 객체에 추가된 데이터를 가져온다."
+							type="button">
+							<xf:label><![CDATA[action - inserted]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="dm"
+							ev:onclick="scwin.btn_actionUpdated_onclick"
+							id="btn_actionUpdated" style="width:160px;height: 26px;"
+							toolTip="전체 데이터 객체(DataCollection)에서 dc_gridViewData 객체에 수정된 데이터를 가져온다."
+							type="button">
+							<xf:label><![CDATA[action - updated]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="dm"
+							ev:onclick="scwin.btn_actionDeleted_onclick"
+							id="btn_actionDeleted" style="width:160px;height: 26px;"
+							toolTip="전체 데이터 객체(DataCollection)에서 dc_gridViewData 객체에 삭제된 데이터를 가져온다."
+							type="button">
+							<xf:label><![CDATA[action - deleted]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="dm"
+							ev:onclick="scwin.btn_actionModified_onclick"
+							id="btn_actionModified" style="width:160px;height: 26px;"
+							toolTip="전체 데이터 객체(DataCollection)에서 dc_gridViewData 객체에 추가/수정/삭제된 데이터를 가져온다."
+							type="button">
+							<xf:label><![CDATA[action - modified]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="dm"
+							ev:onclick="scwin.btn_actionAll_onclick" id="btn_actionAll"
+							style="width:200px;height: 26px;"
+							toolTip="전체 데이터 객체(DataCollection)에서 dc_gridViewData 객체에 전체 데이터를 가져온다. 단, removeRow로 데이터가 삭제된 경우는 제외된다."
+							type="button">
+							<xf:label><![CDATA[action - all 또는 action 미정의]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+				<w2:textbox class="" id=""
+					label="DataList 객체의 Method를 이용하여 data 가져오기" style=""
+					tagname="dt">
+				</w2:textbox>
+				<xf:group id="" style="" tagname="dd">
+					<w2:textbox id=""
+						label="DataList의 Method들 중 get[상태][데이터타입](getAllJSON)의 형식을 가진 Method가 해당된다.&lt;br/&gt;대표적으로 JSON을 꺼내오는 주요 method는 다음과 같다.&lt;br/&gt;getInsertedJSON, getUpdatedJSON, getDeletedJSON, getModifiedJSON, getAllJSON"
+						style="">
+					</w2:textbox>
+					<w2:textbox class="dp" id=""
+						label="var modiArr = dataList1.getModifiedJSON( ); //추가, 삭제, 업데이트 상태의 데이터를 반환한다."
+						style="" tagname="samp">
+					</w2:textbox>
+					<xf:group class="" id="" style="">
+						<xf:trigger class="dm"
+							ev:onclick="scwin.btn_getInsertedJSON_onclick"
+							id="btn_getInsertedJSON" style="width:160px;height: 26px;"
+							toolTip="dc_gridViewData에서 추가된 데이터를 가져온다." type="button">
+							<xf:label><![CDATA[getInsertedJSON]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="dm"
+							ev:onclick="scwin.btn_getUpdatedJSON_onclick"
+							id="btn_getUpdatedJSON" style="width:160px;height: 26px;"
+							toolTip="dc_gridViewData에서 수정된 데이터를 가져온다." type="button">
+							<xf:label><![CDATA[getUpdatedJSON]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="dm"
+							ev:onclick="scwin.btn_getDeletedJSON_onclick"
+							id="btn_getDeletedJSON" style="width:160px;height: 26px;"
+							toolTip="dc_gridViewData에서 삭제된 데이터를 가져온다." type="button">
+							<xf:label><![CDATA[getDeletedJSON]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="dm"
+							ev:onclick="scwin.btn_getModifiedJSON_onclick"
+							id="btn_getModifiedJSON" style="width:160px;height: 26px;"
+							toolTip="dc_gridViewData에서 추가/수정/삭제된 데이터를 가져온다." type="button">
+							<xf:label><![CDATA[getModifiedJSON]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="dm"
+							ev:onclick="scwin.btn_getAllJSON_onclick" id="btn_getAllJSON"
+							style="width:160px;height: 26px;"
+							toolTip="dc_gridViewData의 데이터를 가져온다. 단, removeRow로 데이터가 삭제된 경우는 제외된다."
+							type="button">
+							<xf:label><![CDATA[getAllJSON]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+				<w2:textbox class="" id=""
+					label="DataCollection 객체의 Method를 이용하여 data 가져오기" style=""
+					tagname="dt">
+				</w2:textbox>
+				<xf:group style="" id="" class="" tagname="dd">
+					<w2:textbox id=""
+						label="여러개의 DataList의 값을 꺼내올 때 사용한다." style="">
+					</w2:textbox>
+					<w2:textbox class="" id=""
+						label='var tmpGetOpt = {&lt;br/&gt; &amp;nbsp;id : "dc_gridViewData"&lt;br/&gt; &amp;nbsp;, action : "updated"&lt;br/&gt;};&lt;br/&gt;var dataArr = $p.data.get("JSON",[tmpGetOpt]);'
+						style="" tagname="samp">
+					</w2:textbox>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

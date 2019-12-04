@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inswave.edu.dao.TrainingDao">
+	<select id="selectEmpCd" resultType="Map">
+		SELECT max(EMP_CD)+1 FROM SP_MEMBER
+	</select>
+	
+	<select id="getUserInfo" resultType="Map" parameterType="Map">
+		SELECT
+			EMP_CD,EMP_NM,GENDER_CD,JOIN_DATE,POSITION_CD,DUTY_CD,ROLE_CD,ASSIGNED_TASK,EMAIL,ZIP_CD,ADDRESS1,ADDRESS2,CREATED_DATE,UPDATED_DATE 
+		FROM sp_member
+		WHERE  EMP_CD = #{EMP_CD}
+	</select>
+	
+	<select id="selectMember" resultType="Map" parameterType="com.inswave.edu.dto.SelectMemberDTO">
+		SELECT
+			EMP_CD,EMP_NM,GENDER_CD,JOIN_DATE,POSITION_CD,ROLE_CD,EMAIL,ZIP_CD,ADDRESS1,ADDRESS2,CREATED_DATE,UPDATED_DATE 
+		FROM sp_member
+		WHERE 1=1
+		<if test="GENDER_CD != null and !GENDER_CD.equals('all')">
+			AND GENDER_CD = #{GENDER_CD}
+		</if>
+		<if test="POSITION_CD != null and !POSITION_CD.equals('all')">
+			AND POSITION_CD = #{POSITION_CD}
+		</if>
+	</select>
+	
+	<select id="selectCodeList" resultType="Map">
+		select A.GRP_CD, A.COM_CD AS CODE_CD, A.CODE_NM from SP_CODE A, SP_CODE_GRP B
+		where B.GRP_CD = A.GRP_CD and B.IS_USE = 'Y' and A.IS_USE = 'Y' and 
+		A.GRP_CD IN
+        <foreach collection="CODE" item="item" index="index"  open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+		order by A.GRP_CD, A.SORT_ORDER
+	</select>
+	
+</mapper>

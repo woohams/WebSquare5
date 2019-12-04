@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="Data객체, 통신 객체 공통 모듈화"><w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map"></w2:dataCollection>
+    	</xf:model>
+    	<script type="javascript" lazy="false"><![CDATA[
+	
+	     	scwin.setCommonCode_callback = function(resStr){
+	     		//var resJSON = JSON.parse(resStr);
+	     		//console.log(resJSON);
+	     	};
+	        	        
+			scwin.onpageload = function() {
+				var _strComp_101 = ui_genderCode01.getID() + "," + ui_genderCode02.getID();
+				var _strComp_102 = ui_hp01.getID();
+				var _strComp_19 = ui_ccb_role.getID() + "," + ui_cbx_role.getID();
+				
+				com.setCommonCode([
+			   			{"code":"101","compID":_strComp_101}
+			   		  , {"code":"102","compID":_strComp_102} 
+			   		  , {"code":"19","compID":_strComp_19}],
+			   		"scwin.setCommonCode_callback");
+			};
+			
+			scwin.onpageunload = function() {
+				
+			};
+		]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    <xf:group id="" style="" class="wrapper">
+    	<xf:group id="" style="padding: 10px;" class="section_desc">
+    		<w2:textbox id="" style=""
+    			label="공통 Function을 통해 코드성 Data와 컴포넌트의 항목을 연동하는 샘플이다.&lt;br/&gt;화면에서는 화면이 로딩되면 공통 Function을 호출하며 코드와 컴포넌트의 정보를 넘겨주도록 되어있다.&lt;br/&gt;(스크립트의 eduObj.fn_ini function 참조)&lt;br/&gt;&lt;br/&gt;공통 Function에서의 주요 기능 다음과 같다.( /js/eduCommon.js의 eduCommon.setCommonCode 참고)&lt;br/&gt;- DataCollection 동적 생성&lt;br/&gt;- 컴포넌트의 NodeSet 동적 설정&lt;br/&gt;- Submission 동적 생성 및 실행&lt;br/&gt;( source : fn_commonCodeSet.xml )"
+    			tagname="">
+    		</w2:textbox>
+    	</xf:group>
+    	<xf:group class="dmb" id="" style="">
+    		<w2:span class="warningTxt" id=""
+    			label="이 페이지는 DB에서 데이터를 가져오기 때문에 실행 환경이 구성되어야한다." style="">
+    		</w2:span>
+    	</xf:group>
+    	<xf:group id="table1" style="width:100%;" class="w2tb"
+    		tagname="table">
+    		<w2:attributes>
+    			<w2:summary></w2:summary>
+    		</w2:attributes>
+    		<xf:group tagname="colgroup">
+    			<xf:group style="width:120px;" tagname="col"></xf:group>
+    			<xf:group style="" tagname="col"></xf:group>
+    		</xf:group>
+    		<xf:group style="" tagname="tr">
+    			<xf:group style="" class="w2tb_th" tagname="th">
+    				성별코드
+    			</xf:group>
+    			<xf:group style="" class="w2tb_td" tagname="td">
+    				<xf:select1 id="ui_genderCode01" cols=""
+    					selectedIndex="-1" appearance="full"
+    					style="position: relative;width: 150px;height: 21px;"
+    					rows="1">
+    					<xf:choices></xf:choices>
+    				</xf:select1>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group style="" tagname="tr">
+    			<xf:group class="w2tb_th" tagname="th">성별코드2</xf:group>
+    			<xf:group class="w2tb_td" tagname="td">
+    				<xf:select1 id="ui_genderCode02"
+    					disabledClass="w2selectbox_disabled" appearance="minimal"
+    					style="width: 148px;height: 21px;" direction="auto"
+    					chooseOption="false" displayMode="label" allOption="false"
+    					invalidMessage="" submenuSize="auto" disabled="false"
+    					class="chSize">
+    				</xf:select1>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group style="" tagname="tr">
+    			<xf:group style="" class="w2tb_th" tagname="th">
+    				휴대폰&amp;nbsp;앞자리
+    			</xf:group>
+    			<xf:group style="" class="w2tb_td" tagname="td">
+    				<xf:select1 id="ui_hp01"
+    					disabledClass="w2selectbox_disabled" appearance="minimal"
+    					style="width: 148px;height: 21px;" direction="auto"
+    					chooseOption="false" allOption="false" displayMode="label"
+    					disabled="false" submenuSize="auto" class="chSize">
+    				</xf:select1>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group style="" tagname="tr">
+    			<xf:group style="" class="w2tb_th" tagname="th">
+    				담당&amp;nbsp;업무
+    			</xf:group>
+    			<xf:group style="" class="w2tb_td" tagname="td">
+    				<xf:checkcombobox submenuSize="auto"
+    					allOption="false" disabled="false" id="ui_ccb_role"
+    					direction="auto" displayAllOptionLabel="false"
+    					chooseOption="false" displayMode="label" appearance="minimal"
+    					style="width: 148px;height: 21px;" class="chSize">
+    				</xf:checkcombobox>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group tagname="tr" style="">
+    			<xf:group tagname="th" class="w2tb_th">
+    				담당&amp;nbsp;업무2
+    				<w2:attributes>
+    					<w2:scope>row</w2:scope>
+    				</w2:attributes>
+    			</xf:group>
+    			<xf:group tagname="td" class="w2tb_td">
+    				<w2:attributes></w2:attributes>
+    				<xf:select selectedindex="-1" id="ui_cbx_role"
+    					appearance="full" style="min-width: 148px;min-height: 21px;">
+    				</xf:select>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </xf:group></body>
+</html>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="교육 실습 환경">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.fn_init = function(hideTitle){
+		if(hideTitle === true){
+			ui_title.hide();
+		}
+	};
+	
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+
+    <xf:group id="" style="" class="pd10">
+    	<w2:textbox class="df_tt dmb" id="ui_title" label="WebSquare5 교육 실습 환경" style="" tagname="h2"></w2:textbox>
+    	<w2:scrollView class="" id="" style=""><xf:group id="" style="width:100%;" class="w2tb cm_table" tagname="table" adaptive="" adaptiveThreshold="">
+    		<w2:attributes>
+    			<w2:summary></w2:summary>
+    		</w2:attributes>
+    		<xf:group tagname="caption"></xf:group>
+    		<xf:group tagname="colgroup">
+    			<xf:group style="width:120px;" tagname="col"></xf:group>
+    			<xf:group style="" tagname="col"></xf:group>
+    		</xf:group>
+    		<xf:group tagname="thead">
+    			<xf:group style="" tagname="tr">
+    				<xf:group style="" class="w2tb_th tal" tagname="th">구&amp;nbsp;분<w2:attributes>
+    						<w2:scope>col</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group style="" class="w2tb_th tal" tagname="th">
+    					설&amp;nbsp;명
+    					<w2:attributes>
+    						<w2:scope>col</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group tagname="tbody">
+    			<xf:group tagname="tr" style=""><xf:group tagname="th" class="w2tb_th tal">Version<w2:attributes><w2:scope>row</w2:scope></w2:attributes></xf:group><xf:group tagname="td" class="w2tb_td" style="font-weight:bold;color:#0080FF;">ver_2019.12<w2:attributes></w2:attributes></xf:group></xf:group><xf:group style="" tagname="tr">
+    				<xf:group style="" class="w2tb_th tal" tagname="th">JAVA</xf:group>
+    				<xf:group style="" class="w2tb_td" tagname="td">1.8</xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group style="" class="w2tb_th tal" tagname="th">DB</xf:group>
+    				<xf:group style="" class="w2tb_td" tagname="td">mariadb-10.3.11&amp;nbsp;/&amp;nbsp;port&amp;nbsp;:&amp;nbsp;3306</xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group class="w2tb_th tal" style="" tagname="th">WAS</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">apache-tomcat-9.0.10&amp;nbsp;/&amp;nbsp;port&amp;nbsp;:&amp;nbsp;8080</xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group style="" class="w2tb_th tal" tagname="th">
+    					Server
+    					<br></br>
+    					Framework
+    				</xf:group>
+    				<xf:group style="" class="w2tb_td" tagname="td">
+    					SpringFramework&amp;nbsp;:&amp;nbsp;4.1.2
+    					<br></br>
+    					MyBatis&amp;nbsp;:&amp;nbsp;3.4.2
+    				</xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group style="" class="w2tb_th tal" tagname="th">
+    					UI
+    					<br></br>
+    					Framework
+    				</xf:group>
+    				<xf:group style="" class="w2tb_td" tagname="td">WebSquare5&amp;nbsp;:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<br></br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5.0_3.3778B.20190830.105810_1.8</xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group style="" class="w2tb_th tal" tagname="th">IDE</xf:group>
+    				<xf:group style="" class="w2tb_td" tagname="td">Eclipse&amp;nbsp;:&amp;nbsp;Oxygen&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<br></br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;WebSquare5&amp;nbsp;Stand-alone&amp;nbsp;:&amp;nbsp;5_0_4_20191010_1327</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group class="w2tb_th tal" tagname="th">
+    					ProjectType
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group class="w2tb_td" tagname="td">Dynamic&amp;nbsp;Web&amp;nbsp;Project<w2:attributes></w2:attributes></xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group></w2:scrollView>
+    	
+    </xf:group></body>
+</html>

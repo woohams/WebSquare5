@@ -1,0 +1,15 @@
+{ "dc_resUserListData":
+	[{
+		"name":"김수녕"
+		, "birthday" : "19710405"
+		, "height" : "164"
+		, "weight" : "58"
+		, "gender" : "F"
+	},{
+		"name":"김연아"
+		, "birthday" : "19900905"
+		, "height" : "164"
+		, "weight" : "47"
+		, "gender" : "F"
+	}]
+}

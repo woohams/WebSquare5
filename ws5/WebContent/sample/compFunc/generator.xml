@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/template/cm/css/all.css" type="text/css"?>
+<?xml-stylesheet href="/template/cm/css/contents.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_request">
+					<w2:keyInfo>
+						<w2:key id="req" name="요청" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="dltList1" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="val1" name="name1" dataType="text"></w2:column>
+						<w2:column id="val2" name="name2" dataType="text"></w2:column>
+						<w2:column id="val3" name="name3" dataType="text"></w2:column>
+						<w2:column id="val4" name="name4" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dltList2" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="grval1" name="name1" dataType="text"></w2:column>
+						<w2:column id="grval2" name="name2" dataType="text"></w2:column>
+						<w2:column id="grval3" name="name3" dataType="text"></w2:column>
+						<w2:column id="grval4" name="name4" dataType="text"></w2:column>
+						<w2:column id="grval5" name="name5" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dltList3" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="grval1" name="name1" dataType="text"></w2:column>
+						<w2:column id="grval2" name="name2" dataType="text"></w2:column>
+						<w2:column id="grval3" name="name3" dataType="text"></w2:column>
+						<w2:column id="grval4" name="name4" dataType="text"></w2:column>
+						<w2:column id="grval5" name="name5" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+			<xf:submission id="sbm1" ref=""
+				target='data:json,[{"id":"dltList1","key":"dltList1"},{"id":"dltList2","key":"dltList2"},{"id":"dltList3","key":"dltList3"}]'
+				action="/template/data/generator/generator.json" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm1_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission abortTrigger="" action="/util/genExcel.do" customHandler="" encoding="UTF-8" errorHandler="" ev:submit=""
+				ev:submitdone="scwin.sbm_genExcel_submitdone" ev:submiterror="" id="sbm_genExcel" instance="" mediatype="application/json" method="post"
+				mode="asynchronous" processMsg="Down..." ref="data:json,dma_request" replace="" target='' style="">
+			</xf:submission>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+        	
+			scwin.onpageunload = function() {
+				
+			};
+			
+			scwin.onpageload = function() {
+				scwin.btnSearch_onclick();
+				//scwin.$w.executeSubmission( "sbm1" );
+			};
+			
+			scwin.btnSearch_onclick = function(e) {
+				generator1.removeAll();
+				scwin.$w.executeSubmission( "sbm1" );
+			};
+			
+			scwin.sbm1_submitdone = function(e) {
+				var _len1 = dltList1.getRowCount();
+				var _len2 = dltList2.getRowCount();
+				var _len3 = dltList3.getRowCount();
+				
+				for(var i=0; i<_len1; i++ ){
+	        		generator1.insert();
+	        		
+	        		generator1.getChild( i , "textbox1" ).setValue(dltList1.getCellData( i , "val1" ));
+	        		generator1.getChild( i , "textbox2" ).setValue(dltList1.getCellData( i , "val2" ));
+	        		generator1.getChild( i , "textbox3" ).setValue(dltList1.getCellData( i , "val3" ));
+	        		
+	        		var _val4 = dltList1.getCellData( i , "val4" );
+	        		generator1.getChild( i , "textbox4" ).setValue(_val4);
+	        		
+	        		if(_val4 == "인생은 아름다워"){
+	        			
+	        			for(var j=0; j<_len2; j++){
+	        				generator1.getChild( i , "generator2" ).insert();
+	        				generator1.getChild( i , "generator2" ).getChild( j , "textbox10" ).setValue(dltList2.getCellData( j , "grval1" ));
+			        		generator1.getChild( i , "generator2" ).getChild( j , "textbox11" ).setValue(dltList2.getCellData( j , "grval2" ));
+			        		generator1.getChild( i , "generator2" ).getChild( j , "textbox12" ).setValue(dltList2.getCellData( j , "grval3" ));
+			        		generator1.getChild( i , "generator2" ).getChild( j , "textbox13" ).setValue(dltList2.getCellData( j , "grval4" ));
+			        		generator1.getChild( i , "generator2" ).getChild( j , "textbox14" ).setValue(dltList2.getCellData( j , "grval5" ));
+	        			}
+	        			
+	        		}else if(_val4 == "테스트"){
+	        			
+	        			for(var k=0; k<_len3; k++){
+	        				generator1.getChild( i , "generator2" ).insert();
+	        				generator1.getChild( i , "generator2" ).getChild( k , "textbox10" ).setValue(dltList3.getCellData( k , "grval1" ));
+			        		generator1.getChild( i , "generator2" ).getChild( k , "textbox11" ).setValue(dltList3.getCellData( k , "grval2" ));
+			        		generator1.getChild( i , "generator2" ).getChild( k , "textbox12" ).setValue(dltList3.getCellData( k , "grval3" ));
+			        		generator1.getChild( i , "generator2" ).getChild( k , "textbox13" ).setValue(dltList3.getCellData( k , "grval4" ));
+			        		generator1.getChild( i , "generator2" ).getChild( k , "textbox14" ).setValue(dltList3.getCellData( k , "grval5" ));
+	        			}
+	        			
+	        		}else{
+	        			generator1.getChild( i , "group3" ).hide();
+	        			generator1.getChild( i , "generator2" ).hide();
+	        		}
+	        		
+	        	}
+			};
+		
+			//excel 
+			scwin.btnExcel_onclick = function(e) {
+				var str = generator1.render.innerHTML;
+				dma_request.set( "req" , str );
+				scwin.$w.executeSubmission( "sbm_genExcel" );
+				
+			};
+			
+			scwin.sbm_genExcel_submitdone = function(e) {
+				if(e.responseJSON.rsMsg.statusCode == "S"){
+					WebSquare.net.download( "/template/sample/generator/download.jsp" , null , "post" );
+				}
+			};
+
+		]]></script>
+		<style type="text/css"><![CDATA[ 
+			.tablestyle1 {position:relative;width:100%;border-collapse: collapse}
+			.tablestyle1 th {width:20%; border-top:1px solid #b6bfcc; border-left:1px solid #b6bfcc; border-right:1px solid #b6bfcc; background:#edeef3; padding:5px;}
+			.tablestyle1 td {padding:5px; border:1px solid #b6bfcc;}
+		]]></style>
+	</head>
+	<body ev:onpageunload="scwin.onpageunload" ev:onpageload="scwin.onpageload">
+		<xf:group id="" style="" class="sub_contents">
+			<xf:group class="pgtbox" id="" style="">
+				<w2:textbox class="pgt_tit" id="" label="Generator"></w2:textbox>
+				<xf:group class="location_inner" id="" style="">
+					<w2:textbox class="location_tit location_home" id="" label="Home" style=""></w2:textbox>
+					<w2:textbox class="location_tit" id="" label="기능" style=""></w2:textbox>
+					<w2:textbox class="location_tit" id="" label="Generator" style=""></w2:textbox>
+				</xf:group>
+			</xf:group>
+			<xf:group id="" style="" class="lybox">
+			</xf:group>
+			<xf:group class="dfbox" id="" style="">
+				<w2:textbox class="df_tit fl" id="" label="조회 내역" style=""></w2:textbox>
+				<xf:group class="fr" id="" style="">
+					<xf:trigger class="btn_cm" id="btnSearch" style="" type="button" ev:onclick="scwin.btnSearch_onclick">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn_cm" id="btnExcel" style="" type="button" ev:onclick="scwin.btnExcel_onclick">
+						<xf:label><![CDATA[Excel]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="gvwbox" id="" style="">
+				<w2:generator id="generator1" style="">
+		    		<xf:group class="tablestyle1" id="group1" style="" tagname="table">
+		    			<xf:group id="group2" style="" tagname="tr">
+		    				<w2:textbox id="textbox1" label="" style="width:20%;" tagname="th">
+		    					<w2:attributes>
+		    						<w2:colspan>2</w2:colspan>
+		    					</w2:attributes>
+		    				</w2:textbox>
+		    				<w2:textbox id="textbox2" label="" style="width:20%;" tagname="th"></w2:textbox>
+		    				<w2:textbox id="textbox3" label="" style="width:30%;" tagname="th"></w2:textbox>
+		    				<w2:textbox id="textbox4" label="" style="width:30%;" tagname="th"></w2:textbox>
+		    			</xf:group>
+		    			<xf:group id="group3" style="" tagname="tr">
+		    				<w2:textbox id="textbox5" label="cm구분" style="width:10%;" tagname="th"></w2:textbox>
+		    				<w2:textbox id="textbox6" label="길이" style="width:10%;" tagname="th"></w2:textbox>
+		    				<w2:textbox id="textbox7" label="광고주" style="width:20%;" tagname="th"></w2:textbox>
+		    				<w2:textbox id="textbox8" label="소재명" style="width:30%;" tagname="th"></w2:textbox>
+		    				<w2:textbox id="textbox9" label="비고" style="width:30%;" tagname="th"></w2:textbox>
+		    			</xf:group>
+		  					<w2:generator id="generator2" style="" tagname="tbody">
+		  						<xf:group class="" id="group4" style="" tagname="tr">
+				   					<xf:group class="" id="group25" style="" tagname="td">
+				   						<w2:textbox id="textbox10" label="" style="" tagname=""></w2:textbox>
+				   					</xf:group>
+				    				<xf:group class="" id="group26" style="" tagname="td">
+				    					<w2:textbox id="textbox11" label="" style="" tagname=""></w2:textbox>
+				    				</xf:group>
+				    				<xf:group class="" id="group30" style="" tagname="td">
+				    					<w2:textbox id="textbox12" label="" style="" tagname=""></w2:textbox>
+				    				</xf:group>
+				    				<xf:group class="" id="group31" style="" tagname="td">
+				    					<w2:textbox id="textbox13" label="" style="" tagname=""></w2:textbox>
+				    				</xf:group>
+				    				<xf:group class="" id="group32" style="" tagname="td">
+				    					<w2:textbox id="textbox14" label="" style="" tagname=""></w2:textbox>
+				    				</xf:group>
+			    				</xf:group>
+		   					</w2:generator>
+		   				</xf:group>
+		    	</w2:generator>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

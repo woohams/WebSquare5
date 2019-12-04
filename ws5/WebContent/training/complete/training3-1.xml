@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_horizontal_guides="" meta_vertical_guides="509" meta_screenName="Page Scope 실습 화면_parent">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" repeatNode="map" id="dc_codeGender" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="GRP_CD" name="그룹코드" dataType="text"></w2:column>
+        				<w2:column id="CODE_CD" name="코드" dataType="text"></w2:column>
+        				<w2:column id="CODE_NM" name="코드명" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="dc_codePosition" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="GRP_CD" name="그룹코드" dataType="text"></w2:column>
+        				<w2:column id="CODE_CD" name="코드" dataType="text"></w2:column>
+        				<w2:column id="CODE_NM" name="코드명" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataMap baseNode="map" id="dc_reqCodeParent">
+        			<w2:keyInfo>
+        				<w2:key id="GRP_CD" name="그룹코드" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="sbm_codeParent" ref='data:json,{"id":"dc_reqCodeParent","key":"dc_reqCode"}'
+        		target='data:json,[{"id":"dc_codeGender","key":"dc_code101"},{"id":"dc_codePosition","key":"dc_code02"}]'
+        		action="/ws5/training/getCodeList.do" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+        		errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="scwin.sbm_codeParent_submit" ev:submitdone="scwin.sbm_codeParent_submitdone"
+        		ev:submiterror="" aboutTrigger="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		$p.executeSubmission( "sbm_codeParent" );
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	scwin.trigger1_onclick = function(e) {
+		alert( wframe_tab.getWindow( 0 ).ui_form_name.getValue() );
+	};
+	
+	scwin.trigger2_onclick = function(e) {
+		//dc_codeGender.setJSON( wframe_tab.getWindow( 0 ).dc_code101.getAllJSON() );
+		//p_gender.setNodeSet( "data:dc_codeGender" , "CODE_NM" , "CODE_CD" );
+		
+		alert( wframe_tab.getWindow( 0 ).ui_form_gender.getValue() );
+	};
+	
+	scwin.trigger3_onclick = function(e) {
+		alert( wframe_tab.getWindow( 0 ).ui_form_date.getValue() );
+	};
+	
+	scwin.trigger4_onclick = function(e) {
+		//dc_codePosition.setJSON( wframe_tab.getWindow( 0 ).dc_code02.getAllJSON() );
+		//p_position.setNodeSet( "data:dc_codePosition" , "CODE_NM" , "CODE_CD" );
+		
+		alert( wframe_tab.getWindow( 0 ).ui_form_position.getValue() );
+	};
+	
+	scwin.sbm_codeParent_submit = function(e) {
+		dc_reqCodeParent.set( "GRP_CD" , "02,101" );
+	};
+	
+	scwin.sbm_codeParent_submitdone = function(e) {
+		
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="padding: 10px;" id="" class="">
+    		<w2:textbox label="Page Scope를 이용한 Coding" style="margin-bottom: 10px;" id="" tagname="h2"></w2:textbox>
+    		<xf:group style="padding: 10px;border: 1px solid grey;margin-bottom: 10px;overflow: hidden;" id="" class="">
+    			<table summary="" style="" id=""></table>
+    			<xf:group tagname="table" style="width:100%;" id="" class="w2tb">
+    				<w2:attributes>
+    					<w2:summary></w2:summary>
+    				</w2:attributes>
+    				<xf:group tagname="caption"></xf:group>
+    				<xf:group tagname="colgroup">
+    					<xf:group tagname="col" style="width:100px;"></xf:group>
+    					<xf:group tagname="col" style=""></xf:group>
+    					<xf:group tagname="col" style="width:100px;"></xf:group>
+    					<xf:group tagname="col" style=""></xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="">
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						child&amp;nbsp;Page&amp;nbsp;확인
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    							<w2:colspan>4</w2:colspan>
+    							<w2:rowspan>1</w2:rowspan>
+    						</w2:attributes>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="">
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						이름
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="p_name" style="width: 144px;height: 21px;margin-right: 10px;"></xf:input>
+    						<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger1" ev:onclick="scwin.trigger1_onclick">
+    							<xf:label><![CDATA[반영]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						성별
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:select1 id="p_gender" cols="" selectedIndex="-1" appearance="full"
+    							style="width: 150px;height: 21px;margin-right: 10px;" rows="1" ref="">
+    							<xf:choices>
+    								<xf:itemset nodeset="data:dc_codeGender">
+    									<xf:label ref="CODE_NM"></xf:label>
+    									<xf:value ref="CODE_CD"></xf:value>
+    								</xf:itemset>
+    							</xf:choices>
+    						</xf:select1>
+    						<xf:trigger id="trigger2" style="width: 80px;height: 23px;" type="button" ev:onclick="scwin.trigger2_onclick">
+    							<xf:label><![CDATA[반영]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="">
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						입사일
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<w2:inputCalendar footerDiv="false" id="p_date" style="width: 150px;height: 23px;margin-right: 10px;"
+    							renderDiv="true" focusOnDateSelect="false" calendarValueType="yearMonthDate" rightAlign="false" renderType="component">
+    						</w2:inputCalendar>
+    						<xf:trigger id="trigger3" style="width: 80px;height: 23px;" type="button" ev:onclick="scwin.trigger3_onclick">
+    							<xf:label><![CDATA[반영]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						직급
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:select1 id="p_position" chooseOption="" displayMode="label"
+    							style="width: 148px;height: 21px;margin-right: 10px;" submenuSize="auto" allOption="true" disabled="false" direction="auto"
+    							appearance="minimal" disabledClass="w2selectbox_disabled" ref="">
+    							<xf:choices>
+    								<xf:itemset nodeset="data:dc_codePosition">
+    									<xf:label ref="CODE_NM"></xf:label>
+    									<xf:value ref="CODE_CD"></xf:value>
+    								</xf:itemset>
+    							</xf:choices>
+    						</xf:select1>
+    						<xf:trigger id="trigger4" style="width: 80px;height: 23px;" type="button" ev:onclick="scwin.trigger4_onclick">
+    							<xf:label><![CDATA[반영]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<w2:tabControl useTabKeyOnly="true" id="wframe_tab" useMoveNextTabFocus="false" useConfirmMessage="false"
+    			confirmTrueAction="exist" confirmFalseAction="new" alwaysDraw="false" style="height: 450px;">
+    			<w2:content alwaysDraw="false" style="height:420px;" id="content3" scope="true"
+    				src="/ws5/training/complete/training3-2.xml">
+    			</w2:content>
+    			<w2:tabs label="wframe_tab" disabled="false" style="width:100px;height:30px;" id="tabs3"></w2:tabs>
+    		</w2:tabControl>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="메인 페이지">
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList id="dlt_sample" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="disp" name="타이틀" dataType="text"></w2:column>
+    					<w2:column id="url" name="이동 경로" dataType="text"></w2:column>
+    					<w2:column id="desc" name="설명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList id="dlt_site" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="disp" name="타이틀"></w2:column>
+    					<w2:column dataType="text" id="url" name="이동 경로"></w2:column>
+    					<w2:column dataType="text" id="desc" name="설명"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList id="dlt_site_webDev" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="disp" name="타이틀"></w2:column>
+    					<w2:column dataType="text" id="url" name="이동 경로"></w2:column>
+    					<w2:column dataType="text" id="desc" name="설명"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    		<xf:submission id="sbm_init" ref="" target='data:json,["dlt_sample","dlt_site","dlt_site_webDev"]'
+    			action="/ws5/sample/dashboard/data.json" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_init_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+
+	scwin.onpageload = function() {
+		$p.executeSubmission( "sbm_init" );
+		ui_chkWgList.setItemDisabled( 0 , true );
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.sbm_init_submitdone = function(e) {
+		if(scwin.info_widgets.getLocalWidgetInfo()){
+			scwin.fn_widgetHandler("import");
+		}else{
+			scwin.fn_widgetHandler("init");
+		}
+	};
+	
+	scwin.fn_getDataObject = function(dataObjectId){
+		var dataObj = window[dataObjectId];
+		
+		if(dataObj && dataObj.getAllJSON){
+			return dataObj.getAllJSON();
+		}else{
+			$p.log("at scwin.fn_getData : [" + dataObjectId + "]는 데이터 객체가 아닙니다.");
+			return null;
+		}
+	};
+	
+	
+	scwin.info_widgets = {
+		"C01": {
+				title : "교육 샘플 목록",
+				src : "/ws5/sample/dashboard/wf_P0001.xml",
+				params : "dlt_sample",
+				x : 0,
+				y : 0,
+				unitWidth : 3,
+				unitHeight : 6,
+				className : "widget_coral"
+		},
+		"C02": {
+				title : "웹스퀘어 개발 참고 사이트 목록",
+				src : "/ws5/sample/dashboard/wf_P0001.xml",
+				params : "dlt_site",
+				x : 0,
+				y : 6,
+				unitHeight : 6,
+				className : "widget_seagreen"
+		},
+		"C03": {
+				title : "웹 개발 참고 사이트 목록",
+				src : "/ws5/sample/dashboard/wf_P0001.xml",
+				params : "dlt_site_webDev",
+				x : 3,
+				y : 7,
+				unitWidth : 3,
+				className : "widget_green"
+				
+		},
+		"C04": {
+				title : "교육용 프로젝트 개발 환경",
+				src : "/ws5/sample/dashboard/wf_P0002.xml",
+				params : "",
+				x : 3,
+				y : 0,
+				unitWidth : 3,
+				unitHeight : 6,
+				hasTitleBar : false,
+				fixed : true,
+				className : "widget_notitle"
+		},
+		"getInitWidgetId" : function(){
+			return "C01,C02,C03,C04";
+		},
+		"getOptions" : function(wInfoObj, wcId){
+			var paramStr = "";
+			wInfoObj = wInfoObj || {};
+			if(wInfoObj.params){
+				paramStr = "?wcParam="+$p.URLEncoder( wInfoObj.params );
+			}
+			
+			return {
+				id : wInfoObj.id || wcId || null,
+				src : wInfoObj.src+paramStr,
+				title : wInfoObj.title || "",
+				x : wInfoObj.x || 0,
+				y : wInfoObj.y || 0,
+				scope : true,
+				unitWidth : wInfoObj.unitWidth || 3,
+	    		unitHeight : wInfoObj.unitHeight || 6,
+	    		params : wInfoObj.params,
+	    		hasTitleBar : wInfoObj.hasTitleBar === false ? false : true,
+	    		fixed : wInfoObj.fixed === true ? true : false,
+	    		className : wInfoObj.className || ""
+			};
+		},
+		"getLocalWidgetInfo" : function(){
+			return $p.local.getItem( "ws5_edu_wgcInfo" );
+		},
+		"removeLocalWidgetInfo" : function(){
+			$p.local.removeItem( "ws5_edu_wgcInfo" );
+		},
+		"setLocalWidgetInfo" : function(){
+			$p.local.setItem("ws5_edu_wgcInfo",JSON.stringify(ui_wgc_main.exportWidgets()));
+		}
+	};
+	
+	
+	scwin.fn_widgetHandler = function(controlType, widgetId, setCheckbox){
+		
+		if(!controlType){ 
+			com.log("at scwin.fn_widgetHandler : 파라메터를 확인하세요!\n" + arguments,"E");
+			return;
+		}
+		
+		if(controlType === "init" || controlType === "import"){
+			widgetId = "";
+		}else if(!widgetId){
+			com.log("at scwin.fn_widgetHandler : 파라메터를 확인하세요!\n" + arguments,"E");
+			return;
+		}
+		
+		var wgIdArr = widgetId.trim().split(","), 
+			wgIdArrLen = wgIdArr.length,
+			wgId,
+			i,  
+			optArr=[], 
+			wInfoObj, 
+			infoObj = scwin.info_widgets, 
+			wg;
+		
+		switch(controlType){
+			
+			case "init" :
+				widgetId = scwin.info_widgets.getInitWidgetId();
+				wgIdArr = widgetId.split(","); 
+				wgIdArrLen = wgIdArr.length;
+				//init인 경우 초기셋팅id로 바꿔주고 break없이 add 실행.
+			case "add" :
+				for(i=0;i<wgIdArrLen;i++){
+					wgId = wgIdArr[i];
+					wInfoObj = infoObj.getOptions(infoObj[wgId], wgId);
+					
+					if(ui_wgc_main.getWidgetById( wgId )){
+						ui_wgc_main.moveWidget( wgId , wInfoObj.x , wInfoObj.y );	
+					}else{
+						optArr.push(wInfoObj);
+					}
+				}
+				
+				ui_wgc_main.addWidgets(optArr);
+			break;
+			
+			case "import" :
+				 wInfoObj = infoObj.getLocalWidgetInfo();
+				 if(wInfoObj){
+				 	ui_wgc_main.importWidgets( JSON.parse(wInfoObj) , true );
+				 }else if(confirm("저장된 위젯 정보가 없습니다. 기본값으로 로딩하시겠습니까?")){
+				 	scwin.fn_widgetHandler("init");
+				 }
+			break;
+			
+			case "remove" :
+				ui_wgc_main.removeWidgets(wgIdArr);
+			break;
+			
+			case "onload" :
+				for(i=0;i<wgIdArrLen;i++){
+					wgId = wgIdArr[i];
+					wg = ui_wgc_main.getWidgetById( wgId );
+					
+					var _wqDataObj = $p.getComponentById(wg.params);
+					if(wgId === "C01" || wgId === "C02" || wgId === "C03"){
+						wg.getObj("scwin").fn_init( _wqDataObj.getAllJSON() );
+					}else if(wgId === "C04"){
+						wg.getObj("scwin").fn_init(false);
+					}
+				}
+			break;
+			
+			default:
+			break;
+		}
+	};
+	
+	scwin.ui_chkWgList_onviewchange = function(info) {
+		//index: "0", checked: false, value: "C01"
+		if(info.checked === true){ 
+			scwin.fn_widgetHandler("add", info.value);
+		}else{
+			scwin.fn_widgetHandler("remove", info.value);
+		}
+	};
+	
+	scwin.fn_chkWigetHandler = function(status, val){
+		var chkValDel = ",",
+			chkVal = ui_chkWgList.getValue( chkValDel ) || "";
+			
+		if(status === "add" && val){
+				chkVal = chkVal + "," + val 
+		}else if(status === "remove" && val){
+			chkVal = chkValDel + chkVal + chkValDel;
+			chkVal = chkVal.replace(chkValDel + val + chkValDel,",");
+		}else{
+			com.log("필수값이 누락되었습니다. at : scwin.fn_chkWigetHandler", "E");
+			return;
+		}
+		
+		ui_chkWgList.setValue( chkVal );
+	};
+	
+	scwin.fn_tootleTitleClick = function(){
+		this.toggleClass("hide_content");
+	};
+	
+	scwin.ui_btnExportWidget_onclick = function(e) {
+		scwin.info_widgets.setLocalWidgetInfo();
+		alert("위젯 정보가 저장이 완료되었습니다");
+	};
+	
+	scwin.ui_btnImportWidget_onclick = function(e) {
+		scwin.fn_widgetHandler("import");
+	};
+	
+	
+	scwin.ui_btnResetWidgetInfo_onclick = function(e) {
+		scwin.fn_widgetHandler("init");
+		
+		if(scwin.info_widgets.getLocalWidgetInfo() && confirm("저장된 위젯 정보가 있습니다. 삭제하시겠습니까?")){
+			scwin.info_widgets.removeLocalWidgetInfo();
+		}
+	};
+	
+	scwin.ui_btnRemoveWidgetInfo_onclick = function(e) {
+		scwin.info_widgets.removeLocalWidgetInfo();
+		alert("위젯 정보가 삭제되었습니다.");
+	};
+	
+	
+	scwin.ui_wgc_main_onwidgetload = function(runtimeId, wgId) {
+		scwin.fn_widgetHandler("onload", wgId);
+		scwin.fn_chkWigetHandler("add",wgId);		
+	};
+	
+	scwin.ui_wgc_main_onbeforewidgetclose = function(id) {
+		//widget의 addWidgets 시 넣어 준 id를 반환 받기 위한 작업.
+		//2017.12.20 개발자가 설정한 id를 바로 반환 받을 수 있는 api가 없어 info값을 참조.
+		var wgId = this.getWidgetById( id ).getWidgetInfo().id;
+		scwin.fn_chkWigetHandler("remove",wgId);
+	};
+	
+	scwin.ui_btnConfigureWidget_onclick = function(e) {
+		ui_boxWgList.toggleClass( "show" );
+	};
+	
+	scwin.ui_ccbConfigureWidget_onviewchange = function(info) {
+		console.log(info);
+	};
+	
+	
+	]]></script>
+    	<style type="text/css"><![CDATA[
+    		.toggleBox {
+    			margin-bottom: 4px;
+    		}
+    		.toggleBox .toggleTitle{
+    			text-indent: 6px;
+    			font-weight: bold;
+    			font-size: 14px;
+    			color:#444;
+    			background-color: #eee;
+    		}
+    		.toggleBox .toggleTitle:AFTER {
+				content: "_";
+				color: #eee;
+				font-weight: bold;
+    			font-size: 14px;
+    			padding:0px 8px;
+    			background: url("/ws5/img/accordion_close01.png") center 50%/14px no-repeat;;
+				float: right;
+			}
+    		.toggleBox .toggleTitle.hide_content:AFTER {
+				background: url("/ws5/img/accordion_open01.png") center 50%/14px no-repeat;;
+			}
+    		.toggleBox div.toggleTitle.hide_content + div.toggleCont{
+    			display:none;
+    		}
+    	]]></style>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group class="main_wrapper" id="" style="">
+    		<w2:wframe id="" src="/ws5/sample/comm/wf_headerWithMenu.xml" style="" class="main_header"></w2:wframe>
+    	<xf:group id="" style="" class="main_content"><xf:group id="" style="position: absolute;top:0px;left:0px;bottom: 0px;width: 240px;padding: 5px;overflow-y:auto;overflow-x:hidden;" class="boxSize mainLeftBox">
+    			<xf:group id="" style="min-height: 20px;" class="toggleBox">
+    				<w2:textbox id="" style="" ev:onclick="scwin.fn_tootleTitleClick" class="toggleTitle" label="내 정보"></w2:textbox>
+    				<xf:group id="" style="" class="dp toggleCont">
+    					<w2:textbox id="" style="line-height: 100px;text-align: center;" label="사용자 정보 표현란"></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="" style="min-height: 20px;" class="toggleBox">
+    				<w2:textbox id="" style="" ev:onclick="scwin.fn_tootleTitleClick" class="toggleTitle" label="달력"></w2:textbox>
+    			<xf:group id="" style="" class="toggleCont"><w2:calendar delimiter="." id="" footerDiv="true" style="width: 100px;height: 100px;margin: 0px auto;" useMonthSelect="" calendarClass="class4">
+    				</w2:calendar></xf:group></xf:group>
+    		</xf:group>
+    		<xf:group id="" style="position: absolute;top:0px;left:240px;right: 0px;bottom: 0px;padding: 2px 4px;"
+    			class="boxSize mainContBox">
+    			<xf:group class="" id="" style="height: 40px;">
+    				<xf:group class="ofh" id="" style="min-height: 10px;padding: 0px 10px;">
+    					<xf:group class="tar" id="" style="line-height: 40px;">
+    						<xf:trigger class="btnRud01 dmr" ev:onclick="scwin.ui_btnConfigureWidget_onclick" id="ui_btnConfigureWidget"
+    							style="width: 100px;" type="button">
+    							<xf:label><![CDATA[위젯 설정]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<w2:widgetContainer widgetMove="true" minUnitWidth="" cols="6" ev:onload="" horizontalMargin="6" verticalMargin="6"
+    				params="false" widgetResize="true" threshold="700" mode="pushpull" id="ui_wgc_main"
+    				style="position: absolute;top: 40px;left: 0px;right: 0px;bottom: 0px;overflow-y:scroll;" ev:onwidgetload="scwin.ui_wgc_main_onwidgetload"
+    				unitHeightPixel="50" ev:onbeforewidgetclose="scwin.ui_wgc_main_onbeforewidgetclose">
+    			</w2:widgetContainer>
+    			<xf:group id="ui_boxWgList"
+    				style="position: absolute;top:40px;right: 10px;width: 180px;background-color: #fff;border:1px solid #bbb;padding: 6px 10px;display: none;">
+    				<w2:textbox class="dmb" ev:onclick="scwin.fn_tootleTitleClick" id="" label="위젯 배치 설정"
+    					style="line-height: 30px;border-bottom: 1px solid #aaa;font-weight: bold;color: #444;font-size: 14px;">
+    				</w2:textbox>
+    				<xf:select appearance="full" class="chbox_list dmb" cols="" ev:onviewchange="scwin.ui_chkWgList_onviewchange"
+    					id="ui_chkWgList" ref="" renderType="checkboxgroup" rows="1" selectedindex="-1" separator="," style="min-height: 10px;">
+    					<xf:choices>
+    						<xf:item>
+    							<xf:label><![CDATA[교육 실습 환경 정보]]></xf:label>
+    							<xf:value><![CDATA[C04]]></xf:value>
+    						</xf:item>
+    						<xf:item>
+    							<xf:label><![CDATA[교육 샘플 목록]]></xf:label>
+    							<xf:value><![CDATA[C01]]></xf:value>
+    						</xf:item>
+    						<xf:item>
+    							<xf:label><![CDATA[웹스퀘어 참고 사이트]]></xf:label>
+    							<xf:value><![CDATA[C02]]></xf:value>
+    						</xf:item>
+    						<xf:item>
+    							<xf:label><![CDATA[웹 개발 참고 사이트]]></xf:label>
+    							<xf:value><![CDATA[C03]]></xf:value>
+    						</xf:item>
+    					</xf:choices>
+    				</xf:select>
+    				<xf:group class="ofh" id="" style="">
+    					<xf:trigger class="btnRud01 mb5 fl" ev:onclick="scwin.ui_btnExportWidget_onclick" id="ui_btnExportWidget"
+    						style="width:48%;" toolTip="위젯의 현재 배치 상태를 브라우저에 저장합니다. 화면이 로딩 시 저장된 정보가 있는 경우 해당 정보를 참조하여 위젯을 배치합니다." type="button">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btnRud01 fr mb5" ev:onclick="scwin.ui_btnImportWidget_onclick" id="ui_btnImportWidget"
+    						style="width:48%;" toolTip="브라우저에 저장된 위젯의 정보를 불러와 위젯을 배치합니다." type="button">
+    						<xf:label><![CDATA[가져오기]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btnRud01 fl" ev:onclick="scwin.ui_btnRemoveWidgetInfo_onclick" id="ui_btnRemoveWidgetInfo"
+    						style="width:48%;" toolTip="브라우저에 저장된 위젯의 배치 정보를 삭제합니다." type="button">
+    						<xf:label><![CDATA[삭제]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btnRud01 fr" ev:onclick="scwin.ui_btnResetWidgetInfo_onclick" id="ui_btnResetWidgetInfo"
+    						style="width:48%;" toolTip="위젯의 배치를 기본 셋팅값으로 초기화합니다. 초기화 진행 시 브라우저에 저장된 위젯 정보가 있는 경우 삭제 여부를 확인하여 진행합니다." type="button">
+    						<xf:label><![CDATA[초기화]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group></xf:group></xf:group>
+    </body>
+</html>

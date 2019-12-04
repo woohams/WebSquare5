@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="Page Scope 실습화면_child">
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="dc_userInfoList" saveRemovedData="true"
+    				ev:oninsertrow="scwin.dc_userInfoList_oninsertrow" ev:onremoverow="scwin.dc_userInfoList_onremoverow"
+    				ev:ondataload="scwin.dc_userInfoList_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="EMP_CD" name="사번" dataType="text"></w2:column>
+    					<w2:column id="EMP_NM" name="이름" dataType="text"></w2:column>
+    					<w2:column id="GENDER_CD" name="성별" dataType="text"></w2:column>
+    					<w2:column id="JOIN_DATE" name="입사일" dataType="text"></w2:column>
+    					<w2:column id="POSITION_CD" name="직급" dataType="text"></w2:column>
+    					<w2:column id="ROLE_CD" name="역할" dataType="text"></w2:column>
+    					<w2:column id="EMAIL" name="이메일" dataType="text"></w2:column>
+    					<w2:column id="ZIP_CD" name="우편번호" dataType="text"></w2:column>
+    					<w2:column id="ADDRESS1" name="주소1" dataType="text"></w2:column>
+    					<w2:column id="ADDRESS2" name="주소2" dataType="text"></w2:column>
+    					<w2:column id="CREATED_DATE" name="생성일" dataType="text"></w2:column>
+    					<w2:column id="UPDATED_DATE" name="수정일" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dc_searchParam">
+    				<w2:keyInfo>
+    					<w2:key id="GENDER_CD" name="성별" dataType="text"></w2:key>
+    					<w2:key id="POSITION_CD" name="직급" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    				<w2:data use="false">
+
+    				</w2:data>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dc_reqCode">
+    				<w2:keyInfo>
+    					<w2:key id="GRP_CD" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList id="dc_code02">
+    				<w2:columnInfo>
+    					<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+    					<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+    					<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data xmlns=""></w2:data>
+    			</w2:dataList>
+    			<w2:dataList id="dc_code101" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="GRP_CD" name="GRP_CD"></w2:column>
+    					<w2:column dataType="text" id="CODE_CD" name="CODE_CD"></w2:column>
+    					<w2:column dataType="text" id="CODE_NM" name="CODE_NM"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data xmlns=""></w2:data>
+    			</w2:dataList>
+    			<w2:aliasDataList scope="../dc_codeGender" id="aliasDc_codeGender" studioSrc="/ws5/training/complete/training3_1.xml"></w2:aliasDataList>
+    			<w2:aliasDataList scope="../dc_codePosition" id="aliasDc_codePosition" studioSrc="/ws5/training/complete/training3_1.xml"></w2:aliasDataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    		<xf:submission id="sbm_code"
+    			ref="data:json,dc_reqCode" target='data:json,["dc_code101","dc_code02"]'
+    			action="/ws5/training/getCodeList.do" method="post"
+    			mediatype="application/json" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous"
+    			processMsg="" ev:submit="scwin.sbm_code_submit" ev:submitdone="scwin.sbm_code_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_search"
+    			ref="data:json,dc_searchParam" target="data:json,dc_userInfoList"
+    			action="/ws5/training/searchMember.do" method="post"
+    			mediatype="application/json" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous"
+    			processMsg="조회중.." ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+
+	scwin.ui_btnSearch_onclick = function(e) {
+		$p.executeSubmission( "sbm_search" );
+	};
+
+	
+	scwin.dc_userInfoList_oninsertrow = function(info) {
+		scwin.dispRowCount();
+	};
+	
+	scwin.dc_userInfoList_onremoverow = function(info) {
+		scwin.dispRowCount();
+	};
+	
+	scwin.dc_userInfoList_ondataload = function() {
+		scwin.dispRowCount();
+	};
+	
+	//display total count
+	scwin.dispRowCount = function(){
+		ui_totRowCount.setValue( dc_userInfoList.getRowCount() );
+	};
+	
+	scwin.sbm_code_submit = function(e) {
+		dc_reqCode.set( "GRP_CD" , "02,101" );
+		
+	};
+	
+	scwin.onpageload = function() {
+		//$p.executeSubmission( "sbm_code" );
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.ui_memberList_onrowindexchange = function(row,oldRow) {
+		$p.parent().p_name.setValue(dc_userInfoList.getCellData( row , "EMP_NM" ));
+		$p.parent().p_date.setValue(dc_userInfoList.getCellData( row , "JOIN_DATE" ));
+		$p.parent().p_gender.setValue(dc_userInfoList.getCellData( row , "GENDER_CD" ));
+		$p.parent().p_position.setValue(dc_userInfoList.getCellData( row , "POSITION_CD" ));
+		
+	};
+	
+	scwin.sbm_search_submitdone = function(e) {
+		ui_memberList.setFocusedCell( 0, 0 );
+	};
+	
+	scwin.sbm_code_submitdone = function(e) {
+		$p.parent().dc_codeGender.setJSON( dc_code101.getAllJSON() );
+		$p.parent().p_gender.setNodeSet( "data:dc_codeGender" , "CODE_NM" , "CODE_CD" );
+		
+		$p.parent().dc_codePosition.setJSON( dc_code02.getAllJSON() );
+		$p.parent().p_position.setNodeSet( "data:dc_codePosition" , "CODE_NM" , "CODE_CD" );
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="padding: 10px;" id="" class="">
+    		<xf:group class="" id=""
+    			style="border: 1px solid gray;overflow: hidden;margin-bottom: 10px;padding: 10px 0px 0px 10px;">
+    			<xf:group
+    				style="width:180px;float: right;margin: 0px 10px 10px 0px;text-align: right;"
+    				id="">
+    				<xf:trigger ev:onclick="scwin.ui_btnSearch_onclick"
+    					style="width: 80px;height: 23px;" id="ui_btnSearch"
+    					type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<xf:group
+    				style="width:220px;float: left;margin: 0px 10px 10px 0px;" id=""
+    				class="">
+    				<w2:span style="" label="성별 : " id=""></w2:span>
+    				<xf:select1 selectedData="true" submenuSize="auto" chooseOption="" allOption="true" displayMode="label"
+    					ref="data:dc_searchParam.GENDER_CD" appearance="minimal" disabledClass="w2selectbox_disabled" optionOrder="false" disabled="false"
+    					style="width: 148px;height: 23px;" id="ui_search_gender" direction="auto">
+    					<xf:choices>
+    						<xf:itemset nodeset="data:aliasDc_codeGender">
+    							<xf:label ref="CODE_NM"></xf:label>
+    							<xf:value ref="CODE_CD"></xf:value>
+    						</xf:itemset>
+    					</xf:choices>
+    				</xf:select1>
+    			</xf:group>
+
+    			<xf:group id=""
+    				style="width:220px;float: left;margin: 0px 10px 10px 0px;"
+    				class="">
+    				<w2:span id="" label="직급 :" style=""></w2:span>
+    				<xf:select1 allOption="true" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+    					disabledClass="w2selectbox_disabled" displayMode="label" id="ui_search_position" optionOrder="false"
+    					ref="data:dc_searchParam.POSITION_CD" selectedData="true" style="width: 148px;height: 23px;" submenuSize="auto">
+    					<xf:choices>
+    						<xf:itemset nodeset="data:aliasDc_codePosition">
+    							<xf:label ref="CODE_NM"></xf:label>
+    							<xf:value ref="CODE_CD"></xf:value>
+    						</xf:itemset>
+    					</xf:choices>
+    				</xf:select1>
+    			</xf:group>
+
+    		</xf:group>
+    		<xf:group style="overflow: hidden;margin-bottom: 10px;"
+    			id="" class="">
+    			<w2:span label="0" style="float: right;"
+    				id="ui_totRowCount" dataType="number" displayFormatter=""
+    				displayFormat="#,##0건">
+    			</w2:span>
+    		</xf:group>
+    		<w2:gridView id="ui_memberList" contextMenu="true"
+    			ignoreToggleOnDisabled="false" useShiftKey="true"
+    			style="height: 150px;margin-bottom: 10px;" useFilterList="false"
+    			scrollByColumn="false" scrollByColumnAdaptive="false"
+    			summaryAuto="false" fixedColumnWithHidden="true"
+    			summaryOnlyAuto="false" dataList="dc_userInfoList"
+    			ignoreCellClick="false" rowStatusVisible="true"
+    			rowStatusWidth="50" rowStatusHeaderValue="상태" sortable="true"
+    			rowNumVisible="true" rowNumWidth="50" rowNumHeaderValue="NO"
+    			autoFit="allColumn" autoFitMinWidth="1400" visibleRowNum="5"
+    			fastScroll="" focusMode="row" selectedRowColor="#53B38E" ev:onrowindexchange="scwin.ui_memberList_onrowindexchange">
+    			<w2:caption style="" id="caption1"
+    				value="this is a grid caption.">
+    			</w2:caption>
+    			<w2:header style="" id="header1">
+    				<w2:row style="" id="row1">
+    					<w2:column width="70" inputType="text"
+    						style="height:30px;" id="column27" blockSelect="false"
+    						displayMode="label" value="사번">
+    					</w2:column>
+    					<w2:column width="70" inputType="text"
+    						style="height:30px;" id="column25" blockSelect="false"
+    						displayMode="label" value="이름">
+    					</w2:column>
+    					<w2:column width="70" inputType="text"
+    						style="height:30px;" id="column23" blockSelect="false"
+    						displayMode="label" value="성별">
+    					</w2:column>
+    					<w2:column width="70" inputType="text"
+    						style="height:30px;" id="column21" blockSelect="false"
+    						displayMode="label" value="입사일">
+    					</w2:column>
+    					<w2:column width="70" inputType="text"
+    						style="height:30px;" id="column19" blockSelect="false"
+    						displayMode="label" value="직급">
+    					</w2:column>
+    					<w2:column width="171" inputType="text"
+    						style="height:30px;" id="column11" blockSelect="false"
+    						displayMode="label" value="이메일">
+    					</w2:column>
+    					<w2:column width="70" inputType="text"
+    						style="height:30px;" id="column9" blockSelect="false"
+    						displayMode="label" value="우편번호">
+    					</w2:column>
+    					<w2:column width="148" inputType="text"
+    						style="height:30px;" id="column7" blockSelect="false"
+    						displayMode="label" value="주소1">
+    					</w2:column>
+    					<w2:column width="138" inputType="text"
+    						style="height:30px;" id="column5" blockSelect="false"
+    						displayMode="label" value="주소2">
+    					</w2:column>
+    					<w2:column width="70" inputType="text"
+    						style="height:30px;" id="column3" blockSelect="false"
+    						displayMode="label" value="생성일">
+    					</w2:column>
+    					<w2:column width="70" inputType="text"
+    						style="height:30px;" id="column1" blockSelect="false"
+    						displayMode="label" value="수정일">
+    					</w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody style="" id="gBody1">
+    				<w2:row style="" id="row2">
+    					<w2:column width="70" inputType="text"
+    						style="height:28px;" id="EMP_CD" blockSelect="false"
+    						displayMode="label" dataType="number">
+    					</w2:column>
+    					<w2:column width="70" inputType="text"
+    						style="height:28px;" id="EMP_NM" blockSelect="false"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column width="70" inputType="select" style="height:28px;" id="GENDER_CD" blockSelect="false" displayMode="label"
+    						allOption="" chooseOption="" ref="" viewType="icon">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:aliasDc_codeGender">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column width="70" inputType="text"
+    						style="height:28px;" id="JOIN_DATE" blockSelect="false"
+    						displayMode="label" dataType="date" viewType="icon">
+    					</w2:column>
+    					<w2:column width="70" inputType="select" style="height:28px;" id="POSITION_CD" blockSelect="false"
+    						displayMode="label" allOption="" chooseOption="" ref="" viewType="icon">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:aliasDc_codePosition">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column width="171" inputType="text"
+    						style="height:28px;" id="EMAIL" blockSelect="false"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column width="70" inputType="text"
+    						style="height:28px;" id="ZIP_CD" blockSelect="false"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column width="148" inputType="text"
+    						style="height:28px;" id="ADDRESS1" blockSelect="false"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column width="138" inputType="text"
+    						style="height:28px;" id="ADDRESS2" blockSelect="false"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column width="70" inputType="text"
+    						style="height:28px;" id="CREATED_DATE" blockSelect="false"
+    						displayMode="label" dataType="date">
+    					</w2:column>
+    					<w2:column width="70" inputType="text"
+    						style="height:28px;" id="UPDATED_DATE" blockSelect="false"
+    						displayMode="label" dataType="date">
+    					</w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<xf:group tagname="table" style="width:100%;" id=""
+    			class="w2tb" adaptive="layout" adaptiveThreshold="700">
+    			<w2:attributes>
+    				<w2:summary></w2:summary>
+    			</w2:attributes>
+    			<xf:group tagname="caption"></xf:group>
+    			<xf:group tagname="colgroup">
+    				<xf:group tagname="col" style="width:100px;"></xf:group>
+    				<xf:group tagname="col" style=""></xf:group>
+    				<xf:group tagname="col" style="width:100px;"></xf:group>
+    				<xf:group tagname="col" style=""></xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">
+    					이름
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:input id="ui_form_name"
+    						style="width: 144px;height: 23px;"
+    						ref="data:dc_userInfoList.EMP_NM">
+    					</xf:input>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">성별<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:select1 id="ui_form_gender" selectedIndex="0" appearance="full" style="min-width: 150px;min-height: 21px;"
+    						ref="data:dc_userInfoList.GENDER_CD" rows="1" cols="">
+    						<xf:choices>
+    							<xf:itemset nodeset="data:aliasDc_codeGender">
+    								<xf:label ref="CODE_NM"></xf:label>
+    								<xf:value ref="CODE_CD"></xf:value>
+    							</xf:itemset>
+    						</xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">입사일<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<w2:inputCalendar footerDiv="false" id="ui_form_date"
+    						weekStartsOn="0" style="width: 150px;height: 23px;"
+    						renderDiv="true" focusOnDateSelect="false"
+    						calendarValueType="yearMonthDate" rightAlign="false"
+    						renderType="component" ref="data:dc_userInfoList.JOIN_DATE">
+    					</w2:inputCalendar>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">
+    					직급
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:select1 allOption="" appearance="minimal" chooseOption="true" direction="auto" disabled="false"
+    						disabledClass="w2selectbox_disabled" displayMode="label" id="ui_form_position" optionOrder="false" selectedData="true"
+    						style="width: 148px;height: 21px;" submenuSize="auto" ref="data:dc_userInfoList.POSITION_CD" chooseOptionLabel="">
+    						<xf:choices>
+    							<xf:itemset nodeset="data:aliasDc_codePosition">
+    								<xf:label ref="CODE_NM"></xf:label>
+    								<xf:value ref="CODE_CD"></xf:value>
+    							</xf:itemset>
+    						</xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="pageScope_debug_master">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+        
+			scwin.onpageload = function() {
+				debugger;
+			};
+			
+			scwin.onpageunload = function() {
+				
+			};
+	
+		]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="" id="" class="wrapper">
+    		<xf:group class="section_desc dmb" id="" style="">
+    			<w2:textbox id=""
+    				label="page coding 사용 가이드 - 브라우저 콘솔에서 debug 확인&lt;br/&gt;$p.debug.getScope() 기능을 이용할 수 있다.&lt;br/&gt;1. 페이지 로딩 전 브라우저에서 개발자 도구를 오픈한다.&lt;br/&gt;2. 접근하고자 하는 객체를 마우스 왼쪽 클릭으로 선택한다.&lt;br/&gt;3. 브라우저 콘솔에서 $p.debug.getScope($0).ipt1.getValue(); 을 확인하면 직전에 선택한 객체를 확인할 수 있다.&lt;br/&gt;4. 선택된 객체의 역순으로 $0, $1, $2 등으로 접근할 수 있다."
+    				style="" tagname="">
+    			</w2:textbox>
+    		</xf:group>
+    		<w2:wframe style="border: 1px solid grey;margin-top:10px;height: 70px;" id="wframe1" scope="true"
+    			src="/ws5/sample/pageScope/detail_debug.xml">
+    		</w2:wframe>
+    		<w2:wframe id="wframe2" scope="true" src="/ws5/sample/pageScope/detail_debug.xml"
+    			style="border: 1px solid grey;margin-top:10px;height: 70px;">
+    		</w2:wframe>
+    		<w2:wframe id="wframe3" scope="true" src="/ws5/sample/pageScope/detail_debug.xml"
+    			style="border: 1px solid grey;margin-top:10px;height: 70px;">
+    		</w2:wframe>
+    	</xf:group>
+    </body>
+</html>

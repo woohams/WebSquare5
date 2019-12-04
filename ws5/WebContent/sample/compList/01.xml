@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="텍스트 입력">
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dc_tmpData" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="input2" name="input2"></w2:key>
+    					<w2:key dataType="text" id="input3" name="input3"></w2:key>
+    					<w2:key dataType="text" id="input4" name="input4"></w2:key>
+    					<w2:key dataType="text" id="searchbox1" name="searchbox1"></w2:key>
+    					<w2:key dataType="text" id="secret1" name="secret1"></w2:key>
+    					<w2:key dataType="text" id="inputCalendar2" name="inputCalendar2"></w2:key>
+    					<w2:key dataType="text" id="spinner1" name="spinner1"></w2:key>
+    					<w2:key dataType="text" id="spinner2" name="spinner2"></w2:key>
+    					<w2:key dataType="text" id="spinner3" name="spinner3"></w2:key>
+    				</w2:keyInfo>
+    				<w2:data use="true">
+    					<input2><![CDATA[1299.678]]></input2>
+    					<input3><![CDATA[20200101]]></input3>
+    					<input4><![CDATA[1234]]></input4>
+    					<searchbox1><![CDATA[WebSquare]]></searchbox1>
+    					<secret1><![CDATA[1111]]></secret1>
+    					<inputCalendar2><![CDATA[20070101]]></inputCalendar2>
+    					<spinner1><![CDATA[20070101]]></spinner1>
+    					<spinner2><![CDATA[4]]></spinner2>
+    					<spinner3><![CDATA[1040]]></spinner3>
+    				</w2:data>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    	</xf:model>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		ui_editor.setHTML("CKEditor입니다.<br/>이곳에 글을 입력하세요.");
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	scwin.ui_getHTML_onclick = function(e) {
+		alert(ui_editor.getHTML());
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group class="wrapper" id="">
+    		<xf:group class="section_desc" id="" style="padding: 10px;">
+    			<w2:textbox id=""
+    				label="폼을 구성하는 컴포넌트로, 텍스트 입력이 가능한 컴포넌트이다.&lt;br/&gt;InputBox, SearchBox, Secret, InputCalendar, TextArea, Editor, Spinner가 해당된다.&lt;br/&gt;( source : 01.xml )"
+    				style="" tagname="">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="" id="" style="">
+    			<xf:group id="" style="" class="section01 dmr fl dmb">
+    				<w2:textbox id="" style="" class="contTitle02 dmb" label="InputBox"></w2:textbox>
+    				<xf:group id="" style="" class="ofh">
+    					<w2:textbox id="" style="" class="defCompLbl" label="text">
+    					</w2:textbox>
+    					<xf:input id="" ref="" dataType="text" style="" placeholder="이름을 입력하세요." class="defComp"></xf:input>
+    				</xf:group>
+    				<xf:group id="" style="" class="ofh">
+    					<w2:textbox id="" style="" class="defCompLbl" label="number">
+    					</w2:textbox>
+    					<xf:input id="" ref="data:dc_tmpData.input2" dataType="number" style="" placeholder="숫자만 입력가능" class="defComp" displayFormat="#,###.##">
+    					</xf:input>
+    				</xf:group>
+    				<xf:group id="" style="" class="ofh dmb">
+    					<w2:textbox id="" style="" class="defCompLbl" label="date">
+    					</w2:textbox>
+    					<xf:input id="" ref="data:dc_tmpData.input3" dataType="date" style="" placeholder="날짜타입" class="defComp" dateMask="MM/dd/yyyy">
+    					</xf:input>
+    				</xf:group>
+    			</xf:group><xf:group id="" style="" class="section01 ofh fl dmb">
+    					<w2:textbox id="" style="" class="contTitle02 dmb" label="Spinner"></w2:textbox>
+    					<xf:group class="ofh" id="" style="">
+    						<w2:textbox class="defCompLbl" id="" label="number" style=""></w2:textbox>
+    						<w2:spinner buttonSize="60" class="defComp" dataType="number" id="" increment="2" inputReadOnly="true" max="10" min="0" ref="data:dc_tmpData.spinner2" skin="type2" style="position:relative;" readOnly="">
+    						</w2:spinner>
+    					</xf:group>
+    					<xf:group id="" style="" class="ofh">
+    						<w2:textbox id="" style="" class="defCompLbl" label="date"></w2:textbox>
+    						<w2:spinner id="" ref="data:dc_tmpData.spinner1" dataType="date" style="position: relative;" class="defComp" buttonSize="60" skin="type2" inputReadOnly="false" dateMask="" dateIncrementType="day" max="" displayFormat="yyyy.MM.dd">
+    						</w2:spinner>
+    					</xf:group>
+    					<xf:group class="ofh dmb" id="" style="">
+    						<w2:textbox class="defCompLbl" id="" label="time" style=""></w2:textbox>
+    						<w2:spinner buttonSize="30" class="defComp" id="" increment="" inputReadOnly="false" max="10" min="0" ref="data:dc_tmpData.spinner3" skin="type1" style="position:relative;" dataType="time" dateIncrementType="minute">
+    						</w2:spinner>
+    					</xf:group>
+    				</xf:group><xf:group id="" style="" class="section02 dmb clleft">
+    					<w2:textbox id="" style="" class="contTitle01 fl" label="Secret"></w2:textbox>
+    					<xf:secret id="" ref="data:dc_tmpData.secret1" style="" class="defComp"></xf:secret>
+    				</xf:group><xf:group id="" style="" class="section02 dmb">
+    					<w2:textbox id="" style="" class="contTitle01 fl" label="SearchBox"></w2:textbox>
+    					<w2:searchbox id="" ref="data:dc_tmpData.searchbox1" style="" class="defComp"></w2:searchbox>
+    				</xf:group><xf:group id="" style="" class="section02 dmb">
+    					<w2:textbox id="" style="" class="contTitle01 fl" label="InputCalendar"></w2:textbox>
+    					<w2:inputCalendar id="" calendarImageOver="" setCurrentDate="true" ref="data:dc_tmpData.inputCalendar2" calendarValueType="yearMonthDate" style="" class="defComp dmr" calendarImage="" validCheck="true" calendarClass="">
+    					</w2:inputCalendar>
+    				</xf:group><xf:group id="" style="" class="section03 dmb ofh">
+    					<w2:textbox id="" style="" class="contTitle02 dmb" label="Textarea"></w2:textbox>
+    					<xf:group id="" style="" class="pd10 pt0">
+    						<xf:textarea id="" ref="data:dc_tmpData.textarea1" style="width:100%;height: 150px;" placeholder="선물 메시지를 입력해주세요.&amp;#13;&amp;#10;(상품의 요청 사항은 반영되지 않습니다.)"></xf:textarea>
+    					</xf:group>
+    				</xf:group><xf:group id="" style="" class="section03 dmb">
+    					<w2:textbox id="" style="" class="contTitle02 dmb" label="Editer ( CKEditor )"></w2:textbox>
+    					<xf:group id="" style="" class="pd10 pt0">
+    						<xf:group id="" style="" class="tar dmb">
+    							<xf:trigger id="ui_getHTML" style="" ev:onclick="scwin.ui_getHTML_onclick" class="btnDef" type="button">
+    								<xf:label><![CDATA[getHTML]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    						<w2:editor id="ui_editor" style="min-height:350px;" menubar="default"></w2:editor>
+    					</xf:group>
+    				</xf:group></xf:group>
+    	</xf:group>
+    </body>
+</html>

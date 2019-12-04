@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<display-name>WebSquare5</display-name>
+	<welcome-file-list>
+		<welcome-file>/ws5.do</welcome-file>
+	</welcome-file-list>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:config/spring/*-context.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>SpringDispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/SpringDispatcher-servlet.xml</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SpringDispatcher</servlet-name>
+		<url-pattern>*.do</url-pattern>
+		<url-pattern>/websquare/popup.html</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>websquareDispatcher</servlet-name>
+		<servlet-class>websquare.http.DefaultRequestDispatcher</servlet-class>
+		<init-param>
+			<param-name>WEBSQUARE_HOME</param-name>
+			<param-value>C:\WRM\RESOURCE\WS5\websquare_home</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>websquareDispatcher</servlet-name>
+		<url-pattern>*.wq</url-pattern>
+	</servlet-mapping>
+</web-app>

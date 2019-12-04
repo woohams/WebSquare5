@@ -1,0 +1,17 @@
+{"dc_userInfo":{
+	"EMP_CD": 10001998,
+	"EMP_NM": "대길동",
+	"GENDER_CD": "F",
+	"JOIN_DATE": "20160702",
+	"POSITION_CD": "04",
+	"DUTY_CD": "04",
+	"ROLE_CD": "05",
+	"ASSIGNED_TASK": "",
+	"EMAIL": "koho567@inswave03.com",
+	"ZIP_CD": "135502",
+	"ADDRESS1": "서울 강남구 대치3동",
+	"ADDRESS2": " 995∼1002",
+	"IMAGE_PATH": "/ws5/img/blank.png",
+	"CREATED_DATE": "2016-12-07",
+	"UPDATED_DATE": "2016-12-07"
+}}

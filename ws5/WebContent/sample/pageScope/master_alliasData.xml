@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="alliasData_master">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataMap baseNode="map" id="parentDataMap">
+            		<w2:keyInfo>
+            			<w2:key id="key1" name="name1" dataType="text"></w2:key>
+            		</w2:keyInfo>
+            		<w2:data use="true">
+            			<key1><![CDATA[A01]]></key1>
+            		</w2:data>
+            	</w2:dataMap>
+            	<w2:dataList baseNode="list" repeatNode="map" id="parentDataList" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="col1" name="첫번째 항목" dataType="text"></w2:column>
+            			<w2:column id="col2" name="두번째 항목" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<col1><![CDATA[B01]]></col1>
+            				<col2><![CDATA[b_001]]></col2>
+            			</w2:row>
+            			<w2:row>
+            				<col1><![CDATA[B02]]></col1>
+            				<col2><![CDATA[b_002]]></col2>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+        
+			scwin.onpageload = function() {
+				
+			};
+			
+			scwin.onpageunload = function() {
+				
+			};
+	
+		]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="" id="" class="wrapper">
+    		<xf:group class="section_desc dmb" id="" style="">
+    			<w2:textbox id=""
+    				label="page coding 사용 가이드 - tab의 wframe Mode를 이용한 coding 가이드&lt;br/&gt;자식 Page에서 부모 Page의 Data 객체를 사용하는 방법&lt;br/&gt;(allias Data 객체를 통해 자식 Page에서 부모 Page의 Data 객체를 참조할 수 있다.)" style="" tagname="">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="searchbox dmb" id="" style="">
+    			<xf:group class="w2tb" id="" style="" tagname="table">
+    				<w2:attributes>
+    					<w2:summary></w2:summary>
+    				</w2:attributes>
+    				<xf:group tagname="colgroup">
+    					<xf:group style="width:180.00px;" tagname="col"></xf:group>
+    					<xf:group style="" tagname="col"></xf:group>
+    				</xf:group>
+    				<xf:group style="" tagname="tr">
+    					<xf:group class="w2tb_th" style="" tagname="th">Parent&amp;nbsp;Page&amp;nbsp;DataMap&amp;nbsp;확인</xf:group>
+    					<xf:group class="w2tb_td" style="" tagname="td">
+    						<xf:group class="ofh fl" id="" style="">
+    							<xf:input id="ipt" style="width:150px;" ref="data:parentDataMap.key1"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group style="" id="" class="defaultbox">
+    			<xf:group class="titlebox" id="" style="">
+    				<w2:textbox class="df_tt" id="" label="Parent Page DataList 확인" style="" tagname="h2"></w2:textbox>
+    			</xf:group>
+    			<w2:gridView id="" style="height: 100px;" scrollByColumn="false" defaultCellHeight="20" scrollByColumnAdaptive="false"
+    				dataList="data:parentDataList" class="cm_grid">
+    				<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    				<w2:header style="" id="header2">
+    					<w2:row style="" id="row3">
+    						<w2:column removeBorderStyle="false" width="100" inputType="text" id="column5" value="첫번째 항목"
+    							blockSelect="false" displayMode="label">
+    						</w2:column>
+    						<w2:column removeBorderStyle="false" width="100" inputType="text" id="column3" value="두번째 항목"
+    							blockSelect="false" displayMode="label">
+    						</w2:column>
+    					</w2:row>
+    				</w2:header>
+    				<w2:gBody style="" id="gBody2">
+    					<w2:row style="" id="row4">
+    						<w2:column removeBorderStyle="false" width="100" inputType="text" id="col1" blockSelect="false"
+    							displayMode="label">
+    						</w2:column>
+    						<w2:column removeBorderStyle="false" width="70" inputType="text" id="col2" blockSelect="false"
+    							displayMode="label">
+    						</w2:column>
+    					</w2:row>
+    				</w2:gBody>
+    			</w2:gridView>
+    		</xf:group>
+    		<xf:group style="" id="" class="defaultbox">
+    			<w2:tabControl useTabKeyOnly="true" id="wframeTab" useMoveNextTabFocus="false" useConfirmMessage="false"
+    				confirmTrueAction="exist" confirmFalseAction="new" alwaysDraw="false" style="height: 200px;">
+    				<w2:content alwaysDraw="false" style="height:170px;" id="content1" frameMode="wframePreload" scope="true"
+    					src="/ws5/sample/pageScope/detail_alliasData.xml">
+    				</w2:content>
+    				<w2:tabs label="wframe scope tab" disabled="false" style="width:150px;height:30px;" id="tabs1" tabWidth="150"></w2:tabs>
+    			</w2:tabControl>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

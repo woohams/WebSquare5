@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="widget_일별 조회수">
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="dc_chart" saveRemovedData="true">
+    				<w2:columnInfo>
+    					7-
+    					<w2:column id="date" name="name1" dataType="text"></w2:column>
+    					<w2:column id="val" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<date><![CDATA[2017.07.02]]></date>
+    						<val><![CDATA[42]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.03]]></date>
+    						<val><![CDATA[74]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.04]]></date>
+    						<val><![CDATA[59]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.05]]></date>
+    						<val><![CDATA[37]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.06]]></date>
+    						<val><![CDATA[47]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.07]]></date>
+    						<val><![CDATA[39]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.08]]></date>
+    						<val><![CDATA[38]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.09]]></date>
+    						<val><![CDATA[156]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.10]]></date>
+    						<val><![CDATA[95]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.11]]></date>
+    						<val><![CDATA[101]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.12]]></date>
+    						<val><![CDATA[73]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.13]]></date>
+    						<val><![CDATA[68]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.14]]></date>
+    						<val><![CDATA[64]]></val>
+    					</w2:row>
+    					<w2:row>
+    						<date><![CDATA[2017.07.15]]></date>
+    						<val><![CDATA[19]]></val>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    	</xf:model>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+			scwin.dc_chart_lbl = function(dataObj, rowIdx){
+				var curLblArr = (dataObj.date).split("-");
+				if(rowIdx%2 === 0){
+					return curLblArr[0]+"<br/>"+curLblArr[1]+"-"+curLblArr[2];
+				}
+				return "";
+			};    
+			
+			scwin.onpageload = function() {
+				var fc = ui_chart.fc();
+				var fcOpt = {
+					"caption": "일별 조회수",
+					"captionFontSize": "16",
+		        	"subCaption": "최근 14일",
+		        	"subCaptionFontSize": "12",
+					"lineThickness": "2",
+					"axisLineAlpha": "25",
+					"showXAxisLine": "1",
+					"showValues": true,
+					"valueFontColor": "#999",
+					"thousandSeparator": ",",
+					"showLabels": false,
+					"labelStep": 3,
+					"labelPadding": "20",
+					"showPrintMenuItem": true,
+					"exportEnabled": true,
+					"exportAction": "download",
+					"exportFormats": "PNG=Export as PNG Image|JPG=Export as JPG Image|PDF=Export as PDF File",
+					"exportShowMenuItem": true,
+					"toolTipColor": "#ffffff",
+					"toolTipPadding":"5",
+					"toolTipBorderColor": "#000",
+					"toolTipBorderThickness": "0",
+					"toolTipBgColor": "#000",
+					"toolTipBgAlpha": "80",
+		        	"toolTipBorderRadius": "2",
+					"plottooltext": "<div style='color:#fff;text-align:center;'><div style='color:#ffff00;'>$label</div><div>$dataValue회</div></div>"
+				}
+				fc.setChartAttribute(fcOpt);
+			};
+		]]></script>
+    	<style type="text/css"><![CDATA[
+    		
+    	]]></style>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+
+    	<xf:group style="" id="" class="absBox">
+    		<xf:group class="widgetBox" id="" style="">
+    			<w2:fusionchart accessibility="false" drawType="javascript" runflashAt="IE6,IE7,IE8" seriesType="simple"
+    				chartType="Line" style="width: 100%;height: 100%;" id="ui_chart" ref="data:dc_chart" labelNode="date" valueNode="val" seriesNode="">
+    			</w2:fusionchart>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

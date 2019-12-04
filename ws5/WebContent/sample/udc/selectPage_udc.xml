@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>UDC</w2:type>
+        <w2:buildDate/>
+        <w2:model></w2:model>
+    </head>
+    <body>
+    	<!--/** WEBSQUARE UDC */
+    		{
+    		"disableIcon": "",
+    		"notSupportBrowser": "",
+    		"htmlRender": "",
+    		"icon": "",
+    		"description": "",
+    		"version": "",
+    		"apis": [
+    		{
+    		"name": "getTotalValue",
+    		"description": "전체 Total 값을 가져온다.",
+    		"params": [],
+    		"return": [{
+    		"description": "desc",
+    		"type": "String"
+    		}]
+    		},
+    		{
+    		"name": "setTotalValue",
+    		"description": "전체 Total 값을 셋팅한다.",
+    		"params": [],
+    		"return": [{
+    		"description": "desc",
+    		"type": "String"
+    		}]
+    		},
+    		{
+    		"name": "setSelectPage",
+    		"description": "pageList 기능을 하는 selectbox의 값을 셋팅한다.",
+    		"params": [],
+    		"return": [{
+    		"description": "desc",
+    		"type": "String"
+    		}]
+    		}
+    		],
+    		"pluginName": "udc_selectPage",
+    		"width": "300px",
+    		"company": "",
+    		"developer": "",
+    		"componentName": "udc_selectPage",
+    		"category": "Basic",
+    		"properties": [
+    		{
+    		"default": "",
+    		"necessary": "Y",
+    		"hidden": "N",
+    		"name": "id",
+    		"description": "Component id",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "style",
+    		"description": "Component style",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "class",
+    		"description": "Component class",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "ref",
+    		"description": "Component ref",
+    		"type": "bindColumn",
+    		"bindparent": "",
+    		"option": ""
+    		}
+    		],
+    		"events": [{
+    		"name": "onSelChange()",
+    		"description": "desc",
+    		"type": "user"
+    		}],
+    		"height": "23px"
+    		}
+    	-->
+    	<xf:group id="" style="text-align: center;" pluginName="udc_selectPage">
+    		<link rel="stylesheet" type="text/css" href=""></link>
+    		<style type="text/css"><![CDATA[ ]]></style>
+    		<script type="text/javascript" src=""></script>
+    		<script ev:event="oncreated(options)" type="text/javascript"><![CDATA[
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				 * udc_obj.trigger("onSelChange"); 
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				 * udc_obj.trigger("onChange"); 
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				 * udc_obj.trigger("onChange"); 
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+
+				/**
+				 * Function description...
+				 * @date 2019. 08. 28
+				 * @memberOf udc_obj
+				 * @param 
+				 * @returns  
+				 * @author inswave
+				 * @example
+				 * @since
+				*/ 
+				udc_obj.getTotalValue = function(){
+					var value = spnTotal.getValue();
+					return value.replace("/","");
+				};
+
+				/**
+				 * Function description...
+				 * @date 2019. 08. 28
+				 * @memberOf udc_obj
+				 * @param 
+				 * @returns  
+				 * @author inswave
+				 * @example
+				 * @since
+				*/ 
+				udc_obj.setTotalValue = function(arg){
+					spnTotal.setValue("/"+arg);
+				};
+
+				
+				/**
+				 * Function description...
+				 * @date 2019. 08. 28
+				 * @memberOf udc_obj
+				 * @param 
+				 * @returns  
+				 * @author inswave
+				 * @example
+				 * @since
+				*/ 
+				udc_obj.setSelectPage = function(num){
+					selCount.removeAll(true);
+			
+					for(var i=1; i<=num; i++){
+						selCount.addItem(i, i);
+					}
+					
+					selCount.setSelectedIndex(0);
+				};
+				
+				udc_obj.getSelectVal = function(){
+					return selCount.getValue();
+				};
+				
+				udc_obj.setSelectVal = function(arg){
+					selCount.setValue(arg);
+				};
+				
+				]]></script>
+    		<script ev:event="onattributeChanged(type,value)" type="text/javascript"><![CDATA[]]></script>
+    		<script ev:event="ondestroyed()" type="text/javascript"><![CDATA[ ]]></script>
+    		<xf:select1 submenuSize="auto" appearance="minimal" disabledClass="w2selectbox_disabled" chooseOption="false"
+    			style="width: 50px;height: 21px;margin-right: 10px;" disabled="false" id="selCount" allOption="false" direction="auto">
+    			<script ev:event="onviewchange(info)" type="text/javascript"><![CDATA[ 
+    				udc_obj.trigger("onSelChange", udc_obj.getSelectVal());
+    			]]></script>
+    		</xf:select1>
+    		<w2:span style="" label="/" id="spnTotal"></w2:span>
+    	</xf:group>
+    </body>
+</html>

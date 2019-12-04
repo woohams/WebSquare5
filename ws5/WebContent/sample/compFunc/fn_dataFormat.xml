@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="Data Type Format">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_sampleDataForm">
+					<w2:keyInfo>
+						<w2:key id="json" name="name1" dataType="text">
+						</w2:key>
+						<w2:key id="array" name="name2" dataType="text">
+						</w2:key>
+						<w2:key id="arrayString" name="name3" dataType="text">
+						</w2:key>
+						<w2:key id="xml" name="name4" dataType="text">
+						</w2:key>
+					</w2:keyInfo>
+					<w2:data use="true">
+						<json><![CDATA[[
+	{ "SEQ_NO":1, "SIGUNGUCODE":"11110", "STREETNUM":"2005001", "STREET":"세종대로" },
+	{ "SEQ_NO":2, "SIGUNGUCODE":"11110", "STREETNUM":"2005001", "STREET":"세종대로" }
+]]]></json>
+						<array><![CDATA[{
+	"columnInfo":["SEQ_NO", "SIGUNGUCODE", "STREETNUM", "STREET"],
+	"data":[1, "11110", "2005001", "세종대로", 2, "11110", "2005001", "세종대로"]
+}]]></array>
+						<arrayString><![CDATA['"1","11110","2005001","세종대로","Sejong-daero","00","서울특별시","종로구","2","NULL","NULL","NULL","NULL","0","NULL","NULL","Seoul","Jongno-gu","NULL","20100520","NULL","2","11110","2005001","세종대로","Sejong-daero","01","서울특별시","종로구","1","119","세종로","NULL","NULL","0","NULL","NULL","Seoul","Jongno-gu","Sejongno","20100520","NULL"']]></arrayString>
+						<xml><![CDATA[&lt;list id="dlt_ZipCodeStreet"&gt;
+	&lt;map&gt;
+		&lt;SEQ_NO&gt;1&lt;/SEQ_NO&gt;
+		&lt;SIGUNGUCODE&gt;11110&lt;/SIGUNGUCODE&gt;
+		&lt;STREETNUM&gt;2005001&lt;/STREETNUM&gt;
+		&lt;STREET&gt;세종대로&lt;/STREET&gt;
+	&lt;/map&gt;
+	&lt;map&gt;
+		&lt;SEQ_NO&gt;2&lt;/SEQ_NO&gt;
+		&lt;SIGUNGUCODE&gt;11110&lt;/SIGUNGUCODE&gt;
+		&lt;STREETNUM&gt;2005001&lt;/STREETNUM&gt;
+		&lt;STREET&gt;세종대로&lt;/STREET&gt;
+	&lt;/map&gt;
+&lt;/list&gt;]]></xml>
+					</w2:data>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+]]></script>
+	</head>
+	<body>
+		<xf:group class="wrapper" id="">
+			<xf:group class="section_desc" id=""
+				style="padding: 10px;">
+				<w2:textbox id=""
+					label="DataList에 셋팅할 수 있는 데이터의 포맷 예시이다.&lt;br/&gt;Submission에 지정할 수 있는 타입은 JSON, Array, XML이다.(속성 중 target과 reference의 dataType에 할당.)&lt;br/&gt;1차원 ARRAY은 Submission에 지정할 수 없으며 DataList의 API 중 setData를 이용하여 셋팅해야한다.&lt;br/&gt;( source : fn_dataFormat.xml )"
+					style="" tagname="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" style="" class="mb20">
+
+				<xf:group style="" id="" class="">
+					<w2:textbox style="" label="JSON - 기본 권장 포맷" id=""
+						class="df_tt dmb">
+					</w2:textbox>
+					<xf:group style="" id=""
+						tagname="pre" class="preSamp">
+						<w2:textbox tagname="samp"
+							ref="data:dma_sampleDataForm.json" style="" id="" label=""
+							class="">
+						</w2:textbox>
+					</xf:group>
+					<w2:textbox class="dmb" id=""
+						label="Submission 설정 예시" style="">
+					</w2:textbox><w2:textbox class="dbd dp" id="" label="&lt;span class='txtRed'&gt;target=&quot;data:json&lt;/span&gt;,[데이터 리스트 아이디]&quot;&lt;br/&gt;mediatype=&quot;application/json&quot;" style="">
+						</w2:textbox>
+				</xf:group>
+			</xf:group>
+			<xf:group id="" style="" class="mb20">
+				<xf:group class="" id="" style="">
+					<w2:textbox class="df_tt dmb" id=""
+						label="ARRAY - 대용량 데이터 권장 포맷" style="">
+					</w2:textbox>
+					<xf:group id="" style=""
+						tagname="pre" class="preSamp">
+						<w2:textbox class="" id="" label=""
+							ref="data:dma_sampleDataForm.array" style="" tagname="samp">
+						</w2:textbox>
+					</xf:group>
+					<w2:textbox class="dmb" id=""
+						label="Submission 설정 예시" style="">
+					</w2:textbox><w2:textbox class="dbd dp" id="" label="&lt;span class='txtRed'&gt;target=&quot;data:array&lt;/span&gt;,[데이터 리스트 아이디]&quot;&lt;br/&gt;mediatype=&quot;application/json&quot;" style="">
+						</w2:textbox>
+				</xf:group>
+			</xf:group>
+			<xf:group class="mb20" id="" style="">
+				<xf:group class="" id="" style="">
+					<w2:textbox class="df_tt dmb" id=""
+						label="1차원 ARRAY" style="">
+					</w2:textbox>
+					<xf:group class="preSamp" id=""
+						style="" tagname="pre">
+						<w2:textbox class="" id="" label=""
+							ref="data:dma_sampleDataForm.arrayString" style=""
+							tagname="samp">
+						</w2:textbox>
+					</xf:group>
+					<w2:textbox class="dmb" id=""
+						label="Submission 설정 예시" style="">
+					</w2:textbox>
+					<w2:textbox class="dbd dp" id=""
+						label="&lt;span class='txtRed'&gt;target : &quot;&quot;&lt;/span&gt;&lt;br/&gt;mediatype=&quot;text/plain&quot;"
+						style="">
+					</w2:textbox>
+				</xf:group>
+			</xf:group>
+			<xf:group class="mb20" id="" style="">
+				<xf:group class="" id="" style="">
+					<w2:textbox class="df_tt dmb" id="" label="XML"
+						style="">
+					</w2:textbox>
+					<xf:group class="preSamp" id=""
+						style="" tagname="pre">
+						<w2:textbox class="" id="" label=""
+							ref="data:dma_sampleDataForm.xml" style="" tagname="samp">
+						</w2:textbox>
+					</xf:group>
+					<w2:textbox class="dmb" id=""
+						label="Submission 설정 예시" style="">
+					</w2:textbox>
+					<w2:textbox class="dbd dp" id="" label="&lt;span class='txtRed'&gt;target=&quot;data:xml&lt;/span&gt;,[데이터 리스트 아이디]&quot;&lt;br/&gt;mediatype=&quot;application/xml&quot;" style="">
+						</w2:textbox>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

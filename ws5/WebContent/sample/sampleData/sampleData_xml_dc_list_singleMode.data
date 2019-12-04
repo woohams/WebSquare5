@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<map>
+		<name>류현진</name>
+		<birthday>19870325</birthday>
+		<height>188.9</height>
+		<weight>115.6</weight>
+		<gender>M</gender>
+	</map>
+	<map>
+		<name>추신수</name>
+		<birthday>19820713</birthday>
+		<height>180.3</height>
+		<weight>93</weight>
+		<gender>M</gender>
+	</map>
+</list>

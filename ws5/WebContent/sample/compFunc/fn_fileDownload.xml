@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="파일 다운로드">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dc_fileInfo">
+					<w2:keyInfo>
+						<w2:key id="FILE_NM" name="name1" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+		</xf:model>
+		<style type="text/css"><![CDATA[
+    	]]></style>
+		<script type="text/javascript" lazy="false"><![CDATA[
+	scwin.onpageload = function() {
+	
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.ui_filedownload_onclick = function(e) {
+		var fileName = ui_list.getValue();
+		
+		if (fileName == "") {
+			alert("다운로드 받을 파일을 선택 하세요");
+		} else {
+			var data = WebSquare.xml.parse("info");
+			
+			WebSquare.xml.setValue(data,"info/FILE_NM",dc_fileInfo.get("FILE_NM") );
+			$p.download( "/ws5/edu/fileDownLoad.do" , data , "post" );
+		}
+		
+	};
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group id="" style="" class="wrapper">
+			<xf:group id="" style="padding: 10px;" class="section_title">
+				<w2:textbox id="" style="" label="파일 다운로드 예제&lt;br/&gt;( source : fn_fileDownload.xml )" tagname="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" style="" class="dp dl_code" tagname="dl">
+				<w2:textbox id="" style="" label="파일 다운로드" tagname="dt">
+				</w2:textbox>
+				<xf:group style="" id="" class="" tagname="dd">
+					<w2:textbox id="" style="" label='$p.download( 호출URL , XML형태의 데이타 , Method : post, get );' tagname="" class="">
+					</w2:textbox>
+					<xf:select1 disabledClass="w2selectbox_disabled" appearance="minimal" direction="auto" chooseOption="true" id="ui_list"
+						style="width: 148px;height: 21px;" displayMode="label" optionOrder="false" allOption="" disabled="false" submenuSize="auto"
+						chooseOptionLabel="" ref="data:dc_fileInfo.FILE_NM" class="dmr dmt" textAlign="left">
+						<xf:choices>
+							<xf:item>
+								<xf:label><![CDATA[00_교육환경구성]]></xf:label>
+								<xf:value><![CDATA[00_교육환경구성.pdf]]></xf:value>
+							</xf:item>
+							<xf:item>
+								<xf:label><![CDATA[01_이론]]></xf:label>
+								<xf:value><![CDATA[01_이론.pdf]]></xf:value>
+							</xf:item>
+							<xf:item>
+								<xf:label><![CDATA[02_실습]]></xf:label>
+								<xf:value><![CDATA[02_실습.pdf]]></xf:value>
+							</xf:item>
+							<xf:item>
+								<xf:label><![CDATA[03_샘플목록]]></xf:label>
+								<xf:value><![CDATA[03_샘플목록.pdf]]></xf:value>
+							</xf:item>
+							<xf:item>
+								<xf:label><![CDATA[99_javascript_css_기본]]></xf:label>
+								<xf:value><![CDATA[99_javascript_css_기본.pdf]]></xf:value>
+							</xf:item>
+						</xf:choices>
+					</xf:select1>
+					<xf:trigger class="btnRed" ev:onclick="scwin.ui_filedownload_onclick" id="ui_filedownload" style="width: 130px;" type="button">
+						<xf:label><![CDATA[파일 다운로드]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

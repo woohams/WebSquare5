@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="05_subFrame">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group id="" style="padding:6px;">
+    		<xf:trigger id="w_trigger1" style="width:100px;height:20px;margin-right:10px;" type="button">
+    			<xf:label>조회</xf:label>
+    		</xf:trigger>
+    		<xf:trigger id="w_trigger2" style="width:100px;height:20px;margin-right:10px;" type="button">
+    			<xf:label>삭제</xf:label>
+    		</xf:trigger>
+    		<xf:trigger id="w_trigger3" style="width:100px;height:20px;margin-right:10px;" type="button">
+    			<xf:label>기타</xf:label>
+    		</xf:trigger>
+    	</xf:group>
+    </body>
+</html>

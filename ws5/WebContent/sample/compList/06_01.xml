@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="컬럼 타입">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList id="dc_userDataList" baseNode="list" style="" repeatNode="map" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="name" name="name" dataType="text"></w2:column>
+						<w2:column id="married" name="married" dataType="text"></w2:column>
+						<w2:column id="birthday" name="birthday" dataType="text"></w2:column>
+						<w2:column id="gender" name="gender" dataType="text" ></w2:column>
+						<w2:column id="gugun" name="gugun" dataType="text"></w2:column>
+						<w2:column id="work" name="work" dataType="text"></w2:column>
+						<w2:column id="height" name="height" dataType="text"></w2:column>
+						<w2:column id="weight" name="weight" dataType="text"></w2:column>
+						<w2:column id="info" name="info" dataType="text"></w2:column>
+						<w2:column dataType="text" id="genderImg" name="genderImg" ></w2:column>
+						<w2:column dataType="text" name="bm" id="bm"></w2:column>
+						<w2:column dataType="text" id="rdo" name="rdo"></w2:column>
+						<w2:column dataType="text" id="chk" name="checkbox"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList id="codeList_gender" baseNode="list" style="" repeatNode="map" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="label" name="label" dataType="text"></w2:column>
+						<w2:column id="value" name="value" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data xmlns="" use="true">
+						<w2:row>
+							<label><![CDATA[남자]]></label>
+							<value><![CDATA[M]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[여자]]></label>
+							<value><![CDATA[F]]></value>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList id="checkcomboBox" baseNode="list" style="" repeatNode="map" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="label" name="label" dataType="text"></w2:column>
+						<w2:column id="value" name="value" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data xmlns="" use="true">
+						<w2:row>
+							<label><![CDATA[가수]]></label>
+							<value><![CDATA[1]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[MC]]></label>
+							<value><![CDATA[2]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[개그맨]]></label>
+							<value><![CDATA[3]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[탤런트]]></label>
+							<value><![CDATA[4]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[영화배우]]></label>
+							<value><![CDATA[5]]></value>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList id="zipCodeData" baseNode="list" style="" repeatNode="map" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="label" name="label" dataType="text"></w2:column>
+						<w2:column id="value" name="value" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data xmlns="" use="true">
+						<w2:row>
+							<label><![CDATA[강남구]]></label>
+							<value><![CDATA[1]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[강동구]]></label>
+							<value><![CDATA[2]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[강북구]]></label>
+							<value><![CDATA[3]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[강서구]]></label>
+							<value><![CDATA[4]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[관악구]]></label>
+							<value><![CDATA[5]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[광진구]]></label>
+							<value><![CDATA[6]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[구로구]]></label>
+							<value><![CDATA[7]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[금천구]]></label>
+							<value><![CDATA[8]]></value>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection>
+			</w2:workflowCollection>
+			<xf:submission id="sbm_getUserData" ref="" target='data:json,["dc_userDataList",{"id":"dc_userDataList","key":"data"}]' action="/ws5/sample/compList/data/gridViewData.json" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="" ev:submitdone="" ev:submit="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<style type="text/css"><![CDATA[
+			.w2grid nobr { padding:0px;}
+			
+			/* gridView의 button css */
+			.w2grid td.redBtn{padding:2px 4px;}
+			.w2grid .redBtn button{max-height:30px; background:#f62b2b;color:#fff; border:1px solid #df0909; border-radius: 2px;  cursor: pointer;width:100%;}
+			.w2grid .redBtn button:hover{border:1px solid #b30808; background-color: #e40a0a;}
+			
+			.w2grid th.inputTitle{background:#c3d5e3;}
+			.w2grid .w2grid_textImage_image{width:24px !important;}
+			
+			/* gridVeiw의 체중 그래프 관련 css start*/
+			.obesity_box {  position:relative; }
+			.obesity_box span { display: block; position: absolute; top: 8px; z-index: 99; width: 2px; height: 22px; background-color:red;; }
+			.obesity_bar {position:relative;}
+			.obesity_bar ul { padding: 10px 6px 6px 6px; overflow: hidden;margin:0px;}
+			.obesity_bar ul li { float: left;  font-size: 11px; list-style-type: none;text-align:left;}
+			.obesity_bar ul li em { font-size: 10px; color: #777;}
+			.obesity_bar ul li .lv1 { width:  100px; border: 1px solid #719bb6; background: #7da4bd; color: #e5edf2;text-align: center; }
+			.obesity_bar ul li .lv2 { width:  45px; border: 1px solid #4d74cd; background: #557cd5; color: #dde5f7;text-align: center; }
+			.obesity_bar ul li .lv3 { width:  20px; border: 1px solid #6c6ec6; background: #787ad6; color: #e4e4f7;text-align: center; }	
+			.obesity_bar ul li .lv4 { width:  50px; border: 1px solid #ac6dc9; background: #ba78d9; color: #f1e4f7;text-align: center; }
+			.obesity_bar ul li .lv5 { width: 100px; border: 1px solid #ec4d5e; background: #f85264; color: #fedce0;text-align: center; }
+			/* gridVeiw의 체중 그래프 관련 css end*/
+		 ]]></style>
+		<script type="text/javascript" lazy="false"><![CDATA[
+    scwin._var = {
+		expBarStr : '<div class="obesity_box">'
+			+ '<div class="obesity_bar" id="user_bmi_graph">' + '<ul>'
+			+ '<li><div class="lv1">저체중</div><em>BMI</em></li>'
+			+ '<li><div class="lv2">정상</div><em>18.5</em></li>'
+			+ '<li><div class="lv3">과</div><em>23</em></li>'
+			+ '<li><div class="lv4">비만</div><em>25</em></li>'
+			+ '<li><div class="lv5">고도</div><em>30</em></li>' + '</ul>'
+			+ '</div>'
+	};
+
+	scwin.fn_expBMI = function(height, weight) {
+		var w = parseInt(weight);
+		var h = parseInt(height) / 100;
+		var bmi = w / (h * h);
+		return bmi.toFixed(2);
+	};
+
+	scwin.fn_expBar = function(height, weight) {
+		var bmi = scwin.fn_expBMI(height, weight);
+		var left = parseFloat(bmi) * 10 + 12 - 85;
+		var bar = scwin._var.expBarStr + '<span style="left: ' + left
+				+ 'px;"></span>' + '</div>';
+		return bar;
+	};
+
+	scwin.fn_calculateBM = function(row, col, value) {
+		var dataObj = dc_userDataList.getRowJSON(row);
+
+		var gender = dataObj.gender;
+		var weight = parseInt(dataObj.weight);
+		var height = parseInt(dataObj.height);
+
+		var date = new Date();
+		var curYear = date.getFullYear();
+		var birth = dataObj.birthday;
+		var age = parseInt(curYear) - parseInt(birth.substr(0, 4)) + 1;
+
+		var bm = 0;
+		if (gender == "M") {
+			//66.47+(13.75 x 체중)+(5 x 키) - (6.76 x 나이)
+			bm = 66.47 + (13.75 * weight) + (5 * height) - (6.76 * age);
+		} else if (gender == "F") {
+			//655.1+(9.56 x 체중)+(1.85 x 키) - (4.68 x 나이)
+			bm = 655.1 + (9.56 * weight) + (1.85 * height) - (4.68 * age);
+		}
+		dc_userDataList.setCellData(row, col, bm.toFixed(2) + " kal");
+	};
+
+	scwin.fn_setHeight = function(value) {
+		return value + " cm";
+	};
+
+	scwin.fn_setWeight = function(value) {
+		return value + " kg";
+	};
+
+	scwin.fn_gvSetGenderIcon = function(gender) {
+		if(gender === "M" || gender === "F"){
+			return "<img src='/ws5/img/icon_"+gender+".png' width='22px' height='22px'/>";
+		}else{
+			return ""
+		}
+		
+	};
+
+	scwin.ui_gridView_oncellclick = function(row, col) {
+		var colID = ui_gridView.getColumnID(col);
+		var colType = ui_gridView.getColumnType(col);
+
+		//if (colType == "button") {
+		if (colID === "btn1" || colID === "btn2" || colID === "btnImg1") {
+			alert("준비중입니다.");
+
+		//} else if (colType == "link") {
+		} else if (colID === "name") {
+			alert("준비중입니다.");
+		}
+
+	};
+        
+	scwin.onpageload = function() {
+		$p.executeSubmission("sbm_getUserData");
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group class="wrapper" id="" style="">
+			<xf:group class="section_desc" id="group4" style="padding: 10px;">
+				<w2:textbox id="section"
+					label="WebSquare에서 그리드뷰는 웹 개발에 가장 비중있게 사용되는 컴포넌트이다. &lt;br/&gt;스프레드시트처럼 사용자에게 다량의 데이터를 이해하기 쉽고 효과적으로 표현하는데 사용된다. &lt;br/&gt;행과 열을 정의하여 그리드를 표현하며 헤더, 바디, 풋터를 설정하여 활용할 수 있다.&lt;br/&gt;( source : 06_01.xml )"
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<w2:gridView columnMove="" dataList="data:dc_userDataList" ev:oncellclick="scwin.ui_gridView_oncellclick" fixedColumn="2" id="ui_gridView"
+				rowNumHeaderValue="No" rowNumVisible="true" rowStatusHeaderValue="" rowStatusVisible="" scrollByColumn="false" style="height:300px;"
+				titleAuto="" tooltipDisplay="true" visibleRowNum="5">
+				<w2:header id="header1" style="">
+					<w2:row id="row3" style="">
+						<w2:column blockSelect="false" displayMode="label" hidden="false" id="column142" inputType="checkbox" style=""
+							value="" width="45">
+						</w2:column>
+						<w2:column colSpan="" id="column17" inputType="text" rowSpan="" sortable="" style="" value="이름" width="70"></w2:column>
+						<w2:column colSpan="" id="column15" inputType="text" rowSpan="" sortLabel="true" sortable="" style="" value="성별"
+							width="70">
+						</w2:column>
+						<w2:column blockSelect="false" displayMode="label" hidden="false" id="column141" inputType="text" style=""
+							value="성별" width="49">
+						</w2:column>
+						<w2:column blockSelect="false" displayMode="label" id="column154" inputType="text" style="" value="상세" width="44"></w2:column>
+						<w2:column colSpan="2" id="column82" inputType="text" rowSpan="" style="" value="상세" width="100"></w2:column>
+						<w2:column colSpan="" id="column50" inputType="text" rowSpan="" style="" value="선택" width="50"></w2:column>
+						<w2:column blockSelect="false" colSpan="3" id="column128" inputType="text" rowSpan="" style="" value="결혼여부"
+							width="210">
+						</w2:column>
+						<w2:column colSpan="" id="column39" inputType="text" rowSpan="" style="" value="지역구" width="90"></w2:column>
+						<w2:column colSpan="" id="column16" inputType="text" rowSpan="" sortable="" style="" value="생년월일" width="90"></w2:column>
+						<w2:column colSpan="" id="column14" inputType="text" rowSpan="" style="" value="직업" width="120"></w2:column>
+						<w2:column colSpan="" id="column97" inputType="text" rowSpan="" style="" value="설명" width="120"></w2:column>
+						<w2:column colSpan="" id="column13" inputType="text" rowSpan="" style="" value="키" width="102"></w2:column>
+						<w2:column colSpan="" id="column20" inputType="text" rowSpan="" style="" value="몸무게" width="120"></w2:column>
+						<w2:column colSpan="" id="column92" inputType="text" rowSpan="" style="" value="비만도&lt;br/&gt;(BMI)" width="92"></w2:column>
+						<w2:column colSpan="" id="column107" inputType="text" rowSpan="" style="" value="비만도 그래프" width="352"></w2:column>
+						<w2:column colSpan="" id="column111" inputType="text" rowSpan="" style="" value="기초대사량" width="108"></w2:column>
+					</w2:row>
+					<w2:row id="row5" style="">
+						<w2:column class="inputTitle" id="column72" inputType="text" style="height:35px;" value="check&lt;br/&gt;box"
+							width="45">
+						</w2:column>
+						<w2:column class="inputTitle" id="column70" inputType="text" sortable="false" style="height:35px;" value="link"
+							width="70">
+						</w2:column>
+						<w2:column class="inputTitle" id="column64" inputType="text" style="height:35px;" value="select" width="70"></w2:column>
+						<w2:column class="inputTitle" colSpan="2" id="column71" inputType="text" rowSpan="" style="height:35px;"
+							value="image" width="44">
+						</w2:column>
+						<w2:column class="inputTitle" colSpan="2" id="column84" inputType="text" rowSpan="" style="height:35px;"
+							value="button" width="100">
+						</w2:column>
+						<w2:column class="inputTitle" id="column80" inputType="text" style="height:35px;" value="vertical &lt;br/&gt;radio"
+							width="50">
+						</w2:column>
+						<w2:column blockSelect="false" class="inputTitle" colSpan="2" id="column130" inputType="text" rowSpan=""
+							style="height:35px;" value="horizontal&lt;br/&gt;radio" width="140">
+						</w2:column>
+						<w2:column blockSelect="false" class="inputTitle" id="column140" inputType="text" style="height:35px;"
+							value="H Radio&lt;br/&gt;value" width="70">
+						</w2:column>
+						<w2:column class="inputTitle" id="column66" inputType="text" style="height:35px;" value="autoComplete" width="90"></w2:column>
+						<w2:column class="inputTitle" id="column65" inputType="text" style="height:35px;" value="calendar" width="90"></w2:column>
+						<w2:column class="inputTitle" id="column63" inputType="text" style="height:35px;" value="checkcombobox"
+							width="120">
+						</w2:column>
+						<w2:column class="inputTitle" id="column99" inputType="text" style="height:35px;" value="textarea" width="120"></w2:column>
+						<w2:column class="inputTitle" colSpan="" id="column62" inputType="text" rowSpan="" style="height:35px;"
+							value="displayFormatter" width="102">
+						</w2:column>
+						<w2:column blockSelect="false" class="inputTitle" displayMode="label" hidden="false" id="column143" inputType="text"
+							style="height:35px;" value="displayFormat" width="120">
+						</w2:column>
+						<w2:column class="inputTitle" id="column94" inputType="text" style="height:35px;"
+							value="user&lt;br/&gt;expression 1" width="92">
+						</w2:column>
+						<w2:column class="inputTitle" id="column109" inputType="text" style="height:35px;" value="user expression 2"
+							width="352">
+						</w2:column>
+						<w2:column class="inputTitle" id="column113" inputType="text" style="height:35px;" value="textImage" width="108"></w2:column>
+					</w2:row>
+				</w2:header>
+				<w2:gBody id="gBody1" style="">
+					<w2:row id="row2" style="">
+						<w2:column defaultValue="0" id="chk" inputType="checkbox" style="height:40px;" width="45"></w2:column>
+						<w2:column id="name" inputType="link" style="height:40px;" width="70"></w2:column>
+						<w2:column allOption="" chooseOption="" customFormatter="" dataType="own" id="gender" inputType="select"
+							style="height:40px;" width="70">
+							<w2:choices>
+								<w2:itemset nodeset="data:codeList_gender">
+									<w2:label ref="label"></w2:label>
+									<w2:value ref="value"></w2:value>
+								</w2:itemset>
+							</w2:choices>
+						</w2:column>
+						<w2:column customFormatter="" displayFormatter="" expression="scwin.fn_gvSetGenderIcon(display('gender'))"
+							id="genderImg" imageHeight="" imageWidth="" inputType="expression" style="height:40px;" width="49">
+						</w2:column>
+						<w2:column blockSelect="false" displayMode="label" id="btnImg1" imageSrc="/ws5/img/info_icon.png" inputType="image"
+							style="" value="" width="44">
+						</w2:column>
+						<w2:column defaultValue="" id="btn1" inputType="button" style="height:40px;" value="상세&lt;br/&gt;보기" width="50"></w2:column>
+						<w2:column blockSelect="false" class="redBtn" displayMode="label" id="btn2" inputType="button" style="height:40px;"
+							value="상세" width="50">
+						</w2:column>
+						<w2:column id="rdo" inputType="radio" style="height:40px;" width="50"></w2:column>
+						<w2:column blockSelect="false" groupName="married" groupValue="Y" id="marriedY" inputType="radio"
+							style="height:40px;" width="70">
+						</w2:column>
+						<w2:column blockSelect="false" groupName="married" groupValue="N" id="marriedN" inputType="radio"
+							style="height:40px;" width="70">
+						</w2:column>
+						<w2:column blockSelect="false" id="married" inputType="text" style="height:40px;" width="70"></w2:column>
+						<w2:column dataType="" id="gugun" inputType="autoComplete" style="height:40px;" submenuSize="auto" width="70">
+							<w2:choices>
+								<w2:itemset nodeset="data:zipCodeData">
+									<w2:label ref="label"></w2:label>
+									<w2:value ref="value"></w2:value>
+								</w2:itemset>
+							</w2:choices>
+						</w2:column>
+						<w2:column customFormatter="" dataType="" dateValidCheck="true" id="birthday" inputType="calendar"
+							style="height:40px;" width="100">
+						</w2:column>
+						<w2:column id="work" inputType="checkcombobox" separator="," style="height:40px;" width="70">
+							<w2:choices>
+								<w2:itemset nodeset="data:checkcomboBox">
+									<w2:label ref="label"></w2:label>
+									<w2:value ref="value"></w2:value>
+								</w2:itemset>
+							</w2:choices>
+						</w2:column>
+						<w2:column id="info" inputType="textarea" style="height:40px;" width="120"></w2:column>
+						<w2:column applyFormat="" dataType="number" displayFormatter="scwin.fn_setHeight" id="height" importFormatter=""
+							inputType="text" style="height:40px;" width="102">
+						</w2:column>
+						<w2:column applyFormat="" dataType="number" displayFormat="#,###.#0 kg" displayFormatter="" id="weight"
+							inputType="text" style="height:40px;" width="120">
+						</w2:column>
+						<w2:column customFormatter="" expression="scwin.fn_expBMI(display('height'),display('weight'))" id="bmi"
+							inputType="expression" style="height:40px;" width="92">
+						</w2:column>
+						<w2:column expression="scwin.fn_expBar(display('height'), display('weight'))" id="bar" inputType="expression"
+							style="height:40px;" textAlign="center" width="352">
+						</w2:column>
+						<w2:column dataType="" displayFormat="" displayType="" id="bm" imageClickFunction="scwin.fn_calculateBM"
+							imageHeight="16" imageSrc="/ws5/img/calculator.png" imageWidth="16" inputType="textImage" readOnly="true" style="height:40px;"
+							viewType="icon" width="108">
+						</w2:column>
+					</w2:row>
+				</w2:gBody>
+			</w2:gridView>
+		</xf:group>
+	</body>
+</html>

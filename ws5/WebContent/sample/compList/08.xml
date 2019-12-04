@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="Websquare Chart">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            <w2:dataList id="chartData2" baseNode="list" style="" repeatNode="data" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="Month" name="Month" dataType="text"></w2:column>
+						<w2:column id="Year1" name="Year1" dataType="text"></w2:column>
+						<w2:column id="Year2" name="Year2" dataType="text"></w2:column>
+						<w2:column id="Year3" name="Year3" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data xmlns="" use="true">
+						<w2:row>
+							<Month><![CDATA[January]]></Month>
+							<Year1><![CDATA[27400]]></Year1>
+							<Year2><![CDATA[10000]]></Year2>
+							<Year3><![CDATA[10000]]></Year3>
+						</w2:row>
+						<w2:row>
+							<Month><![CDATA[February]]></Month>
+							<Year1><![CDATA[11500]]></Year1>
+							<Year2><![CDATA[28110]]></Year2>
+							<Year3><![CDATA[23990]]></Year3>
+						</w2:row>
+						<w2:row>
+							<Month><![CDATA[March]]></Month>
+							<Year1><![CDATA[12500]]></Year1>
+							<Year2><![CDATA[29800]]></Year2>
+							<Year3><![CDATA[32700]]></Year3>
+						</w2:row>
+						<w2:row>
+							<Month><![CDATA[April]]></Month>
+							<Year1><![CDATA[27400]]></Year1>
+							<Year2><![CDATA[10000]]></Year2>
+							<Year3><![CDATA[29000]]></Year3>
+						</w2:row>
+						<w2:row>
+							<Month><![CDATA[May]]></Month>
+							<Year1><![CDATA[1500]]></Year1>
+							<Year2><![CDATA[10000]]></Year2>
+							<Year3><![CDATA[10000]]></Year3>
+						</w2:row>
+						<w2:row>
+							<Month><![CDATA[June]]></Month>
+							<Year1><![CDATA[19700]]></Year1>
+							<Year2><![CDATA[32600]]></Year2>
+							<Year3><![CDATA[32600]]></Year3>
+						</w2:row>
+						<w2:row>
+							<Month><![CDATA[July]]></Month>
+							<Year1><![CDATA[27400]]></Year1>
+							<Year2><![CDATA[29700]]></Year2>
+							<Year3><![CDATA[31900]]></Year3>
+						</w2:row>
+						<w2:row>
+							<Month><![CDATA[August]]></Month>
+							<Year1><![CDATA[27400]]></Year1>
+							<Year2><![CDATA[10000]]></Year2>
+							<Year3><![CDATA[21800]]></Year3>
+						</w2:row>
+						<w2:row>
+							<Month><![CDATA[September]]></Month>
+							<Year1><![CDATA[27400]]></Year1>
+							<Year2><![CDATA[31800]]></Year2>
+							<Year3><![CDATA[42800]]></Year3>
+						</w2:row>
+						<w2:row>
+							<Month><![CDATA[October]]></Month>
+							<Year1><![CDATA[27400]]></Year1>
+							<Year2><![CDATA[15000]]></Year2>
+							<Year3><![CDATA[11000]]></Year3>
+						</w2:row>
+						<w2:row>
+							<Month><![CDATA[November]]></Month>
+							<Year1><![CDATA[27400]]></Year1>
+							<Year2><![CDATA[9800]]></Year2>
+							<Year3><![CDATA[11800]]></Year3>
+						</w2:row>
+						<w2:row>
+							<Month><![CDATA[December]]></Month>
+							<Year1><![CDATA[27400]]></Year1>
+							<Year2><![CDATA[22900]]></Year2>
+							<Year3><![CDATA[20800]]></Year3>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group class="wrapper" id="">
+    		<xf:group class="section_desc" id="" style="padding: 10px;">
+    			<w2:textbox id=""
+    				label="WebSquare의 차트는 기본 타입의 가로, 세로 막대에서부터 3차원, 백분율 등의 확장 타입까지 지원하는 초기 차트 모델로서&lt;br/&gt;현재는 사용하지 않고, fusionChart를 사용하는 것을 권장한다.&lt;br/&gt;( source : 08.xml )" style="">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group id="" style="overflow:hidden;">
+    			<xf:group class="section03 dmb" id="" style="">
+    				<w2:textbox class="contTitle02" id="" label="Chart" style=""></w2:textbox>
+    			<xf:group id="" style="overflow: hidden;"><w2:chart seriesShow="" labelData="" animation="true" tableShow="true" titlePosition="top" seriesColor="orange #10c8cd #96d503" labelNode="Month" seriesPosition="" verticalAxisShow="" type="COLUMN" mainGrid="" labelPerValue="" labelValue="" id="chart1" labelSeries="" ref="data:chartData2" title="단일 차트" style="float:left;width:500px;height:400px;margin:10px;position: relative;" horizontalAxisShow="" labelSeparator="" titleShow="true">
+    				</w2:chart><w2:chart seriesShow="true" labelData="" animation="true" tableShow="" seriesAxisChk="Y Y Y1" useDoubleChart="true" titlePosition="top" seriesColor="orange #10c8cd #96d503" labelNode="Month" seriesPosition="bottom" verticalAxisShow="" type="COLUMN" mainGrid="" labelPerValue="" labelValue="" id="chart2" labelSeries="" ref="data:chartData2" title="이중 차트" style="float:left;width:500px;height:400px;margin:10px;position: relative;" type2="POINT_LINE" titleShow="true">
+    				</w2:chart></xf:group></xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

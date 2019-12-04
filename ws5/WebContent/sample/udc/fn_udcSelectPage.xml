@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="list" repeatNode="map" id="dc_reqCode" saveRemovedData="true">
+    				<w2:keyInfo>
+    					<w2:key id="GRP_CD" name="그룹 코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="map" id="dc_code101">
+    				<w2:columnInfo>
+    					<w2:column id="GRP_CD" name="그룹 코드" dataType="text"></w2:column>
+    					<w2:column id="CODE_CD" name="코드" dataType="text"></w2:column>
+    					<w2:column id="CODE_NM" name="코드명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dc_code01" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="GRP_CD" name="그룹 코드" dataType="text"></w2:column>
+    					<w2:column id="CODE_CD" name="코드" dataType="text"></w2:column>
+    					<w2:column id="CODE_NM" name="코드명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dc_code02" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="GRP_CD" name="그룹 코드" dataType="text"></w2:column>
+    					<w2:column id="CODE_CD" name="코드" dataType="text"></w2:column>
+    					<w2:column id="CODE_NM" name="코드명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dc_code19" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="GRP_CD" name="그룹 코드" dataType="text"></w2:column>
+    					<w2:column id="CODE_CD" name="코드" dataType="text"></w2:column>
+    					<w2:column id="CODE_NM" name="코드명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" ev:ondataload="scwin.dlt_Member_ondataload" ev:oninsertrow="scwin.dlt_Member_oninsertrow"
+    				ev:onremoverow="scwin.dlt_Member_onremoverow" id="dlt_Member" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="EMP_CD" name="코드"></w2:column>
+    					<w2:column dataType="text" id="EMP_NM" name="성명"></w2:column>
+    					<w2:column dataType="text" defaultValue="" id="GENDER_CD" name="성별"></w2:column>
+    					<w2:column dataType="text" id="JOIN_DATE" name="입사일"></w2:column>
+    					<w2:column dataType="text" id="POSITION_CD" name="직위"></w2:column>
+    					<w2:column dataType="text" id="DUTY_CD" name="직책"></w2:column>
+    					<w2:column dataType="text" id="ROLE_CD" name="역할"></w2:column>
+    					<w2:column dataType="text" id="ASSIGNED_TASK" name="담당업무"></w2:column>
+    					<w2:column dataType="text" id="EMAIL" name="이메일"></w2:column>
+    					<w2:column dataType="text" id="ZIP_CD" name="우편번호"></w2:column>
+    					<w2:column dataType="text" id="ADDRESS1" name="주소1"></w2:column>
+    					<w2:column dataType="text" id="ADDRESS2" name="주소2"></w2:column>
+    					<w2:column dataType="text" defaultValue="/ws5/img/blank.png" id="IMAGE_PATH" name="이미지경로"></w2:column>
+    					<w2:column dataType="text" id="CREATED_DATE" name="생성일자"></w2:column>
+    					<w2:column dataType="text" id="UPDATED_DATE" name="수정일자"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_SearchParam" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="count" name="화면 행수"></w2:key>
+    					<w2:key dataType="text" id="page" name="페이지 값"></w2:key>
+    					<w2:key dataType="text" id="prePage" name="이전 페이지 값"></w2:key>
+    					<w2:key dataType="text" id="searchType" name="검색 타입"></w2:key>
+    					<w2:key dataType="text" id="searchParam" name="검색 파라메터"></w2:key>
+    				</w2:keyInfo>
+    				<w2:data use="true">
+    					<page><![CDATA[1]]></page>
+    				</w2:data>
+    			</w2:dataMap>
+    			<w2:dataMap id="dma_SearchResult" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" defaultValue="1" id="count" name="count"></w2:key>
+    					<w2:key dataType="text" defaultValue="1" id="page" name="page"></w2:key>
+    					<w2:key dataType="text" id="startNum" name="startNum"></w2:key>
+    					<w2:key dataType="text" id="endNum" name="endNum"></w2:key>
+    					<w2:key dataType="text" defaultValue="0" id="totalCount" name="totalCount"></w2:key>
+    				</w2:keyInfo>
+    				<w2:data xmlns=""></w2:data>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    		<xf:submission id="sbm_code" ref="data:json,dc_reqCode" target='data:json,["dc_code101","dc_code01","dc_code02","dc_code19"]'
+    			action="/ws5/training/getCodeList.do" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="scwin.sub_code_submit" ev:submitdone="scwin.sub_code_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_select" ref='data:json,[{"id":"dma_SearchParam"}]' target='data:json,["dlt_Member","dma_SearchResult"]'
+    			action="/edu/selectMemberList.do" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="조회중입니다." ev:submit="scwin.sbm_select_submit"
+    			ev:submitdone="scwin.sbm_select_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_total" ref="data:json,dma_SearchParam" target="" action="/ws5/edu/selectSpMemberTotal.do" method="post"
+    			mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+    			processMsg="" ev:submit="" ev:submitdone="scwin.sbm_total_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		$p.executeSubmission("sbm_code");
+		
+		scwin.count = 10;
+		dma_SearchParam.set( "count" , scwin.count );
+		
+		$p.executeSubmission("sbm_total");
+	};
+	
+	
+	scwin.sbm_total_submitdone = function(e) {
+		if(e.responseJSON.msgCode == "S"){
+			scwin.totalCnt = parseInt(e.responseJSON.TOTAL_CNT);
+			
+			var _val = Math.ceil(scwin.totalCnt/scwin.count);
+			
+			// udc page total setting 
+			udc_selPage.setTotalValue(_val);
+			
+			// udc selectbox setting 
+			udc_selPage.setSelectPage(_val);
+		}
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+		
+	scwin.btnSearch_onclick = function(e) {
+		scwin.search(true);
+	};
+	
+	scwin.search = function(isFirst){
+		//첫 페이지로 셋팅.
+		if(isFirst === true){
+			dma_SearchParam.set( "page" , 1 );
+			// udc selectbox 를 1 로 셋팅
+			udc_selPage.setSelectVal(1);
+		}
+		
+		$p.executeSubmission("sbm_select");
+	};
+	
+	scwin.udc_selPage_onSelChange = function(arg) {
+		dma_SearchParam.set( "page" , arg );
+		scwin.search();
+	};
+	
+	scwin.sub_code_submitdone = function(e) {
+		
+	};
+	
+	scwin.sub_code_submit = function(e) {
+		dc_reqCode.set("GRP_CD", "101,01,02,19");
+	};
+	]]></script>
+    	<w2:require src="/ws5/selectPage_udc.xml"></w2:require>
+    	<w2:require src="/ws5/sample/udc/selectPage_udc.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group id="" style="padding: 10px;">
+    		<xf:group style="padding: 10px;margin-bottom: 10px;" id="">
+    			<w2:textbox tagname="h2" style="margin-bottom: 10px;" label="* 페이지 리스트 샘플" id=""></w2:textbox>
+    		</xf:group>
+    		<xf:group id="" style="padding: 10px;overflow: hidden;border: 1px solid gray;margin-bottom: 10px;">
+    			<xf:trigger style="width: 80px;height: 23px;float:right;clear:none;" id="btnSearch" type="button"
+    				ev:onclick="scwin.btnSearch_onclick">
+    				<xf:label><![CDATA[조회]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    		<w2:gridView id="" style="height: 200px;margin-bottom: 10px;" scrollByColumn="false" defaultCellHeight="20"
+    			scrollByColumnAdaptive="false" dataList="data:dlt_Member" readOnly="true" rowNumHeaderValue="No" rowNumVisible="true"
+    			autoFit="allColumn" autoFitMinWidth="800" visibleRowNum="10">
+    			<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    			<w2:header style="" id="header2">
+    				<w2:row style="" id="row3">
+    					<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="column29" value="성명"
+    						blockSelect="false" displayMode="label">
+    					</w2:column>
+    					<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="column27" value="성별"
+    						blockSelect="false" displayMode="label">
+    					</w2:column>
+    					<w2:column removeBorderStyle="false" width="100" inputType="text" style="" id="column25" value="입사일"
+    						blockSelect="false" displayMode="label">
+    					</w2:column>
+    					<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="column23" value="직위"
+    						blockSelect="false" displayMode="label">
+    					</w2:column>
+    					<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="column21" value="직책"
+    						blockSelect="false" displayMode="label">
+    					</w2:column>
+    					<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="column19" value="역할"
+    						blockSelect="false" displayMode="label">
+    					</w2:column>
+    					<w2:column removeBorderStyle="false" width="150" inputType="text" style="" id="column15" value="이메일"
+    						blockSelect="false" displayMode="label">
+    					</w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody style="" id="gBody2">
+    				<w2:row style="" id="row4">
+    					<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="EMP_NM" value="" blockSelect="false"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column removeBorderStyle="false" width="70" inputType="select" style="" id="GENDER_CD" value=""
+    						blockSelect="false" displayMode="label" allOption="" chooseOption="true" chooseOptionLabel="" ref="">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dc_code101">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column removeBorderStyle="false" width="100" inputType="calendar" style="" id="JOIN_DATE" value=""
+    						blockSelect="false" displayMode="label">
+    					</w2:column>
+    					<w2:column removeBorderStyle="false" width="70" inputType="select" style="" id="POSITION_CD" value=""
+    						blockSelect="false" displayMode="label" allOption="" chooseOption="true" chooseOptionLabel="" ref="">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dc_code02">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column removeBorderStyle="false" width="70" inputType="select" style="" id="DUTY_CD" value=""
+    						blockSelect="false" displayMode="label" allOption="" chooseOption="true" chooseOptionLabel="" ref="">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dc_code01">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column removeBorderStyle="false" width="70" inputType="select" style="" id="ROLE_CD" value=""
+    						blockSelect="false" displayMode="label" allOption="" chooseOption="true" chooseOptionLabel="" ref="">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dc_code19">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column removeBorderStyle="false" width="150" inputType="text" style="" id="EMAIL" value="" blockSelect="false"
+    						displayMode="label">
+    					</w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<w2:udc_selectPage style="text-align: center;" id="udc_selPage" ev:onSelChange="scwin.udc_selPage_onSelChange"></w2:udc_selectPage>
+    	</xf:group>
+    </body>
+</html>

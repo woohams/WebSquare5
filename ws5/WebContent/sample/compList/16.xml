@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="메인 Layout">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns=""></data>
+			</xf:instance>
+			<w2:dataCollection>
+			</w2:dataCollection>
+		</xf:model>
+		<script type="javascript" lazy="false"><![CDATA[
+			
+	]]></script>
+	</head>
+	<body>
+		<xf:group class="wrapper" id="">
+			<xf:group id="" style="padding: 10px;"
+				class="section_desc ">
+				<w2:textbox id="section" style=""
+					label="메인 레이아웃 예시로 Top,Left,Bottom이 구성되어있고 컨텐츠 영역을 각각 IFrame, TabControl, WindowContainer로 구성한 예시이다.&lt;br/&gt;( source : 16.xml )">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" style="">
+				<w2:anchor outerDiv="false" style="" id="" href="/ws5/#w2xPath=/ws5/sample/compList/main_iframe.xml" target="_blank"
+					class="link01 dmb">
+					<xf:label><![CDATA[IFrame으로 구성된 화면 열기]]></xf:label>
+				</w2:anchor>
+				<w2:anchor class="link01 dmb" href="/ws5/#w2xPath=/ws5/sample/compList/main_tabControl_wframe.xml" id="" outerDiv="false"
+					style="" target="_blank">
+					<xf:label><![CDATA[TabControl로 구성된 화면 열기]]></xf:label>
+				</w2:anchor>
+				<w2:anchor class="link01 dmb" href="/ws5/#w2xPath=/ws5/sample/compList/main_windowContainer_wframe.xml" id=""
+					outerDiv="false" style="" target="_blank">
+					<xf:label><![CDATA[WindowContainer로 구성된 화면 열기]]></xf:label>
+				</w2:anchor>
+				<w2:anchor class="link01 dmb" href="/ws5/#w2xPath=/ws5/sample/compList/main_wframe.xml" id="" outerDiv="false"
+					style="" target="_blank">
+					<xf:label><![CDATA[WFrame으로 구성된 화면 열기]]></xf:label>
+				</w2:anchor>
+			</xf:group>
+
+		</xf:group>
+	</body>
+</html>

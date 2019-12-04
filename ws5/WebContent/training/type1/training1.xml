@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="1일차 화면그리기용 빈파일">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+
+	scwin.onpageload = function() {
+		alert("안녕하세요");
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="padding: 10px;border: 1px solid black;" id="">
+    		<w2:textbox label="컴포넌트데이터 셋팅하기" style="font-style: : bold;margin-bottom: 10px;border: 1px solid black;" id="" tagname="h2"></w2:textbox>
+    		<xf:group style="border: 1px solid black;padding: 10px;margin-bottom: 10px;overflow: hidden;" id="">
+    			<xf:trigger type="button" style="width: 80px;height: 23px;float: right;" id="">
+    				<xf:label><![CDATA[select]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    		<xf:group tagname="table" style="width:100%;" id="" class="w2tb">
+    			<w2:attributes>
+    				<w2:summary></w2:summary>
+    			</w2:attributes>
+    			<xf:group tagname="caption"></xf:group>
+    			<xf:group tagname="colgroup">
+    				<xf:group tagname="col" style="width:10.00%;"></xf:group>
+    				<xf:group tagname="col" style="width:25.00%"></xf:group>
+    				<xf:group tagname="col" style="width:10.00%;"></xf:group>
+    				<xf:group tagname="col" style="width:25.00%"></xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">이름<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:input adjustMaxLength="false" id="" style="width: 144px;height: 21px;"></xf:input>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">직책<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:select1 id="" chooseOption="false" style="width: 148px;height: 21px;" submenuSize="auto" allOption="false"
+    						disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled">
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">가입일<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<w2:inputCalendar footerDiv="false" id="" style="width: 150px;height: 23px;" renderDiv="true"
+    						focusOnDateSelect="false" calendarValueType="yearMonthDate" rightAlign="false" renderType="component">
+    					</w2:inputCalendar>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">성별<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:select1 id="" selectedIndex="-1" appearance="full" style="width: 150px;height: 21px;"></xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" style="" class="w2tb_th">이메일<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:input adjustMaxLength="false" id="" style="width: 100%;"></xf:input>
+    				</xf:group>
+    				<xf:group tagname="th" style="" class="w2tb_th">역할<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group tagname="td" style="" class="w2tb_td">
+    					<xf:select selectedindex="-1" id="" appearance="full" style="width: 148px;height: 21px;"></xf:select>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

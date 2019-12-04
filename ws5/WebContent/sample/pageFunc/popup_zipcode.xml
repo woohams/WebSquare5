@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="우편번호 팝업">
+		<title>우편번호 검색</title>
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap id="dma_Return" baseNode="list" saveRemovedData="true" repeatNode="map" ev:ondataload="scwin.dlt_Member_ondataload">
+					<w2:keyInfo>
+						<w2:key id="ZIP_CD" name="우편번호" dataType="text"></w2:key>
+						<w2:key id="ADDRESS1" name="주소1" dataType="text"></w2:key>
+						<w2:key id="ADDRESS2" name="주소2" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList id="dlt_ZipCd" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="ZIP_CD" name="name1" dataType="text"></w2:column>
+						<w2:column id="ZIP_NM" name="name2" dataType="text"></w2:column>
+						<w2:column id="BUILDING" name="name3" dataType="text"></w2:column>
+						<w2:column id="FROM_NO" name="name4" dataType="text"></w2:column>
+						<w2:column id="DISP" name="name5" dataType="text" importFormatter="scwin.dlt_ZipCd_Disp_ImportFormat"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_SearchParam">
+					<w2:keyInfo>
+						<w2:key id="town" name="name1" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+			<xf:submission id="sbm_SelectZipCd" ref="data:json,dma_SearchParam" target="data:json,dlt_ZipCd" action="/edu/searchZipcode.do"
+				method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="조회중입니다." ev:submit="scwin.sbm_SelectZipCd_submit" ev:submitdone="" ev:submiterror="">
+			</xf:submission>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+	
+	scwin.dlt_ZipCd_Disp_ImportFormat = function(rowObj, rowIdx){
+		var rs, tmpVal;
+		rs = "(" + rowObj.ZIP_CD + ") " + rowObj.ZIP_NM;
+		
+		tmpVal = rowObj.BUILDING;
+		if(tmpVal){
+			rs += " ";
+			rs += tmpVal;
+		}
+		
+		tmpVal = rowObj.FROM_NO;
+		if(tmpVal){
+			rs += " ";
+			rs += tmpVal;
+		}
+		
+		return rs;
+	};
+	
+	scwin.spn_ZIPCD_DispFormatter = function(curVal){
+		return "("+curVal+")";
+	};
+	
+	scwin.grd_ZipCd_onrowindexchange = function(row,oldRow) {
+		var curObj = dlt_ZipCd.getRowJSON( row );
+		dma_Return.set("ZIP_CD", curObj.ZIP_CD);
+		dma_Return.set("ADDRESS1", curObj.ZIP_NM);
+	};
+	
+	scwin.btn_SearchZipcd_onclick = function() {
+		$p.executeSubmission( "sbm_SelectZipCd" );
+	};
+	
+	
+	scwin.btn_Save_onclick = function() {
+		var paramObj = $w.getParameter("param");
+		var parent = parent || opener, fnStr;
+		try{
+			fnStr = "closeCallback_"+paramObj.popId;
+			parent.mf_scwin[fnStr](JSON.stringify(dma_Return.getJSON())); 
+		}catch(ex){
+			parent.$p.log(ex);
+		}
+		$p.closePopup( );
+	};
+	
+	scwin.btn_ClosePopup_onclick = function() {
+		$p.closePopup( );
+	};
+	
+	scwin.sbm_SelectZipCd_submit = function(e) {
+		var param = dma_SearchParam.get("town");
+		param = param.trim();
+		dma_SearchParam.set("town",param);
+		if(!param){
+			alert("찾으시려는 동(읍/면/리)을 입력해 주세요.");
+			ibx_SearchTown.focus();
+			return false;
+		}
+	};
+	
+	//page onload event
+	scwin.onpageload = function() {
+		ibx_SearchTown.focus();
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group class="popWrapper" id="" style="">
+			<xf:group class="" id="" style="">
+				<xf:group class="titlebox" id="" style="">
+					<w2:textbox class="df_tt" id="" label="지번 주소 검색" style="" tagname="h2"></w2:textbox>
+				</xf:group>
+				<xf:group class="borderbox mb5" id="" style="">
+					<w2:textbox label="찾으시려는 동(읍/면/리)을 입력해 주세요." id="" style="" class="mb5"></w2:textbox>
+					<xf:input id="ibx_SearchTown" style="width:80%;" placeholder="예) 정자동" class="mr5" ref="data:dma_SearchParam.town">
+					</xf:input>
+					<xf:trigger class="btnDarkGray dmr" ev:onclick="scwin.btn_SearchZipcd_onclick" id="btn_SearchZipcd" style="" type="button">
+						<xf:label><![CDATA[검색]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+				<w2:gridView autoFit="lastColumn" autoFitMinWidth="" class="dmb" dataList="dlt_ZipCd" ev:onrowindexchange="scwin.grd_ZipCd_onrowindexchange"
+					fixedColumnWithHidden="true" hideHeader="true" id="grd_ZipCd" ignoreCellClick="false" ignoreToggleOnDisabled="false" readOnly="true"
+					rowNumHeaderValue="" rowNumVisible="" rowNumWidth="" scrollByColumn="false" scrollByColumnAdaptive="false" style="height: 120px;"
+					summaryAuto="false" useShiftKey="true" visibleRowNum="5" tooltipDisplay="true" tooltipShowAlways="">
+					<w2:header id="header1" style="">
+						<w2:row id="row1" style="">
+							<w2:column blockSelect="false" displayMode="label" id="column7" inputType="text" style="height:30px;" value="주소" width="265"></w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody id="gBody1" style="">
+						<w2:row id="row2" style="">
+							<w2:column blockSelect="false" displayMode="label" id="DISP" inputType="text" style="height:24px;" textAlign="left" width="265"></w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+				<xf:group class="titlebox" id="" style="">
+					<w2:textbox class="df_tt" id="" label="주소 입력" style="" tagname="h2"></w2:textbox>
+				</xf:group>
+				<xf:group class="w2tb tb" id="" style="width:100%;" tagname="table">
+					<w2:attributes>
+						<w2:summary></w2:summary>
+					</w2:attributes>
+					<xf:group tagname="colgroup">
+						<xf:group style="width:60px;" tagname="col"></xf:group>
+						<xf:group style="" tagname="col"></xf:group>
+					</xf:group>
+					<xf:group style="" tagname="tr">
+						<xf:group class="w2tb_th" tagname="th">주소</xf:group>
+						<xf:group class="w2tb_td" tagname="td">
+							<xf:group id="" style="min-height: 1em;" class="mb5">
+								<w2:span id="" ref="data:dma_Return.ZIP_CD" style="" class="mr5" label="" displayFormatter="scwin.spn_ZIPCD_DispFormatter"></w2:span>
+								<w2:span id="" ref="data:dma_Return.ADDRESS1" style="" class="" label=""></w2:span>
+							</xf:group>
+							<xf:input class="" id="" readOnly="" ref="data:dma_Return.ADDRESS2" style="width: 100%;"></xf:input>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="btn_fix" id="" style="">
+				<xf:group class="tac" id="" style="">
+					<xf:trigger class="btnRed dmr" ev:onclick="scwin.btn_Save_onclick" id="btn_Save" style="" type="button">
+						<xf:label><![CDATA[적용]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btnDarkGray dmr" ev:onclick="scwin.btn_ClosePopup_onclick" id="btn_ClosePopup" style="" type="button">
+						<xf:label><![CDATA[취소]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

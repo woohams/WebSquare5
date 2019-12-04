@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="그룹 탭 컨트롤">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns=""></data>
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataList id="dc_listData" baseNode="list" style="" repeatNode="map" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="label" name="label" dataType="text"></w2:column>
+						<w2:column id="value" name="value" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data xmlns="" use="true">
+						<w2:row>
+							<label><![CDATA[자녀1]]></label>
+							<value><![CDATA[꽃돌]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[자녀2]]></label>
+							<value><![CDATA[꽃님]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[자녀3]]></label>
+							<value><![CDATA[꽃분]]></value>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[자녀4]]></label>
+							<value><![CDATA[꽃빈]]></value>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+		</xf:model>
+		<style type="text/css"><![CDATA[
+			.w2tabcontrol_container{height:200px;}
+		]]></style>
+		<script type="javascript" lazy="false"><![CDATA[
+	scwin._var = {
+		"genRow" : 1
+	};
+	scwin.fn_addForm = function() {
+		var tmpLength = ui_generator.getLength();
+
+		ui_generator.insertChild();
+
+		var tmpObj = ui_generator.getChild(tmpLength, "gen_textbox2");
+		tmpObj.setValue("추가" + scwin._var.genRow);
+
+		tmpObj = ui_generator.getChild(tmpLength, "gen_input1");
+		tmpObj.focus();
+		
+		scwin._var.genRow ++;
+	};
+
+	scwin.trigger4_onclick = function(e) {
+		var tmpIdx = this.getUserData("eduIdx") || 0;
+		var tabId = "addTab" + tmpIdx;
+		var tabOptions = {};
+		tabOptions.label = "AddTab" + tmpIdx;
+		tabOptions.openAction = "new";
+		tabOptions.closable = "true";
+
+		var contentOptions = {};
+		contentOptions.wframe = true;
+		contentOptions.scope = true;
+		
+		if(tmpIdx%2 === 0){
+			contentOptions.src = "/ws5/sample/compList/02.xml";
+		}else{
+			contentOptions.src = "/ws5/sample/compList/15.xml";
+		}
+	
+		ui_tabControl.addTab(tabId, tabOptions, contentOptions);
+		ui_tabControl.setSelectedTabIndex(ui_tabControl.getTabIndex(tabId));
+		this.setUserData("eduIdx", tmpIdx + 1);
+	
+	};
+
+	scwin.trigger6_onclick = function(e) {
+		var tmpCurIdx = this.getGeneratedIndex();
+		ui_generator.removeChild(tmpCurIdx);
+	};
+
+	scwin.trigger5_onclick = function(e) {
+		scwin.fn_addForm();
+	};
+
+	scwin.fn_switchMoveToRight = function(e) {
+		switch2.moveToRight();
+	};
+
+	scwin.fn_switchMoveToLeft = function(e) {
+		switch2.moveToLeft();
+	};
+
+	scwin.ui_btn_groupInit_onclick = function(e) {
+		ui_group.init();
+	};
+
+	scwin.ui_btn_tableInit_onclick = function(e) {
+		ui_table.init();
+	};
+
+	scwin.ui_btn_slideHide_onclick = function(e) {
+		var compStatus = ui_slideHide.getUserData("_compStatus");
+		if (compStatus === "H") {
+			ui_slideHide.startSlide();
+			ui_slideHide.setUserData("_compStatus", "S");
+		} else {
+			ui_slideHide.startHide();
+			ui_slideHide.setUserData("_compStatus", "H");
+		}
+
+	};
+
+	scwin.onpageload = function() {
+		var tmpDataArr = dc_listData.getAllJSON();
+		var tmpDataObj, tmpObj;
+
+		ui_group_input.setValue("WebSquare");
+		ui_group_select.setValue("Y");
+		ui_table_input.setValue("WebSquare");
+		ui_table_select.setValue("N");
+		ui_table_textarea.setValue("안녕하세요.\n반갑습니다.");
+
+		for (var i = 0; i < tmpDataArr.length; i++) {
+			ui_generator.insert();
+			tmpDataObj = tmpDataArr[i];
+			tmpObj = ui_generator.getChild(i, "gen_textbox2");
+			tmpObj.setValue(tmpDataObj.label);
+
+			tmpObj = ui_generator.getChild(i, "gen_input1");
+			tmpObj.setValue(tmpDataObj.value);
+		}
+	};
+
+	scwin.onpageunload = function() {
+		
+	};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group class="wrapper" id="">
+			<xf:group id="" style="padding: 10px;"
+				class="section_desc ">
+				<w2:textbox id="section" style=""
+					label="컨테이너 컴포넌트는 하위 컴포넌트를 가질 수 있고 레이아웃을 구성하는데 주로 사용된다. &lt;br/&gt;이 컴포넌트를 적절히 이용하여 하위 컴포넌트의 위치나 사이즈를 조절 할 수 있다.&lt;br/&gt;레이아웃 구성의 대부분이 Style Class에 관련된 부분이므로 디자인 가이드를 참고하자.&lt;br/&gt;Group, TableLayout, Repeat, Generator, Switch, Accordion, IFrame, WFrame, TabControl, WindowContainer&lt;br/&gt;( source : 05.xml )">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" style="" class="ofh">
+				<xf:group id="" style="min-height: 240px;" class="section02 dmb">
+					<w2:textbox id="" style="" class="contTitle02" label="Group"></w2:textbox>
+					<xf:group id="" style="padding" class="dp">
+						<xf:group id="" style="" class="tar dmb">
+							<xf:trigger id="ui_btn_groupInit" style="width: 100px;height: 23px;" ev:onclick="scwin.ui_btn_groupInit_onclick"
+								type="button">
+								<xf:label><![CDATA[입력 초기화]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+						<xf:group id="ui_group" style="margin:0px auto;border:2px solid orange;padding: 0px 10px;" class="ofh">
+							<w2:textbox id="" style="width:100px;" label="InputBox" class="defCompLbl"></w2:textbox>
+							<xf:input id="ui_group_input" style="" initValue="" class="defComp"></xf:input>
+							<w2:textbox class="defCompLbl clleft" id="" label="InputCalendar" style="width:100px;"></w2:textbox>
+							<w2:inputCalendar renderType="component" id="" setCurrentDate="true" renderDiv="true" footerDiv="false"
+								calendarValueType="yearMonthDate" style="" rightAlign="false" weekStartsOn="0" focusOnDateSelect="false" class="defComp">
+							</w2:inputCalendar>
+							<w2:textbox class="defCompLbl clleft" id="" label="Radio" style="width:100px;"></w2:textbox>
+							<xf:select1 id="" selectedIndex="1" cols="2" appearance="full" style="width:auto;" class="defComp" rows="">
+								<xf:choices>
+									<xf:item>
+										<xf:label><![CDATA[남]]></xf:label>
+										<xf:value><![CDATA[M]]></xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label><![CDATA[여]]></xf:label>
+										<xf:value><![CDATA[F]]></xf:value>
+									</xf:item>
+								</xf:choices>
+							</xf:select1>
+							<w2:textbox class="defCompLbl clleft" id="" label="Checkbox" style="width:100px;"></w2:textbox>
+							<xf:select id="" cols="3" appearance="full" style="width:auto;" class="defComp" selectedindex="1" rows="">
+								<xf:choices>
+									<xf:item>
+										<xf:label><![CDATA[여행]]></xf:label>
+										<xf:value><![CDATA[1]]></xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label><![CDATA[사진촬영]]></xf:label>
+										<xf:value><![CDATA[2]]></xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label><![CDATA[게임]]></xf:label>
+										<xf:value><![CDATA[3]]></xf:value>
+									</xf:item>
+								</xf:choices>
+							</xf:select>
+							<w2:textbox class="defCompLbl clleft" id="" label="SelectBox" style="width:100px;"></w2:textbox>
+							<xf:select1 id="ui_group_select" disabledClass="w2selectbox_disabled" appearance="minimal" chooseOptionLabel=""
+								style="" direction="auto" chooseOption="true" class="defComp" displayMode="label" allOption="" submenuSize="auto"
+								disabled="false">
+								<xf:choices>
+									<xf:item>
+										<xf:label><![CDATA[수신]]></xf:label>
+										<xf:value><![CDATA[Y]]></xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label><![CDATA[비수신]]></xf:label>
+										<xf:value><![CDATA[N]]></xf:value>
+									</xf:item>
+								</xf:choices>
+							</xf:select1>
+							<w2:textbox class="defCompLbl clleft" id="" label="Trigger" style="width:100px;"></w2:textbox>
+
+							<xf:trigger id="" style="" class="defComp" type="button">
+								<xf:label><![CDATA[Trigger]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group id="" style="min-height: 240px;" class="section02 dmb">
+					<w2:textbox id="" style="" class="contTitle02" label="TableLayout"></w2:textbox>
+					<xf:group id="" style="" class="dp">
+						<xf:group id="" style="" class="tar dmb">
+							<xf:trigger id="ui_btn_tableInit" style="width: 100px;height: 23px;" ev:onclick="scwin.ui_btn_tableInit_onclick"
+								type="button">
+								<xf:label><![CDATA[입력 초기화]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+						<xf:group id="" style="" class="">
+							<xf:group id="ui_table" style="width:100%;height: 0;" class="w2tb" tagname="table">
+								<w2:attributes>
+									<w2:summary></w2:summary>
+								</w2:attributes>
+								<xf:group tagname="colgroup">
+									<xf:group style="width:25%;" tagname="col"></xf:group>
+									<xf:group style="" tagname="col"></xf:group>
+								</xf:group>
+								<xf:group tagname="tr">
+									<xf:group style="" class="w2tb_th" tagname="th">이름</xf:group>
+									<xf:group style="" class="w2tb_td" tagname="td">
+										<xf:input id="ui_table_input" style="width: 144px;height: 21px;"></xf:input>
+									</xf:group>
+								</xf:group>
+								<xf:group tagname="tr">
+									<xf:group style="" class="w2tb_th" tagname="th">성별</xf:group>
+									<xf:group style="" class="w2tb_td" tagname="td">
+										<xf:select1 id="" selectedIndex="0" cols="2" appearance="full" style="width: 150px;height: 21px;"
+											rows="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[남]]></xf:label>
+													<xf:value><![CDATA[M]]></xf:value>
+												</xf:item>
+												<xf:item>
+													<xf:label><![CDATA[여]]></xf:label>
+													<xf:value><![CDATA[F]]></xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select1>
+									</xf:group>
+								</xf:group>
+								<xf:group tagname="tr">
+									<xf:group style="" class="w2tb_th" tagname="th">취미</xf:group>
+									<xf:group style="" class="w2tb_td" tagname="td">
+										<xf:select id="" cols="3" appearance="full" style="width:200px;height: 21px;" selectedindex="2"
+											rows="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[여행]]></xf:label>
+													<xf:value><![CDATA[1]]></xf:value>
+												</xf:item>
+												<xf:item>
+													<xf:label><![CDATA[사진촬영]]></xf:label>
+													<xf:value><![CDATA[2]]></xf:value>
+												</xf:item>
+												<xf:item>
+													<xf:label><![CDATA[게임]]></xf:label>
+													<xf:value><![CDATA[3]]></xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select>
+									</xf:group>
+								</xf:group>
+								<xf:group style="" tagname="tr">
+									<xf:group class="w2tb_th" tagname="th">SMS수신</xf:group>
+									<xf:group class="w2tb_td" tagname="td">
+										<xf:select1 id="ui_table_select" disabledClass="w2selectbox_disabled" appearance="minimal"
+											chooseOptionLabel="" style="width: 148px;height: 21px;" direction="auto" chooseOption="true" displayMode="label" allOption=""
+											disabled="false" submenuSize="auto">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[수신]]></xf:label>
+													<xf:value><![CDATA[Y]]></xf:value>
+												</xf:item>
+												<xf:item>
+													<xf:label><![CDATA[비수신]]></xf:label>
+													<xf:value><![CDATA[N]]></xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select1>
+									</xf:group>
+								</xf:group>
+								<xf:group style="height:30px;" tagname="tr">
+									<xf:group class="w2tb_th" tagname="th">비고</xf:group>
+									<xf:group class="w2tb_td" tagname="td">
+										<xf:textarea id="ui_table_textarea" style="width:96%;height: 38px;"></xf:textarea>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group id="" style="min-height: 245px;width: 250px;" class="section01 dmr dmb fl">
+					<w2:textbox id="" style="" class="contTitle02" label="Generator"></w2:textbox>
+					<xf:group id="" style="text-align:right;padding:6px;">
+						<xf:trigger id="trigger5" type="button" style="padding:4px;width:80px;" ev:onclick="scwin.trigger5_onclick">
+							<xf:label>자녀 추가</xf:label>
+						</xf:trigger>
+					</xf:group>
+					<w2:generator id="ui_generator" style="padding:6px;overflow-y: auto;max-height: 150px;">
+						<xf:group id="gen_group4" style="" class="ofh">
+							<w2:span label="" style="min-width: 50px;" id="gen_textbox2" class="dmr defCompLbl"></w2:span>
+							<xf:input id="gen_input1" ref="" style="width: 50px;" class="dmr defComp"></xf:input>
+							<xf:trigger id="trigger6" type="button" style="width:20px;min-width: 20px;" ev:onclick="scwin.trigger6_onclick"
+								class="defComp">
+								<xf:label>X</xf:label>
+							</xf:trigger>
+						</xf:group>
+					</w2:generator>
+				</xf:group>
+				<xf:group class="section01 dmb fl" id="" style="min-height: 245px;width: 245px;">
+					<w2:textbox class="contTitle02" id="" label="SlideHide" style=""></w2:textbox>
+					<xf:group class="dp" id="" style="">
+						<xf:group class="tar dmb" id="" style="">
+							<xf:trigger ev:onclick="scwin.ui_btn_slideHide_onclick" id="ui_btn_slideHide" style="width: 80px;height: 23px;"
+								type="button">
+								<xf:label><![CDATA[Show/Hide]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+						<w2:slideHide firstStatus="slide" hideEvent="" id="ui_slideHide" moveSize="" showSize="12" slideDirection="left"
+							slideEvent="" style="position:relative;height:160px;">
+							<xf:group class="" id=""
+								style="border: 1px solid orange;position: absolute;left:12px;top: 1px;right: 1px;bottom: 1px;">
+								<xf:group class="dp" id="" style="">
+									<xf:input id="" placeholder="검색어" style="height: 22px;width:100%;"></xf:input>
+								</xf:group>
+								<w2:textbox class="dp" id="" label="퀵 메뉴 구성"
+									style="color:#bbb;font-weight:bold;border-top:1px solid #ccc;border-bottom:4px double #ccc;">
+								</w2:textbox>
+							</xf:group>
+							<xf:group class="" ev:onclick="scwin.ui_btn_slideHide_onclick" id=""
+								style="position:absolute;top:1px;bottom: 0px;width: 12px;">
+								<xf:group id=""
+									style="height: 60px;background-color: orange;border-radius:5px 0px 0px 5px;;position: relative;" class="">
+								</xf:group>
+							</xf:group>
+						</w2:slideHide>
+					</xf:group>
+				</xf:group>
+				<xf:group class="section02 dmb clleft" id="" style="min-height: 245px;">
+					<w2:textbox class="contTitle02" id="" label="Switch" style=""></w2:textbox>
+					<xf:group class="dmb" id="" style="overflow:hidden;padding:6px;">
+						<xf:trigger ev:onclick="scwin.fn_switchMoveToLeft" id="ui_btn001" style="width: 40px;height: 23px;float:left;"
+							type="">
+							<xf:label><![CDATA[이전]]></xf:label>
+						</xf:trigger>
+						<xf:trigger ev:onclick="scwin.fn_switchMoveToRight" id="" style="width: 40px;height: 23px;float:right;" type="">
+							<xf:label><![CDATA[다음]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+					<xf:group id="" style="position:relative;padding: 0px 10px;">
+						<xf:switch id="switch2" caseClass="" style="position:relative;height:150px;" motionDisplay="true" rotation="true"
+							class="" slide="true" touchMove="true">
+							<xf:case id="case2" style="position:absolute;width:100%;height:100%;border:1px solid yellowgreen;"
+								class="boxSize">
+								<xf:group id="" style="" class="">
+									<w2:textbox id=""
+										style="text-align:center;background-color: yellowgreen;color: #fff;font-size: 14px;line-height: 3em;" label="화면1">
+									</w2:textbox>
+								</xf:group>
+							</xf:case>
+							<xf:case id="case3" style="position:absolute;width:100%;height:100%;border:1px solid steelblue;"
+								class="boxSize">
+								<xf:group id="" style="" class="">
+									<w2:textbox id=""
+										style="text-align:center;background-color: steelblue;color: #fff;font-size: 14px;line-height: 3em;" label="화면2">
+									</w2:textbox>
+								</xf:group>
+							</xf:case>
+							<xf:case id="case4" style="position:absolute;width:100%;height:100%;border:1px solid orange;" class="boxSize">
+								<xf:group id="" style="" class="">
+									<w2:textbox id=""
+										style="text-align:center;background-color: orange;color: #fff;font-size: 14px;line-height: 3em;" label="화면3">
+									</w2:textbox>
+								</xf:group>
+							</xf:case>
+						</xf:switch>
+						<xf:trigger class="btnToLeft" id="" style="position: absolute;left: 20px;top:35%;z-index: 1000;" type="button"
+							ev:onclick="scwin.fn_switchMoveToLeft">
+							<xf:label><![CDATA[]]></xf:label>
+						</xf:trigger>
+						<xf:trigger type="button" id="" style="position: absolute;right: 20px;top: 35%;z-index: 1000;" class="btnToRight"
+							ev:onclick="scwin.fn_switchMoveToRight">
+							<xf:label><![CDATA[]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+				<xf:group class="section02 dmb" id="" style="position: relative;min-height: 245px;">
+					<w2:textbox class="contTitle02" id="" label="Accordion" style=""></w2:textbox>
+					<w2:accordion class="ofh" collapseAll="" collapsible="true" id="" selectedPanel="panels1"
+						style="position: absolute;left:10px;right:10px;bottom:10px;top:40px;border-style: none;">
+						<w2:panels class="" id="panels1" style="">
+							<w2:panelTitle class="" id="panelTitle2" label="사용자 정보" style=""></w2:panelTitle>
+							<w2:panelContent class="" id="panelContent2" style="">
+								<xf:group class="" id="" style="padding: 10px;">
+									<xf:group class="w2tb" id="" style="width:100%;" tagname="table">
+										<w2:attributes>
+											<w2:summary></w2:summary>
+										</w2:attributes>
+										<xf:group tagname="caption"></xf:group>
+										<xf:group tagname="colgroup">
+											<xf:group style="width:100px;" tagname="col"></xf:group>
+											<xf:group style="" tagname="col"></xf:group>
+										</xf:group>
+										<xf:group style="" tagname="tr">
+											<xf:group class="w2tb_th" style="" tagname="th">
+												이름
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+											</xf:group>
+											<xf:group class="w2tb_td" style="" tagname="td">
+												<xf:input adjustMaxLength="false" id="" initValue="WebSquare"
+													style="width: 144px;height: 21px;">
+												</xf:input>
+											</xf:group>
+										</xf:group>
+										<xf:group style="" tagname="tr">
+											<xf:group class="w2tb_th" style="" tagname="th">
+												이메일
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+											</xf:group>
+											<xf:group class="w2tb_td" style="" tagname="td">edu@inswave.com</xf:group>
+										</xf:group>
+										<xf:group style="" tagname="tr">
+											<xf:group class="w2tb_th" tagname="th">
+												연락처
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+											</xf:group>
+											<xf:group class="w2tb_td" tagname="td">
+												02-2082-1439
+												<w2:attributes></w2:attributes>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</w2:panelContent>
+						</w2:panels>
+						<w2:panels class="" id="panels3" style="">
+							<w2:panelTitle class="" id="panelTitle3" label="계좌 정보" style=""></w2:panelTitle>
+							<w2:panelContent class="" id="panelContent3" style="">
+								<xf:group class="" id="" style="padding: 10px;">
+									<xf:group class="w2tb" id="" style="width:100%;" tagname="table">
+										<w2:attributes>
+											<w2:summary></w2:summary>
+										</w2:attributes>
+										<xf:group tagname="caption"></xf:group>
+										<xf:group tagname="colgroup">
+											<xf:group style="width:100px;" tagname="col"></xf:group>
+											<xf:group style="" tagname="col"></xf:group>
+										</xf:group>
+										<xf:group style="" tagname="tr">
+											<xf:group class="w2tb_th" style="" tagname="th">
+												은행명
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+											</xf:group>
+											<xf:group class="w2tb_td" style="" tagname="td">
+												<xf:input adjustMaxLength="false" id="" initValue="InswaveSystems"
+													style="width: 144px;height: 21px;">
+												</xf:input>
+											</xf:group>
+										</xf:group>
+										<xf:group style="" tagname="tr">
+											<xf:group class="w2tb_th" style="" tagname="th">
+												계좌번호
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+											</xf:group>
+											<xf:group class="w2tb_td" style="" tagname="td">
+												<xf:input adjustMaxLength="false" id="" initValue="012486486"
+													style="width: 144px;height: 21px;">
+												</xf:input>
+											</xf:group>
+										</xf:group>
+										<xf:group style="" tagname="tr">
+											<xf:group class="w2tb_th" tagname="th">
+												소유주
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+											</xf:group>
+											<xf:group class="w2tb_td" tagname="td">
+												<w2:attributes></w2:attributes>
+												<xf:input adjustMaxLength="false" id="" initValue="WebSquare"
+													style="width: 144px;height: 21px;">
+												</xf:input>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</w2:panelContent>
+						</w2:panels>
+						<w2:panels class="" id="panels4" style="">
+							<w2:panelTitle class="" id="panelTitle4" label="마케팅 수신 정보" style=""></w2:panelTitle>
+							<w2:panelContent class="" id="panelContent4" style="">
+								<xf:group class="" id="" style="padding: 10px;">
+									<xf:group class="w2tb" id="" style="width:100%;" tagname="table">
+										<w2:attributes>
+											<w2:summary></w2:summary>
+										</w2:attributes>
+										<xf:group tagname="caption"></xf:group>
+										<xf:group tagname="colgroup">
+											<xf:group style="width:100px;" tagname="col"></xf:group>
+											<xf:group style="" tagname="col"></xf:group>
+										</xf:group>
+										<xf:group style="" tagname="tr">
+											<xf:group class="w2tb_th" style="" tagname="th">
+												SMS&amp;nbsp;수신
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+											</xf:group>
+											<xf:group class="w2tb_td" style="" tagname="td">
+												<xf:select1 appearance="full" cols="" id="" ref="" rows="1" selectedIndex="1"
+													style="min-width: 150px;">
+													<xf:choices>
+														<xf:item>
+															<xf:label><![CDATA[Y]]></xf:label>
+															<xf:value><![CDATA[Y]]></xf:value>
+														</xf:item>
+														<xf:item>
+															<xf:label><![CDATA[N]]></xf:label>
+															<xf:value><![CDATA[N]]></xf:value>
+														</xf:item>
+													</xf:choices>
+												</xf:select1>
+											</xf:group>
+										</xf:group>
+										<xf:group style="" tagname="tr">
+											<xf:group class="w2tb_th" style="" tagname="th">
+												이메일&amp;nbsp;수신
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+											</xf:group>
+											<xf:group class="w2tb_td" style="" tagname="td">
+												<xf:select1 appearance="full" cols="" id="" ref="" rows="1" selectedIndex="0"
+													style="min-width: 150px;">
+													<xf:choices>
+														<xf:item>
+															<xf:label><![CDATA[Y]]></xf:label>
+															<xf:value><![CDATA[Y]]></xf:value>
+														</xf:item>
+														<xf:item>
+															<xf:label><![CDATA[N]]></xf:label>
+															<xf:value><![CDATA[N]]></xf:value>
+														</xf:item>
+													</xf:choices>
+												</xf:select1>
+											</xf:group>
+										</xf:group>
+										<xf:group style="" tagname="tr">
+											<xf:group class="w2tb_th" tagname="th">
+												전화&amp;nbsp;수신
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+											</xf:group>
+											<xf:group class="w2tb_td" tagname="td">
+												<w2:attributes></w2:attributes>
+												<xf:select1 appearance="full" cols="" id="" ref="" rows="1" selectedIndex="1"
+													style="min-width: 150px;">
+													<xf:choices>
+														<xf:item>
+															<xf:label><![CDATA[Y]]></xf:label>
+															<xf:value><![CDATA[Y]]></xf:value>
+														</xf:item>
+														<xf:item>
+															<xf:label><![CDATA[N]]></xf:label>
+															<xf:value><![CDATA[N]]></xf:value>
+														</xf:item>
+													</xf:choices>
+												</xf:select1>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</w2:panelContent>
+						</w2:panels>
+					</w2:accordion>
+				</xf:group>
+				<xf:group class="section02 dmb" id="" style="">
+					<w2:textbox class="contTitle02" id="" label="IFrame" style=""></w2:textbox>
+					<xf:group id="" style="" class="pd10">
+						<w2:iframe id="" style="height:70px;width: 100%;" src="/ws5/sample/compList/05_frameSrc.xml"></w2:iframe>
+					</xf:group>
+				</xf:group>
+				<xf:group class="section02 dmb" id="" style="">
+					<w2:textbox class="contTitle02" id="" label="WFrame" style=""></w2:textbox>
+					<xf:group id="" style="" class="pd10">
+						<w2:wframe id="" style="height:70px;width: 100%;" src="/ws5/sample/compList/05_frameSrc.xml" scope="true"></w2:wframe>
+					</xf:group>
+				</xf:group>
+				<xf:group id="" style="" class="section02 dmb">
+					<w2:textbox id="" style="" class="contTitle02 dmb" label="TabControl"></w2:textbox>
+					<xf:group id="" style="" class="dp tar">
+						<xf:trigger id="trigger4" style="width: 80px;height: 23px;" ev:onclick="scwin.trigger4_onclick" type="button">
+							<xf:label>탭추가</xf:label>
+						</xf:trigger>
+					</xf:group>
+					<w2:tabControl id="ui_tabControl" closable="true" style="height:230px;margin:12px;position: relative;"
+						confirmTrueAction="exist" useConfirmMessage="false" useTabKeyOnly="true" confirmFalseAction="new" tabScroll="true"
+						alwaysDraw="false">
+						<w2:tabs id="tabs1" style="width:100px;height:30px;" label="tabControl" disabled="false"></w2:tabs>
+						<w2:content id="content1" frameMode="" style="height:200px;" src="" alwaysDraw="false">
+							<xf:group id="" style="" class="dp">
+								<w2:textbox id="" style="border-left: 10px solid #B0C4DE;background-color: #eee;" class="dp dmb"
+									label="안내">
+								</w2:textbox>
+								<w2:textbox id="" style="" label="Content 영역안에 컴포넌트를 배치"></w2:textbox>
+							</xf:group>
+						</w2:content>
+					</w2:tabControl>
+				</xf:group>
+				<xf:group id="" style="" class="section02">
+					<w2:textbox label="WindowContainer" id="" style="" class="contTitle02"></w2:textbox>
+				<xf:group id="" style="padding: 20px;" class=""><w2:anchor id="" style="" target="_blank" class="link01" href="/ws5#w2xPath=/ws5/sample/compList/main_windowContainer_wframe.xml" outerDiv="false">
+						<xf:label><![CDATA[WindowContainer로 구성된 화면 열기]]></xf:label>
+					</w2:anchor></xf:group></xf:group>
+			</xf:group>
+
+		</xf:group>
+	</body>
+</html>

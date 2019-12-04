@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="필터,정렬,컬럼간 이동">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns=""></data>
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataList id="gridDataList" baseNode="list" style="" repeatNode="map" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="category1" name="category1" dataType="text"></w2:column>
+						<w2:column id="category2" name="category2" dataType="text"></w2:column>
+						<w2:column id="bookNm" name="bookNm" dataType="text"></w2:column>
+						<w2:column id="row3_1" name="row3_1" dataType="text"></w2:column>
+						<w2:column id="row3_2" name="row3_2" dataType="text"></w2:column>
+						<w2:column id="row3_3" name="row3_3" dataType="text"></w2:column>
+						<w2:column id="row3_4" name="row3_4" dataType="text"></w2:column>
+						<w2:column id="row3_5" name="row3_5" dataType="text"></w2:column>
+						<w2:column id="row3_6" name="row3_6" dataType="text"></w2:column>
+						<w2:column id="row3_7" name="row3_7" dataType="text"></w2:column>
+						<w2:column id="row3_8" name="row3_8" dataType="text"></w2:column>
+						<w2:column id="row3_9" name="row3_9" dataType="text"></w2:column>
+						<w2:column id="row3_10" name="row3_10" dataType="text"></w2:column>
+						<w2:column id="row3_11" name="row3_11" dataType="text"></w2:column>
+						<w2:column id="row3_12" name="row3_12" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data xmlns="" use="true">
+						<w2:row>
+							<category1><![CDATA[소설]]></category1>
+							<category2><![CDATA[한국소설]]></category2>
+							<bookNm><![CDATA[토지]]></bookNm>
+							<row3_1><![CDATA[100]]></row3_1>
+							<row3_2><![CDATA[100]]></row3_2>
+							<row3_3><![CDATA[100]]></row3_3>
+							<row3_4><![CDATA[100]]></row3_4>
+							<row3_5><![CDATA[100]]></row3_5>
+							<row3_6><![CDATA[100]]></row3_6>
+							<row3_7><![CDATA[100]]></row3_7>
+							<row3_8><![CDATA[100]]></row3_8>
+							<row3_9><![CDATA[100]]></row3_9>
+							<row3_10><![CDATA[100]]></row3_10>
+							<row3_11><![CDATA[100]]></row3_11>
+							<row3_12><![CDATA[100]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[소설]]></category1>
+							<category2><![CDATA[한국소설]]></category2>
+							<bookNm><![CDATA[태백산맥]]></bookNm>
+							<row3_1><![CDATA[200]]></row3_1>
+							<row3_2><![CDATA[200]]></row3_2>
+							<row3_3><![CDATA[200]]></row3_3>
+							<row3_4><![CDATA[200]]></row3_4>
+							<row3_5><![CDATA[200]]></row3_5>
+							<row3_6><![CDATA[200]]></row3_6>
+							<row3_7><![CDATA[200]]></row3_7>
+							<row3_8><![CDATA[200]]></row3_8>
+							<row3_9><![CDATA[200]]></row3_9>
+							<row3_10><![CDATA[200]]></row3_10>
+							<row3_11><![CDATA[200]]></row3_11>
+							<row3_12><![CDATA[200]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[소설]]></category1>
+							<category2><![CDATA[한국소설]]></category2>
+							<bookNm><![CDATA[소나기]]></bookNm>
+							<row3_1><![CDATA[300]]></row3_1>
+							<row3_2><![CDATA[300]]></row3_2>
+							<row3_3><![CDATA[300]]></row3_3>
+							<row3_4><![CDATA[300]]></row3_4>
+							<row3_5><![CDATA[300]]></row3_5>
+							<row3_6><![CDATA[300]]></row3_6>
+							<row3_7><![CDATA[300]]></row3_7>
+							<row3_8><![CDATA[300]]></row3_8>
+							<row3_9><![CDATA[300]]></row3_9>
+							<row3_10><![CDATA[300]]></row3_10>
+							<row3_11><![CDATA[300]]></row3_11>
+							<row3_12><![CDATA[300]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[소설]]></category1>
+							<category2><![CDATA[영미소설]]></category2>
+							<bookNm><![CDATA[위대한 개츠비]]></bookNm>
+							<row3_1><![CDATA[400]]></row3_1>
+							<row3_2><![CDATA[400]]></row3_2>
+							<row3_3><![CDATA[400]]></row3_3>
+							<row3_4><![CDATA[400]]></row3_4>
+							<row3_5><![CDATA[400]]></row3_5>
+							<row3_6><![CDATA[400]]></row3_6>
+							<row3_7><![CDATA[400]]></row3_7>
+							<row3_8><![CDATA[400]]></row3_8>
+							<row3_9><![CDATA[400]]></row3_9>
+							<row3_10><![CDATA[400]]></row3_10>
+							<row3_11><![CDATA[400]]></row3_11>
+							<row3_12><![CDATA[400]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[소설]]></category1>
+							<category2><![CDATA[영미소설]]></category2>
+							<bookNm><![CDATA[1984]]></bookNm>
+							<row3_1><![CDATA[500]]></row3_1>
+							<row3_2><![CDATA[500]]></row3_2>
+							<row3_3><![CDATA[500]]></row3_3>
+							<row3_4><![CDATA[500]]></row3_4>
+							<row3_5><![CDATA[500]]></row3_5>
+							<row3_6><![CDATA[500]]></row3_6>
+							<row3_7><![CDATA[500]]></row3_7>
+							<row3_8><![CDATA[500]]></row3_8>
+							<row3_9><![CDATA[500]]></row3_9>
+							<row3_10><![CDATA[500]]></row3_10>
+							<row3_11><![CDATA[500]]></row3_11>
+							<row3_12><![CDATA[500]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[시/에세이]]></category1>
+							<category2><![CDATA[에세이]]></category2>
+							<bookNm><![CDATA[하늘 호수로 떠난 여행]]></bookNm>
+							<row3_1><![CDATA[600]]></row3_1>
+							<row3_2><![CDATA[600]]></row3_2>
+							<row3_3><![CDATA[600]]></row3_3>
+							<row3_4><![CDATA[600]]></row3_4>
+							<row3_5><![CDATA[600]]></row3_5>
+							<row3_6><![CDATA[600]]></row3_6>
+							<row3_7><![CDATA[600]]></row3_7>
+							<row3_8><![CDATA[600]]></row3_8>
+							<row3_9><![CDATA[600]]></row3_9>
+							<row3_10><![CDATA[600]]></row3_10>
+							<row3_11><![CDATA[600]]></row3_11>
+							<row3_12><![CDATA[600]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[시/에세이]]></category1>
+							<category2><![CDATA[에세이]]></category2>
+							<bookNm><![CDATA[인생수업]]></bookNm>
+							<row3_1><![CDATA[700]]></row3_1>
+							<row3_2><![CDATA[700]]></row3_2>
+							<row3_3><![CDATA[700]]></row3_3>
+							<row3_4><![CDATA[700]]></row3_4>
+							<row3_5><![CDATA[700]]></row3_5>
+							<row3_6><![CDATA[700]]></row3_6>
+							<row3_7><![CDATA[700]]></row3_7>
+							<row3_8><![CDATA[700]]></row3_8>
+							<row3_9><![CDATA[700]]></row3_9>
+							<row3_10><![CDATA[700]]></row3_10>
+							<row3_11><![CDATA[700]]></row3_11>
+							<row3_12><![CDATA[700]]></row3_12>
+						</w2:row>
+						<w2:row>
+							<category1><![CDATA[시/에세이]]></category1>
+							<category2><![CDATA[시]]></category2>
+							<bookNm><![CDATA[하늘과 바람과 별과 시]]></bookNm>
+							<row3_1><![CDATA[800]]></row3_1>
+							<row3_2><![CDATA[800]]></row3_2>
+							<row3_3><![CDATA[800]]></row3_3>
+							<row3_4><![CDATA[800]]></row3_4>
+							<row3_5><![CDATA[800]]></row3_5>
+							<row3_6><![CDATA[800]]></row3_6>
+							<row3_7><![CDATA[800]]></row3_7>
+							<row3_8><![CDATA[800]]></row3_8>
+							<row3_9><![CDATA[800]]></row3_9>
+							<row3_10><![CDATA[800]]></row3_10>
+							<row3_11><![CDATA[800]]></row3_11>
+							<row3_12><![CDATA[800]]></row3_12>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+		</xf:model>
+		<script type="javascript" lazy="false"><![CDATA[
+
+        ]]></script>
+	</head>
+	<body>
+		<xf:group class="wrapper" id="">
+			<xf:group class="section_desc" id="" style="padding: 10px;">
+				<w2:textbox id="" label="GridView의 header에 필터기능을 넣은 화면이다.&lt;br/&gt;header를 더블 클릭하면 컬럼 데이터가 정렬 된다. Ctrl키를 누르고 더블 클릭 시 다중 정렬.&lt;br/&gt;( source : 06_03.xml )" style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" style="overflow:auto;">
+				<w2:gridView autoFit="allColumn" useFilterList="true" dataList="gridDataList" fixedColumn="" focusMode="row" id="gridView2"
+					readOnly="true" scrollByColumn="false" sortable="true"
+					style="position: relative ;height:400px;width:49%;float:left;margin-right:2%;" tooltipDisplay="true" columnMove="true">
+					<w2:header id="header5" style="">
+						<w2:row id="row35" style="">
+							<w2:column blockSelect="false" hidden="false" id="column530" inputType="text" style="height:30px" useFilter="true" value="대분류"
+								width="100">
+							</w2:column>
+							<w2:column blockSelect="false" hidden="false" id="column532" inputType="text" style="height:30px" useFilter="true" value="중분류"
+								width="100">
+							</w2:column>
+							<w2:column blockSelect="false" id="column535" inputType="text" style="height:30px" value="도서명" width="100"></w2:column>
+							<w2:column id="column468" inputType="text" style="height:30px;" useFilter="true" value="1월" width="60"></w2:column>
+							<w2:column id="column467" inputType="text" style="height:30px;" value="2월" width="60"></w2:column>
+							<w2:column id="column466" inputType="text" style="height:30px;" value="3월" width="60"></w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody id="gBody5" style="">
+						<w2:row id="row37" style="">
+							<w2:column blockSelect="false" hidden="false" id="category1" inputType="text" style="height:30px" width="100"></w2:column>
+							<w2:column blockSelect="false" hidden="false" id="category2" inputType="text" style="height:30px" width="100"></w2:column>
+							<w2:column blockSelect="false" id="bookNm" inputType="text" style="height:30px" width="100"></w2:column>
+							<w2:column dataType="number" displayFormat="#,###" id="row3_1" inputType="text" style="height:30px" width="60">
+							</w2:column>
+							<w2:column dataType="number" displayFormat="#,###" id="row3_2" inputType="text" style="height:30px" width="60">
+							</w2:column>
+							<w2:column dataType="number" displayFormat="#,###" id="row3_3" inputType="text" style="height:30px" width="60">
+							</w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+				<w2:gridView baseNode="" autoFit="allColumn" readOnlyBackgroundColor="" visibleRowNum="" sortable="true" id="gridView1"
+					dataList="gridDataList" focusMode="row" readOnly="true" style="position: relative ;height:400px;width:49%;float:left;" tooltipDisplay="true"
+					scrollByColumn="false" repeatNode="" fixedColumn="" autoFitMinWidth="">
+					<w2:header id="header5" style="">
+						<w2:row id="row35" style="">
+							<w2:column id="column530" blockSelect="false" style="height:30px" hidden="false" useFilter="true" inputType="text" width="100"
+								value="대분류">
+							</w2:column>
+							<w2:column id="column532" blockSelect="false" style="height:30px" hidden="false" useFilter="true" inputType="text" width="100"
+								value="중분류">
+							</w2:column>
+							<w2:column id="column535" blockSelect="false" style="height:30px" width="100" inputType="text" value="도서명"></w2:column>
+							<w2:column id="column468" style="height:30px;" useFilter="true" width="60" inputType="text" value="1월"></w2:column>
+							<w2:column id="column467" style="height:30px;" width="60" inputType="text" value="2월"></w2:column>
+							<w2:column id="column466" style="height:30px;" width="60" inputType="text" value="3월"></w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody id="gBody5" style="">
+						<w2:row id="row37" style="">
+							<w2:column id="category1" blockSelect="false" style="height:30px" hidden="false" inputType="text" width="100"></w2:column>
+							<w2:column id="category2" blockSelect="false" style="height:30px" hidden="false" inputType="text" width="100"></w2:column>
+							<w2:column id="bookNm" blockSelect="false" style="height:30px" width="100" inputType="text"></w2:column>
+							<w2:column id="row3_1" dataType="number" style="height:30px" width="60" inputType="text" displayFormat="#,###">
+							</w2:column>
+							<w2:column id="row3_2" dataType="number" style="height:30px" width="60" inputType="text" displayFormat="#,###">
+							</w2:column>
+							<w2:column id="row3_3" dataType="number" style="height:30px" width="60" inputType="text" displayFormat="#,###">
+							</w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

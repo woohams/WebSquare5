@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="widgetContainer">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		scwin.addWidget("E01");
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	scwin.ui_addWidget_onviewchange = function(info) {
+		//var curType = info.newValue;
+		scwin.addWidget(info.newValue);
+		this.setValue("");
+	};
+	
+	scwin.addWidget = function(type){
+		var wTitle, wSrc, wWidth=3, wHeight=3, wPath = "/ws5/sample/compList/widgetContent/", wId;
+		
+		switch(type){
+			case "C01":
+				wTitle = "기기 유형별 조회수";
+				wSrc = wPath+"wcPage2.xml";
+			break;
+			case "C02":
+				wTitle = "성별 조회수";
+				wSrc = wPath+"wcPage3.xml";
+			break;
+			case "C03":
+				wTitle = "일별 조회수";
+				wSrc = wPath+"wcPage1.xml";
+			break;
+			case "E01":
+				wTitle = "사용자 조회";
+				wSrc = wPath+"wcPage4.xml";
+				wHeight = 5;	
+			break;
+			case "E02":
+				wTitle = "캘린더";
+				wSrc = wPath+"wcPage5.xml";
+				wHeight = 4;
+				wWidth = 3;	
+			break;
+			default : return;
+		}
+		
+		wId = "W"+type;
+		
+		if(ui_widget.getWidgetById( wId )){
+			ui_widget.moveWidget( wId , 0 , 0 );	
+		}
+		
+		var opt = {
+			id : wId,
+			src : wSrc,
+			title : wTitle,
+			x : 0,
+			y : 0,
+			scope : true,
+			unitWidth : wWidth,
+    		unitHeight : wHeight
+		};
+		
+		//ui_widget.getWidgetById( id );
+		
+		ui_widget.addWidgets( opt );
+		
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    <xf:group style="" id="" class="absBox">
+    	<xf:group class="section_desc " id="" style="padding: 10px;">
+    		<w2:textbox id="section"
+    			label="WidgetContainer로 웹스퀘어 파일을 동적으로 구성할 수 있다.&lt;br/&gt;( source : 19.xml )"
+    			style="max-height: 36px;">
+    		</w2:textbox>
+    	</xf:group>
+    	<xf:group id="" style="position: absolute;left: 0px;right: 0px;top: 60px;bottom: 0px;" class="section03">
+    		<w2:textbox label="WidgetContainer" id="" style="" class="contTitle02 dmb"></w2:textbox>
+    		<xf:group id="" style="" class="ofh pl10">
+    			<xf:group id="" style="" class="fl">
+    				<xf:select1 disabledClass="w2selectbox_disabled" appearance="minimal" chooseOptionLabel="위젯 추가" visibleRowNum="10"
+    					direction="auto" chooseOption="true" class="btnWidgetSelectbox" displayMode="label" optionOrder="false"
+    					ev:onviewchange="scwin.ui_addWidget_onviewchange" id="ui_addWidget" ref="" style="" allOption="" submenuSize="auto"
+    					disabled="false">
+    					<xf:choices>
+    						<xf:item>
+    							<xf:label><![CDATA[사용자 조회]]></xf:label>
+    							<xf:value><![CDATA[E01]]></xf:value>
+    						</xf:item>
+    						<xf:item>
+    							<xf:label><![CDATA[캘린더]]></xf:label>
+    							<xf:value><![CDATA[E02]]></xf:value>
+    						</xf:item>
+    						<xf:item>
+    							<xf:label><![CDATA[기기 유형별 조회수]]></xf:label>
+    							<xf:value><![CDATA[C01]]></xf:value>
+    						</xf:item>
+    						<xf:item>
+    							<xf:label><![CDATA[성별 조회수]]></xf:label>
+    							<xf:value><![CDATA[C02]]></xf:value>
+    						</xf:item>
+    						<xf:item>
+    							<xf:label><![CDATA[일별 조회수]]></xf:label>
+    							<xf:value><![CDATA[C03]]></xf:value>
+    						</xf:item>
+    					</xf:choices>
+    				</xf:select1>
+    			</xf:group>
+
+    		</xf:group>
+    		<xf:group id="" style="position: absolute;left:10px;right: 10px;top:80px;bottom: 10px;">
+    			<w2:widgetContainer minUnitWidth="" widgetMove="true" cols="6" horizontalMargin="5" verticalMargin="5" params=""
+    				maxUnitWidth="" widgetResize="true" mode="pushpull" threshold="700" id="ui_widget"
+    				style="height: 100%;box-sizing:border-box;background-color: #fefefe;" unitHeightPixel="100">
+    			</w2:widgetContainer>
+    		</xf:group>
+    	</xf:group></xf:group></body>
+</html>

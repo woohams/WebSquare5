@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="page scope 심화_2-2번화면">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:aliasDataMap scope="../../mainDataMap" id="aliasDataMap1"></w2:aliasDataMap>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+        
+			scwin.onpageload = function() {
+				
+			};
+			
+			scwin.onpageunload = function() {
+				
+			};
+			
+			scwin.main_dataMapVal_onclick = function(e) {
+				alert(aliasDataMap1.get( "key1" ));
+			};
+		]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="padding: 10px;" id="" class="">
+    		<xf:group style="padding: 10px;margin-bottom: 10px;border: 1px solid olive;" id="" class="">
+    			<xf:input adjustMaxLength="false" style="width: 144px;height: 21px;margin-right: 10px;" id="ipt1"></xf:input>
+    			<xf:input adjustMaxLength="false" style="width: 144px;height: 21px;margin-right: 10px;" id="ipt2"></xf:input>
+    			<xf:trigger ev:onclick="scwin.main_dataMapVal_onclick" id="main_dataMapVal"
+    				style="width:150px;height:23px;margin-right:10px;" type="button">
+    				<xf:label><![CDATA[main DataMap value]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    		<w2:tabControl confirmTrueAction="exist" useTabKeyOnly="true" confirmFalseAction="new" useMoveNextTabFocus="false" useConfirmMessage="false" alwaysDraw="false" style="height: 200px;" id="wframe22">
+    		<w2:content src="/ws5/sample/pageScope/sub3.xml" scope="true" alwaysDraw="false" style="height:170px;" frameMode="wframePreload" id="content2">
+    		</w2:content>
+    		<w2:tabs disabled="false" style="width:85px;height:30px;" label="wframe 22" id="tabs2"></w2:tabs>
+    	</w2:tabControl></xf:group>
+    </body>
+</html>

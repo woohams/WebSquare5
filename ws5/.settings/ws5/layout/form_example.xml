@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc="설명 영역 + 제목"/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="text/javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group class="wrapper" id="" style="min-height: 50px;">
+	<xf:group class="section_desc" id="" style="padding: 10px;">
+		<w2:textbox id="" label="" ref="data:dc_pageDescription.desc" style="min-height: 23px;">
+</w2:textbox>
+</xf:group>
+	<w2:textbox class="df_tt dmb" id="" label="Parent" style="">
+</w2:textbox>
+</xf:group>
+</body>
+</html>

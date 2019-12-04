@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="컬럼 동적 변경">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList baseNode="list" id="dl_person" repeatNode="map"
+            		saveRemovedData="true" style="">
+            		<w2:columnInfo>
+            			<w2:column dataType="text" id="IMGURL" name="이미지"></w2:column>
+            			<w2:column dataType="text" id="NAME" name="이름"></w2:column>
+            			<w2:column dataType="text" id="MARRIED" name="결혼여부"></w2:column>
+            			<w2:column dataType="text" id="WEDDINGDAY" name="결혼기념일"></w2:column>
+            			<w2:column dataType="text" id="BLOOD_TYPE" name="혈액형"></w2:column>
+            			<w2:column dataType="text" id="GENDER" name="성별"></w2:column>
+            			<w2:column dataType="text" id="MILITARY" name="병역여부"></w2:column>
+            			<w2:column dataType="text" id="MILITARYINFO" name="병역정보"></w2:column>
+            			<w2:column dataType="text" id="EDUCATION" name="학력"></w2:column>
+            			<w2:column dataType="text" id="AGENCY" name="소속사"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="false"></w2:data>
+            	</w2:dataList>
+            	<w2:dataList baseNode="list" id="dl_military" repeatNode="map" saveRemovedData="true" style="">
+            		<w2:columnInfo>
+            			<w2:column dataType="text" id="CODE" name="name1"></w2:column>
+            			<w2:column dataType="text" id="CODENM" name="name2"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<CODE><![CDATA[01]]></CODE>
+            				<CODENM><![CDATA[육군]]></CODENM>
+            			</w2:row>
+            			<w2:row>
+            				<CODE><![CDATA[02]]></CODE>
+            				<CODENM><![CDATA[해군]]></CODENM>
+            			</w2:row>
+            			<w2:row>
+            				<CODE><![CDATA[03]]></CODE>
+            				<CODENM><![CDATA[공군]]></CODENM>
+            			</w2:row>
+            			<w2:row>
+            				<CODE><![CDATA[04]]></CODE>
+            				<CODENM><![CDATA[해병대]]></CODENM>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList baseNode="list" id="dcm_married" repeatNode="map" saveRemovedData="true" style="">
+            		<w2:columnInfo>
+            			<w2:column dataType="text" id="CODE" name="name1"></w2:column>
+            			<w2:column dataType="text" id="CODENM" name="name2"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<CODE><![CDATA[N]]></CODE>
+            				<CODENM><![CDATA[ 아니오]]></CODENM>
+            			</w2:row>
+            			<w2:row>
+            				<CODE><![CDATA[Y]]></CODE>
+            				<CODENM><![CDATA[예]]></CODENM>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList baseNode="list" id="dcm_military" repeatNode="map" saveRemovedData="true" style="">
+            		<w2:columnInfo>
+            			<w2:column dataType="text" id="CODE" name="name1"></w2:column>
+            			<w2:column dataType="text" id="CODENM" name="name2"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<CODE><![CDATA[fulfilled]]></CODE>
+            				<CODENM><![CDATA[군필]]></CODENM>
+            			</w2:row>
+            			<w2:row>
+            				<CODE><![CDATA[unfulfilled]]></CODE>
+            				<CODENM><![CDATA[미필]]></CODENM>
+            			</w2:row>
+            			<w2:row>
+            				<CODE><![CDATA[exempted]]></CODE>
+            				<CODENM><![CDATA[면제]]></CODENM>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+            <xf:submission abortTrigger="" action="/ws5/sample/compList/data/customInputType.json" customHandler="" encoding="UTF-8" errorHandler=""
+				ev:submit="" ev:submitdone="scwin.sbm_searchPerson_submitdone" ev:submiterror="" id="sbm_searchPerson" instance=""
+				mediatype="application/json" method="post" mode="asynchronous" processMsg="" ref="" replace="" target='data:json,["dl_person"]' style="">
+			</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+
+			scwin.onpageload = function() {
+				$p.executeSubmission( "sbm_searchPerson" );
+			};
+		
+			scwin.onpageunload = function() {
+				
+			};
+			
+			scwin.getCustomType = function(info){
+				//console.log(info);
+				var rowIndex = info.rowIndex;
+		        var colIndex = info.colIndex;
+		        var returnInfo ;
+				switch( info.colID ){
+					case "MILITARYINFO" : if( dl_person.getCellData( rowIndex ,'MILITARY' ) == 'fulfilled' ){
+											returnInfo = {
+											 	id : "dynamic_select_" + rowIndex + "_" + colIndex,
+					                            inputType : "select",
+					                            options : {
+					                               viewType : "icon",
+					                               chooseOption : "true"
+					                               // ,renderType : "native" // native로 표현 안됨 ??? 
+					                               // ,embeddedInput :"true" // itemSet 안됨.??? 
+					                            },
+					                            itemSet : {
+					                                nodeset: "data:dl_military", 
+					                                label: "CODENM",
+					                                value: "CODE"
+					                            }
+											}
+											
+										}
+										else if( dl_person.getCellData( rowIndex ,'MILITARY' ) == 'exempted' ){
+											returnInfo = {
+											 	id : "dynamic_textarea_" + rowIndex + "_" + colIndex,
+					                            inputType : "textarea",
+					                            options : {
+					                                
+					                            }
+											}
+											
+										}
+										else {
+											returnInfo = {
+												id : "dynamic_checkbox_" + rowIndex + "_" + colIndex,
+					                            inputType : "checkbox",
+					                            options : {
+					                               checkboxLabel : "해당없음"
+					                               
+					                            }
+											}
+											
+											
+										}
+										
+										break;
+				
+				}
+				
+				return returnInfo;
+				
+			};
+			
+			scwin.gridView1_onafteredit = function(row,col,value) {
+				//console.log(value);
+				var colId = this.getColumnID( col );
+				if (colId == "MILITARY"){
+					this.refreshCell( row , "MILITARYINFO" );
+					dl_person.setCellData( row , "MILITARYINFO" , "" );
+					
+				}
+			};
+			]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group id="" style="" class="wrapper">
+    		<xf:group id="group4" style="padding: 10px;" class="section_desc">
+    			<w2:textbox id="section" style=""
+    				label="그리드뷰의 inputType을 동적으로 변경하기 위해 작성된 화면이다.&lt;br/&gt;병역 여부값에 따라 병역정보의 inputType이 변경되는 것을 확인한다.&lt;br/&gt;( source : 06_08.xml )"
+    				localeRef=''>
+    			</w2:textbox>
+    		</xf:group>
+    		<w2:gridView adaptive="" adaptiveThreshold="" autoFit="allColumn" class="dmb cm_grid" columnMove="true" dataDragDrop=""
+    			dataDragSelect="" dataList="data:dl_person" defaultCellHeight="" ev:onafteredit="scwin.gridView1_onafteredit" ev:onbeforeedit=""
+    			ev:oncellclick="" ev:oneditend="" ev:onrightbuttonclick="" ev:onscrolly="" ev:onviewchange=""
+    			fixedColumnWithHidden="true" focusMode="row" id="gridView1" ignoreCellClick="false" ignoreToggleOnDisabled="false" mergeCells=""
+    			oddEvenColorDisplay="false" readOnly="" rowNumHeaderValue="No" rowNumStatusUniqueId="true" rowNumVisible="true" rowNumWidth=""
+    			rowStatusVisible="" scrollByColumn="false" scrollByColumnAdaptive="false" senseReader="true" style="height:370px;"
+    			summaryAuto="false" tooltipDisplay="true" tooltipDisplayColumn="INFO" useCtrlOnMultisort="" useShiftKey="true" visibleRowNum="">
+    			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column blockSelect="false" displayMode="label" id="column19" inputType="text" style="" value="이미지" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column17" inputType="text" style="" value="이름" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column15" inputType="text" style="" value="결혼여부"
+    						width="70">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" style="" value="혈액형" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text" style="" value="성별" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column7" inputType="text" style="" value="병역여부" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column5" inputType="text" style=""
+    						toolTip="병역여부에 따른 Custom Input Type" value="* 병역정보" width="120">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column3" inputType="text" style="" value="학력" width="150"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column1" inputType="text" style="" value="소속사" width="100"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column blockSelect="false" displayMode="label" id="IMGURL" imageHeight="40" imageWidth="" inputType="image"
+    						style="" value="" width="70">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="NAME" inputType="text" style="" value="" width="70"></w2:column>
+    					<w2:column allOption="" blockSelect="false" chooseOption="true" chooseOptionLabel="" displayMode="label"
+    						id="MARRIED" inputType="select" ref="" style="" value="" width="70">
+    						<w2:choices>
+    							<w2:item>
+    								<w2:label><![CDATA[아니오]]></w2:label>
+    								<w2:value><![CDATA[N]]></w2:value>
+    							</w2:item>
+    							<w2:item>
+    								<w2:label><![CDATA[예]]></w2:label>
+    								<w2:value><![CDATA[Y]]></w2:value>
+    							</w2:item>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="BLOOD_TYPE" inputType="text" style="" value="" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="GENDER" inputType="text" style="" value="" width="70"></w2:column>
+    					<w2:column allOption="" blockSelect="false" chooseOption="true" chooseOptionLabel="" displayMode="label"
+    						id="MILITARY" inputType="select" ref="" style="" value="" width="70">
+    						<w2:choices>
+    							<w2:item>
+    								<w2:label><![CDATA[군필]]></w2:label>
+    								<w2:value><![CDATA[fulfilled]]></w2:value>
+    							</w2:item>
+    							<w2:item>
+    								<w2:label><![CDATA[미필]]></w2:label>
+    								<w2:value><![CDATA[unfulfilled]]></w2:value>
+    							</w2:item>
+    							<w2:item>
+    								<w2:label><![CDATA[면제]]></w2:label>
+    								<w2:value><![CDATA[exempted]]></w2:value>
+    							</w2:item>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" checkboxLabel="" displayMode="label" falseValue="0" id="MILITARYINFO"
+    						inputType="custom" style="" trueValue="$blank" typeGetter="scwin.getCustomType" value="" valueType="other" width="120">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="EDUCATION" inputType="text" style="" value="" width="150"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="AGENCY" inputType="text" style="" value="" width="100"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="실습 안내 페이지">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList id="dc_list" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="desc" name="name1" dataType="text"></w2:column>
+						<w2:column id="url" name="name2" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<desc><![CDATA[1일차 완성 - 컴포넌트의 데이터 셋팅 방법. Submission 연동.]]></desc>
+							<url><![CDATA[/ws5/training/complete/training1_c.xml]]></url>
+						</w2:row>
+						<w2:row>
+							<desc><![CDATA[2일차 완성 1 - 검색 조건 + GridView. 코드별 Submission 생성]]></desc>
+							<url><![CDATA[/ws5/training/complete/training2-1_c.xml]]></url>
+						</w2:row>
+						<w2:row>
+							<desc><![CDATA[2일차 완성 2 - 검색 조건 + GridView. 1개의 Submission으로 전체 코드 가져오기]]></desc>
+							<url><![CDATA[/ws5/training/complete/training2-2_c.xml]]></url>
+						</w2:row>
+						<w2:row>
+							<desc><![CDATA[2일차 완성 3 - 검색 조건 + GridView. 공통 Function을 이용하여 코드 가져오기]]></desc>
+							<url><![CDATA[/ws5/training/complete/training2-3_c.xml]]></url>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+		</xf:model>
+		<style type="text/css"><![CDATA[
+    		dl{margin:0px;font-family: arial;counter-reset: dtCounter;font-size:14px;}
+    		dt{font-weight: bold;}
+    		dt:before,dt::before{content:counter(dtCounter) ". ";counter-increment: dtCounter;}
+    		dd{margin-left: 6px;}
+    		dd:before,dd::before{content:"경로 : "}
+    		dd a:hover{color:coral;}
+    	]]></style>
+		<script type="javascript" lazy="false"><![CDATA[
+    		
+			scwin.onpageload = function() {
+				var tmpArr = dc_list.getAllJSON();
+				var tmpCount = tmpArr.length;
+				var tmpObj,tmpData;
+				for(var i=0;i<tmpCount;i++){
+					tmpData = tmpArr[i];
+					ui_gen.insertChild();
+					tmpObj = ui_gen.getChild( i , "ui_url" );
+					tmpObj.setValue(tmpData.url);
+					tmpObj.setHref( location.pathname+"?w2xPath="+tmpData.url );
+					
+					tmpObj = ui_gen.getChild( i , "ui_txt" );
+					tmpObj.setValue(tmpData.desc);
+				} 
+			};
+			
+			scwin.onpageunload = function() {
+				
+			};
+		]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+	<xf:group id="" style="" class="wrapper"><xf:group id="" style="" class=""><xf:group id="" style="" class="titlebox02">
+				<w2:textbox id="" style="" tabIndex="" class="df_tt" label="실습 완성본" tagname="h1"></w2:textbox>
+			</xf:group><w2:generator id="ui_gen" style="" tagname="dl">
+				<w2:textbox id="ui_txt" style="" label="" tagname="dt" class="mb5"></w2:textbox>
+				<xf:group id="" style="padding:6px;" class="" tagname="dd">
+					<w2:anchor id="ui_url" style="" clickEventElement="" target="_blank" class="" outerDiv="false">
+						<xf:label><![CDATA[]]>
+						</xf:label>
+					</w2:anchor>
+				</xf:group>
+				<hr style="height:1px;border-width:0px;border-bottom:1px solid #bbb;"></hr>
+			</w2:generator></xf:group></xf:group></body>
+</html>

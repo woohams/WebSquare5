@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="대용량 데이터 샘플">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList id="dlt_ZipCodeStreet" baseNode="list"
+					saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="SEQ_NO" name="SEQ_NO"
+							dataType="text">
+						</w2:column>
+						<w2:column id="SIGUNGUCODE" name="SIGUNGUCODE"
+							dataType="text">
+						</w2:column>
+						<w2:column id="STREETNUM" name="STREETNUM"
+							dataType="text">
+						</w2:column>
+						<w2:column id="STREET" name="STREET"
+							dataType="text">
+						</w2:column>
+						<w2:column id="STREETENG" name="STREETENG"
+							dataType="text">
+						</w2:column>
+						<w2:column id="DONGSEQ" name="DONGSEQ"
+							dataType="text">
+						</w2:column>
+						<w2:column id="SIDO" name="SIDO"
+							dataType="text">
+						</w2:column>
+						<w2:column id="SIGUNGU" name="SIGUNGU"
+							dataType="text">
+						</w2:column>
+						<w2:column id="DONGTYPE" name="DONGTYPE"
+							dataType="text">
+						</w2:column>
+						<w2:column id="DONGCODE" name="DONGCODE"
+							dataType="text">
+						</w2:column>
+						<w2:column id="DONG" name="DONG"
+							dataType="text">
+						</w2:column>
+						<w2:column id="PARENTSTREETNUM"
+							name="PARENTSTREETNUM" dataType="text">
+						</w2:column>
+						<w2:column id="PARENTSTREET" name="PARENTSTREET"
+							dataType="text">
+						</w2:column>
+						<w2:column id="ISUSE" name="ISUSE"
+							dataType="text">
+						</w2:column>
+						<w2:column id="CHANGEREASON" name="CHANGEREASON"
+							dataType="text">
+						</w2:column>
+						<w2:column id="CHANGEHISTORY"
+							name="CHANGEHISTORY" dataType="text">
+						</w2:column>
+						<w2:column id="SIDOENG" name="SIDOENG"
+							dataType="text">
+						</w2:column>
+						<w2:column id="SIGUNGUENG" name="SIGUNGUENG"
+							dataType="text">
+						</w2:column>
+						<w2:column id="DONGENG" name="DONGENG"
+							dataType="text">
+						</w2:column>
+						<w2:column id="OPENDATE" name="OPENDATE"
+							dataType="text">
+						</w2:column>
+						<w2:column id="CLOSEDATE" name="CLOSEDATE"
+							dataType="text">
+						</w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_Search">
+					<w2:keyInfo>
+						<w2:key id="SEQ_NO" name="name1"
+							dataType="text">
+						</w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map"
+					id="dlt_result" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="type" name="데이터 타입"
+							dataType="text">
+						</w2:column>
+						<w2:column id="typeKey" name="데이터 타입 키"
+							dataType="text">
+						</w2:column>
+						<w2:column id="row" name="행 개수"
+							dataType="number">
+						</w2:column>
+						<w2:column id="col" name="열 개수"
+							dataType="number">
+						</w2:column>
+						<w2:column id="cell" name="셀 개수"
+							dataType="number" importFormatter="edu.ifm_setCellData">
+						</w2:column>
+						<w2:column id="serverTime" name="서버 통신 시간"
+							dataType="number">
+						</w2:column>
+						<w2:column id="clientTime" name="화면 랜더링 시간"
+							dataType="number">
+						</w2:column>
+						<w2:column id="resSize" name="데이터 사이즈"
+							dataType="number">
+						</w2:column>
+
+						<w2:column id="totCnt" name="횟수"
+							dataType="text">
+						</w2:column>
+						<w2:column id="startTime" name="시작 시각"
+							dataType="text">
+						</w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+			<!-- target="data:array,dlt_ZipCodeStreet" 성능 측정을 위해 target 수동 셋팅 -->
+			<xf:submission id="sbm_Default" ref="data:json,dma_Search"
+				target="" action="/edu/selectLargeDataDefault.do" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="조회중입니다." ev:submit=""
+				ev:submitdone="scwin.sbm_Default_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_Array" ref="data:json,dma_Search"
+				target="" action="/edu/selectLargeDataArray.do" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="조회중입니다." ev:submit=""
+				ev:submitdone="scwin.sbm_Array_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<style type="text/css"><![CDATA[
+			/*.pvtRows{width: 150px;}*/
+			
+			/*hide pivot total data*/
+			/*.pvtTotal, .pvtTotalLabel, .pvtGrandTotal, .pvtTable tr:last-of-type{display: none;}*/
+		]]></style>
+		<script type="text/javascript"><![CDATA[
+			scwin.onpageunload = function() {
+			
+			};
+			
+			scwin.onpageload = function() {
+				
+			};
+	
+			scwin.btn_SearchDefault_onclick = function(e) {
+				dlt_ZipCodeStreet.setJSON( [] );
+				$p.executeSubmission("sbm_Default", null, this.id);
+			};
+			
+			scwin.btn_SearchLargeHander_onclick = function(e) {
+				dlt_ZipCodeStreet.setJSON( [] );
+				$p.executeSubmission("sbm_Array", null, this.id);
+			};
+			
+			scwin.btn_removeAll_onclick = function(e) {
+				dlt_ZipCodeStreet.setJSON( [] );
+			};
+			
+			scwin.sbm_Default_submitdone = function(e) {
+				scwin.setResultDataList.apply(this,["JSON",e]);
+			};
+			
+			scwin.sbm_Array_submitdone = function(e) {
+				scwin.setResultDataList.apply(this,["Array",e]);
+			};
+			
+			scwin.setResultDataList = function(typeNm,e){
+				var sTime = new Date();
+				dlt_ZipCodeStreet["set"+typeNm]( e.responseJSON.dlt_ZipCodeStreet );
+				var eTime = new Date();
+				console.log("done");
+				var rowCnt = dlt_ZipCodeStreet.getRowCount();
+				
+				var txtObj = {
+					type : typeNm,
+					typeKey : typeNm+"-"+rowCnt,
+					row : dlt_ZipCodeStreet.getRowCount(),
+					col : dlt_ZipCodeStreet.getTotalCol(),
+					serverTime : this.endTime-this.startTime,
+					clientTime : eTime-sTime,
+					//resSize : scwin.getMBSize( e.responseText),
+					startTime : WebSquare.date.getFormattedDate( this.startTime , "HH:mm:ss" ) 
+				};
+				dlt_result.setJSON( [txtObj] , true );
+				
+				grd_log.setFocusedCell( grd_log.getTotalRow()-1 , 0 );
+				
+				console.log("last");
+				console.log("time"+(eTime-sTime));
+			};
+			
+			
+			scwin.getMBSize = function(str){
+				return (WebSquare.util.getStringByteSize( str )/1048576).toFixed(2);
+			};
+			
+			scwin.setResultData = function(type,serverTime,clientTime,resSize){
+				
+			};
+			
+			scwin.ifm_setCellData = function(rowData){
+				return rowData.col * rowData.row;
+			};
+		
+			scwin.btn_ExcelDownLoad_Basic_onclick = function(e) {
+				option = {};
+				option.fileName ="data.xlsx";
+				var rowCnt = dlt_ZipCodeStreet.getRowCount();
+				if ( rowCnt > 50000 ) {
+					if ( confirm ("그리드 엑셀 표현 건수가 5만건을 초과 합니다.\nWAS의 Heap영역의 메모리를 과하게 사용하므로 Out Of Memory 가 발생할 수 있습니다. \n오류 발생시 WAS를 재기동 해야 할 수도 있습니다.\n그래도 진행 하시겠습니까?")){
+						grd_data.advancedExcelDownload( option  );
+					}
+				} else {
+				
+					grd_data.advancedExcelDownload( option  );
+				}
+			};
+		
+			scwin.btn_ExcelDownload_Provider_onclick = function(e) {
+		
+				option = {};
+				option.fileName ="data.xlsx";
+				// 기존 Service 호출방식
+				option.dataProvider="com.inswave.edu.provider.ExcelDown";
+				// SQL ID를 이용한 직접 db 호출 방식 
+				//option.dataProvider="com.inswave.edu.provider.ExcelDown_directDBCall";
+				
+				option.showProcess = "true";
+				option.providerRequestXml = scwin.setProviderData(dma_Search, "com.inswave.edu.dao.EduDao.selectZipCodeStreet");
+				grd_data.advancedExcelDownload(option);				
+				
+			};
+		
+			scwin.setProviderData = function( data, sqlId) {
+			
+				var dataStr = "<jsonData>"+JSON.stringify(data.getJSON())+"</jsonData>";
+				var sqlIdStr = "<sqlId>"+sqlId+"</sqlId>";
+				var seqNoStr = "<seqNo>"+sbx_row.getValue()+"</seqNo>";
+				
+				return "<data>"+dataStr+sqlIdStr+seqNoStr+"</data>";
+			};
+			
+			// split Provider 
+			scwin.btn_ExcelDownload_SplitProvider_onclick = function(e) {
+				option = {};
+				option.fileName ="data.xlsx";
+				// Service 호출방식
+				option.splitProvider = "com.inswave.edu.provider.ExcelDownSplit";
+				option.showProcess = "true";
+				option.providerRequestXml = scwin.setProviderData(dma_Search, "");
+				grd_data.advancedExcelDownload(option);	
+			};
+		]]></script>
+	</head>
+	<body ev:onpageunload="scwin.onpageunload" ev:onpageload="scwin.onpageload">
+		<xf:group class="wrapper" id="">
+			<xf:group class="section_desc" id=""
+				style="padding: 10px;">
+				<w2:textbox id=""
+					label='데이터 타입에 따른 화면 랜더링 속도 및 네트워크 구간 속도를 비교할 수 있다.&lt;br/&gt;JSON Format은 기본 데이터 포맷이며 ARRAY Format은 대용량 데이터 처리 시 권장 포맷이다.&lt;br/&gt;데이터가 10만 셀 이상인 경우 대용량 데이터로 판단한다.(해당 기준은 ie8 이하 브라우저를 포함하여 측정된 결과이다.)&lt;br/&gt;데이터 타입별 포맷은 &lt;a class="txt_b_blue" target="_blank" href="ws5.do?w2xPath=/ws5/sample/compFunc/fn_dataFormat.xml"&gt;fn_dataFormat.xml&lt;/a&gt;을 참고한다.&lt;br/&gt;( source : fn_largeData.xml )'
+					style="margin-top:0px;" tagname="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group style="" id="" class="dmb">
+				<w2:span style=""
+					label="이 페이지는 DB에서 데이터를 가져오기 때문에 실행 환경이 구성되어야한다." id=""
+					class="warningTxt">
+				</w2:span>
+			</xf:group>
+			<xf:group style="" id="" class="mb20">
+				<xf:group style="" id="" class="searchbox dmb">
+					<xf:group class="w2tb" id="" style="width:100%;" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="caption"></xf:group>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:100px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								조회&amp;nbsp;건수&amp;nbsp;:&amp;nbsp;
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<xf:select1 allOption="" appearance="minimal" chooseOption="" class="mr5 dm" direction="auto"
+									disabled="false" disabledClass="w2selectbox_disabled" displayMode="label" id="sbx_row" optionOrder="false"
+									ref="data:dma_Search.SEQ_NO" selectedData="true" style="width:120px;" submenuSize="auto">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[10,000]]></xf:label>
+											<xf:value><![CDATA[10000]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[50,000]]></xf:label>
+											<xf:value><![CDATA[50000]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[100,000]]></xf:label>
+											<xf:value><![CDATA[100000]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[200,000]]></xf:label>
+											<xf:value><![CDATA[200000]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[300,000]]></xf:label>
+											<xf:value><![CDATA[300000]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[전체]]></xf:label>
+											<xf:value><![CDATA[500000]]></xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select1>
+								<xf:group class="fr" id="" style="">
+									<xf:trigger class="btnRed dm" ev:onclick="scwin.btn_SearchDefault_onclick" id="" style="width:150px;" type="button">
+										<xf:label><![CDATA[JSON 타입 조회]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btnRed dm" ev:onclick="scwin.btn_SearchLargeHander_onclick" id=""
+										style="width:150px;" type="button">
+										<xf:label><![CDATA[ARRAY 타입 조회]]></xf:label>
+									</xf:trigger>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group id="" style="" class="dmb ofh">
+					<xf:group id="" style="" class="fr">
+						<xf:trigger id="btn_ExcelDownLoad_Basic" style="width: 220px;" ev:onclick="scwin.btn_ExcelDownLoad_Basic_onclick"
+							class="btnDarkGray dm" type="button">
+							<xf:label><![CDATA[Excel DownLoad ( Basic )]]></xf:label>
+						</xf:trigger>
+						<xf:trigger id="btn_ExcelDownload_Provider" style="width: 220px;"
+							ev:onclick="scwin.btn_ExcelDownload_Provider_onclick" class="btnDarkGray dm" type="button">
+							<xf:label><![CDATA[Excel DownLoad ( Provider )]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="btnDarkGray dm" ev:onclick="scwin.btn_ExcelDownload_SplitProvider_onclick" id="btn_ExcelDownload_SplitProvider"
+							style="width: 240px;" type="button">
+							<xf:label><![CDATA[Excel DownLoad ( Split Provider )]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+					<w2:textbox id="" style="" class="df_tt fl dm" label="조회 결과 데이터" tagname="h2"></w2:textbox>
+				</xf:group>
+				<w2:gridView scrollByColumnAdaptive="false" rowNumVisible="" summaryAuto="false" useShiftKey="true" rowNumHeaderValue=""
+					scrollByColumn="false" fixedColumnWithHidden="true" rowNumWidth="" dataList="dlt_ZipCodeStreet" ignoreCellClick="false"
+					style="height:150px;" id="grd_data" visibleRowNum="" class="cm_grid" ignoreToggleOnDisabled="false">
+					<w2:header style="" id="header1">
+						<w2:row style="" id="row1">
+							<w2:column width="120" inputType="text" id="column39" value="SEQ_NO" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column37" value="SIGUNGUCODE" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column35" value="STREETNUM" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column33" value="STREET" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column31" value="STREETENG" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column29" value="DONGSEQ" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column27" value="SIDO" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column25" value="SIGUNGU" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column23" value="DONGTYPE" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column21" value="DONGCODE" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column19" value="DONG" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column17" value="PARENTSTREETNUM" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column15" value="PARENTSTREET" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column13" value="ISUSE" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column11" value="CHANGEREASON" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column9" value="CHANGEHISTORY" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column7" value="SIDOENG" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column5" value="SIGUNGUENG" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column3" value="DONGENG" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="120" inputType="text" id="column1" value="OPENDATE" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column blockSelect="false" id="column40" inputType="text" width="70" value="CLOSEDATE"
+								displayMode="label">
+							</w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody style="" id="gBody1">
+						<w2:row style="" id="row2">
+							<w2:column width="70" inputType="text" style="height:20px" id="SEQ_NO" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="SIGUNGUCODE" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="STREETNUM" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="STREET" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="STREETENG" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="DONGSEQ" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="SIDO" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="SIGUNGU" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="DONGTYPE" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="DONGCODE" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="DONG" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="PARENTSTREETNUM" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="PARENTSTREET" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="ISUSE" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="CHANGEREASON" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="CHANGEHISTORY" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="SIDOENG" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="SIGUNGUENG" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="DONGENG" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="OPENDATE" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column blockSelect="false" id="CLOSEDATE" inputType="text" width="70" displayMode="label"></w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+			</xf:group>
+			<xf:group id="" style="" class="defaultbox dmb">
+				<w2:textbox label="데이터 타입별 속도 측정 결과" style="" id="" tagname="h1" class="mb20"></w2:textbox>
+				<w2:textbox class="df_tt dmb" id="" label="서버 통신 로그" style="" tagname="h2"></w2:textbox>
+				<w2:gridView autoFit="allColumn" dataList="dlt_result" fixedColumnWithHidden="true" id="grd_log" ignoreCellClick="false"
+					ignoreToggleOnDisabled="false" readOnly="true" scrollByColumn="false" scrollByColumnAdaptive="false" sortable="true"
+					style="height: 110px;" summaryAuto="false" summaryOnlyAuto="false" useFilterList="false" useShiftKey="true" class="dmb" focusMode="row"
+					selectedRowColor="orange" rowMouseOver="false" autoFitMinWidth="600">
+					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+					<w2:header id="header1" style="">
+						<w2:row id="row1" style="">
+							<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" style="height:20px;"
+								value="데이터 타입" width="91">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px;" id="column11" blockSelect="false"
+								displayMode="label" value="행 수">
+							</w2:column>
+							<w2:column blockSelect="false" displayMode="label" id="column7" inputType="text" style="height:20px;"
+								value="셀 개수" width="117">
+							</w2:column>
+							<w2:column blockSelect="false" displayMode="label" id="column3" inputType="text" style="height:20px;"
+								value="화면 랜더링(ms)" width="122">
+							</w2:column>
+							<w2:column blockSelect="false" displayMode="label" id="column5" inputType="text" style="height:20px;"
+								value="서버 통신(ms)" width="105">
+							</w2:column>
+							<w2:column width="109" inputType="text" style="height:20px;" id="column12" blockSelect="false"
+								displayMode="label" value="실행 시각">
+							</w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody id="gBody1" style="">
+						<w2:row id="row2" style="">
+							<w2:column blockSelect="false" displayMode="label" id="type" inputType="text" style="height:20px" width="91"
+								colMerge="">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="height:20px" id="row" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column blockSelect="false" dataType="number" displayFormat="#,###" displayMode="label" expression=""
+								id="cell" inputType="text" style="height:20px" textAlign="right" width="117" colMerge="">
+							</w2:column>
+							<w2:column blockSelect="false" dataType="number" displayFormat="#,##0" displayMode="label" id="clientTime"
+								inputType="text" style="height:20px" textAlign="right" width="122">
+							</w2:column>
+							<w2:column blockSelect="false" dataType="number" displayFormat="#,##0" displayMode="label" id="serverTime"
+								inputType="text" style="height:20px" textAlign="right" width="105">
+							</w2:column>
+							<w2:column width="109" inputType="text" style="height:20px" id="startTime" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+				<w2:textbox class="df_tt dmb" id="" label="데이터 타입별 측정 결과 평균" style="" tagname="h2"></w2:textbox>
+				<xf:group id="" class="pivotTableBox">
+					<!-- <w2:pivotTable style="position: relative;min-height: 220px;" cols="row" rows="type" dataList="dlt_result"
+						vals="clientTime,serverTime,totCnt" defaultAggregator="Average" valuesAxis="col" userData3="" id="ui_pivotTable" renderMode="">
+						<w2:fieldInfo>
+							<w2:field name="데이터 타입" id="type" sortOrder="JSON,Array"></w2:field>
+							<w2:field name="행 개수" id="row"></w2:field>
+							<w2:field name="열 개수" id="col"></w2:field>
+							<w2:field name="셀 개수" id="cell"></w2:field>
+							<w2:field name="구분 키" id="typeKey"></w2:field>
+							<w2:field name="횟수" id="totCnt" aggregator="Count"></w2:field>
+							<w2:field name="서버 통신(ms)" id="serverTime" aggregator="Average" useRepresentativeValue="0"></w2:field>
+							<w2:field name="화면 랜더링(ms)" id="clientTime" aggregator="Average" useRepresentativeValue="0"></w2:field>
+						</w2:fieldInfo>
+					</w2:pivotTable> -->
+					<w2:pivot style="position: relative;min-height: 320px;" dataList="data:dlt_result" vals="clientTime,serverTime,totCnt" rows="type" cols="row"
+						id="ui_pivot" valuesAxis="col" autoFit="allColumn" autoFitMinWidth="" hiddenHeaderList="" showZero=""
+						excludeHiddenList="" sortFunction="">
+						<w2:fieldInfo>
+							<w2:field name="데이터 타입" id="type" sortOrder="JSON,Array"></w2:field>
+							<w2:field name="행 개수" id="row"></w2:field>
+							<w2:field name="열 개수" id="col"></w2:field>
+							<w2:field name="셀 개수" id="cell"></w2:field>
+							<w2:field name="구분 키" id="typeKey"></w2:field>
+							<w2:field name="횟수" id="totCnt" aggregator="Count"></w2:field>
+							<w2:field name="Average:서버 통신(ms)" id="serverTime"></w2:field>
+							<w2:field name="Average:화면 랜더링(ms)" id="clientTime"></w2:field>
+						</w2:fieldInfo>
+					</w2:pivot>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

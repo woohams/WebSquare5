@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="json 기본 API">
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map"></w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    	</xf:model>
+    	<style type="text/css"><![CDATA[
+    		.txtbold{font-weight: bold;color:blue;}
+    	]]></style>
+    	<script type="javascript"><![CDATA[ 
+	scwin.btn_execute_onclick = function(e) {
+		eval(ui_txa.getValue());
+	};
+	
+	scwin.btn_InitScript_onclick = function(e) {
+		ui_txa.setValue( "" );
+	};
+	
+	scwin.btn_onclick = function(e) {
+		var tmpId = (this.getID()).replace("btn_","txt_");
+		var tmpVal = scwin.getScriptString( $p.getComponentById(tmpId).getValue() );
+		ui_txa.setValue( tmpVal );
+		scwin.btn_execute_onclick();
+	};
+	
+	scwin.getScriptString = function(tmpStr){
+		return tmpStr.replace(/<br.*?>/ig,"\n").replace(/<.*?>/ig,"");
+	};
+	]]></script>
+    </head>
+    <body>
+    	<xf:group id="" style="" class="wrapper">
+    		<xf:group class="section_desc" id="" style="">
+    			<w2:textbox class="" id="" label="JSON 관련 기본 API 예시입니다.&lt;br/&gt;( source : fn_jsonUtils.xml )" style="line-height: 18px;"></w2:textbox>
+    		</xf:group>
+    		<xf:group class="mb20" id="" style="">
+    			<xf:group class="ofh dmb" id="" style="">
+    				<w2:textbox class="df_tt fl" id="" label="테스트"
+    					style="" tagname="">
+    				</w2:textbox>
+    				<xf:trigger class="fr"
+    					ev:onclick="scwin.btn_execute_onclick" id="btn_execute"
+    					style="width: 80px;height: 23px;" type="button">
+    					<xf:label><![CDATA[실행]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="dmr fr"
+    					ev:onclick="scwin.btn_InitScript_onclick" id="btn_InitScript"
+    					style="width: 80px;height: 23px;" type="button">
+    					<xf:label><![CDATA[초기화]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<xf:group class="dmb" id=""
+    				style="">
+    				<xf:textarea id="ui_txa"
+    					style="width:100%;height: 150px;line-height: 18px;"
+    					placeholder="스크립트를 넣고 [실행]버튼을 클릭하면 입력한 스크립트가 실행됩니다.">
+    				</xf:textarea>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="mb20" id="" style="">
+    			<xf:group class="ofh dmb" id="" style="">
+    				<w2:textbox class="df_tt fl" id=""
+    					label="String to JSON - JSON.parse"
+    					style="" tagname="">
+    				</w2:textbox>
+    				<xf:trigger class="fr"
+    					ev:onclick="scwin.btn_onclick" id="btn_JSONParse"
+    					style="width: 80px;height: 23px;" type="button">
+    					<xf:label><![CDATA[실행]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<w2:textbox class="dp" id="txt_JSONParse"
+    				label="var jsonStr = '{&quot;No&quot;:&quot;1&quot;, &quot;name&quot;:&quot;WebSquare&quot;}';&lt;br/&gt;var jsonObj = &lt;span class='txtbold'&gt;JSON.parse&lt;/span&gt;( jsonStr );&lt;br/&gt;&lt;br/&gt;//테스트&lt;br/&gt;alert(jsonObj.name);"
+    				style="" tagname="samp">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="mb20" id="" style="">
+    			<xf:group class="ofh dmb" id="" style="">
+    				<w2:textbox class="df_tt fl" id=""
+    					label="JSON to String - JSON.stringify"
+    					style="" tagname="">
+    				</w2:textbox>
+    				<xf:trigger class="fr"
+    					ev:onclick="scwin.btn_onclick" id="btn_JSONStringify"
+    					style="width: 80px;height: 23px;" type="button">
+    					<xf:label><![CDATA[실행]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<w2:textbox class="dp" id="txt_JSONStringify"
+    				label="var jsonObj = {&quot;No&quot;:&quot;2&quot;, &quot;name&quot;:&quot;WebSquare&quot;};&lt;br/&gt;var jsonStr = &lt;span class='txtbold'&gt;JSON.stringify&lt;/span&gt;( jsonObj );&lt;br/&gt;var jsonStrWithTab = &lt;span class='txtbold'&gt;JSON.stringify&lt;/span&gt;( jsonObj ,null,&quot;\t&quot;);&lt;br/&gt;&lt;br/&gt;//테스트&lt;br/&gt;//alert( jsonObj ); //[object Object]로 표현됨 (chrome브라우저)&lt;br/&gt;alert( jsonStr );&lt;br/&gt;//alert( jsonStrWithTab );"
+    				style="" tagname="samp">
+    			</w2:textbox>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

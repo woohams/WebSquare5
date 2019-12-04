@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inswave.edu.dao.EduDao">
+	<select id="selectEmpCd" resultType="int">
+		SELECT max(EMP_CD)+1 FROM SP_MEMBER
+	</select>
+	<insert id="insertSpMember" parameterType="Map">
+		INSERT INTO sp_member(
+			EMP_NM,
+			GENDER_CD,
+			JOIN_DATE,
+			POSITION_CD,
+			DUTY_CD,
+			ROLE_CD,
+			ASSIGNED_TASK,
+			EMAIL,
+			ZIP_CD,
+			ADDRESS1,
+			ADDRESS2,
+			IMAGE_PATH,
+			CREATED_DATE,
+			UPDATED_DATE
+		)VALUES(
+			#{EMP_NM},
+			#{GENDER_CD},
+			#{JOIN_DATE},
+			#{POSITION_CD},
+			#{DUTY_CD},
+			#{ROLE_CD},
+			#{ASSIGNED_TASK},
+			#{EMAIL},
+			#{ZIP_CD},
+			#{ADDRESS1},
+			#{ADDRESS2},
+			#{IMAGE_PATH},
+			curdate(), 
+			curdate()
+		)
+	</insert>
+	
+	<insert id="insertSpMemberBatch" parameterType="Map">
+		INSERT INTO sp_member(
+			EMP_NM,
+			GENDER_CD,
+			JOIN_DATE,
+			POSITION_CD,
+			DUTY_CD,
+			ROLE_CD,
+			ASSIGNED_TASK,
+			EMAIL,
+			ZIP_CD,
+			ADDRESS1,
+			ADDRESS2,
+			IMAGE_PATH,
+			CREATED_DATE,
+			UPDATED_DATE
+		)VALUES
+		<foreach item="param" collection="insert" index="idx" open="" separator="," close="">
+			(
+				#{param.EMP_NM},
+				#{param.GENDER_CD},
+				#{param.JOIN_DATE},
+				#{param.POSITION_CD},
+				#{param.DUTY_CD},
+				#{param.ROLE_CD},
+				#{param.ASSIGNED_TASK},
+				#{param.EMAIL},
+				#{param.ZIP_CD},
+				#{param.ADDRESS1},
+				#{param.ADDRESS2},
+				#{param.IMAGE_PATH},
+				curdate(), 
+				curdate()
+			)
+		</foreach>
+	</insert>
+	
+	<update id="updateSpMember" parameterType="Map">
+		UPDATE sp_member SET
+			EMP_NM=#{EMP_NM},
+			JOIN_DATE=#{JOIN_DATE},
+			POSITION_CD=#{POSITION_CD},
+			GENDER_CD=#{GENDER_CD},
+			DUTY_CD=#{DUTY_CD},
+			ROLE_CD=#{ROLE_CD},
+			ASSIGNED_TASK=#{ASSIGNED_TASK},
+			EMAIL=#{EMAIL},
+			ZIP_CD=#{ZIP_CD},
+			ADDRESS1=#{ADDRESS1},
+			ADDRESS2=#{ADDRESS2},
+			IMAGE_PATH=#{IMAGE_PATH},
+			UPDATED_DATE=curdate()
+		WHERE EMP_CD=#{EMP_CD}
+	</update>
+	
+	<update id="updateSpMemberBatch" parameterType="Map">
+		<foreach item="param" collection="update" open="" separator=";" close="">
+			update sp_member set
+				EMP_NM=#{param.EMP_NM},
+				JOIN_DATE=#{param.JOIN_DATE},
+				POSITION_CD=#{param.POSITION_CD},
+				DUTY_CD=#{param.DUTY_CD},
+				ROLE_CD=#{param.ROLE_CD},
+				ASSIGNED_TASK=#{param.ASSIGNED_TASK},
+				EMAIL=#{param.EMAIL},
+				ZIP_CD=#{param.ZIP_CD},
+				ADDRESS1=#{param.ADDRESS1},
+				ADDRESS2=#{param.ADDRESS2},
+				IMAGE_PATH=#{param.IMAGE_PATH},
+				UPDATED_DATE=curdate()
+			where EMP_CD=#{param.EMP_CD}
+		</foreach>
+	</update>
+	
+	<delete id="deleteSpMember" parameterType="Map">
+		DELETE FROM SP_MEMBER WHERE EMP_CD=#{EMP_CD}
+	</delete>
+	
+	<delete id="deleteSpMemberBatch" parameterType="Map">
+		DELETE FROM SP_MEMBER WHERE EMP_CD IN
+		<foreach item="param" collection="delete" open="(" separator="," close=")">
+			#{param.EMP_CD}
+		</foreach>
+	</delete>
+	
+	<select id="selectSpMemberTotalScroll" parameterType="Map" resultType="int">
+		SELECT count(*) TOTAL_CNT FROM sp_member
+		WHERE  'A'='A'
+			<if test="pEMP_NM != null">
+				AND EMP_NM like '%'||#{pEMP_NM}||'%'
+			</if>
+			<if test="pEMAIL != null">
+				AND EMAIL like '%'||#{pEMAIL}||'%'
+			</if>
+	</select>
+	
+	<select id="selectSpMemberTotal" parameterType="Map" resultType="int">
+		SELECT count(EMP_CD) ROW_TOTAL FROM sp_member
+		WHERE  'A'='A'
+			<if test="pEMP_NM != null">
+				AND EMP_NM like '%'||#{pEMP_NM}||'%'
+			</if>
+			<if test="pEMAIL != null">
+				AND EMAIL like '%'||#{pEMAIL}||'%'
+			</if>
+	</select>
+	
+	<select id="selectListSpMember" parameterType="Map" resultType="java.util.LinkedHashMap">
+		SELECT EMP_CD,EMP_NM,GENDER_CD,JOIN_DATE,POSITION_CD,DUTY_CD,ROLE_CD,ASSIGNED_TASK,EMAIL,ZIP_CD,ADDRESS1,ADDRESS2,IMAGE_PATH,CREATED_DATE,UPDATED_DATE 
+		FROM sp_member
+		WHERE  'A'='A'
+			<if test="pEMP_NM != null">
+				AND EMP_NM like '%'||#{pEMP_NM}||'%'
+			</if>
+			<if test="pEMAIL != null">
+				AND EMAIL like '%'||#{pEMAIL}||'%'
+			</if>
+		ORDER BY EMP_CD
+		<choose>
+			<when test="startNum != null and endNum != null"><![CDATA[
+				 LIMIT #{startNum},#{count}
+			]]></when>
+			<otherwise><![CDATA[
+			]]></otherwise>
+		</choose>
+	</select>
+	
+	<select id="selectOneSpMember" parameterType="Map" resultType="Map">
+		SELECT EMP_CD,EMP_NM,GENDER_CD,JOIN_DATE,POSITION_CD,DUTY_CD,ROLE_CD,ASSIGNED_TASK,EMAIL,ZIP_CD,ADDRESS1,ADDRESS2,IMAGE_PATH,CREATED_DATE,UPDATED_DATE FROM sp_member 
+		where EMP_CD = #{EMP_CD}
+	</select>
+	
+	<select id="selectListZipCodeByTown" parameterType="Map" resultType="Map">
+		select ZIP_CD, ZIP_NM, BUILDING, FROM_NO from sp_zip_code where town like '%'||#{town}||'%'
+	</select>
+	
+	<select id="selectCodeList" resultType="Map">
+		select A.GRP_CD, A.COM_CD AS CODE_CD, A.CODE_NM from SP_CODE A, SP_CODE_GRP B
+		where B.GRP_CD = A.GRP_CD and B.IS_USE = 'Y' and A.IS_USE = 'Y' and 
+		A.GRP_CD IN
+        <foreach collection="CODE" item="item" index="index"  open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+		order by A.GRP_CD, A.SORT_ORDER
+	</select>
+	
+	<select id="selectZipCodeStreet" resultType="java.util.LinkedHashMap" parameterType="Map" fetchSize="10000">
+		SELECT 
+			SEQ_NO, SIGUNGUCODE, STREETNUM, STREET, STREETENG, DONGSEQ, SIDO, SIGUNGU, DONGTYPE, DONGCODE, DONG, PARENTSTREETNUM, PARENTSTREET, ISUSE, CHANGEREASON, CHANGEHISTORY, SIDOENG, SIGUNGUENG, DONGENG, OPENDATE, CLOSEDATE 
+		FROM SP_ZIP_CODE_STREET
+		WHERE 
+		<choose>
+			<when test="SEQ_NO != null and !SEQ_NO.equals('')"><![CDATA[
+				SEQ_NO <= #{SEQ_NO}
+			]]></when>
+			<otherwise><![CDATA[
+				SEQ_NO <= 1000
+			]]></otherwise>
+		</choose>
+	</select>
+	
+	<select id="selectZipCodeStreetSplit" resultType="java.util.LinkedHashMap" parameterType="Map" fetchSize="10000">
+		SELECT 
+			SEQ_NO, SIGUNGUCODE, STREETNUM, STREET, STREETENG, DONGSEQ, SIDO, SIGUNGU, DONGTYPE, DONGCODE, DONG, PARENTSTREETNUM, PARENTSTREET, ISUSE, CHANGEREASON, CHANGEHISTORY, SIDOENG, SIGUNGUENG, DONGENG, OPENDATE, CLOSEDATE 
+		FROM SP_ZIP_CODE_STREET
+		<![CDATA[
+		WHERE SEQ_NO BETWEEN #{START_NUM} AND #{END_NUM}
+		]]>
+	</select>
+	
+	<select id="selectMultiLangCodeList"  resultType="Map">
+		select LOCALE, KEY, LABEL from SP_LANG
+	</select>	
+</mapper>

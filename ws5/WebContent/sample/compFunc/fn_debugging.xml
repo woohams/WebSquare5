@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="debug 기본 API">
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dc_reqSample">
+    				<w2:keyInfo>
+    					<w2:key id="koName" name="한글명"
+    						dataType="text">
+    					</w2:key>
+    					<w2:key id="enName" name="영문명"
+    						dataType="text">
+    					</w2:key>
+    				</w2:keyInfo>
+    				<w2:data use="true">
+    					<koName><![CDATA[웹스퀘어5]]></koName>
+    					<enName><![CDATA[WebSquare5]]></enName>
+    				</w2:data>
+    			</w2:dataMap>
+    			<w2:dataMap id="dma_Common_Code">
+					<w2:keyInfo>
+						<w2:key id="GRP_CD" name="GRP_CD" dataType="text"></w2:key>
+						<w2:key id="DATA_PREFIX" name="DATA_PREFIX" dataType="text"></w2:key>
+					</w2:keyInfo>
+					<w2:data xmlns="" use="true">
+						<GRP_CD><![CDATA[102,101]]></GRP_CD>
+						<DATA_PREFIX><![CDATA[dc_code]]></DATA_PREFIX>
+					</w2:data>
+				</w2:dataMap>
+			</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    		<xf:submission id="sbm_sample" ref='data:json,["dc_reqSample","dma_Common_Code"]'
+    			target="" action="/edu/getCodeList.do" method="post" mediatype="application/json"
+    			encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="" ev:submiterror="">
+    		</xf:submission>
+    	</xf:model>
+    	<style type="text/css"><![CDATA[
+    		.txtbold{font-weight: bold;color:blue;}
+    	]]></style>
+    	<script type="text/javascript" lazy="false"><![CDATA[ 
+	scwin.btn_execute_onclick = function(e) {
+		eval(ui_txa.getValue());
+	};
+	
+	scwin.btn_InitScript_onclick = function(e) {
+		ui_txa.setValue( "" );
+	};
+	
+	scwin.btn_onclick = function(e) {
+		var tmpId = (this.getID()).replace("btn_","txt_");
+		var tmpVal = scwin.getScriptString( $p.getComponentById(tmpId).getValue() );
+		ui_txa.setValue( tmpVal );
+		scwin.btn_execute_onclick();
+	};
+	
+	scwin.getScriptString = function(tmpStr){
+		return tmpStr.replace(/<br.*?>/ig,"\n").replace(/<.*?>/ig,"");
+	};
+	
+	scwin.btn_exeSubmission_onclick = function(e) {
+		$p.executeSubmission( "sbm_sample" );
+	};
+	]]></script>
+    </head>
+    <body>
+    	<xf:group id="" style="" class="wrapper">
+    		<xf:group class="section_desc" id="" style="">
+    			<w2:textbox class="" id=""
+    				label="디버깅 관련 기본 API 예시입니다.&lt;br/&gt;1. 로그를 보는 방법&lt;br/&gt; &amp;nbsp;- 브라우저에서 &lt;span class='txtRed'&gt;[ctrl]키를 누른채 [마우스 오른쪽 버튼]&lt;/span&gt;을 클릭한 뒤 &lt;span class='txtRed'&gt;[로그보기]&lt;/span&gt;를 클릭한다.&lt;br/&gt; &amp;nbsp; &amp;nbsp;팝업창에서 하단의 &lt;span class='txtRed'&gt;[pause/resume]&lt;/span&gt;버튼을 클릭하면 실시간으로 로그를 확인할 수 있다.&lt;br/&gt; &amp;nbsp;- config.xml에 개발자 도구로 로그 출력이 설정되어있는 경우 브라우저의 [개발자 도구]의 [console] 또는 [콘솔] 탭을 클릭한다.&lt;br/&gt;&lt;br/&gt;2. 로그를 출력하는 방법&lt;br/&gt; &amp;nbsp;- &lt;span class='txtRed'&gt;$p.log&lt;/span&gt; 또는 &lt;span class='txtRed'&gt;consolg.log&lt;/span&gt;를 사용한다.&lt;br/&gt; &amp;nbsp; &amp;nbsp;$p.log : Object 타입은 String으로 변환하여 출력해야한다.&lt;br/&gt; &amp;nbsp; &amp;nbsp;console.log : 개발자 도구를 지원하는 브라우저에서만 사용이 가능하다.&lt;br/&gt;&lt;br/&gt;3. break point 적용 방법&lt;br/&gt; &amp;nbsp;- 개발자 도구를 지원하는 브라우저에서만 사용이 가능하다.&lt;br/&gt; &amp;nbsp;- break를 적용하고자 하는 위치에서 &lt;span class=&quot;txtRed&quot;&gt;debugger;&lt;/span&gt;을 넣는다. 브라우저의 개발자 도구를 실행하고 화면을 갱신하거나 이벤트(버튼 클릭 등)를 발생시킨다.&lt;br/&gt;&lt;br/&gt;4. 통신에 대한 디버깅 실행 방법&lt;br/&gt; &amp;nbsp;- submission을 사용하여 서버와 통신한 경우에만 동작한다.&lt;br/&gt; &amp;nbsp;- 브라우저에서 &lt;span class='txtRed'&gt;[ctrl]키를 누른채 [마우스 오른쪽 버튼]&lt;/span&gt;을 클릭한 뒤 &lt;span class='txtRed'&gt;[현재 화면 디버그 실행]&lt;/span&gt;을 클릭한다.&lt;br/&gt;( source : fn_debugging.xml )"
+    				style="line-height: 18px;">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group style="" id="" class="mb20">
+    			
+    			<xf:group style="" id="" class="ofh dmb">
+    				<w2:textbox tagname="" style="" id="" label="테스트" class="df_tt fl">
+    			</w2:textbox><xf:trigger ev:onclick="scwin.btn_execute_onclick"
+    					style="width: 80px;height: 23px;" id="btn_execute"
+    					type="button" class="fr">
+    					<xf:label><![CDATA[실행]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger
+    					ev:onclick="scwin.btn_InitScript_onclick"
+    					style="width: 80px;height: 23px;" id="btn_InitScript"
+    					type="button" class="dmr fr">
+    					<xf:label><![CDATA[초기화]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<xf:group style="" id="" class="">
+    				<xf:textarea
+    					style="width:100%;height: 150px;line-height: 18px;"
+    					id="ui_txa" placeholder="스크립트를 넣고 [실행]버튼을 클릭하면 입력한 스크립트가 실행됩니다.">
+    				</xf:textarea>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="mb20" id="" style="">
+    			<xf:group class="ofh dmb" id="" style="">
+    				<w2:textbox class="df_tt fl" id="" label="$p.log"
+    					style="" tagname="">
+    				</w2:textbox>
+    				<xf:trigger class="fr"
+    					ev:onclick="scwin.btn_onclick" id="btn_JSONParse"
+    					style="width: 80px;height: 23px;" type="button">
+    					<xf:label><![CDATA[실행]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<w2:textbox class="" id="txt_JSONParse"
+    				label='var jsonObj = {"No":"2", "name":"WebSquare"};&lt;br/&gt;var jsonStr = JSON.stringify( jsonObj );&lt;br/&gt;var jsonStrWithTab = JSON.stringify( jsonObj ,null,"\t");&lt;br/&gt;&lt;br/&gt;//테스트&lt;br/&gt;$p.log("===========$p.log===========");&lt;br/&gt;$p.log(jsonObj);&lt;br/&gt;$p.log(jsonObj.name);&lt;br/&gt;$p.log(jsonStrWithTab);&lt;br/&gt;$p.log("========================");'
+    				style="" tagname="samp">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="mb20" id="" style="">
+    			<xf:group class="ofh dmb" id="" style="">
+    				<w2:textbox class="df_tt fl" id=""
+    					label="console.log" style="" tagname="">
+    				</w2:textbox>
+    				<xf:trigger class="fr"
+    					ev:onclick="scwin.btn_onclick" id="btn_JSONStringify"
+    					style="width: 80px;height: 23px;" type="button">
+    					<xf:label><![CDATA[실행]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<w2:textbox class="" id="txt_JSONStringify"
+    				label='var jsonObj = {"No":"2", "name":"WebSquare"};&lt;br/&gt;var jsonStr = JSON.stringify( jsonObj );&lt;br/&gt;var jsonStrWithTab = JSON.stringify( jsonObj ,null,"\t");&lt;br/&gt;&lt;br/&gt;//테스트&lt;br/&gt;console.log("===========console===========");&lt;br/&gt;console.log(jsonObj);&lt;br/&gt;console.log(jsonObj.name);&lt;br/&gt;console.log(jsonStrWithTab);&lt;br/&gt;console.log("========================");&lt;br/&gt;'
+    				style="" tagname="samp">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="mb20" id="" style="">
+    			<xf:group class="ofh dmb" id="" style="">
+    				<w2:textbox class="df_tt fl" id="" label="debugger"
+    					style="" tagname="">
+    				</w2:textbox>
+    				<xf:trigger class="fr"
+    					ev:onclick="scwin.btn_onclick" id="btn_Debugger"
+    					style="width: 80px;height: 23px;" type="button">
+    					<xf:label><![CDATA[실행]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<w2:textbox class="" id="txt_Debugger"
+    				label='debugger;&lt;br/&gt;var testStr = "1";&lt;br/&gt;testStr = "2";&lt;br/&gt;testStr = "3";&lt;br/&gt;testStr = "4";'
+    				style="" tagname="samp">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="" id="" style="">
+    			<xf:group class="ofh dmb" id="" style="">
+    				<w2:textbox class="df_tt fl" id="" label="Submission 디버깅" style="" tagname=""></w2:textbox>
+    				<xf:trigger class="fr" ev:onclick="scwin.btn_exeSubmission_onclick" id="btn_exeSubmission"
+    					style="width: 130px;height: 23px;" type="button">
+    					<xf:label><![CDATA[executeSubmission]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<w2:textbox class="" id="textbox1"
+    				label="브라우저에서 &lt;span class='txtRed'&gt;[ctrl]키를 누른채 [마우스 오른쪽 버튼]&lt;/span&gt;을 클릭한 뒤 &lt;span class='txtRed'&gt;[현재 화면 디버그 실행]&lt;/span&gt;을 클릭한다.&lt;br/&gt;오른쪽의 [executeSubmission]버튼을 클릭한다." style=""
+    				tagname="samp">
+    			</w2:textbox>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

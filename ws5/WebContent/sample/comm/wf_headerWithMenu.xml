@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="메인화면의 header">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+	
+	scwin.onpageload = function() {
+		var _url = window.location.href;
+		var _urlArr = _url.split("w2xPath");
+		
+		//화면 파일명으로 현재 활성된 화면의 메뉴를 강조하기 위해 작성. 
+		var page = _urlArr[1],
+			curMenuComp;
+		if(page){
+			page = page.replace(/.*\//ig , "").replace(".xml","").replace(/_.*/,"");
+		}else{
+			page = "index";
+		}
+		
+		curMenuComp = $p.getComponentById("ui_menu_"+page);
+		if(curMenuComp){
+			curMenuComp.addClass("act");
+		}
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group id="" style="" class="topLogoBar">
+    		<xf:group id="" style="position: relative;display: block;margin: 0px auto;width: 200px;min-height: 40px;" tagname="a">
+    			<w2:attributes>
+    				<w2:href>/ws5</w2:href>
+    			</w2:attributes>
+    			<w2:span class="logo_white" id="" label=" " style=""></w2:span>
+    		</xf:group>
+    		<xf:group id="" style="" tagname="a" class="menu_list_mo">
+    			<w2:attributes>
+    				<w2:href>/ws5</w2:href>
+    			</w2:attributes>
+    			<w2:span class="" id="" label=" " style=""></w2:span>
+    		</xf:group>
+    	</xf:group>
+    	<xf:group class="topMenuBar" id="" style="">
+    		<w2:anchor href="#w2xPath=/ws5/index.xml" id="ui_menu_index" outerDiv="false" style="" ev:onclick="">
+   				<xf:label><![CDATA[Home]]></xf:label>
+   			</w2:anchor>
+   			<!-- <w2:anchor href="#w2xPath=/ws5/sample/index/compList_wframe.xml" id="ui_menu_compList" outerDiv="false" style="" ev:onclick="">
+   				<xf:label><![CDATA[컴포넌트 종류]]></xf:label>
+   			</w2:anchor> -->
+   			<w2:anchor href="#w2xPath=/ws5/sample/index/compFunc.xml" id="ui_menu_compFunc" outerDiv="false" style="" ev:onclick="">
+   				<xf:label><![CDATA[응용/심화 샘플]]></xf:label>
+   			</w2:anchor>
+   			<w2:anchor href="#w2xPath=/ws5/sample/index/traiSamp.xml" id="ui_menu_traiSamp" outerDiv="false" style="" ev:onclick="">
+   				<xf:label><![CDATA[실습 샘플]]></xf:label>
+   			</w2:anchor>
+   			<w2:anchor href="#w2xPath=/ws5/sample/index/pageScope.xml" id="ui_menu_pageScope" outerDiv="false" style="" ev:onclick="">
+   				<xf:label><![CDATA[Page Coding]]></xf:label>
+   			</w2:anchor>
+   		</xf:group>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<list id="dc_hpCode">
+		<map>
+			<label>010</label>
+			<value>010</value>
+		</map>
+		<map>
+			<label>011</label>
+			<value>011</value>
+		</map>
+		<map>
+			<label>016</label>
+			<value>016</value>
+		</map>
+		<map>
+			<label>017</label>
+			<value>017</value>
+		</map>
+		<map>
+			<label>018</label>
+			<value>018</value>
+		</map>
+	</list>
+	<list id="dc_genderCode">
+		<map>
+			<label>남자</label>
+			<value>M</value>
+		</map>
+		<map>
+			<label>여자</label>
+			<value>F</value>
+		</map>
+	</list>
+</map>

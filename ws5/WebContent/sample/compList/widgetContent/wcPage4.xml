@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="widget_사용자 조회">
+		<title>사용자 관리</title>
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList id="dlt_Member" baseNode="list" saveRemovedData="true" repeatNode="map"
+					ev:ondataload="scwin.dlt_Member_ondataload" ev:oninsertrow="scwin.dlt_Member_oninsertrow" ev:onremoverow="scwin.dlt_Member_onremoverow">
+					<w2:columnInfo>
+						<w2:column id="EMP_CD" name="코드" dataType="text"></w2:column>
+						<w2:column id="EMP_NM" name="성명" dataType="text"></w2:column>
+						<w2:column id="GENDER_CD" name="성별" dataType="text" defaultValue=""></w2:column>
+						<w2:column id="JOIN_DATE" name="입사일" dataType="text"></w2:column>
+						<w2:column id="POSITION_CD" name="직위" dataType="text"></w2:column>
+						<w2:column id="DUTY_CD" name="직책" dataType="text"></w2:column>
+						<w2:column id="ROLE_CD" name="역할" dataType="text"></w2:column>
+						<w2:column id="ASSIGNED_TASK" name="담당업무" dataType="text"></w2:column>
+						<w2:column id="EMAIL" name="이메일" dataType="text"></w2:column>
+						<w2:column id="ZIP_CD" name="우편번호" dataType="text"></w2:column>
+						<w2:column id="ADDRESS1" name="주소1" dataType="text"></w2:column>
+						<w2:column id="ADDRESS2" name="주소2" dataType="text"></w2:column>
+						<w2:column id="IMAGE_PATH" name="이미지경로" dataType="text" defaultValue="/ws5/img/blank.png"></w2:column>
+						<w2:column id="CREATED_DATE" name="생성일자" dataType="text"></w2:column>
+						<w2:column id="UPDATED_DATE" name="수정일자" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_SearchParam">
+					<w2:keyInfo>
+						<w2:key id="count" name="화면 행수" dataType="text"></w2:key>
+						<w2:key id="page" name="페이지 값" dataType="text"></w2:key>
+						<w2:key id="prePage" name="이전 페이지 값" dataType="text"></w2:key>
+						<w2:key id="searchType" name="검색 타입" dataType="text"></w2:key>
+						<w2:key id="searchParam" name="검색 파라메터" dataType="text"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="true">
+						<page><![CDATA[1]]></page>
+					</w2:data>
+				</w2:dataMap>
+				<w2:dataMap id="dma_SearchResult">
+					<w2:keyInfo>
+						<w2:key id="count" name="count" dataType="text" defaultValue="1"></w2:key>
+						<w2:key id="page" name="page" dataType="text" defaultValue="1"></w2:key>
+						<w2:key id="startNum" name="startNum" dataType="text"></w2:key>
+						<w2:key id="endNum" name="endNum" dataType="text"></w2:key>
+						<w2:key id="totalCount" name="totalCount" dataType="text" defaultValue="0"></w2:key>
+					</w2:keyInfo>
+					<w2:data xmlns=""></w2:data>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+			<xf:submission id="sbm_select" ref='data:json,[{"id":"dma_SearchParam"}]' target='data:json,["dlt_Member","dma_SearchResult"]'
+				action="/edu/selectMemberList.do" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler=""
+				customHandler="" mode="asynchronous" processMsg="처리중입니다." ev:submit="scwin.sbm_select_submit" ev:submitdone="scwin.sbm_select_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<script type="javascript" lazy="false"><![CDATA[ 
+
+	//[조회]버튼 클릭 시
+	scwin.btn_Search_onclick = function() {
+		scwin.selectMemeberList(true);
+	};
+	
+	//검색 타입에 따른 파라메터 셋팅
+	scwin.setSearchParam = function(){
+		var tmpType = dma_SearchParam.get("searchType");
+		var tmpParam = "";
+		
+		if(tmpType == ""){
+				
+		}else if(tmpType == "name"){
+			tmpParam = idx_pName.getValue();
+		
+		}else if(tmpType == "email"){
+			tmpParam = idx_pEmail.getValue();
+		}
+		
+		dma_SearchParam.set("searchParam",tmpParam.trim());
+	};
+	
+	//submission 실행
+	scwin.selectMemeberList = function(isFirst){
+		//첫 페이지로 셋팅.
+		if(isFirst === true){
+			dma_SearchParam.set( "page" , 1 );
+		}
+		$p.executeSubmission( "sbm_select" );
+	};
+	
+	//sbm_select 실행 전
+	scwin.sbm_select_submit = function(e) {
+		scwin.setSearchParam();
+		return true;
+	};
+	
+	//sbm_select 실행 후
+	scwin.sbm_select_submitdone = function(e) {
+		scwin.setPageInfo();
+	};
+	
+	//PageList의 페이지 정보 셋팅
+	scwin.setPageInfo = function() {
+		var dataObj = dma_SearchResult.getJSON();
+		var isInit = false, pageSize=0;
+		if(dataObj.page == 1){
+			isInit = true;
+		}
+		pageSize = com.getPageSize(dataObj.totalCount, dataObj.count);
+		pgl_member.setCount( pageSize , !isInit );
+		spn_TotalPage.setValue( pgl_member.getCount() );
+		grd_Member.setStartRowNumber( dataObj.startNum );
+	};
+	
+	//데이터 조회 이전에 수정 데이터가 있는 경우
+	scwin.btn_Search_confirm_callback = function(returnValue){
+		if(returnValue === true){
+			$p.executeSubmission( "sbm_selectAll" );
+		}
+	};
+	
+	scwin.setDispZipCd = function(curVal){
+		if(curVal.length < 6){
+			return curVal;
+		}
+		return curVal.replace(/(\d{3})/,"$1-");
+	};
+
+	//dlt_Member에 data가 셋팅 될 때 호출
+	scwin.dlt_Member_ondataload = function() {
+		scwin.dlt_Member_dataChange();
+	};
+	
+	//dlt_Member에 data가 추가 될 때 호출
+	scwin.dlt_Member_oninsertrow = function(info) {
+		scwin.dlt_Member_dataChange();
+	};
+
+	//dlt_Member에 data가 삭제 될 때 호출
+	scwin.dlt_Member_onremoverow = function(info) {
+		scwin.dlt_Member_dataChange();
+	};
+	
+	//dlt_Member에 data가 로딩 된 후 totalCount
+	scwin.dlt_Member_dataChange = function(){
+		
+	};
+	
+	
+	//PageList의  value가 변경되었을때.
+	scwin.pgl_member_onviewchange = function(info) {
+		dma_SearchParam.set( "page" , info.newSelectedIndex );
+		dma_SearchParam.set( "prePage",info.oldSelectedIndex );
+		scwin.selectMemeberList();
+	};
+	
+	//XX건씩 보기 select 변경 시
+	scwin.sbx_member_rowCount_onviewchange = function(info) {
+		scwin.selectMemeberList(true);
+	};
+	
+	//[검색 조건] 변경 시
+	scwin.sbx_SearchType_onviewchange = function(info) {
+		var tmpType = info.newValue;
+		var boxName = "case_"+tmpType;
+		swh_SearchParamBox.setSelectedID( boxName );
+		
+		if(tmpType == "name"){
+			idx_pName.focus();	
+		}else if(tmpType == "email"){
+			idx_pEmail.focus();
+		}
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.onpageload = function() {
+
+	};
+	]]></script>
+	</head>
+	<body ev:onpageunload="scwin.onpageunload" ev:onpageload="scwin.onpageload">
+	<xf:group style="min-width: 350px;" id="" class="absBox"><xf:group style="" id="" class="widgetBox">
+			<xf:group style="" id="" class="searchbox dmb">
+				<xf:group tagname="table" style="" id="" class="w2tb">
+					<w2:attributes>
+						<w2:summary></w2:summary>
+					</w2:attributes>
+					<xf:group tagname="colgroup">
+						<xf:group tagname="col" style="width:50px;"></xf:group>
+						<xf:group tagname="col" style=""></xf:group>
+					</xf:group>
+					<xf:group tagname="tr" style="">
+						<xf:group tagname="th" style="" class="w2tb_th">검색</xf:group>
+						<xf:group tagname="td" style="" class="w2tb_td">
+							<xf:group style="" id="" class="ofh fl">
+								<xf:select1 selectedData="true" chooseOptionLabel="" submenuSize="auto" chooseOption="" allOption="" displayMode="label" ref="data:dma_SearchParam.searchType" appearance="minimal" disabledClass="w2selectbox_disabled" ev:onviewchange="scwin.sbx_SearchType_onviewchange" optionOrder="false" style="width: 70px;height: 30px;" disabled="false" id="sbx_SearchType" class="fl dmr" direction="auto">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[이름]]></xf:label>
+											<xf:value><![CDATA[name]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[이메일]]></xf:label>
+											<xf:value><![CDATA[email]]></xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select1>
+								<xf:switch motionDisplay="" caseClass="" style="width: 160px;height: 30px;position: relative;" id="swh_SearchParamBox" class="fl">
+									<xf:case style="position:absolute;width:100%;height:100%;" id="case_name" class="">
+										<xf:input style="width:150px;height: 30px;" id="idx_pName"></xf:input>
+									</xf:case>
+									<xf:case style="position:absolute;width:100%;height:100%;" id="case_email" class="">
+										<xf:input style="width:150px;height: 30px;" id="idx_pEmail"></xf:input>
+									</xf:case>
+								</xf:switch>
+							</xf:group>
+
+							<xf:trigger ev:onclick="scwin.btn_Search_onclick" style="" id="btn_Search" type="button" class="btnRed fr mt3">
+								<xf:label><![CDATA[조회]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group style="" id="" class="defaultbox">
+				<xf:group style="" id="" class="titlebox">
+					<xf:input style="width:0px;height:0px;border-style:none;" id="ibx_fake"></xf:input>
+					<xf:group style="" id="" class="fr ofh">
+						<xf:group style="line-height: 22px;" id="" class="dmr fl">
+							<w2:span ref="data:dma_SearchResult.page" dataType="number" displayFormat="#,##0" style="" id="" label="0" class="df_total num">
+							</w2:span>
+							<w2:span dataType="text" displayFormat="" style="" id="" label="/" class="df_total dmr"></w2:span>
+							<w2:span dataType="number" displayFormat="#,##0 페이지" style="" id="spn_TotalPage" label="0" class="df_total dmr">
+							</w2:span>
+							<w2:span dataType="text" displayFormat="" style="" id="" label="(총" class="df_total"></w2:span>
+							<w2:span ref="data:dma_SearchResult.totalCount" dataType="number" displayFormat="#,##0" style="" id="" label="0" class="df_total num">
+							</w2:span>
+							<w2:span dataType="" displayFormat="" style="" id="span2" label="건)" class="df_total"></w2:span>
+						</xf:group>
+						<xf:select1 submenuSize="auto" chooseOption="" allOption="" displayMode="label" ref="data:dma_SearchParam.count" appearance="minimal" disabledClass="w2selectbox_disabled" ev:onviewchange="scwin.sbx_member_rowCount_onviewchange" disabled="false" style="width: 110px;" id="sbx_member_rowCount" class="fl" direction="auto">
+							<xf:choices>
+								<xf:item>
+									<xf:label><![CDATA[10건씩 보기]]></xf:label>
+									<xf:value><![CDATA[10]]></xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[50건씩 보기]]></xf:label>
+									<xf:value><![CDATA[50]]></xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[100건씩 보기]]></xf:label>
+									<xf:value><![CDATA[100]]></xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[500건씩 보기]]></xf:label>
+									<xf:value><![CDATA[500]]></xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[1,000건씩 보기]]></xf:label>
+									<xf:value><![CDATA[1000]]></xf:value>
+								</xf:item>
+							</xf:choices>
+						</xf:select1>
+					</xf:group>
+				</xf:group>
+				<w2:gridView tooltipShowAlways="" rowNumVisible="true" rowStatusWidth="" scrollByColumn="false" rowNumHeaderValue="번호" autoFitFilterList="true" focusMode="row" rowNumWidth="40" fixedColumn="" autoFit="lastColumn" id="grd_Member" class="cm_grid" ignoreToggleOnDisabled="false" ev:oncellclick="" scrollByColumnAdaptive="false" summaryAuto="false" useShiftKey="true" readOnly="true" rowStatusHeaderValue="" rowStatusVisible="" tooltipDisplay="true" fixedColumnWithHidden="true" dataList="dlt_Member" ignoreCellClick="false" style="height: 270px;" visibleRowNum="10" useFilterList="true" useCtrlKey="false" autoFitMinWidth="">
+					<w2:header style="" id="header1">
+						<w2:row style="" id="row1">
+							<w2:column width="86" style="height:26px;" inputType="text" id="column27" sortable="true" value="성명" class="" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="195" style="height:26px;" inputType="text" id="column13" value="이메일" blockSelect="false" displayMode="label">
+							</w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody style="" id="gBody1">
+						<w2:row style="" id="row2">
+							<w2:column width="86" style="height:26px;" inputType="text" id="EMP_NM" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="195" style="height:26px;" inputType="text" id="EMAIL" blockSelect="false" displayMode="label">
+							</w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+				<xf:group style="" id="" class="defaultbox">
+					<w2:pageList ev:onviewchange="scwin.pgl_member_onviewchange" displayFormat="#" pageSize="10" displayButtonType="display" style="" id="pgl_member">
+					</w2:pageList>
+				</xf:group>
+			</xf:group>
+		</xf:group></xf:group></body>
+</html>

@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="그리드뷰 동적 병합 샘플">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList id="dlt_member" saveRemovedData="true" ev:ondataload="scwin.dlt_member_ondataload">
+            		<w2:columnInfo>
+            			<w2:column id="EMP_CD" name="사번" dataType="text"></w2:column>
+            			<w2:column id="EMP_NM" name="성명" dataType="text"></w2:column>
+            			<w2:column id="GENDER_CD" name="성별" dataType="text"></w2:column>
+            			<w2:column id="JOIN_DATE" name="입사일" dataType="text"></w2:column>
+            			<w2:column id="POSITION_CD" name="직위" dataType="text"></w2:column>
+            			<w2:column id="DUTY_CD" name="직책" dataType="text"></w2:column>
+            			<w2:column id="ROLE_CD" name="역할" dataType="text"></w2:column>
+            			<w2:column id="ASSIGNED_TASK" name="업무" dataType="text"></w2:column>
+            			<w2:column id="EMAIL" name="이메일" dataType="text"></w2:column>
+            			<w2:column id="ZIP_CD" name="우편번호" dataType="text"></w2:column>
+            			<w2:column id="ADDRESS1" name="주소1" dataType="text"></w2:column>
+            			<w2:column id="ADDRESS2" name="주소2" dataType="text"></w2:column>
+            			<w2:column id="IMAGE_PATH" name="이미지 경로" dataType="text"></w2:column>
+            			<w2:column id="CREATED_DATE" name="입력일" dataType="text"></w2:column>
+            			<w2:column id="UPDATED_DATE" name="수정일" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode01">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[01]]></CODE_CD>
+            				<CODE_NM><![CDATA[임원]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[02]]></CODE_CD>
+            				<CODE_NM><![CDATA[팀장]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[03]]></CODE_CD>
+            				<CODE_NM><![CDATA[팀원]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[04]]></CODE_CD>
+            				<CODE_NM><![CDATA[협력]]></CODE_NM>
+
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode02">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[02]]></CODE_CD>
+            				<CODE_NM><![CDATA[이사]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[03]]></CODE_CD>
+            				<CODE_NM><![CDATA[팀장]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[08]]></CODE_CD>
+            				<CODE_NM><![CDATA[부장]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[04]]></CODE_CD>
+            				<CODE_NM><![CDATA[차장]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[05]]></CODE_CD>
+            				<CODE_NM><![CDATA[과장]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[06]]></CODE_CD>
+            				<CODE_NM><![CDATA[대리]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[07]]></CODE_CD>
+            				<CODE_NM><![CDATA[사원]]></CODE_NM>
+
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode19">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[01]]></CODE_CD>
+            				<CODE_NM><![CDATA[PM]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[02]]></CODE_CD>
+            				<CODE_NM><![CDATA[PL]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[03]]></CODE_CD>
+            				<CODE_NM><![CDATA[분석/설계]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[04]]></CODE_CD>
+            				<CODE_NM><![CDATA[개발]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[05]]></CODE_CD>
+            				<CODE_NM><![CDATA[퍼블리셔]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[06]]></CODE_CD>
+            				<CODE_NM><![CDATA[컨설팅]]></CODE_NM>
+
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode101">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[101]]></GRP_CD>
+            				<CODE_CD><![CDATA[M]]></CODE_CD>
+            				<CODE_NM><![CDATA[남]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[101]]></GRP_CD>
+            				<CODE_CD><![CDATA[F]]></CODE_CD>
+            				<CODE_NM><![CDATA[여]]></CODE_NM>
+
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList baseNode="list" id="dlt_statistic" repeatNode="map" style="" valueAttribute="">
+            		<w2:columnInfo>
+            			<w2:column dataType="text" id="category1" name="대분류"></w2:column>
+            			<w2:column dataType="text" id="category2" name="중분류"></w2:column>
+            			<w2:column dataType="text" id="row3_1" name="1월"></w2:column>
+            			<w2:column dataType="text" id="row3_2" name="2월"></w2:column>
+            			<w2:column dataType="text" id="row3_3" name="3월"></w2:column>
+            			<w2:column dataType="text" id="row3_4" name="4월"></w2:column>
+            			<w2:column dataType="text" id="row3_5" name="5월"></w2:column>
+            			<w2:column dataType="text" id="row3_6" name="6월"></w2:column>
+            			<w2:column dataType="text" id="row3_7" name="7월"></w2:column>
+            			<w2:column dataType="text" id="row3_8" name="8월"></w2:column>
+            			<w2:column dataType="text" id="row3_9" name="9월"></w2:column>
+            			<w2:column dataType="text" id="row3_10" name="10월"></w2:column>
+            			<w2:column dataType="text" id="row3_11" name="11월"></w2:column>
+            			<w2:column dataType="text" id="row3_12" name="12월"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true" xmlns="">
+            			<w2:row>
+            				<category1><![CDATA[소설]]></category1>
+            				<category2><![CDATA[한국소설]]></category2>
+            				<row3_1><![CDATA[100]]></row3_1>
+            				<row3_2><![CDATA[100]]></row3_2>
+            				<row3_3><![CDATA[200]]></row3_3>
+            				<row3_4><![CDATA[100]]></row3_4>
+            				<row3_5><![CDATA[300]]></row3_5>
+            				<row3_6><![CDATA[300]]></row3_6>
+            				<row3_7><![CDATA[100]]></row3_7>
+            				<row3_8><![CDATA[100]]></row3_8>
+            				<row3_9><![CDATA[400]]></row3_9>
+            				<row3_10><![CDATA[400]]></row3_10>
+            				<row3_11><![CDATA[400]]></row3_11>
+            				<row3_12><![CDATA[100]]></row3_12>
+            			</w2:row>
+            			<w2:row>
+            				<category1><![CDATA[소설]]></category1>
+            				<category2><![CDATA[한국소설]]></category2>
+            				<row3_1><![CDATA[300]]></row3_1>
+            				<row3_2><![CDATA[200]]></row3_2>
+            				<row3_3><![CDATA[200]]></row3_3>
+            				<row3_4><![CDATA[100]]></row3_4>
+            				<row3_5><![CDATA[100]]></row3_5>
+            				<row3_6><![CDATA[200]]></row3_6>
+            				<row3_7><![CDATA[200]]></row3_7>
+            				<row3_8><![CDATA[200]]></row3_8>
+            				<row3_9><![CDATA[100]]></row3_9>
+            				<row3_10><![CDATA[200]]></row3_10>
+            				<row3_11><![CDATA[100]]></row3_11>
+            				<row3_12><![CDATA[300]]></row3_12>
+            			</w2:row>
+            			<w2:row>
+            				<category1><![CDATA[소설]]></category1>
+            				<category2><![CDATA[한국소설]]></category2>
+            				<row3_1><![CDATA[300]]></row3_1>
+            				<row3_2><![CDATA[300]]></row3_2>
+            				<row3_3><![CDATA[300]]></row3_3>
+            				<row3_4><![CDATA[200]]></row3_4>
+            				<row3_5><![CDATA[100]]></row3_5>
+            				<row3_6><![CDATA[200]]></row3_6>
+            				<row3_7><![CDATA[300]]></row3_7>
+            				<row3_8><![CDATA[300]]></row3_8>
+            				<row3_9><![CDATA[300]]></row3_9>
+            				<row3_10><![CDATA[300]]></row3_10>
+            				<row3_11><![CDATA[300]]></row3_11>
+            				<row3_12><![CDATA[300]]></row3_12>
+            			</w2:row>
+            			<w2:row>
+            				<category1><![CDATA[소설]]></category1>
+            				<category2><![CDATA[영미소설]]></category2>
+            				<row3_1><![CDATA[400]]></row3_1>
+            				<row3_2><![CDATA[100]]></row3_2>
+            				<row3_3><![CDATA[200]]></row3_3>
+            				<row3_4><![CDATA[100]]></row3_4>
+            				<row3_5><![CDATA[300]]></row3_5>
+            				<row3_6><![CDATA[400]]></row3_6>
+            				<row3_7><![CDATA[400]]></row3_7>
+            				<row3_8><![CDATA[400]]></row3_8>
+            				<row3_9><![CDATA[400]]></row3_9>
+            				<row3_10><![CDATA[400]]></row3_10>
+            				<row3_11><![CDATA[400]]></row3_11>
+            				<row3_12><![CDATA[400]]></row3_12>
+            			</w2:row>
+            			<w2:row>
+            				<category1><![CDATA[소설]]></category1>
+            				<category2><![CDATA[영미소설]]></category2>
+            				<row3_1><![CDATA[500]]></row3_1>
+            				<row3_2><![CDATA[200]]></row3_2>
+            				<row3_3><![CDATA[200]]></row3_3>
+            				<row3_4><![CDATA[500]]></row3_4>
+            				<row3_5><![CDATA[500]]></row3_5>
+            				<row3_6><![CDATA[500]]></row3_6>
+            				<row3_7><![CDATA[500]]></row3_7>
+            				<row3_8><![CDATA[500]]></row3_8>
+            				<row3_9><![CDATA[500]]></row3_9>
+            				<row3_10><![CDATA[500]]></row3_10>
+            				<row3_11><![CDATA[500]]></row3_11>
+            				<row3_12><![CDATA[500]]></row3_12>
+            			</w2:row>
+            			<w2:row>
+            				<category1><![CDATA[시/에세이]]></category1>
+            				<category2><![CDATA[에세이]]></category2>
+            				<row3_1><![CDATA[600]]></row3_1>
+            				<row3_2><![CDATA[600]]></row3_2>
+            				<row3_3><![CDATA[100]]></row3_3>
+            				<row3_4><![CDATA[700]]></row3_4>
+            				<row3_5><![CDATA[600]]></row3_5>
+            				<row3_6><![CDATA[300]]></row3_6>
+            				<row3_7><![CDATA[300]]></row3_7>
+            				<row3_8><![CDATA[300]]></row3_8>
+            				<row3_9><![CDATA[600]]></row3_9>
+            				<row3_10><![CDATA[400]]></row3_10>
+            				<row3_11><![CDATA[100]]></row3_11>
+            				<row3_12><![CDATA[600]]></row3_12>
+            			</w2:row>
+            			<w2:row>
+            				<category1><![CDATA[시/에세이]]></category1>
+            				<category2><![CDATA[에세이]]></category2>
+            				<row3_1><![CDATA[100]]></row3_1>
+            				<row3_2><![CDATA[200]]></row3_2>
+            				<row3_3><![CDATA[100]]></row3_3>
+            				<row3_4><![CDATA[800]]></row3_4>
+            				<row3_5><![CDATA[700]]></row3_5>
+            				<row3_6><![CDATA[100]]></row3_6>
+            				<row3_7><![CDATA[200]]></row3_7>
+            				<row3_8><![CDATA[100]]></row3_8>
+            				<row3_9><![CDATA[700]]></row3_9>
+            				<row3_10><![CDATA[100]]></row3_10>
+            				<row3_11><![CDATA[300]]></row3_11>
+            				<row3_12><![CDATA[700]]></row3_12>
+            			</w2:row>
+            			<w2:row>
+            				<category1><![CDATA[시/에세이]]></category1>
+            				<category2><![CDATA[시]]></category2>
+            				<row3_1><![CDATA[300]]></row3_1>
+            				<row3_2><![CDATA[300]]></row3_2>
+            				<row3_3><![CDATA[300]]></row3_3>
+            				<row3_4><![CDATA[800]]></row3_4>
+            				<row3_5><![CDATA[800]]></row3_5>
+            				<row3_6><![CDATA[500]]></row3_6>
+            				<row3_7><![CDATA[500]]></row3_7>
+            				<row3_8><![CDATA[800]]></row3_8>
+            				<row3_9><![CDATA[900]]></row3_9>
+            				<row3_10><![CDATA[900]]></row3_10>
+            				<row3_11><![CDATA[800]]></row3_11>
+            				<row3_12><![CDATA[800]]></row3_12>
+            			</w2:row>
+            			<w2:row>
+            				<category1><![CDATA[시/에세이]]></category1>
+            				<category2><![CDATA[시]]></category2>
+            				<row3_1><![CDATA[300]]></row3_1>
+            				<row3_2><![CDATA[500]]></row3_2>
+            				<row3_3><![CDATA[200]]></row3_3>
+            				<row3_4><![CDATA[800]]></row3_4>
+            				<row3_5><![CDATA[300]]></row3_5>
+            				<row3_6><![CDATA[300]]></row3_6>
+            				<row3_7><![CDATA[600]]></row3_7>
+            				<row3_8><![CDATA[400]]></row3_8>
+            				<row3_9><![CDATA[900]]></row3_9>
+            				<row3_10><![CDATA[200]]></row3_10>
+            				<row3_11><![CDATA[200]]></row3_11>
+            				<row3_12><![CDATA[100]]></row3_12>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+            <xf:submission id="getUserData" ref="" target='data:array,{"id":"dlt_member","key":"dlt_Member"}' action="/ws5/sample/compList/data/largeData.json" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="" ev:submitdone="" ev:submit="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+			scwin.onpageload = function() {
+				$p.executeSubmission( "getUserData" );
+			};
+			
+			scwin.dlt_member_ondataload = function() {
+				this.multisort( {"sortIndex" : "GENDER_CD POSITION_CD DUTY_CD ROLE_CD", "sortOrder": "1 1 1 1"} );		
+			};
+		]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group id="" style="" class="wrapper">
+    		<xf:group id="group4" style="padding: 10px;" class="section_desc">
+    			<w2:textbox id="section" style=""
+    				label="그리드뷰에서 제공하는 동적 병합 기능을 표현한 샘플이다.&lt;br/&gt;이 화면은 기능별 브라우저에 표현되는 방식과 성능을 비교하기 위해 만들어졌다.&lt;br/&gt;성능은 그리드뷰의 스크롤링을 할 때 표현되는 속도로 비교한다.&lt;br/&gt;브라우저의 표현 속도를 기준으로 권장하는 기능은 body column의 colMerge속성이다.&lt;br/&gt;( source : fn_gridView_dynamicMerge.xml )"
+    				localeRef=''>
+    			</w2:textbox>
+    		</xf:group>
+    		<w2:textbox class="infoTxt dmb" id="" label="" localeRef="INFO_TITLE_TOOLTIP" style=""></w2:textbox>
+    		<w2:textbox id="" style="" class="df_tt dmb" label='GridView의 body column의 colMerge="true" 속성을 사용한 예시' tagname="h2"
+    			toolTip="이 기능은 컬럼이 실제로 병합되지 않은 각 tr간의 선을 보이지 않게 구현한 기능이다. 병합 데이터는 화면에 보여지는 첫번(top)째 행에 표현된다.세로 스크롤이 이동될 때 데이터만 변경되는 구조이다.">
+    		</w2:textbox>
+    		<w2:gridView ignoreCellClick="false" summaryAuto="false" autoFit="allColumn" ignoreToggleOnDisabled="false"
+    			summaryOnlyAuto="false" visibleRowNum="15" class="dmb cm_grid" defaultCellHeight="24" rowNumVisible="true"
+    			scrollByColumnAdaptive="false" dataList="data:dlt_member" id="" applyAllColumnStyle="false" readOnly="true" style="height: 280px;"
+    			useShiftKey="true" scrollByColumn="false" senseReader="false">
+    			<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header2" style="">
+    				<w2:row id="row3" style="">
+    					<w2:column id="column25" blockSelect="false" width="70" inputType="text" value="사번" displayMode="label"></w2:column>
+    					<w2:column id="column23" blockSelect="false" width="70" inputType="text" value="성명" displayMode="label"></w2:column>
+    					<w2:column id="column26" blockSelect="false" width="166" inputType="text" value="이메일" displayMode="label"></w2:column>
+    					<w2:column id="column21" blockSelect="false" width="70" inputType="text" value="성별" displayMode="label"></w2:column>
+    					<w2:column id="column17" blockSelect="false" width="71" inputType="text" value="직급" displayMode="label"></w2:column>
+    					<w2:column id="column15" blockSelect="false" width="94" inputType="text" value="역할" displayMode="label"></w2:column>
+    					<w2:column id="column13" blockSelect="false" width="81" inputType="text" value="직책" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody2" style="">
+    				<w2:row id="row4" style="">
+    					<w2:column id="EMP_CD" blockSelect="false" width="70" inputType="text" displayMode="label"></w2:column>
+    					<w2:column id="EMP_NM" blockSelect="false" width="70" inputType="text" displayMode="label"></w2:column>
+    					<w2:column id="EMAIL" blockSelect="false" width="166" inputType="text" displayMode="label"></w2:column>
+    					<w2:column id="GENDER_CD" blockSelect="false" ref="" width="70" inputType="select" chooseOption=""
+    						displayMode="label" allOption="" colMerge="true">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode101">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column id="POSITION_CD" blockSelect="false" ref="" width="71" inputType="select" chooseOption=""
+    						displayMode="label" allOption="" colMerge="true">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode02">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column id="DUTY_CD" blockSelect="false" ref="" chooseOptionLabel="미정" width="94" inputType="select"
+    						chooseOption="true" displayMode="label" allOption="" colMerge="true">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode19">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column id="ROLE_CD" blockSelect="false" ref="" chooseOptionLabel="미정" width="81" inputType="select"
+    						chooseOption="true" displayMode="label" allOption="" colMerge="true">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode01">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<w2:textbox id="" style="" class="df_tt dmb" label='GridView의 mergeCells="bycol" 속성을 사용한 예시' tagname="h2"
+    			toolTip="이 기능은 컬럼이 실제로 병합된 기능이다. 병합 데이터는 화면에 병합된 행의 중앙(middle)에 표현된다. 세로 스크롤이 이동될 때 레이아웃과 데이터가 변경되는 구조이다.">
+    		</w2:textbox>
+    		<w2:gridView ignoreCellClick="false" summaryAuto="false" autoFit="allColumn" ignoreToggleOnDisabled="false"
+    			summaryOnlyAuto="false" visibleRowNum="15" class="dmb cm_grid" defaultCellHeight="24" rowNumVisible="true" mergeCells="bycol"
+    			scrollByColumnAdaptive="false" dataList="data:dlt_member" id="" applyAllColumnStyle="false" readOnly="true" style="height: 280px;"
+    			useShiftKey="true" scrollByColumn="false" senseReader="false">
+    			<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header2" style="">
+    				<w2:row id="row3" style="">
+    					<w2:column id="column25" blockSelect="false" width="70" inputType="text" value="사번" displayMode="label"></w2:column>
+    					<w2:column id="column23" blockSelect="false" width="70" inputType="text" value="성명" displayMode="label"></w2:column>
+    					<w2:column id="column26" blockSelect="false" width="166" inputType="text" value="이메일" displayMode="label"></w2:column>
+    					<w2:column id="column21" blockSelect="false" width="70" inputType="text" value="성별" displayMode="label"></w2:column>
+    					<w2:column id="column17" blockSelect="false" width="71" inputType="text" value="직급" displayMode="label"></w2:column>
+    					<w2:column id="column15" blockSelect="false" width="94" inputType="text" value="역할" displayMode="label"></w2:column>
+    					<w2:column id="column13" blockSelect="false" width="81" inputType="text" value="직책" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody2" style="">
+    				<w2:row id="row4" style="">
+    					<w2:column id="EMP_CD" blockSelect="false" width="70" inputType="text" displayMode="label"></w2:column>
+    					<w2:column id="EMP_NM" blockSelect="false" width="70" inputType="text" displayMode="label"></w2:column>
+    					<w2:column id="EMAIL" blockSelect="false" width="166" inputType="text" displayMode="label"></w2:column>
+    					<w2:column id="GENDER_CD" blockSelect="false" width="70" inputType="select" displayMode="label">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode101">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column id="POSITION_CD" blockSelect="false" width="71" inputType="select" displayMode="label">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode02">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column id="DUTY_CD" blockSelect="false" ref="" chooseOptionLabel="미정" chooseOption="true" width="94"
+    						inputType="select" allOption="" displayMode="label">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode19">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column id="ROLE_CD" blockSelect="false" ref="" chooseOptionLabel="미정" chooseOption="true" width="81"
+    						inputType="select" allOption="" displayMode="label">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode01">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<w2:textbox id="" style="" class="df_tt dmb" label='GridView의 mergeCells="byrowrec" 속성을 사용한 예시' tagname="h2"
+    			toolTip="동일한 데이터가 좌우/상하로 존재할 때 해당 셀을 동적으로 병합해주는 기능에 대한 예시이다.">
+    		</w2:textbox>
+    		<w2:gridView ignoreCellClick="false" summaryAuto="false" autoFit="allColumn" ignoreToggleOnDisabled="false"
+    			summaryOnlyAuto="false" defaultCellHeight="24" rowNumVisible="true" mergeCells="byrowrec" scrollByColumnAdaptive="false"
+    			dataList="data:dlt_statistic" id="" applyAllColumnStyle="false" style="height: 250px;" scrollByColumn="false" useShiftKey="true"
+    			class="cm_grid">
+    			<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header3" style="">
+    				<w2:row id="row5" style="">
+    					<w2:column id="column59" blockSelect="false" style="" width="99" inputType="text" value="대분류" displayMode="label"></w2:column>
+    					<w2:column id="column57" blockSelect="false" style="" width="115" inputType="text" value="중분류"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column id="column55" blockSelect="false" style="" width="70" inputType="text" value="1월" displayMode="label"></w2:column>
+    					<w2:column id="column53" blockSelect="false" style="" width="70" inputType="text" value="2월" displayMode="label"></w2:column>
+    					<w2:column id="column51" blockSelect="false" style="" width="70" inputType="text" value="3월" displayMode="label"></w2:column>
+    					<w2:column id="column49" blockSelect="false" style="" width="70" inputType="text" value="4월" displayMode="label"></w2:column>
+    					<w2:column id="column47" blockSelect="false" style="" width="70" inputType="text" value="5월" displayMode="label"></w2:column>
+    					<w2:column id="column45" blockSelect="false" style="" width="70" inputType="text" value="6월" displayMode="label"></w2:column>
+    					<w2:column id="column43" blockSelect="false" style="" width="70" inputType="text" value="7월" displayMode="label"></w2:column>
+    					<w2:column id="column41" blockSelect="false" style="" width="70" inputType="text" value="8월" displayMode="label"></w2:column>
+    					<w2:column id="column39" blockSelect="false" style="" width="70" inputType="text" value="9월" displayMode="label"></w2:column>
+    					<w2:column id="column37" blockSelect="false" style="" width="70" inputType="text" value="10월" displayMode="label"></w2:column>
+    					<w2:column id="column35" blockSelect="false" style="" width="70" inputType="text" value="11월" displayMode="label"></w2:column>
+    					<w2:column id="column33" blockSelect="false" style="" inputType="text" width="70" value="12월" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody3" style="">
+    				<w2:row id="row6" style="">
+    					<w2:column id="category1" blockSelect="false" style="" width="99" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="category2" blockSelect="false" style="" width="115" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="row3_1" blockSelect="false" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="row3_2" blockSelect="false" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="row3_3" blockSelect="false" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="row3_4" blockSelect="false" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="row3_5" blockSelect="false" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="row3_6" blockSelect="false" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="row3_7" blockSelect="false" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="row3_8" blockSelect="false" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="row3_9" blockSelect="false" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="row3_10" blockSelect="false" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="row3_11" blockSelect="false" style="" width="70" inputType="text" value="" displayMode="label"></w2:column>
+    					<w2:column id="row3_12" blockSelect="false" style="" inputType="text" width="70" value="" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    	</xf:group>
+    </body>
+</html>

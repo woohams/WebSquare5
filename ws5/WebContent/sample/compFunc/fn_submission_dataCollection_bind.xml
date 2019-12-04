@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="submission과 data객체의 활용">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataMap baseNode="map" id="dc_reqCode">
+					<w2:keyInfo>
+						<w2:key dataType="text" id="userID"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="true">
+						<userID>EDU001</userID>
+					</w2:data>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="dc_reqInfo" style="">
+					<w2:keyInfo>
+						<w2:key dataType="text" id="pageNm"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="true">
+						<pageNm>fn_submission_dataCollection_dataTypes.xml</pageNm>
+					</w2:data>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="dc_resMessage" style="">
+					<w2:keyInfo>
+						<w2:key dataType="text" id="code" name="상태코드"></w2:key>
+						<w2:key dataType="text" id="msg" name="메세지"></w2:key>
+						<w2:key dataType="text" id="rsCount" name="검색건수"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList id="dc_resUserListData" baseNode="list" repeatNode="map" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column id="name" name="name" dataType="text"></w2:column>
+						<w2:column id="birthday" name="birthday" dataType="text"></w2:column>
+						<w2:column id="height" name="height" dataType="text"></w2:column>
+						<w2:column id="weight" name="weight" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dc_resUserMapData">
+					<w2:keyInfo>
+						<w2:key dataType="text" id="name"></w2:key>
+						<w2:key id="birthday" dataType="text"></w2:key>
+						<w2:key id="height" dataType="text"></w2:key>
+						<w2:key id="weight" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList id="dc_sbxType" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="label" name="name1" dataType="text"></w2:column>
+						<w2:column id="value" name="name2" dataType="text"></w2:column>
+						<w2:column id="desc" name="name3" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<label><![CDATA[ref와 target을 설정하지 않은 예시]]></label>
+							<value><![CDATA[json_dataMap_noRef_noTarget]]></value>
+							<desc><![CDATA[
+이 예시는 submission의 속성중 ref와 target을 설정하지 않았다.
+ref의 설정값이 없기 때문에 화면에서 전송되는 request는 없다.
+통신 후 response데이터가 있지만 target의 설정값이 없기 때문에 response데이터가 dataCollection에 셋팅되지 않는다.
+
+id="json_dataMap_noRef_noTarget"
+ref=""
+target=""
+action="/ws5/sample/sampleData/sampleData_json_dc_map.json"							
+							]]></desc>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[ref와 target 설정 예시01]]></label>
+							<value><![CDATA[json_dataList]]></value>
+							<desc><![CDATA[
+id="json_dataList"
+ref="data:json,dc_reqCode"
+target="data:json,dc_resUserListData"
+action="/ws5/sample/sampleData/sampleData_json_dc_list.json"
+							]]></desc>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[ref와 target 설정 예시02]]></label>
+							<value><![CDATA[json_dataListWithMessge_01]]></value>
+							<desc><![CDATA[
+id="json_dataListWithMessge_01"
+ref="data:json,['dc_reqCode','dc_reqInfo']"
+target="data:json,['dc_resUserListData','dc_resMessage']"
+action="/ws5/sample/sampleData/sampleData_json_dc_combination.json"
+							]]></desc>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[singleMode 설정 예시]]></label>
+							<value><![CDATA[json_dataList_singleMode]]></value>
+							<desc><![CDATA[
+:: response data singleMode::
+id="json_dataList_singleMode"
+singleMode="true"
+target="data:json,dc_resUserListData"
+action="/ws5/sample/sampleData/sampleData_json_dc_list_singleMode.json"
+							]]></desc>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[response 데이터와 dataCollection 자동 매칭 설정]]></label>
+							<value><![CDATA[json_dataList_autoBind]]></value>
+							<desc><![CDATA[
+:: 자동매칭 - 비권장(성능저하) ::
+id="json_dataList_autoBind"
+target="data:json"
+action="/ws5/sample/sampleData/sampleData_json_dc_combination.json"
+							]]></desc>
+						</w2:row>
+						<w2:row>
+							<label><![CDATA[ref를 설정하고 requestData를 동적으로 할당한 경우]]></label>
+							<value><![CDATA[json_dataListWithMessge_02]]></value>
+							<desc><![CDATA[
+:: request data 동적 할당:: 
+id="json_dataListWithMessge_02"
+ref="data:json,['dc_reqCode','dc_reqInfo']"
+target="data:json,['dc_resUserListData']"
+action="/ws5/sample/sampleData/sampleData_json_dc_map_singleMode.json"							
+							]]></desc>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dc_defInfoMap">
+					<w2:keyInfo>
+						<w2:key id="defDesc" name="name1" dataType="text"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="true">
+						<defDesc><![CDATA[
+이 화면은 Submission의 ref속성과 target속성의 설정에 따른 예시를 담고 있다.
+ref속성은 request data와 연관있고 target속성은 response data와 연관이 있다.  
+target속성의 설정값에 따라 통신 후 내려온 response data를 dataCollection에 셋팅된다.
+예시를 실행하는 방법은 다음과 같다.
+1. [Submission의 ref와 target 설정 예시]에 있는 selectbox에 항목을 선택한다.
+	선택된 항목의 설명이 selectbox의 하위에 표현된다.
+2. [실행]버튼을 클릭한다.
+	선택된 항목과 연관이 있는 submission(항목의 설명부분의 id를 참조)이 실행된다.
+3. [Request, Response 정보]하위에 있는 textare에 출력된 데이터를 확인한다.
+	출력된 데이터는 통신 이후 서버에 호출한 url과 서버로 전송된 request data와 서버에서 받은 response data를 표현한다.
+4. [이전/이후 DataCollection 정보]하위에 있는 textare에 출력된 통신 이전/이후의 데이터를 비교한다.
+	위에 있는 textare에는 초기화시킨 통신 이전의 dataCollection 전체가 출력된다.
+	아래에 있는 textare에는  통신 이후의 dataCollection 전체가 출력된다.
+	target에 설정된 정보에 따라 변경된 dataCollection의 데이터를 비교해본다.
+						]]></defDesc>
+					</w2:data></w2:dataMap>
+			</w2:dataCollection>
+			<!-- ref 미설정시 빈 데이터 전송 ex)<data/> target 미설정 시 dataCollection에 추가 되지 않음 --><!-- request data 지정 --><!-- 다건의 ref/target --><!-- response dataMap singleMode --><!-- response dataList singleMode --><!-- JSON Type :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+			<!-- ref 미설정시 빈 데이터 전송 ex)<data/> target 미설정 시 dataCollection에 추가 되지 않음 -->
+			<xf:submission id="json_dataMap_noRef_noTarget" ref="" target="" action="/ws5/sample/sampleData/sampleData_json_dc_map.json"
+				mediatype="application/json" method="post" encoding="UTF-8" mode="asynchronous" ev:submitdone="scwin.json_dataMap_noRef_noTarget_submitdone"
+				ev:submiterror="scwin.json_dataMap_noRef_noTarget_submiterror" ev:submit="scwin.resetDataCollection" instance="" replace=""
+				errorHandler="" customHandler="" processMsg="">
+			</xf:submission>
+			<xf:submission id="json_dataList" ref="data:json,dc_reqCode" target="data:json,dc_resUserListData" action="/ws5/sample/sampleData/sampleData_json_dc_list.json"
+				mediatype="application/json" method="post" encoding="UTF-8" mode="asynchronous" ev:submitdone="scwin.json_dataList_submitdone"
+				ev:submiterror="scwin.json_dataList_submiterror" instance="" replace="" errorHandler="" customHandler="" processMsg=""
+				ev:submit="scwin.resetDataCollection">
+			</xf:submission>
+			<!-- 다건의 ref/target -->
+			<xf:submission id="json_dataListWithMessge_01" ref="data:json,['dc_reqCode','dc_reqInfo']" target="data:json,['dc_resUserListData','dc_resMessage']"
+				action="/ws5/sample/sampleData/sampleData_json_dc_combination.json" mediatype="application/json" method="post" encoding="UTF-8" mode="asynchronous"
+				ev:submitdone="scwin.json_dataListWithMessge_01_submitdone" ev:submiterror="scwin.json_dataListWithMessge_01_submiterror" instance=""
+				replace="" errorHandler="" customHandler="" processMsg="" ev:submit="scwin.resetDataCollection">
+			</xf:submission>
+			<xf:submission id="json_dataListWithMessge_02" ref="data:json,['dc_reqCode','dc_reqInfo']" target="data:json,['dc_resUserListData']"
+				action="/ws5/sample/sampleData/sampleData_json_dc_combination2.json" mediatype="application/json" method="post" encoding="UTF-8" mode="asynchronous"
+				ev:submitdone="scwin.json_dataListWithMessge_02_submitdone" ev:submiterror="scwin.json_dataListWithMessge_02_submiterror" instance=""
+				replace="" errorHandler="" customHandler="" processMsg="" ev:submit="scwin.resetDataCollection">
+			</xf:submission>
+			<!-- response dataList singleMode -->
+			<xf:submission id="json_dataList_singleMode" ref="" target="data:json,dc_resUserListData" singleMode="true"
+				action="/ws5/sample/sampleData/sampleData_json_dc_list_singleMode.json" mediatype="application/json" method="post" encoding="UTF-8" mode="asynchronous"
+				ev:submitdone="scwin.json_dataList_singleMode_submitdone" ev:submiterror="scwin.json_dataList_singleMode_submiterror" instance=""
+				replace="" errorHandler="" customHandler="" processMsg="" ev:submit="scwin.resetDataCollection">
+			</xf:submission>
+			<xf:submission id="json_dataList_autoBind" ref="" target="data:json" action="/ws5/sample/sampleData/sampleData_json_dc_combination.json"
+				mediatype="application/json" method="post" encoding="UTF-8" mode="asynchronous" ev:submitdone="scwin.json_dataList_autoBind_submitdone"
+				ev:submiterror="scwin.json_dataList_autoBind_submiterror" instance="" replace="" errorHandler="" customHandler="" processMsg=""
+				ev:submit="scwin.resetDataCollection">
+			</xf:submission>
+		</xf:model>
+		<style type="text/css"><![CDATA[
+			.w2textarea{font-size:13px;}
+			.w2anchor2{
+				padding:10px;text-decoration:none;background-color:#F5FFFA;border:1px solid #ddd;
+				margin-bottom:6px;display:inline-block;width:350px;margin-right:6px;
+			}
+			pre{margin: 0px;line-height: 1.5em;}
+		]]></style>
+		<script type="javascript" lazy="false"><![CDATA[
+		var eduObj = {
+			fn_setResData : function(reqTxt,submissionID,resTxt,dataType){
+				//var dcTxt = JSON.stringify($p.data.get("JSON"),null,"\t") ;
+				rsTxt = "::: submission ID :"+submissionID+"\n\n::: Reqeust Data\n"+reqTxt+"\n\n::: Response Data\n"+resTxt;
+				textarea1.setValue( rsTxt );
+				textarea2.setValue( "::: 이후 DataCollection :::\n"+JSON.stringify($p.data.get("JSON",["dc_reqCode","dc_reqInfo","dc_resMessage","dc_resUserMapData","dc_resUserListData"]),null,"\t") );
+			},
+			fn_setOrgData : function(){
+				var dataObj = this.fn_getOrgData();
+				textarea3.setValue( "::: 이전 DataCollection :::\n"+JSON.stringify(dataObj,null,"\t") );
+				$p.data.set( "json" , dataObj);
+			},
+			fn_getOrgData : function(){
+				return {"dc_reqCode":{"userID":"EDU001"},"dc_reqInfo":{"pageNm":"fn_submission_dataCollection_dataTypes.xml"},"dc_resMessage":{"code":"","msg":"","rsCount":""},"dc_resUserMapData":{"name":"","birthday":"","height":"","weight":""},"dc_resUserListData":[]};
+			}
+		};
+		
+		scwin.anchor2_onclick = function(){
+		    $p.executeSubmission( "json_dataMap_noRef_noTarget" );
+		};
+		
+		scwin.btn_dataList_json_onclick = function(){
+	    	$p.executeSubmission( "json_dataList" );
+		};
+		
+		scwin.btn_combination_json_onclick = function(){
+		    $p.executeSubmission( "json_dataListWithMessge_01" );
+		
+		};
+		
+		scwin.btn_dynamicRequestData_json_onclick = function(){
+		    // json 데이터를 전송하기 위해서는 mediaType을 application/json으로 설정을 해야 합니다.
+		    $p.executeSubmission( "json_dataListWithMessge_02" , {"req_info":{"userID":"Dynamic_EDU003"}});
+
+		};
+		
+		scwin.btn_dataList_singleMode_json_onclick = function(){
+	    	$p.executeSubmission( "json_dataList_singleMode");		
+		};
+		
+		scwin.btn_dataList_autoBind_json_onclick = function(){
+			$p.executeSubmission( "json_dataList_autoBind");
+		};
+		
+		scwin.json_dataMap_noRef_noTarget_submitdone = function(e){
+			eduObj.fn_setResData(e.requestBody, e.id, e.responseText, "json");
+		};
+		
+		scwin.json_dataMap_noRef_noTarget_submiterror = function(e){
+			alert("ERROR::"+ e.responseStatusCode);
+		};
+		
+		scwin.json_dataList_submitdone = function(e){
+			eduObj.fn_setResData(e.requestBody, e.id, e.responseText, "json");
+		};
+		
+		scwin.json_dataList_submiterror = function(e){
+			alert("ERROR::"+ e.responseStatusCode);
+		};
+		
+		scwin.json_dataListWithMessge_01_submitdone = function(e){
+			eduObj.fn_setResData(e.requestBody, e.id, e.responseText, "json");
+		};
+		
+		scwin.json_dataListWithMessge_01_submiterror = function(e){
+			alert("ERROR::"+ e.responseStatusCode);
+		};
+		
+		scwin.json_dataListWithMessge_02_submitdone = function(e){
+			eduObj.fn_setResData(e.requestBody, e.id, e.responseText, "json");
+		};
+		
+		scwin.json_dataListWithMessge_02_submiterror = function(e){
+			alert("ERROR::"+ e.responseStatusCode);
+		};	
+		
+		scwin.json_dataList_singleMode_submitdone = function(e){
+			eduObj.fn_setResData(e.requestBody, e.id, e.responseText, "json");
+		};
+		
+		scwin.json_dataList_singleMode_submiterror = function(e){
+			alert("ERROR::"+ e.responseStatusCode);
+		};
+		
+		scwin.json_dataList_autoBind_submitdone = function(e){
+			eduObj.fn_setResData(e.requestBody, e.id, e.responseText, "json");
+		};
+		
+		scwin.json_dataList_autoBind_submiterror = function(e){
+			alert("ERROR::"+ e.responseStatusCode);
+		};
+		
+		scwin.resetDataCollection = function(e) {
+			eduObj.fn_setOrgData();
+		};
+		
+	scwin.ui_sbxType_onviewchange = function(info) {
+		var curVal = info.newValue;
+		if(curVal){
+			ui_desc.setValue( dc_sbxType.getMatchedColumnData( "value" , curVal , "desc" )[0] );
+		}else{
+			ui_desc.setValue("");
+		}
+	};
+	
+	scwin.ui_desc_formatter = function(tmpVal){
+		return "<pre>"+tmpVal+"</pre>";
+	};
+	
+	scwin.ui_btnExecSbm_onclick = function(e) {
+		var sbmId = ui_sbxType.getValue();
+		if(sbmId){
+			/*
+			if(sbmId === "json_dataListWithMessge_02"){
+			}else{
+				$p.executeSubmission( sbmId );
+			}
+			*/
+			$p.executeSubmission( sbmId );
+		}else{
+			alert("선택된 항목이 없습니다.");
+		}
+	};
+	
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		eduObj = null;
+	};
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group id="" style="" class="wrapper">
+			<xf:group class="section_desc" id="" style="">
+				<w2:textbox id=""
+					label=""
+					style="" tagname="" ref="data:dc_defInfoMap.defDesc" displayFormatter="scwin.ui_desc_formatter">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="" id="" style="">
+				<w2:textbox id="" label="Submission의 ref와 target 설정 예시" style="" class="df_tt dmb"></w2:textbox>
+				<xf:group id="" style="" class="dmb">
+					<xf:select1 disabledClass="w2selectbox_disabled" appearance="minimal" direction="auto" chooseOption="true"
+						id="ui_sbxType" style="width: 360px;height: 24px;" displayMode="label" selectedData="true" optionOrder="false" allOption=""
+						disabled="false" submenuSize="auto" textAlign="left" class="dmr" ev:onviewchange="scwin.ui_sbxType_onviewchange"
+						chooseOptionLabel="- 선택하세요 -" labelWidthAuto="true">
+						<xf:choices>
+							<xf:itemset nodeset="data:dc_sbxType">
+								<xf:label ref="label"></xf:label>
+								<xf:value ref="value"></xf:value>
+							</xf:itemset>
+						</xf:choices>
+					</xf:select1>
+					<xf:trigger type="button" id="ui_btnExecSbm" style="width: 80px;height: 23px;"
+						ev:onclick="scwin.ui_btnExecSbm_onclick">
+						<xf:label><![CDATA[실행]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+				<w2:textbox label="" id="ui_desc" style="" displayFormatter="scwin.ui_desc_formatter" class="txtDesc"></w2:textbox>
+				<xf:group id="ui_jsonBox" style=""></xf:group>
+			</xf:group>
+			<xf:group class="" id="" style="">
+				<xf:group id="" style="" class="ofh">
+					<xf:group id="" style="width:calc(50% - 3px);margin-right:6px;float: left;">
+						<w2:textbox id="" label="Request, Response 정보" style="" class="df_tt dmb">
+						</w2:textbox>
+						<xf:textarea id="textarea1" style="width:100%;height:310px;" class="boxSize"></xf:textarea>
+					</xf:group>
+					<xf:group id="" style="width:calc(50% - 3px);float: left;">
+						<w2:textbox id="" label="이전/이후 DataCollection 정보" style="" class="df_tt dmb">
+						</w2:textbox>
+						<xf:textarea id="textarea3" style="width:100%;height:150px;" class="boxSize dmb"></xf:textarea>
+						<xf:textarea class="boxSize" id="textarea2" style="width:100%;height:150px;"></xf:textarea>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+
+		</xf:group>
+	</body>
+</html>

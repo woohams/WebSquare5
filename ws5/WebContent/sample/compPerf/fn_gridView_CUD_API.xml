@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="DataList + GridView의 CUD API">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList id="dlt_member" saveRemovedData="true" ev:ondataload="scwin.dlt_member_ondataload" ev:oncelldatachange="">
+            		<w2:columnInfo>
+            			<w2:column id="EMP_CD" name="사번" dataType="number"></w2:column>
+            			<w2:column id="EMP_NM" name="성명" dataType="text"></w2:column>
+            			<w2:column id="GENDER_CD" name="성별" dataType="text"></w2:column>
+            			<w2:column id="JOIN_DATE" name="입사일" dataType="text"></w2:column>
+            			<w2:column id="POSITION_CD" name="직위" dataType="text"></w2:column>
+            			<w2:column id="DUTY_CD" name="직책" dataType="text"></w2:column>
+            			<w2:column id="ROLE_CD" name="역할" dataType="text"></w2:column>
+            			<w2:column id="ASSIGNED_TASK" name="업무" dataType="text"></w2:column>
+            			<w2:column id="EMAIL" name="이메일" dataType="text"></w2:column>
+            			<w2:column id="ZIP_CD" name="우편번호" dataType="text"></w2:column>
+            			<w2:column id="ADDRESS1" name="주소1" dataType="text"></w2:column>
+            			<w2:column id="ADDRESS2" name="주소2" dataType="text"></w2:column>
+            			<w2:column id="IMAGE_PATH" name="이미지 경로" dataType="text"></w2:column>
+            			<w2:column id="CREATED_DATE" name="입력일" dataType="text"></w2:column>
+            			<w2:column id="UPDATED_DATE" name="수정일" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode01">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[01]]></CODE_CD>
+            				<CODE_NM><![CDATA[임원]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[02]]></CODE_CD>
+            				<CODE_NM><![CDATA[팀장]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[03]]></CODE_CD>
+            				<CODE_NM><![CDATA[팀원]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[04]]></CODE_CD>
+            				<CODE_NM><![CDATA[협력]]></CODE_NM>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode02">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[02]]></CODE_CD>
+            				<CODE_NM><![CDATA[이사]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[03]]></CODE_CD>
+            				<CODE_NM><![CDATA[팀장]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[08]]></CODE_CD>
+            				<CODE_NM><![CDATA[부장]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[04]]></CODE_CD>
+            				<CODE_NM><![CDATA[차장]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[05]]></CODE_CD>
+            				<CODE_NM><![CDATA[과장]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[06]]></CODE_CD>
+            				<CODE_NM><![CDATA[대리]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[07]]></CODE_CD>
+            				<CODE_NM><![CDATA[사원]]></CODE_NM>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode19">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[01]]></CODE_CD>
+            				<CODE_NM><![CDATA[PM]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[02]]></CODE_CD>
+            				<CODE_NM><![CDATA[PL]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[03]]></CODE_CD>
+            				<CODE_NM><![CDATA[분석/설계]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[04]]></CODE_CD>
+            				<CODE_NM><![CDATA[개발]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[05]]></CODE_CD>
+            				<CODE_NM><![CDATA[퍼블리셔]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[06]]></CODE_CD>
+            				<CODE_NM><![CDATA[컨설팅]]></CODE_NM>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode101">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[101]]></GRP_CD>
+            				<CODE_CD><![CDATA[M]]></CODE_CD>
+            				<CODE_NM><![CDATA[남]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[101]]></GRP_CD>
+            				<CODE_CD><![CDATA[F]]></CODE_CD>
+            				<CODE_NM><![CDATA[여]]></CODE_NM>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_execLog" baseNode="list" saveRemovedData="true" repeatNode="map">
+            		<w2:columnInfo>
+            			<w2:column id="desc" name="실행한 API" dataType="text"></w2:column>
+            			<w2:column id="timeTaken" name="소요 시간" dataType="text"></w2:column>
+            			<w2:column id="startTime" name="시작 시각" dataType="text"></w2:column>
+            			<w2:column id="type" name="타입 고유값" dataType="text"></w2:column>
+            			<w2:column id="typeNm" name="타입명" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+            <xf:submission id="getUserData" ref="" target='data:array,{"id":"dlt_member","key":"dlt_Member"}' action="/ws5/sample/compList/data/largeData.json" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="" ev:submitdone="" ev:submit="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+	scwin.onpageload = function() {
+		$p.executeSubmission( "getUserData" )	
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.dlt_member_ondataload = function() {
+		this.sort( "EMP_CD" , 0);
+	};
+	
+	scwin.fn_getLogDataObj = function(e){
+		var arrTmpDate = ($p.getCurrentServerDate( "yyyyMMdd-HHmmss" )).split("-");
+		
+		return {
+			"strCurDate" : arrTmpDate[0], 
+			"strStartTime" : arrTmpDate[1],
+			"startDate" : new Date(),
+			"endDate" : null
+		};
+	};
+	
+	scwin.fn_getTotCount = function(){
+		var totCount = ui_rowCount.getValue();
+		
+		if(!totCount){
+			alert("반복할 행의 수를 입력하세요");
+			ui_rowCount.focus();
+			return 0;
+		}
+		
+		return totCount;
+	};
+	
+	
+	//insertRow 버튼 클릭 시
+	scwin.btn_insertRow_onclick = function(e) {
+		var idx, 
+			logDefData = scwin.fn_getLogDataObj(),
+			totCount = scwin.fn_getTotCount();
+			
+		if(!totCount){ return; }
+		for(var i=1;i<=totCount;i++){
+			idx = dlt_member.insertRow( );
+			dlt_member.setCellData( idx , "EMP_NM" , "inserRow"+i);
+			dlt_member.setCellData( idx , "GENDER_CD" , "M" );
+			dlt_member.setCellData( idx , "ROLE_CD" , "03" );
+			dlt_member.setCellData( idx , "JOIN_DATE" , logDefData.strCurDate );
+		}
+		logDefData.endDate = new Date();
+		scwin.fn_printLog(1, logDefData, totCount);
+	};
+	
+	//insertJSON 버튼 클릭 시
+	scwin.btn_insertJSON_onclick = function(e) {
+		var idx, arrData = [], 
+			logDefData = scwin.fn_getLogDataObj(),
+			totCount = scwin.fn_getTotCount();
+			
+		if(!totCount){ return; }
+			
+		for(var i=1;i<=totCount;i++){
+			arrData.push({"EMP_NM" : "insertJSON"+i, "GENDER_CD" : "F", "ROLE_CD" : "03", "JOIN_DATE" : logDefData.strCurDate});
+		}
+		idx = dlt_member.getRowCount();
+		dlt_member.insertJSON( idx, arrData );
+		ui_grid.setFocusedCell( idx , 0 , false );
+		
+		logDefData.endDate = new Date();
+		scwin.fn_printLog(2, logDefData, totCount);
+	};
+	
+	//insertRow(BroadCast) 버튼 클릭 시
+	scwin.btn_insertRowBroadCast_onclick = function(e) {
+		var idx, 
+			logDefData = scwin.fn_getLogDataObj(),
+			totCount = scwin.fn_getTotCount();
+			
+		if(!totCount){ return; }
+		dlt_member.setBroadcast( false );
+		for(var i=1;i<=totCount;i++){
+			idx = dlt_member.insertRow( );
+			dlt_member.setCellData( idx , "EMP_NM" , "inserRow"+i);
+			dlt_member.setCellData( idx , "GENDER_CD" , "M" );
+			dlt_member.setCellData( idx , "ROLE_CD" , "03" );
+			dlt_member.setCellData( idx , "JOIN_DATE" , logDefData.strCurDate );
+		}
+		dlt_member.setBroadcast(true);  // data적용이 끝난후 화면에 갱신한다.
+		logDefData.endDate = new Date();
+		scwin.fn_printLog(1, logDefData, totCount);
+	};
+	
+	//removeRow 버튼 클릭 시 
+	scwin.btn_removeRow_onclick = function(e) {
+		var i, idxArr = [], idxArrLen,  
+			logDefData = scwin.fn_getLogDataObj(),
+			totCount = scwin.fn_getTotCount();
+		
+		if(!totCount){ return; }
+		
+		//삭제할 index가 담긴 array 생성	
+		for(i=0;i<totCount;i++){
+			idxArr[i] = i;
+		}
+		
+		for(i=totCount;i>=0;i--){
+			dlt_member.removeRow( idxArr[i] );
+		}
+		
+		logDefData.endDate = new Date();
+		scwin.fn_printLog(3, logDefData, totCount);
+	};
+	
+	//removeRows 버튼 클릭 시
+	scwin.btn_removeRows_onclick = function(e) {
+		var i, idxArr = [], 
+			logDefData = scwin.fn_getLogDataObj(),
+			totCount = scwin.fn_getTotCount();
+		
+		if(!totCount){ return; }
+		
+		//삭제할 index가 담긴 array 생성	
+		for(i=0;i<totCount;i++){
+			idxArr[i] = i;
+		}
+		
+		dlt_member.removeRows( idxArr );
+		
+		logDefData.endDate = new Date();
+		scwin.fn_printLog(4, logDefData, totCount);
+	};
+	
+	//setCellData 버튼 클릭 시
+	scwin.btn_setCellData_onclick = function(e) {
+		var i,
+			idx = dlt_member.getRowCount()-1, 
+			logDefData = scwin.fn_getLogDataObj(),
+			totCount = scwin.fn_getTotCount();
+			
+		if(!totCount){ return; }
+			
+		for(i=0;i<totCount;i++){
+			dlt_member.setCellData(i, "EMP_CD",80000000+i+1);
+			dlt_member.setCellData(i, "EMP_NM","setCellData");
+			dlt_member.setCellData(i, "GENDER_CD","M");
+			dlt_member.setCellData(i, "JOIN_DATE", logDefData.strCurDate);
+			dlt_member.setCellData(i, "POSITION_CD","02");
+			dlt_member.setCellData(i, "DUTY_CD","02");
+			dlt_member.setCellData(i, "ROLE_CD","02");
+			dlt_member.setCellData(i, "EMAIL","setCellData@inswave.com");
+			dlt_member.setCellData(i, "ASSIGNED_TASK", "배정 필요");
+			dlt_member.setCellData(i, "CREATED_DATE", logDefData.strCurDate);
+			dlt_member.setCellData(i, "UPDATED_DATE", logDefData.strCurDate);
+		}
+		
+		logDefData.endDate = new Date();
+		scwin.fn_printLog(5, logDefData, totCount);
+	};
+	
+	//setRowJSON 버튼 클릭 시
+	scwin.btn_setRowJSON_onclick = function(e) {
+		var logDefData = scwin.fn_getLogDataObj(),
+			totCount = scwin.fn_getTotCount();
+			
+		if(!totCount){ return; }
+			
+		for(i=0;i<totCount;i++){
+			tmpData = {
+				"EMP_CD":700000000+i+1,
+				"EMP_NM":"setRowJSON",
+				"GENDER_CD":"F",
+				"JOIN_DATE": logDefData.strCurDate,
+				"POSITION_CD":"04",
+				"DUTY_CD":"04",
+				"ROLE_CD":"04",
+				"EMAIL":"setRowJSON@inswave.com",
+				"ASSIGNED_TASK": "배정 필요",
+				"CREATED_DATE": logDefData.strCurDate,
+				"UPDATED_DATE": logDefData.strCurDate
+			};
+			
+			dlt_member.setRowJSON( 0 , tmpData, true);
+		}
+		
+		logDefData.endDate = new Date();
+		scwin.fn_printLog(6, logDefData, totCount);
+		
+	};
+	
+	scwin.btn_getCellData_onclick = function(e) {
+		var logDefData = scwin.fn_getLogDataObj(), 
+			tmpStr="",
+			totCount = scwin.fn_getTotCount();
+			
+		if(!totCount){ return; }
+			
+		for(i=0;i<totCount;i++){
+			tmpStr += dlt_member.getCellData( i , "EMP_NM" );
+			tmpStr += dlt_member.getCellData( i , "EMP_CD" );
+			tmpStr += dlt_member.getCellData( i , "EMAIL" );
+			tmpStr += dlt_member.getCellData( i , "GENDER_CD" );
+			tmpStr += dlt_member.getCellData( i , "JOIN_DATE" );
+			tmpStr += dlt_member.getCellData( i , "UPDATE_DATE" );
+		}
+		//console.log(tmpStr);
+		logDefData.endDate = new Date();
+		scwin.fn_printLog(7, logDefData, totCount);
+	};
+	
+	scwin.btn_getRowJSON_onclick = function(e) {
+		var logDefData = scwin.fn_getLogDataObj(), 
+			tmpData, tmpStr="",
+			totCount = scwin.fn_getTotCount();
+			
+		if(!totCount){ return; }
+			
+		for(i=0;i<totCount;i++){
+			tmpData = dlt_member.getRowJSON( i );
+			
+			tmpStr += tmpData.EMP_NM;
+			tmpStr += tmpData.EMP_CD;
+			tmpStr += tmpData.EMAIL;
+			tmpStr += tmpData.GENDER_CD;
+			tmpStr += tmpData.JOIN_DATE;
+			tmpStr += tmpData.UPDATE_DATE;
+		}
+		//console.log(tmpStr);
+		logDefData.endDate = new Date();
+		scwin.fn_printLog(8, logDefData, totCount);
+	};
+	
+	scwin.fn_printLog = function(execType, defLogObj, rowCount){
+		var rowJSON = {
+				"desc" : "",
+				"timeTaken" : defLogObj.endDate - defLogObj.startDate,
+				"startTime" : defLogObj.strStartTime,
+				"type" : execType
+			},
+			lastIdx = dlt_execLog.getRowCount();
+		
+		
+		switch(execType){
+			case 1 :
+				rowJSON.desc = "insertRow "+rowCount+"행";
+				rowJSON.typeNm = "insertRow";
+			break;
+			case 2 :
+				rowJSON.desc = "insertJSON "+rowCount+"행";
+				rowJSON.typeNm = "insertJSON";
+			break;
+			case 3 :
+				rowJSON.desc = "removeRow "+rowCount+"행";
+				rowJSON.typeNm = "removeRow";
+			break;
+			case 4 :
+				rowJSON.desc = "removeRows "+rowCount+"행";
+				rowJSON.typeNm = "removeRows";
+			break;
+			case 5 :
+				rowJSON.desc = "setCellData "+rowCount+"행";
+				rowJSON.typeNm = "setCellData";
+			break;
+			case 6 :
+				rowJSON.desc = "setRowJSON "+rowCount+"행";
+				rowJSON.typeNm = "setRowJSON";
+			break;
+			case 7 :
+				rowJSON.desc = "getCellData "+rowCount+"행";
+				rowJSON.typeNm = "getCellData";
+			break;
+			case 8 :
+				rowJSON.desc = "getRowJSON "+rowCount+"행";
+				rowJSON.typeNm = "getRowJSON";
+			break;
+			default : return;
+		}
+		
+		dlt_execLog.insertJSON( lastIdx , [rowJSON] );
+		grd_log.setFocusedCell( lastIdx , 0 );
+	};
+	
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group id="" style="" class="wrapper">
+    		<xf:group id="group4" style="padding: 10px;" class="section_desc">
+    			<w2:textbox id="section" style=""
+    				label="DataList에서 제공하는 insert, remove에 관련된 method의 속도를 측정할 수 있다.&lt;br/&gt;각 버튼을 클릭하여 로직이 수행되는 시간을 하단의 그리드뷰에서 확인할 수 있다.&lt;br/&gt;( source : fn_gridView_CUD_API.xml )"
+    				localeRef=''>
+    			</w2:textbox>
+    		</xf:group>
+    		<w2:textbox id="" style="" class="df_tt dmb" label='DataList의 API별 속도 측정 예시' tagname="h2"></w2:textbox>
+    		<xf:group id="" style="" class="defLineHeight dmb">
+    			<w2:span label="반복할 행의 수 :" id="" style="" class="dmr"></w2:span>
+    			<xf:input id="ui_rowCount" style="width: 60px;display: inline;" adjustMaxLength="false" type="number" dataType="number" initValue="100" ev:onviewchange=""></xf:input>
+    		</xf:group>
+    		<xf:group id="" style="" class="dmb defLineHeight">
+    			<xf:trigger type="button" id="btn_insertRow" style="width:130px;" class="dmr btnDef"
+    				ev:onclick="scwin.btn_insertRow_onclick">
+    				<xf:label><![CDATA[insertRow]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="dmr btnDef" ev:onclick="scwin.btn_insertJSON_onclick" id="btn_insertJSON" style="width:130px;"
+    				type="button">
+    				<xf:label><![CDATA[insertJSON]]></xf:label>
+    			</xf:trigger><xf:trigger class="dmr btnDef" ev:onclick="scwin.btn_insertRowBroadCast_onclick" id="btn_insertRowBroadCast" style="width:160px;" type="button">
+    				<xf:label><![CDATA[insertRow(BroadCast)]]></xf:label>
+    			</xf:trigger>
+
+    			<xf:trigger class="dmr btnLightGray" ev:onclick="scwin.btn_removeRow_onclick" id="btn_removeRow" style="width:130px;"
+    				type="button">
+    				<xf:label><![CDATA[removeRow]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="dmr btnLightGray" ev:onclick="scwin.btn_removeRows_onclick" id="btn_removeRows" style="width:130px;"
+    				type="button">
+    				<xf:label><![CDATA[removeRows]]></xf:label>
+    			</xf:trigger>
+
+    			<w2:tag id="" style="" tagname="br"></w2:tag>
+    			<xf:trigger class="dmr btnDef" ev:onclick="scwin.btn_setCellData_onclick" id="btn_setCellData" style="width:130px;"
+    				type="button">
+    				<xf:label><![CDATA[setCellData]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="dmr btnDef" ev:onclick="scwin.btn_setRowJSON_onclick" id="btn_setRowJSON" style="width:130px;"
+    				type="button">
+    				<xf:label><![CDATA[setRowJSON]]></xf:label>
+    			</xf:trigger>
+
+    			<xf:trigger class="dmr btnLightGray" ev:onclick="scwin.btn_getCellData_onclick" id="btn_getCellData" style="width:130px;"
+    				type="button">
+    				<xf:label><![CDATA[getCellData]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="dmr btnLightGray" ev:onclick="scwin.btn_getRowJSON_onclick" id="btn_getRowJSON" style="width:130px;"
+    				type="button">
+    				<xf:label><![CDATA[getRowJSON]]></xf:label>
+    			</xf:trigger>
+    			
+    		</xf:group>
+    		<w2:gridView ignoreCellClick="false" summaryAuto="false" autoFit="allColumn" ignoreToggleOnDisabled="false"
+    			summaryOnlyAuto="false" visibleRowNum="10" class="dmb cm_grid" defaultCellHeight="24" rowNumVisible="true"
+    			scrollByColumnAdaptive="false" dataList="data:dlt_member" id="ui_grid" applyAllColumnStyle="false" readOnly="true"
+    			style="height: 280px;" useShiftKey="true" scrollByColumn="false" senseReader="false" ev:onviewchange="">
+    			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column blockSelect="false" id="column29" style="" inputType="text" width="70" value="사번" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="column27" style="" inputType="text" width="70" value="성명" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="column25" style="" inputType="text" width="105" value="성별" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="column23" style="" inputType="text" width="114" value="입사일"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column21" style="" inputType="text" width="70" value="직위" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="column19" style="" inputType="text" width="70" value="직책" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="column17" style="" inputType="text" width="70" value="역할" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="column13" style="" inputType="text" width="175" value="이메일"
+    						displayMode="label">
+    					</w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column blockSelect="false" id="EMP_CD" style="" inputType="text" width="70" value="" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="EMP_NM" style="" inputType="text" width="70" value="" displayMode="label"></w2:column>
+    					<w2:column blockSelect="false" id="GENDER_CD" style="" inputType="select" width="105" value="" displayMode="label"
+    						allOption="" chooseOption="true" ref="" chooseOptionLabel="미선택">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode101">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" id="JOIN_DATE" style="" inputType="text" width="114" value="" displayMode="label"
+    						dataType="date" displayFormat="yyyy.MM.dd">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="POSITION_CD" style="" inputType="select" width="70" value="" displayMode="label"
+    						allOption="" chooseOption="true" ref="" chooseOptionLabel="미선택">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode02">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" id="DUTY_CD" style="" inputType="select" width="70" value="" displayMode="label"
+    						allOption="" chooseOption="true" ref="" chooseOptionLabel="미선택">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode19">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" id="ROLE_CD" style="" inputType="select" width="70" value="" displayMode="label"
+    						allOption="" chooseOption="true" ref="" chooseOptionLabel="미선택">
+    						<w2:choices>
+    							<w2:itemset nodeset="data:dlt_CmCode01">
+    								<w2:label ref="CODE_NM"></w2:label>
+    								<w2:value ref="CODE_CD"></w2:value>
+    							</w2:itemset>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column blockSelect="false" id="EMAIL" style="" inputType="text" width="175" value="" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<w2:textbox class="df_tt dmb" id="" label='API별 실행 로그' style="" tagname="h2"></w2:textbox>
+    		<w2:gridView autoFit="allColumn" autoFitMinWidth="400" class="cm_grid" dataList="data:dlt_execLog" fixedColumnWithHidden="true"
+    			focusMode="row" id="grd_log" ignoreCellClick="false" ignoreToggleOnDisabled="false" readOnly="true" rowMouseOver="false"
+    			scrollByColumn="false" scrollByColumnAdaptive="false" selectedRowColor="orange" sortable="true" style="height: 150px;"
+    			summaryAuto="false" summaryOnlyAuto="false" useFilterList="false" useShiftKey="true" rowNumVisible="true" visibleRowNum="5">
+    			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column blockSelect="false" id="column13" style="" inputType="text" width="116" value="실행 타입"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" style="" value="호출 API "
+    						width="227">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" style="" value="실행 시각"
+    						width="109">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column3" inputType="text" style="" value="소요 시간(ms)"
+    						width="109">
+    					</w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column blockSelect="false" id="typeNm" style="" inputType="text" width="116" value="" displayMode="label"
+    						textAlign="left">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="desc" inputType="text" style="height:20px" width="227"
+    						textAlign="left">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="startTime" inputType="text" style="height:20px" width="109"
+    						dataType="time" displayFormat="HH:mm:ss">
+    					</w2:column>
+    					<w2:column blockSelect="false" dataType="number" displayFormat="#,##0 ms" displayMode="label" id="timeTaken"
+    						inputType="text" style="height:20px" textAlign="right" width="109">
+    					</w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    			<w2:subTotal id="subTotal1" style="" targetColumnID="typeNm">
+    				<w2:row id="row3" style="">
+    					<w2:column blockSelect="false" id="column18" style="height:29px;" width="452" inputType="expression" value=""
+    						displayMode="label" colSpan="3" rowSpan="" expression="targetColValue() + ' (총 ' +count('row_total') + '건)'" textAlign="right">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column19" style="height:27px" hidden="false" width="109" inputType="expression"
+    						value="" displayMode="label" displayFormat="#,###.#[round] ms" expression="avg('timeTaken')" dataType="number"
+    						textAlign="right">
+    					</w2:column>
+    				</w2:row>
+    			</w2:subTotal>
+    		</w2:gridView>
+    	</xf:group>
+    </body>
+</html>

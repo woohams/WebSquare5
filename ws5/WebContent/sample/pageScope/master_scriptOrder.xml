@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="pageScope_scriptLoadOrder_main">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+        
+			scwin.onpageload = function() {
+				ipt1.setValue( "Main" );
+				textarea1.setValue( textarea1.getValue() + ipt1.getValue() + "\n" );
+			};
+			
+			scwin.onpageunload = function() {
+				
+			};
+	
+		]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="" id="" class="wrapper">
+    		<xf:group class="section_desc dmb" id="" style="">
+    			<w2:textbox id=""
+    				label="page coding 사용 가이드 - script loading 순서&lt;br/&gt;(config_scriptOrer.xml 파일을 config.xml파일로 변경하여 사용한다. 기존파일은 backup)" style=""
+    				tagname="">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="searchbox dmb" id="" style="">
+    			<xf:group class="w2tb" id="" style="" tagname="table">
+    				<w2:attributes>
+    					<w2:summary></w2:summary>
+    				</w2:attributes>
+    				<xf:group tagname="colgroup">
+    					<xf:group style="width:120.00px;" tagname="col"></xf:group>
+    					<xf:group style="" tagname="col"></xf:group>
+    				</xf:group>
+    				<xf:group style="" tagname="tr">
+    					<xf:group class="w2tb_th" style="" tagname="th">Main&amp;nbsp;Page입력값</xf:group>
+    					<xf:group class="w2tb_td" style="" tagname="td">
+    						<xf:group class="ofh fl" id="" style=""></xf:group>
+    						<xf:input id="ipt1" style="width:150px;"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group style="overflow: hidden;padding: 5px" id="" class="defaultbox">
+    			<w2:wframe style="width: 35%;height: 380px;float: left;margin-right: 20px;border: 1px solid green" id="wframe1"
+    				src="/ws5/sample/pageScope/detail_scriptOrder1.xml" scope="true">
+    			</w2:wframe>
+    			<w2:wframe style="width: 35%;height: 380px;float: left;margin-right: 20px;border: 1px solid green" id="wframe2" scope="true" src="/ws5/sample/pageScope/detail_scriptOrder2.xml"></w2:wframe>
+    			<xf:group style="width: 25%;height: 380px;float: right;" id="">
+    				<w2:textbox label="Script loading 순서" style="margin-bottom: 10px;" id="" tagname="h2"></w2:textbox>
+    				<xf:textarea style="width: 100%;height: 90%" id="textarea1"></xf:textarea>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

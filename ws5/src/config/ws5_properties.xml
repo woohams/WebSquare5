@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>properties for a WebSquare project for education.</comment>
+	  <!--
+        1) java에서 사용하는 법
+            @Value("#{code['code.response.error']}")
+            private String CODE_RESPONSE_ERROR;
+             
+        2) .xml 에서 사용하는 법
+            <property name="driverClassName" value="#{config['key']}">
+         
+        3) jsp에서 사용하는 법
+            <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+            <spring:eval expression="@config['key']">
+            </spring:eval>
+     -->
+    <entry key="edu.file.rootPath">C:\WS5\eduWorkspace\ws5\src\main\webapp\upload\</entry>
+    <entry key="edu.file.downPath">C:\WS5\docs</entry>
+    <entry key="edu.file.folder01" >\f01\</entry>
+</properties>

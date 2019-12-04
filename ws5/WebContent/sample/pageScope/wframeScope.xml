@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="page scope 심화">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataMap baseNode="map" id="mainDataMap">
+            		<w2:keyInfo>
+            			<w2:key id="key1" name="name1" dataType="text"></w2:key>
+            		</w2:keyInfo>
+            		<w2:data use="true">
+            			<key1><![CDATA[mainDataMap]]></key1>
+            		</w2:data></w2:dataMap>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+        
+			scwin.onpageload = function() {
+				
+			};
+			
+			scwin.onpageunload = function() {
+				
+			};
+			
+			
+			scwin.trigger1_onclick = function(e) {
+				alert(ipt1.getValue());
+			};
+			
+			scwin.trigger2_onclick = function(e) {
+				alert(ipt2.getValue());
+			};
+			
+			scwin.main_trigger1_onclick = function(e) {
+				alert(wMain.getWindow(0).ipt1.getValue());
+			};
+			
+			scwin.main_trigger2_onclick = function(e) {
+				alert(wMain.getWindow(0).ipt2.getValue());
+			};
+			
+			scwin.wframe1_trigger1_onclick = function(e) {
+				alert(wMain.getWindow(0).wframe1.getWindow(0).ipt1.getValue());
+			};
+			
+			scwin.wframe1_trigger2_onclick = function(e) {
+				alert(wMain.getWindow(0).wframe1.getWindow(0).ipt2.getValue());
+			};
+			
+			scwin.wframe2_trigger1_onclick = function(e) {
+				alert(wMain.getWindow(0).wframe2.getWindow(0).ipt1.getValue());
+			};
+			
+			scwin.wframe2_trigger2_onclick = function(e) {
+				alert(wMain.getWindow(0).wframe2.getWindow(0).ipt2.getValue());
+			};
+			
+			scwin.wframe11_trigger1_onclick = function(e) {
+				alert(wMain.getWindow(0).wframe1.getWindow(0).wframe11.getWindow(0).ipt1.getValue());
+			};
+			
+			scwin.wframe11_trigger2_onclick = function(e) {
+				alert(wMain.getWindow(0).wframe1.getWindow(0).wframe11.getWindow(0).ipt2.getValue());
+			};
+			
+			scwin.wframe22_trigger1_onclick = function(e) {
+				alert(wMain.getWindow(0).wframe2.getWindow(0).wframe22.getWindow(0).ipt1.getValue());
+			};
+			
+			scwin.wframe22_trigger2_onclick = function(e) {
+				alert(wMain.getWindow(0).wframe2.getWindow(0).wframe22.getWindow(0).ipt2.getValue());
+			};
+		]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="" id="" class="wrapper">
+    		<xf:group class="section_desc dmb" id="" style="">
+    			<w2:textbox id="" label="다층 구조의 page coding Sample Page" style="" tagname="">
+    			</w2:textbox>
+    		</xf:group><xf:group style="margin-bottom: 10px;border: 1px solid olive;padding: 10px;" id="" class="">
+    			<xf:group tagname="table" style="width:100%;" id="" class="w2tb">
+    				<w2:attributes>
+    					<w2:summary></w2:summary>
+    				</w2:attributes>
+    				<xf:group tagname="caption"></xf:group>
+    				<xf:group tagname="colgroup">
+    					<xf:group tagname="col" style="width:100.00%"></xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr">
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:trigger type="button" style="width: 80px;height: 23px;margin-right: 10px;" id="trigger1"
+    							ev:onclick="scwin.trigger1_onclick">
+    							<xf:label><![CDATA[input1 value]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger id="trigger2" style="width: 80px;height: 23px;margin-right: 10px;" type="button"
+    							ev:onclick="scwin.trigger2_onclick">
+    							<xf:label><![CDATA[input2 value]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger id="main_trigger1" style="width:110px;height:23px;margin-right:10px;" type="button"
+    							ev:onclick="scwin.main_trigger1_onclick">
+    							<xf:label><![CDATA[main input1 value]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger id="main_trigger2" style="width:110px;height:23px;margin-right:10px;" type="button"
+    							ev:onclick="scwin.main_trigger2_onclick">
+    							<xf:label><![CDATA[main input2 value]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr">
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:trigger id="wframe1_trigger1" style="width:125px;height:23px;margin-right:10px;" type="button"
+    							ev:onclick="scwin.wframe1_trigger1_onclick">
+    							<xf:label><![CDATA[wframe1 input1 value]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger id="wframe1_trigger2" style="width:125px;height:23px;margin-right:10px;" type="button"
+    							ev:onclick="scwin.wframe1_trigger2_onclick">
+    							<xf:label><![CDATA[wframe1 input2 value]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger id="wframe2_trigger1" style="width:125px;height:23px;margin-right:10px;" type="button"
+    							ev:onclick="scwin.wframe2_trigger1_onclick">
+    							<xf:label><![CDATA[wframe2 input1 value]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger id="wframe2_trigger2" style="width:125px;height:23px;margin-right:10px;" type="button"
+    							ev:onclick="scwin.wframe2_trigger2_onclick">
+    							<xf:label><![CDATA[wframe2 input2 value]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr">
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:trigger id="wframe11_trigger1" style="width:135px;height:23px;margin-right:10px;" type="button"
+    							ev:onclick="scwin.wframe11_trigger1_onclick">
+    							<xf:label><![CDATA[wframe11 input1 value]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger id="wframe11_trigger2" style="width:135px;height:23px;margin-right:10px;" type="button"
+    							ev:onclick="scwin.wframe11_trigger2_onclick">
+    							<xf:label><![CDATA[wframe11 input2 value]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger id="wframe22_trigger1" style="width:135px;height:23px;margin-right:10px;" type="button"
+    							ev:onclick="scwin.wframe22_trigger1_onclick">
+    							<xf:label><![CDATA[wframe22 input1 value]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger id="wframe22_trigger2" style="width:135px;height:23px;margin-right:10px;" type="button"
+    							ev:onclick="scwin.wframe22_trigger2_onclick">
+    							<xf:label><![CDATA[wframe22 input2 value]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group style="padding: 10px;border: 1px solid olive;margin-bottom: 10px;" id="" class="">
+    			<xf:input adjustMaxLength="false" style="width: 144px;height: 21px;margin-right: 10px;" id="ipt1"></xf:input>
+    			<xf:input adjustMaxLength="false" style="width: 144px;height: 21px;" id="ipt2"></xf:input>
+    		</xf:group>
+    		<w2:tabControl confirmTrueAction="exist" useTabKeyOnly="true" confirmFalseAction="new" useMoveNextTabFocus="false"
+    			useConfirmMessage="false" alwaysDraw="false" style="height: 480px;" id="wMain">
+    			<w2:content src="/ws5/sample/pageScope/sub1.xml" scope="true" alwaysDraw="false" style="height:450px;padding: 10px;"
+    				frameMode="wframePreload" id="content1">
+    			</w2:content>
+    			<w2:tabs disabled="false" style="width:70px;height:30px;" label="main" id="tabs1"></w2:tabs>
+    		</w2:tabControl>
+    	</xf:group>
+    </body>
+</html>

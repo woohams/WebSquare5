@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="Tab_content01">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	scwin.ui_btn_onclick = function(e) {
+		alert("in tab01");
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group class="" id="" style="padding: 10px;">
+    		<w2:textbox id="" label="컴포넌트 데이터 셋팅하기 - Tab01" style="margin-bottom: 10px;" tagname="h2"></w2:textbox>
+    		<xf:group class="" id="" style="border: 1px solid gray;padding: 10px;overflow: hidden;margin-bottom: 10px;">
+    			<xf:trigger ev:onclick="scwin.ui_btn_onclick" id="ui_btn" style="width: 80px;height: 23px;float: right;" type="button">
+    				<xf:label><![CDATA[조회]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    		<xf:group adaptive="layout" adaptiveThreshold="700" class="w2tb" id="" style="width:100%;" tagname="table">
+    			<w2:attributes>
+    				<w2:summary></w2:summary>
+    			</w2:attributes>
+    			<xf:group tagname="caption"></xf:group>
+    			<xf:group tagname="colgroup">
+    				<xf:group style="width:100.00px;" tagname="col"></xf:group>
+    				<xf:group style="" tagname="col"></xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group class="w2tb_th" style="" tagname="th">
+    					이름
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<xf:input id="" initValue="" ref="" style="width: 144px;"></xf:input>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group class="w2tb_th" style="" tagname="th">
+    					가입일
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<w2:inputCalendar calendarValueType="yearMonthDate" focusOnDateSelect="false" footerDiv="false" id="" ref=""
+    						renderDiv="true" renderType="component" rightAlign="false" style="width: 150px;height: 24px;" weekStartsOn="0">
+    					</w2:inputCalendar>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group class="w2tb_th" style="" tagname="th">성별<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes></xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<xf:select1 appearance="full" id="" style="min-width: 150px;min-height: 12px;" selectedIndex="-1" cols="2" rows=""
+    						ref="">
+    						<xf:choices>
+    							<xf:itemset nodeset="data:dc_code01">
+    								<xf:label ref="disp"></xf:label>
+    								<xf:value ref="code"></xf:value>
+    							</xf:itemset>
+    						</xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

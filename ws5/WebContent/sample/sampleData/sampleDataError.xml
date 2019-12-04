@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<vector>
+		<map>
+			<msg>검색 된 데이터가 없습니다.</msg>
+			<msgCode>01</msgCode>
+			<name></name>
+			<birthday></birthday>
+			<height></height>
+			<weight></weight>
+			<gender></gender>
+		</map>
+	</vector>
+</map>

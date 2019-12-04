@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<map id="dc_resMessage">
+		<code>001</code>
+		<msg>정상처리되었습니다.</msg>
+		<rsCount>1</rsCount>
+	</map>
+	<list id="dc_resUserListData">
+		<map>
+			<name>김광석</name>
+			<birthday>19640122</birthday>
+			<height>164</height>
+			<weight>58</weight>
+			<gender>M</gender>
+		</map>
+	</list>
+</map>
