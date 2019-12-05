@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload" style="left: 0px;top: 0px;padding: 30px;">
+    	<table summary="" style="position:static; top:123px; left:515px; width:30; height:30; " id=""></table>
+    	<xf:group style="position: relative;width: 100%;height: 100%;border: solid 1px black;" id="">
+    		<xf:group style="position: absolute;left: 0px;width: 265px;top: 0px;" id="">
+    			<xf:group tagname="table" style="width:100%;" id="" class="w2tb">
+    				<w2:attributes>
+    					<w2:summary></w2:summary>
+    				</w2:attributes>
+    				<xf:group tagname="caption"></xf:group>
+    				<xf:group tagname="colgroup">
+    					<xf:group tagname="col" style="width:100.00%"></xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="">
+    					<xf:group tagname="th" style="position: absolute;left: 0px;width: 265px;top: 0px;" class="w2tb_th">
+    						<xf:output label="" style="position: relative;" id="">
+    							<xf:label><![CDATA[인사정보 리스트]]></xf:label>
+    						</xf:output>
+    						<w2:attributes>
+    							<w2:scope>col</w2:scope>
+    						</w2:attributes>
+    						<xf:output label="" style="width: 150px;height: 23px;" id="">
+    							<xf:label><![CDATA[[ 0건 ]]]></xf:label>
+    						</xf:output>
+    						<xf:group style="" id=""></xf:group>
+    							<w2:UDC_gridTool class="" disabled="" id="btnHR_MASTXM"
+										style="position:relative;float:left;width: 24px;height: 23px;margin-left:4px;" >
+								</w2:UDC_gridTool>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group style="position: absolute;top: 28px;left: 0px;width: 265px;bottom: 0px;border: solid 1px black;" id="">
+    			<w2:gridView id="" style="position: absolute;top: 0px;left: 0px;right: 0px;bottom: 0px;" scrollByColumn="false"
+    				defaultCellHeight="20" scrollByColumnAdaptive="false" dataList="">
+    				<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    				<w2:header style="" id="header1">
+    					<w2:row style="" id="row1">
+    						<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px;" id="column7" value=""
+    							blockSelect="false" displayMode="label">
+    						</w2:column>
+    						<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px;" id="column5" value="사원번호"
+    							blockSelect="false" displayMode="label">
+    						</w2:column>
+    						<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px;" id="column3" value="성명"
+    							blockSelect="false" displayMode="label">
+    						</w2:column>
+    						<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px;" id="column1" value="부서"
+    							blockSelect="false" displayMode="label">
+    						</w2:column>
+    					</w2:row>
+    				</w2:header>
+    				<w2:gBody style="" id="gBody1">
+    					<w2:row style="" id="row2">
+    						<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column8" value=""
+    							blockSelect="false" displayMode="label">
+    						</w2:column>
+    						<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column6" value=""
+    							blockSelect="false" displayMode="label">
+    						</w2:column>
+    						<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column4" value=""
+    							blockSelect="false" displayMode="label">
+    						</w2:column>
+    						<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column2" value=""
+    							blockSelect="false" displayMode="label">
+    						</w2:column>
+    					</w2:row>
+    				</w2:gBody>
+    			</w2:gridView>
+    		</xf:group>
+    		<xf:group id="" style="position: absolute;height: 218px;left: 295px;right: 0px;top: 28px;">
+    			<xf:group tagname="table" style="width: 100%;" id="" class="w2tb">
+    				<w2:attributes>
+    					<w2:summary></w2:summary>
+    				</w2:attributes>
+    				<xf:group tagname="caption"></xf:group>
+    				<xf:group tagname="colgroup">
+    					<xf:group tagname="col" style="width:11.11%"></xf:group>
+    					<xf:group tagname="col" style="width:11.11%;"></xf:group>
+    					<xf:group tagname="col" style="width:11.11%"></xf:group>
+    					<xf:group tagname="col" style="width:11.11%"></xf:group>
+    					<xf:group tagname="col" style="width:11.11%"></xf:group>
+    					<xf:group tagname="col" style="width:11.11%"></xf:group>
+    					<xf:group tagname="col" style="width:11.11%;"></xf:group>
+    					<xf:group tagname="col" style="width:11.11%;"></xf:group>
+    					<xf:group tagname="col" style="width:11.11%"></xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="height:36px;">
+    					<xf:group tagname="th" style="padding: 6px;" class="w2tb_td">
+    						<w2:attributes>
+    							<w2:colspan>1</w2:colspan>
+    							<w2:rowspan>4</w2:rowspan>
+    						</w2:attributes>
+    						<xf:group style="position:relative;height:100%;width:100%;" id="">
+    							<xf:image src="" style="width: 100%;height: 100%;" id=""></xf:image>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox label="사원번호" style="width:91px;height:23px;text-align:left;font-weight : bold;" id=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="vertical-align:middle;width:100%;height:23px;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="성명" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="text-align:center;width:100%;height:23px;" class="req"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="주민번호" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="text-align:center;width:100%;height:23px;" class="req"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>col</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="직원구분" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<xf:select1 id="" chooseOption="false" style="vertical-align:middle;height:23px;text-align:center;width:100%;word-wrap:break-word;" submenuSize="auto" allOption="false"
+    							disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled">
+    						</xf:select1>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="height:36px;">
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="성명(한자)" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="text-align:center;width:100%;height:23px;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="성명(영문)" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="text-align:center;width:100%;height:23px;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="연령" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="text-align:center;width:100%;height:23px;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>col</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="입사구분/기수" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						
+    						<xf:group style="width: 100%;" id="">
+    							
+    							<xf:group style="" id=""><xf:select1 id="" chooseOption="false" style="vertical-align:middle;height:23px;text-align:center;width:100%;word-wrap:break-word;" submenuSize="auto" allOption="false" disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled">
+    							</xf:select1></xf:group>
+    							<xf:group style="" id="">
+    								<xf:input adjustMaxLength="false" id="" style="height:23px;text-align:center;width:100%;"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="height:36px;
+">
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="성별" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="text-align:center;width:100%;height:23px;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="소속" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="text-align:center;width:100%;height:23px;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="재직부서" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="vertical-align:middle;width:100%;height:23px;text-align:left;word-wrap:break-word;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>col</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="근무부서" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="">
+    						<xf:group style="" id="" class="grp_WF_cp">
+    							<xf:group style="width: 100%;" id="">
+    								<xf:input adjustMaxLength="false" id="" style="width:100%;height:23px;text-align: center;"></xf:input>
+    							</xf:group>
+    							<xf:group style="" id="">
+    								<xf:trigger type="button" style="position:relative;" id="">
+    									<xf:label><![CDATA[]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    							<xf:group style="" id="">
+    								<xf:input adjustMaxLength="false" id="" style="width:100%;height:23px;display: none;"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    						<w2:attributes>
+    							<w2:colspan>1</w2:colspan>
+    							<w2:colsrow>1</w2:colsrow>
+    						</w2:attributes>
+
+
+
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="height:36px;">
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="재직상태" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="text-align:center;width:100%;height:23px;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="근무상태" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="text-align:center;width:100%;height:23px;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="직급" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="vertical-align:middle;width:100%;height:23px;text-align:center;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>col</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="호봉" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input adjustMaxLength="false" id="" style="vertical-align:middle;height:23px;text-align:center;width:100%;word-wrap:break-word;"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="height:36px;">
+    					<xf:group tagname="td" style="" class="" toolTip="" id="">
+    						<w2:attributes>
+    							<w2:colspan>1</w2:colspan>
+    							<w2:colsrow>1</w2:colsrow>
+    						</w2:attributes>
+    						
+    						<xf:group id="" style="position:relative;height:100%;width:100%;">
+    							<xf:group style="" id="">
+    								<xf:trigger style="height:23px;margin-right: 4px;" id="" type="button">
+    									<xf:label><![CDATA[등록]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    							<xf:group style="" id="">
+    								<xf:trigger style="height:23px;" id="" type="button">
+    									<xf:label><![CDATA[삭제]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="직위" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="text-align:center;width:100%;height:23px;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="직책" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="text-align:center;width:100%;height:23px;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="직종" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input adjustMaxLength="false" id="" style="width:100%;height:23px;text-align:center;"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>col</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="직무" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input adjustMaxLength="false" id="" style="vertical-align:middle;height:23px;text-align:center;width:100%;word-wrap:break-word;"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="height:36px;">
+    					<xf:group tagname="th" style="" class="w2tb_td"></xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="회사구분" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:select1 id="" chooseOption="false" style="vertical-align:middle;height:23px;text-align:center;width:100%;word-wrap:break-word;" submenuSize="auto" allOption="false"
+    							disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled">
+    						</xf:select1>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="내/외국인" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:select1 id="" chooseOption="false" style="vertical-align:middle;height:23px;text-align:center;width:100%;word-wrap:break-word;" submenuSize="auto" allOption="false"
+    							disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled">
+    						</xf:select1>
+    					</xf:group>
+    					<xf:group tagname="th" style="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox id="" label="세부직무" style="width:91px;height:23px;text-align:left;font-weight : bold;"></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<w2:attributes>
+    							<w2:colspan>3</w2:colspan>
+    							<w2:rowspan>1</w2:rowspan>
+    						</w2:attributes>
+    						<xf:input adjustMaxLength="false" id="" style="height: 23px;width: 100%;text-align:left;"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

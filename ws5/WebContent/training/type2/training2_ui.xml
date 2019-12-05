@@ -246,7 +246,7 @@
     				<xf:select1 allOption="true" appearance="minimal" chooseOption="" direction="auto" disabled="false"
     					disabledClass="w2selectbox_disabled" displayMode="label" id="sch_position" optionOrder="false"
     					ref="data:dc_searchParam.POSITION_CD" selectedData="true" style="width: 148px;height: 23px;" submenuSize="auto"
-    					chooseOptionLabel="골라골라">
+    					chooseOptionLabel="골라골라" class="">
     					<xf:choices>
     						<xf:itemset nodeset="data:dc_code02">
     							<xf:label ref="CODE_NM"></xf:label>
