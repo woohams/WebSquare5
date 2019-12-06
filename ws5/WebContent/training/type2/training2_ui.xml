@@ -35,9 +35,8 @@
     					<w2:key id="POSITION_CD" name="직위 코드" dataType="text"></w2:key>
     				</w2:keyInfo>
     			</w2:dataMap>
-    			<w2:dataList baseNode="list" repeatNode="map" id="dc_userInfoList" saveRemovedData="true"
-    				ev:onbeforerowpositionchange="" ev:oninsertrow="scwin.dc_userInfoList_oninsertrow"
-    				ev:onremoverow="scwin.dc_userInfoList_onremoverow" ev:onrowpositionchange=""
+    			<w2:dataList baseNode="list" repeatNode="map" id="dc_userInfoList" saveRemovedData="true" ev:onbeforerowpositionchange=""
+    				ev:oninsertrow="scwin.dc_userInfoList_oninsertrow" ev:onremoverow="scwin.dc_userInfoList_onremoverow" ev:onrowpositionchange=""
     				ev:ondataload="scwin.dc_userInfoList_ondataload" ev:onbeforecelldatachange="scwin.dc_userInfoList_onbeforecelldatachange">
     				<w2:columnInfo>
     					<w2:column id="EMP_CD" name="사번" dataType="text"></w2:column>
