@@ -13,7 +13,7 @@
 	</organization>
 	<properties>
 		<websquare.version>5.0_2.2964B.20180202.163500_1.5</websquare.version>
-		<spring.artifact.version>4.1.2.RELEASE</spring.artifact.version>
+		<spring.artifact.version>5.3.18</spring.artifact.version>
 		<org.aspectj.version>1.8.3</org.aspectj.version>
 	</properties>
 	<dependencies>
